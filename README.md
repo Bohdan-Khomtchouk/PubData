@@ -1,4 +1,7 @@
 # BioNetHub
+
+## About
+
 BioNetHub is a software program written in the Python programming language that can remotely access and navigate through the directory tree of any major bioinformatics database via a local computer network.
 
 BioNetHub is a software program written in the Python programming language that can remotely access and navigate through the directory tree of any major bioinformatics database via a local computer network. By assembling all major bioinformatics databases under the roof of one software program, BioNetHub allows the user to avoidthe unnecessary hassle and non-standardized complexities inherent to accessing databases one-by-one using an Internet browser. As such, BioNetHub allows researchers to access, view, and download files from the FTP servers of any major bioinformatics database directly from one centralized location. By using only a command-line environment (e.g., Terminal), BioNetHub allows the user to simultaneously surf multiple bioinformatics FTP servers directly from the comfort of their local computer. BioNetHub is designed with network programming algorithms that can patch into any user-specified bioinformatics online database to be able to navigate, view, and download files directly from the command-line from one centralized location on a local computer network.
@@ -12,3 +15,14 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+## Installation
+
+### Requirements
+
+* Python >= 2.7
+
+## How to run
+
+##### Open a Terminal window, navigate to the BioNetHub directory and type:
+* `python BioNetHub.py`
