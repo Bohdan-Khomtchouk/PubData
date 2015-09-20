@@ -43,9 +43,3 @@ def remove_path(path,file_name=''):
 
 
 	shutil.move(tempfile.name, file_name)
-
-
-
-
-
-#		(next(fname for fname in value if ) for key,value in dic_structure.iteritems()) #in python 3 ic_structure.views()
