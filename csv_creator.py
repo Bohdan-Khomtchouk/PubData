@@ -24,7 +24,7 @@ def change_path(file_name,source,destination,tempfile = NamedTemporaryFile(delet
     		else:
     			spamwriter.writerow(row)
 
-    shutil.move(tempfile.name, file_name)
+        shutil.move(tempfile.name, file_name)
 
 def remove_path(path,file_name=''):
 
