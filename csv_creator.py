@@ -15,16 +15,16 @@ def create_directory_structure(rootdir,d={}):
 def change_path(file_name,source,destination,tempfile = NamedTemporaryFile(delete=False)):
 
 	with open('newcsv.csv', newline='') as infile,tempfile:
-    	spamreader = csv.reader(csvfile, delimiter=',')
-    	spamwriter = csv.writer(tempfile, delimiter=',')
-    	for row in spamreader:
-    		if row[0]==source and file_name in row:
-    			row.remove(file_name)
-    			spamwriter.writerow(row)
-    		else:
-    			spamwriter.writerow(row)
+    		spamreader = csv.reader(csvfile, delimiter=',')
+    		spamwriter = csv.writer(tempfile, delimiter=',')
+    		for row in spamreader:
+    			if row[0]==source and file_name in row:
+    				row.remove(file_name)
+    				spamwriter.writerow(row)
+    			else:
+    				spamwriter.writerow(row)
 
-        shutil.move(tempfile.name, file_name)
+        	shutil.move(tempfile.name, file_name)
 
 def remove_path(path,file_name=''):
 
