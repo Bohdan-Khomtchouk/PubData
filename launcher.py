@@ -38,66 +38,12 @@
 
 # -------------------------------------------------------------------------------------------
 
-import csv
-import ftplib
+import BioNetHub
 
+if __name__ == '__main__':
 
-class Search(object):
+	file_name=raw_input('Enter the file name')
 
-    def __init__(self,file_name):
-    	self.name=file_name
-
-	def search(self):
-		with open('newcsv.csv', 'wb') as csvfile:
-		    spamreader = csv.writer(csvfile, delimiter=',')
-		    for row in spamreader:
-		    	if self.name in row:
-		        	return row[0]
-	
-	def download(self):
-		
-		try:
-			print ('Connecting...')
-			connection= ftplib.FTP('ftp.uniprot.org')
-			connection.login()
-			path=search()
-			connection.cwd(path)
-			print ("""Connection successfull...
-				\n-----------------------\n""")
-			
-			print ('Downloading...')
-
-			file_path=raw_input("""Enter the path and name of file for saving :
-				( for example : /home/username/Desktop/bio.xml )""")
-
-			with open('bio', 'wb') as f:
-				connection.retrbinary('RETR '+self.name, f.write)
-			print ('Downloading compelet')
-		except:
-			print ("Connection unsuccessfull...")
-
-	def server_selecter(self):
-
-		server_names={'1':'ftp.ensembl.org/',
-		 '2':'hgdownload.cse.ucsc.edu/',
-		 '3':'ftp.uniprot.org/',
-		 '4':'ftp.flybase.net/',
-		 '5':'ftp.xenbase.org/',
-		 '6':'ftp.arabidopsis.org/home/',
-		 '7':'rgd.mcw.edu/',
-		 '8':'ftp.ncbi.nlm.nih.gov/'}
-
-		for i,s_name in server_names.iteritems():
-		 	print "{}.{}".format(i,s_name)
-
-		website = ('Please enter the corresponding number for the database you\'d like to access. \n')
-
-		while True:
-			database = raw_input(website)
-			try:
-				sitename=server_names[database]
-				break
-			except:
-				print 'That\'s not a correct input.'
-				
-		return sitename
+	BNH=BioNetHub.search(file_name)
+	BNH.server_selecter()
+	BNH.download()
