@@ -62,7 +62,7 @@ class Search(object):
 			connection.login()
 			path=search()
 			connection.cwd(path)
-			print ("""Connection successfull...
+			print ("""Connection successful...
 				\n-----------------------\n""")
 			
 			print ('Downloading...')
@@ -72,9 +72,9 @@ class Search(object):
 
 			with open('bio', 'wb') as f:
 				connection.retrbinary('RETR '+self.name, f.write)
-			print ('Downloading compelet')
+			print ('Downloading complete')
 		except:
-			print ("Connection unsuccessfull...")
+			print ("Connection unsuccessful...")
 
 	def server_selecter(self):
 
