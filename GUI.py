@@ -57,76 +57,6 @@ server_names={'1':'ftp.ensembl.org',
          '7':'rgd.mcw.edu',
          '8':'ftp.ncbi.nlm.nih.gov'}
 
-class TabDialog(QtGui.QDialog):
-    def __init__(self, fileName, parent=None):
-        super(TabDialog, self).__init__(parent)
-
-        fileInfo = QtCore.QFileInfo(fileName)
-
-        tabWidget = QtGui.QTabWidget()
-        tabWidget.addTab(FileInfo(fileInfo), "FileInfo")
-        tabWidget.addTab(ServersTab(fileInfo), "Servers")
-
-        mainLayout = QtGui.QVBoxLayout()
-        mainLayout.addWidget(tabWidget)
-        self.setLayout(mainLayout)
-        self.searchButton = QtGui.QPushButton("Smart Search")
-        self.setWindowTitle("Tab Dialog")
-        buttonBox = QtGui.QDialogButtonBox()
-        buttonBox.addButton(self.searchButton, QtGui.QDialogButtonBox.ActionRole)
-        self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
-        QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
-        border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
-        QLineEdit{background-color:white; color:black}QTextEdit{background-color:#ffffff; color:#000000}""")
-
-class ServersDialog(QtGui.QDialog):
-    def __init__(self, fileName, parent=None):
-        super(ServersDialog, self).__init__(parent)
-
-        topLabel = QtGui.QLabel("Open with:")
-
-        self.applicationsListBox = QtGui.QListWidget()
-        self.applications = []
-
-        for i,j in server_names.items():
-            self.applications.append("{}.{}".format(i,j))
-
-        self.applicationsListBox.insertItems(0, self.applications)
-
-        layout = QtGui.QVBoxLayout()
-        layout.addWidget(topLabel)
-        layout.addWidget(self.applicationsListBox)
-        self.selectButton = QtGui.QPushButton('select')
-        self.editButton = QtGui.QPushButton('edit')
-        buttonBox = QtGui.QDialogButtonBox()
-        buttonBox.addButton(self.selectButton, QtGui.QDialogButtonBox.ActionRole)
-        buttonBox.addButton(self.editButton,QtGui.QDialogButtonBox.ActionRole)
-
-        self.selectButton.clicked.connect(self.select)
-        self.editButton.clicked.connect(self.edit)
-
-
-        layout.addWidget(buttonBox)
-        self.setLayout(layout)
-
-        self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
-        QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
-        border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
-        QLineEdit{background-color:white; color:black}QTextEdit{background-color:#ffffff; color:#000000}""")
-
-    def select(self):   
-        items = ("Spring", "Summer", "Fall", "Winter")
-
-        item, ok = QtGui.QInputDialog.getItem(self, "QInputDialog.getItem()",
-                "Season:", items, 0, False)
-        if ok and item:
-            self.itemLabel.setText(item)
-
-    def edit(self):
-        print self.applicationsListBox.takeItem(2).text()
-        pass
-
-
 class FileInfo(QtGui.QWidget):
     def __init__(self, fileInfo, parent=None):
         super(FileInfo, self).__init__(parent)
@@ -176,7 +106,7 @@ class FtpWindow(QtGui.QDialog):
         self.cdToParentButton.setIcon(QtGui.QIcon(':/images/cdtoparent.png'))
         self.cdToParentButton.setEnabled(False)
         
-        self.serverButton = QtGui.QPushButton('Server List')
+        self.serverButton = QtGui.QPushButton('server list')
         
         self.downloadButton = QtGui.QPushButton("Download")
         self.downloadButton.setEnabled(False)
@@ -189,11 +119,13 @@ class FtpWindow(QtGui.QDialog):
         self.searchButton = QtGui.QPushButton("Smart Search")
         self.dialogbox=QtGui.QInputDialog()
         
+        self.EditserverButton = QtGui.QPushButton("Editservers")
         
         buttonBox = QtGui.QDialogButtonBox()
         buttonBox.addButton(self.downloadButton,
                 QtGui.QDialogButtonBox.ActionRole)
         buttonBox.addButton(self.quitButton, QtGui.QDialogButtonBox.RejectRole)
+        buttonBox.addButton(self.EditserverButton, QtGui.QDialogButtonBox.ActionRole)
         buttonBox.addButton(self.searchButton, QtGui.QDialogButtonBox.ActionRole)
         buttonBox.addButton(self.downloadButton,QtGui.QDialogButtonBox.ActionRole)
         buttonBox.addButton(self.quitButton, QtGui.QDialogButtonBox.RejectRole)
@@ -249,10 +181,6 @@ class FtpWindow(QtGui.QDialog):
     def sizeHint(self):
         return QtCore.QSize(800, 400)
 
-    def showservers(self):
-        self.se = ServersDialog('server_list')
-        self.se.setGeometry(100, 200, 600, 400)
-        self.se.show()
 
     def connectOrDisconnect(self):
         if  self.ftp:
@@ -448,7 +376,7 @@ class FtpWindow(QtGui.QDialog):
                             self.ftp.cd(path)
                             self.ftp.list()
             except IOError:
-                MESSAGE="Unfortunately this server doesn't provide a CSV file for quick search"
+                MESSAGE="Unfortunately this server doesn't provide a CSV file fro quick search"
                 reply = QtGui.QMessageBox.information(self,
                 "QMessageBox.information()", MESSAGE)
 
@@ -462,4 +390,6 @@ if __name__ == '__main__':
     ftpWin = FtpWindow()
     ftpWin.show()
     sys.exit(ftpWin.exec_())
+
+
 
