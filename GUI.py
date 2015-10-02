@@ -4,7 +4,6 @@
 # Thi is a GUI version for BioNetHub command line interface, written with PySide.
 # For implementing this GUI in serveral parts we used PySide Examples (https://github.com/PySide/Examples)
 
-
 from PySide import QtCore, QtGui, QtNetwork
 import csv
 import ftp_rc
@@ -286,6 +285,7 @@ class FtpWindow(QtGui.QDialog):
             self.outFile = None
             return
 
+        print self.fileList.currentItem().text(0)
         self.ftp.get(self.fileList.currentItem().text(0), self.outFile)
 
         self.progressDialog.setLabelText("Downloading %s..." % fileName)
@@ -395,11 +395,19 @@ class FtpWindow(QtGui.QDialog):
         text,ok=self.dialogbox.getText(QtGui.QInputDialog(),"Search for file",'Enter the name of your file ',QtGui.QLineEdit.Normal)
         if ok:
             try :
-                with open('FTPcsv.csv') as csvfile:
+                self.outFile = QtCore.QFile('biocsv.csv')
+                self.filename = 'BioNetHub.csv'
+                self.ftp.get(text,self.outFile)
+                with open('BioNetHub.csv') as csvfile:
                     spamreader = csv.reader(csvfile, delimiter=',')
                     for row in spamreader:
                         if self.name in row:
-                            return row[0]
+                            path= row[0]
+                            self.setCursor(QtCore.Qt.WaitCursor)
+                            self.fileList.clear()
+                            self.isDirectory.clear()
+                            self.ftp.cd(path)
+                            self.ftp.list()
             except IOError:
                 MESSAGE="Unfortunately this server doesn't provide a CSV file fro quick search"
                 reply = QtGui.QMessageBox.information(self,
