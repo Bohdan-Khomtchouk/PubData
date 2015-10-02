@@ -198,7 +198,7 @@ class FtpWindow(QtGui.QDialog):
             with open('servers.txt') as f:
 
                 servers=[i.strip() for i in f]
-                item, ok = QtGui.QInputDialog.getItem(self, "QInputDialog.getItem()",
+                item, ok = QtGui.QInputDialog.getItem(self, "Select the server name",
                         "Season:", servers, 0, False)
                 if ok and item:
                     self.ftpServerLabel.setText(item)
