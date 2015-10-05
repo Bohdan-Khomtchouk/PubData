@@ -46,7 +46,7 @@ import shutil
 def create_directory_structure(rootdir,d={}):
 
 	import csv
-	with open('newcsv.csv', 'wb') as csvfile:
+	with open('BioNetHub.csv', 'wb') as csvfile:
 	    spamwriter = csv.writer(csvfile, delimiter=',')
 	    for path, _, files in os.walk(rootdir):
 	    	spamwriter.writerow([path]+files)
@@ -54,7 +54,7 @@ def create_directory_structure(rootdir,d={}):
 
 def change_path(file_name,source,destination,tempfile = NamedTemporaryFile(delete=False)):
 
-	with open('newcsv.csv', newline='') as infile,tempfile:
+	with open('BioNetHub.csv', newline='') as infile,tempfile:
     		spamreader = csv.reader(csvfile, delimiter=',')
     		spamwriter = csv.writer(tempfile, delimiter=',')
     		for row in spamreader:
@@ -68,7 +68,7 @@ def change_path(file_name,source,destination,tempfile = NamedTemporaryFile(delet
 
 def remove_path(path,file_name=''):
 
-	with open('newcsv.csv', newline='') as infile,tempfile:
+	with open('BioNetHub.csv', newline='') as infile,tempfile:
 
 	    	spamreader = csv.reader(csvfile, delimiter=',')
 	    	spamwriter = csv.writer(tempfile, delimiter=',')
