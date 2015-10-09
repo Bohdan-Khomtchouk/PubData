@@ -102,7 +102,7 @@ class Edit_servers(QtGui.QDialog):
         self.buttonlayout.addWidget(getDataButton)
 
         okButton = QtGui.QPushButton('Remove Selected')
-        okButton.clicked.connect(self.addnew)
+        okButton.clicked.connect(self.removeSel)
         self.buttonlayout.addWidget(okButton)
 
         self.mainLayout.addWidget(self.buttonGroupbox)
