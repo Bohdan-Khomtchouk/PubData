@@ -44,18 +44,133 @@
 
 
 from PySide import QtCore, QtGui, QtNetwork
-import csv
+import csv,json
 import ftp_rc
-
+from PyQt4.QtCore import pyqtSlot,SIGNAL,SLOT
 global server_names
-server_names={'1':'ftp.ensembl.org',
-         '2':'hgdownload.cse.ucsc.edu',
-         '3':'ftp.uniprot.org',
-         '4':'ftp.flybase.net',
-         '5':'ftp.xenbase.org',
-         '6':'ftp.arabidopsis.org/home',
-         '7':'rgd.mcw.edu',
-         '8':'ftp.ncbi.nlm.nih.gov'}
+server_names={'Ensembl Genome Browser':'ftp.ensembl.org',
+'UCSC Genome Browser':'hgdownload.cse.ucsc.edu',
+'Uniprot':'ftp.uniprot.org',
+'Flybase':'ftp.flybase.net',
+'Xenbase':'ftp.xenbase.org',
+'The Arabidopsis Information Resource':'ftp.arabidopsis.org/home',
+'Rat Genome Database':'rgd.mcw.edu',
+'Human Microbiome Project':'public-ftp.hmpdacc.org',
+'National Center for Biotechnology Information':'ftp.ncbi.nlm.nih.gov',
+'REBASE':'ftp.neb.com',
+'NECTAR':'ftp.nectarmutation.org',
+'Global Proteome Machine and Database':'ftp.thegpm.org',
+'Protein Information Resource':'ftp.pir.georgetown.edu',
+'O-GLYCBASE':'ftp.cbs.dtu.dk',
+'Pasteur Insitute':'ftp.pasteur.fr',
+'miRBase':'mirbase.org',
+'Genomicus':'ftp.biologie.ens.fr',
+'AAindex':'ftp.genome.jp',
+'PairsDB':'nic.funet.fi',
+'Molecular INTeraction database':'mint.bio.uniroma2.it',
+'PANTHER':'ftp.pantherdb.org'}
+
+class Edit_servers(QtGui.QDialog):    
+    def __init__(self,parent=None):
+        super(Edit_servers, self).__init__(parent)                
+        self.mainLayout = QtGui.QVBoxLayout()
+        self.setLayout(self.mainLayout)
+
+        self.hLayout = QtGui.QHBoxLayout()
+        self.mainLayout.insertLayout(0, self.hLayout)
+
+        self.listA=QtGui.QTreeWidget()
+        self.listA.setHeaderLabels(['Server Names'])
+        self.dialogbox=QtGui.QInputDialog()
+        with open('Server_names.json')as f:
+                self.servers=json.load(f)
+        
+        for i in self.servers:    
+            item=QtGui.QTreeWidgetItem()
+            item.setCheckState(0,QtCore.Qt.Unchecked)
+            item.setText(0, i)
+            self.listA.addTopLevelItem(item)
+
+        self.hLayout.addWidget(self.listA)
+
+        self.buttonGroupbox = QtGui.QGroupBox()
+        self.buttonlayout = QtGui.QVBoxLayout()
+        self.buttonGroupbox.setLayout(self.buttonlayout)
+
+        getDataButton = QtGui.QPushButton('Add new server')
+        getDataButton.clicked.connect(self.addnew)
+        self.buttonlayout.addWidget(getDataButton)
+
+        okButton = QtGui.QPushButton('Remove Selected')
+        okButton.clicked.connect(self.addnew)
+        self.buttonlayout.addWidget(okButton)
+
+        self.mainLayout.addWidget(self.buttonGroupbox)
+        self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
+        QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
+        border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
+        QLineEdit{background-color:white; color:black}QTextEdit{background-color:#ffffff; color:#000000}
+        QInputDialog {border-radius:4px;color :black;font-weight:500; font-size: 12pt}QTreeWidgetItem{background-color:white; color:black}""")
+
+        self.listA.itemDoubleClicked.connect(self.doubleClickedSlot)
+
+
+    def itemadder(self,name):    
+        item=QtGui.QTreeWidgetItem()
+        item.setCheckState(0,QtCore.Qt.Unchecked)
+        item.setText(0, name)
+        self.listA.addTopLevelItem(item)
+        self.hLayout.addWidget(self.listA)
+
+    @pyqtSlot(QtGui.QTreeWidget)    
+    def doubleClickedSlot(self,item):
+        current_name=item.text(0)
+        name,ok=self.dialogbox.getText(self,
+                  "Edit Servername!",
+                  "Edit the name : {}".format(current_name))
+        if ok:
+
+            address,ok=self.dialogbox.getText(self,
+                  "Edit Server Adress!",
+                  "Edit the Adress : {}".format(self.servers[current_name]))
+            if ok:
+                del self.servers[current_name]
+                self.servers[name]=address
+                itemIndex=self.listA.indexOfTopLevelItem(item)
+                self.listA.takeTopLevelItem(itemIndex)
+                self.itemadder(name)
+                with open('Server_names.json','w') as f:
+                    json.dump(self.servers,f,indent=4)
+
+
+    def removeSel(self):
+        checked_items=set()
+        listItems=self.listA.invisibleRootItem()
+        child_count = listItems.childCount()
+        if not listItems: return   
+        for i in range(child_count):
+            item = listItems.child(i)
+            if item.checkState(0)==QtCore.Qt.CheckState.Checked:
+                checked_items.add(item)
+        names = [i.text(0) for i in checked_items]
+        for item in checked_items:
+            itemIndex=self.listA.indexOfTopLevelItem(item)
+            self.listA.takeTopLevelItem(itemIndex)
+                
+
+    def addnew(self):
+        name,ok=self.dialogbox.getText(self,
+                  "Add Servername!",
+                  "Add the name")
+        if ok:
+            address,ok=self.dialogbox.getText(self,
+                  "Add Server Adress!",
+                  "Add the Adress")
+            if ok:
+                self.servers[name]=address
+                self.itemadder(name)
+                with open('Server_names.json','w') as f:
+                    json.dump(self.servers,f,indent=4)
 
 class FileInfo(QtGui.QWidget):
     def __init__(self, fileInfo, parent=None):
@@ -77,6 +192,51 @@ class FileInfo(QtGui.QWidget):
         mainLayout.addStretch(1)
         self.setLayout(mainLayout)
 
+class Path_results(QtGui.QDialog):    
+    def __init__(self,pathes,parent=None):
+        super(Edit_servers, self).__init__(parent)                
+        self.mainLayout = QtGui.QVBoxLayout()
+        self.setLayout(self.mainLayout)
+        self.pathes=pathes
+        self.hLayout = QtGui.QHBoxLayout()
+        self.mainLayout.insertLayout(0, self.hLayout)
+
+        self.listA=QtGui.QTreeWidget()
+        self.listA.setHeaderLabels(['Found Pathes'])
+        self.dialogbox=QtGui.QInputDialog()
+        
+        for i in self.pathes:    
+            item=QtGui.QTreeWidgetItem()
+            item.setText(0, i)
+            self.listA.addTopLevelItem(item)
+
+        self.hLayout.addWidget(self.listA)
+
+        self.buttonGroupbox = QtGui.QGroupBox()
+        self.buttonlayout = QtGui.QVBoxLayout()
+        self.buttonGroupbox.setLayout(self.buttonlayout)
+
+        getDataButton = QtGui.QPushButton('Show path')
+        getDataButton.clicked.connect(self.addnew)
+        self.buttonlayout.addWidget(getDataButton)
+
+        self.mainLayout.addWidget(self.buttonGroupbox)
+        self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
+        QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
+        border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
+        QLineEdit{background-color:white; color:black}QTextEdit{background-color:#ffffff; color:#000000}
+        QInputDialog {border-radius:4px;color :black;font-weight:500; font-size: 12pt}QTreeWidgetItem{background-color:white; color:black}""")
+
+        self.listA.itemDoubleClicked.connect(self.doubleClicked_path)
+
+    @pyqtSlot(QtGui.QTreeWidget)
+    def doubleClicked_path(self,item):
+        FT=FtpWindow()
+        FT.setCursor(QtCore.Qt.WaitCursor)
+        FT.fileList.clear()
+        FT.isDirectory.clear()
+        FT.ftp.cd(item.text(0))
+        FT.ftp.list()
 
 class FtpWindow(QtGui.QDialog):
     def __init__(self, parent=None):
@@ -142,6 +302,7 @@ class FtpWindow(QtGui.QDialog):
         self.quitButton.clicked.connect(self.close)
         self.searchButton.clicked.connect(self.search)
         self.serverButton.clicked.connect(self.select)
+        self.EditserverButton.clicked.connect(self.editservers)
 
         topLayout = QtGui.QHBoxLayout()
         topLayout.addWidget(self.senameLabel)
@@ -164,19 +325,28 @@ class FtpWindow(QtGui.QDialog):
         QLineEdit{background-color:white; color:black}QTextEdit{background-color:#ffffff; color:#000000}QInputDialog {border-radius:4px;color :black;font-weight:500; font-size: 12pt}""")
 
     def select(self):
+        global servers
 
         try:
-            with open('servers.txt') as f:
+            with open('Server_names.json')as f:
+                servers=json.load(f)
 
-                servers=[i.strip() for i in f]
-                item, ok = QtGui.QInputDialog.getItem(self, "Select the server name",
-                        "Season:", servers, 0, False)
+                item, ok = QtGui.QInputDialog.getItem(self, "Select the server name ",
+                        "Season:", servers.keys(), 0, False)
                 if ok and item:
-                    self.ftpServerLabel.setText(item)
+                    self.ftpServerLabel.setText(servers[item])
+        
         except IOError:
-            with open('servers.txt','w') as f:
-                for line in server_names.values():
-                    f.write(line+'\n')
+            print("Can't find server file.")
+            with open('Server_names.json','w')as f:
+                json.dump(server_names,f,indent=4)
+            print("Server names has beed rewrite, you can try again.")
+
+    def editservers(self):
+        self.wid = Edit_servers()
+        self.wid.resize(350, 650)
+        self.wid.setWindowTitle('NewWindow')
+        self.wid.show()
 
     def sizeHint(self):
         return QtCore.QSize(800, 400)
@@ -284,7 +454,7 @@ class FtpWindow(QtGui.QDialog):
 
         if self.ftp.currentCommand() == QtNetwork.QFtp.Get:
             if error:
-                self.statusLabel.setText("Cancelled download of %s." % self.outFile.fileName())
+                self.statusLabel.setText("Canceled download of %s." % self.outFile.fileName())
                 self.outFile.close()
                 self.outFile.remove()
             else:
@@ -359,17 +529,27 @@ class FtpWindow(QtGui.QDialog):
             self.downloadButton.setEnabled(False)
 
     def search(self):
+        MESSAGE = QtCore.QT_TR_NOOP("<p>Message boxes have a caption, a text, and up to "
+                                "three buttons, each with standard or custom texts.</p>"
+                                "<p>Click a button or press Esc.</p>")
         text,ok=self.dialogbox.getText(QtGui.QInputDialog(),"Search for file",'Enter the name of your file ',QtGui.QLineEdit.Normal)
         if ok:
             try :
                 self.outFile = QtCore.QFile('biocsv.csv')
                 self.filename = 'BioNetHub.csv'
-                self.ftp.get(text,self.outFile)
+                try:
+                    self.ftp.get(text,self.outFile)
+                except AttributeError:
+                    QtGui.QMessageBox.critical(self, self.tr("QMessageBox.showCritical()"),
+                                               MESSAGE, 1|
+                                               QtGui.QMessageBox.StandardButton.Ok)
                 with open('BioNetHub.csv') as csvfile:
+                    seen_pathes=set()
                     spamreader = csv.reader(csvfile, delimiter=',')
                     for row in spamreader:
-                        if self.name in row:
+                        if any(self.name in i for i in row[1:]):
                             path= row[0]
+                            seen_pathes.add(path)
                             self.setCursor(QtCore.Qt.WaitCursor)
                             self.fileList.clear()
                             self.isDirectory.clear()
@@ -379,6 +559,7 @@ class FtpWindow(QtGui.QDialog):
                 MESSAGE="Unfortunately this server doesn't provide a CSV file fro quick search"
                 reply = QtGui.QMessageBox.information(self,
                 "QMessageBox.information()", MESSAGE)
+                
 
 
 
@@ -390,6 +571,7 @@ if __name__ == '__main__':
     ftpWin = FtpWindow()
     ftpWin.show()
     sys.exit(ftpWin.exec_())
+
 
 
 
