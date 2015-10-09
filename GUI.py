@@ -42,7 +42,6 @@
 
 # -------------------------------------------------------------------------------------------
 
-
 from PySide import QtCore, QtGui, QtNetwork
 import csv,json
 import ftp_rc
@@ -340,7 +339,11 @@ class FtpWindow(QtGui.QDialog):
             print("Can't find server file.")
             with open('Server_names.json','w')as f:
                 json.dump(server_names,f,indent=4)
-            print("Server names has beed rewrite, you can try again.")
+                MESSAGE="""<p>Couldn't find the servers file.</p>
+                <p>Server names has beed rewrite, you can try again.</p>"""
+                QtGui.QMessageBox.information(self,
+                "QMessageBox.information()", MESSAGE)
+            
 
     def editservers(self):
         self.wid = Edit_servers()
@@ -556,7 +559,7 @@ class FtpWindow(QtGui.QDialog):
                             self.ftp.list()
             except IOError:
                 MESSAGE="Unfortunately this server doesn't provide a CSV file fro quick search"
-                reply = QtGui.QMessageBox.information(self,
+                QtGui.QMessageBox.information(self,
                 "QMessageBox.information()", MESSAGE)
                 
 
@@ -570,6 +573,7 @@ if __name__ == '__main__':
     ftpWin = FtpWindow()
     ftpWin.show()
     sys.exit(ftpWin.exec_())
+
 
 
 
