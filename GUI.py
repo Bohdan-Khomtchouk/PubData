@@ -529,9 +529,8 @@ class FtpWindow(QtGui.QDialog):
             self.downloadButton.setEnabled(False)
 
     def search(self):
-        MESSAGE = QtCore.QT_TR_NOOP("<p>Message boxes have a caption, a text, and up to "
-                                "three buttons, each with standard or custom texts.</p>"
-                                "<p>Click a button or press Esc.</p>")
+        MESSAGE = QtCore.QT_TR_NOOP("<p>You have an erron in your connection.</p>"
+                                "<p>Please select one of the server names and connect to it.</p>")
         text,ok=self.dialogbox.getText(QtGui.QInputDialog(),"Search for file",'Enter the name of your file ',QtGui.QLineEdit.Normal)
         if ok:
             try :
