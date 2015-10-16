@@ -46,7 +46,12 @@ from PySide import QtCore, QtGui, QtNetwork
 import csv,json
 import ftp_rc
 from PyQt4.QtCore import pyqtSlot,SIGNAL,SLOT
+import ftputil
+from multiprocessing import Pool,Manager
+from itertools import repeat
+
 global server_names
+
 server_names={'Ensembl Genome Browser':'ftp.ensembl.org',
 'UCSC Genome Browser':'hgdownload.cse.ucsc.edu',
 'Uniprot':'ftp.uniprot.org',
@@ -193,7 +198,7 @@ class FileInfo(QtGui.QWidget):
 
 class Path_results(QtGui.QDialog):    
     def __init__(self,pathes,parent=None):
-        super(Edit_servers, self).__init__(parent)                
+        super(Path_results, self).__init__(parent)                
         self.mainLayout = QtGui.QVBoxLayout()
         self.setLayout(self.mainLayout)
         self.pathes=pathes
@@ -201,7 +206,7 @@ class Path_results(QtGui.QDialog):
         self.mainLayout.insertLayout(0, self.hLayout)
 
         self.listA=QtGui.QTreeWidget()
-        self.listA.setHeaderLabels(['Found Pathes'])
+        self.listA.setHeaderLabels(['Matched Paths'])
         self.dialogbox=QtGui.QInputDialog()
         
         for i in self.pathes:    
@@ -211,15 +216,6 @@ class Path_results(QtGui.QDialog):
 
         self.hLayout.addWidget(self.listA)
 
-        self.buttonGroupbox = QtGui.QGroupBox()
-        self.buttonlayout = QtGui.QVBoxLayout()
-        self.buttonGroupbox.setLayout(self.buttonlayout)
-
-        getDataButton = QtGui.QPushButton('Show path')
-        getDataButton.clicked.connect(self.addnew)
-        self.buttonlayout.addWidget(getDataButton)
-
-        self.mainLayout.addWidget(self.buttonGroupbox)
         self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
         QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
         border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
@@ -230,12 +226,13 @@ class Path_results(QtGui.QDialog):
 
     @pyqtSlot(QtGui.QTreeWidget)
     def doubleClicked_path(self,item):
+        self.close
         FT=FtpWindow()
-        FT.setCursor(QtCore.Qt.WaitCursor)
-        FT.fileList.clear()
-        FT.isDirectory.clear()
-        FT.ftp.cd(item.text(0))
-        FT.ftp.list()
+        FT.change_path(item.text(0))
+
+
+def pickle_self(arg):
+    ftpWin.Traverse(arg)
 
 class FtpWindow(QtGui.QDialog):
     def __init__(self, parent=None):
@@ -317,11 +314,15 @@ class FtpWindow(QtGui.QDialog):
         mainLayout.addWidget(buttonBox)
         self.setLayout(mainLayout)
 
+        manager = Manager()
+        self.all_path=manager.list()
+
         self.setWindowTitle("BioNetHub")
         self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
         QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
         border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
-        QLineEdit{background-color:white; color:black}QTextEdit{background-color:#ffffff; color:#000000}QInputDialog {border-radius:4px;color :black;font-weight:500; font-size: 12pt}""")
+        QLineEdit{background-color:white; color:black}
+        QTextEdit{background-color:#ffffff; color:#000000}QInputDialog{border-radius:4px;color :black;font-weight:500; font-size: 12pt}""")
 
     def select(self):
         global servers
@@ -518,6 +519,14 @@ class FtpWindow(QtGui.QDialog):
             self.ftp.cd(self.currentPath)
 
         self.ftp.list()
+    
+    def change_path(self,path):
+        self.ftp = QtNetwork.QFtp(self)
+        self.setCursor(QtCore.Qt.WaitCursor)
+        self.fileList.clear()
+        self.isDirectory.clear()
+        self.ftp.cd(path)
+        self.ftp.list()
 
     def updateDataTransferProgress(self, readBytes, totalBytes):
         self.progressDialog.setMaximum(totalBytes)
@@ -558,10 +567,40 @@ class FtpWindow(QtGui.QDialog):
                             self.ftp.cd(path)
                             self.ftp.list()
             except IOError:
-                MESSAGE="Unfortunately this server doesn't provide a CSV file fro quick search"
+                global word
+                MESSAGE="""<p>Unfortunately this server doesn't provide a CSV file fro quick search.
+                </p>Press OK to regural search.<p>It may takes between 2 to 7 minute.</p>"""
                 QtGui.QMessageBox.information(self,
                 "QMessageBox.information()", MESSAGE)
-                
+                self.fileList.clear()
+                self.isDirectory.clear()
+                self.setCursor(QtCore.Qt.WaitCursor)
+                self.word=text
+                self.ftpu = ftputil.FTPHost('mirbase.org','anonymous','')
+                self.leading = ['/'+i for i in self.ftpu.listdir(self.ftpu.curdir) if not self.ftpu.path.isfile(i)]
+                self.length=len(self.leading)
+                self.regural_search()
+
+    def Traverse(self,root):
+
+        ftp = ftputil.FTPHost('mirbase.org','anonymous','')
+        recursive = ftp.walk(root,topdown=True,onerror=None)
+        for path,_,files in recursive:
+            if any(self.word in i.lower() for i in files):
+                self.all_path.append(path)
+    
+
+    def regural_search(self):
+        workers = Pool(processes=6)
+        results = workers.map(pickle_self,self.leading)
+
+        if results:
+            self.wid = Path_results(self.all_path)
+            self.wid.resize(350, 650)
+            self.wid.setWindowTitle('NewWindow')
+            self.wid.show()
+
+
 
 
 
@@ -573,6 +612,7 @@ if __name__ == '__main__':
     ftpWin = FtpWindow()
     ftpWin.show()
     sys.exit(ftpWin.exec_())
+
 
 
 
