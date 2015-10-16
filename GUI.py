@@ -426,7 +426,7 @@ class FtpWindow(QtGui.QDialog):
             self.outFile = None
             return
 
-        print self.fileList.currentItem().text(0)
+        print(self.fileList.currentItem().text(0))
         self.ftp.get(self.fileList.currentItem().text(0), self.outFile)
 
         self.progressDialog.setLabelText("Downloading %s..." % fileName)
