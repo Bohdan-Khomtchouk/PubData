@@ -183,7 +183,7 @@ class Sub_path(QtGui.QDialog):
         self.root = root
         self.path = path
         self.isDirectory = {}
-        self.ftp = ftp
+        self.ftp = None
         self.outFile = None
         frameStyle = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
 
@@ -191,7 +191,7 @@ class Sub_path(QtGui.QDialog):
         self.ftpServerLabel = QtGui.QLabel('...')
         self.ftpServerLabel.setFrameStyle(frameStyle)
 
-        self.statusLabel = QtGui.QLabel("Please select the name of an FTP server.")
+        #self.statusLabel = QtGui.QLabel("Please select the name of an FTP server.")
 
         self.fileList = QtGui.QTreeWidget()
         self.fileList.setEnabled(False)
@@ -219,7 +219,7 @@ class Sub_path(QtGui.QDialog):
         mainLayout = QtGui.QVBoxLayout()
         mainLayout.addLayout(topLayout)
         mainLayout.addWidget(self.fileList)
-        mainLayout.addWidget(self.statusLabel)
+        #mainLayout.addWidget(self.statusLabel)
         mainLayout.addWidget(buttonBox)
         self.setLayout(mainLayout)
 
@@ -238,12 +238,13 @@ class Sub_path(QtGui.QDialog):
 
     def connectOrDisconnect(self):
         if  not self.ftp:
+            print 'ceate new ftp'
             self.ftp = QtNetwork.QFtp(self)
 
         self.setCursor(QtCore.Qt.WaitCursor)
         self.ftp.commandFinished.connect(self.ftpCommandFinished)
         self.ftp.listInfo.connect(self.addToList)
-        #self.ftp.dataTransferProgress.connect(self.updateDataTransferProgress)
+        self.ftp.dataTransferProgress.connect(self.updateDataTransferProgress)
 
         self.fileList.clear()
         self.currentPath = ''
@@ -251,11 +252,14 @@ class Sub_path(QtGui.QDialog):
         print self.path
         url = QtCore.QUrl(self.root)
         if not url.isValid() or url.scheme().lower() != 'ftp':
-            #self.ftp.connectToHost(self.root, 21)
+            self.ftp.connectToHost(self.root, 21)
+            self.ftp.login()
             self.setCursor(QtCore.Qt.WaitCursor)
             self.fileList.clear()
+            self.currentPath = '/'.join(self.path.split('/')[:-1])
             self.ftp.cd(self.path)
-            self.ftp.list()
+            #self.ftp.list()
+            self.cdToParentButton.setEnabled(True)
         else:
             self.ftp.connectToHost(url.host(), url.port(21))
 
@@ -289,7 +293,7 @@ class Sub_path(QtGui.QDialog):
                 self.connectOrDisconnect()
                 return
 
-            self.statusLabel.setText("Logged onto %s." % self.ftpServerLabel.text())
+            #self.statusLabel.setText("Logged onto %s." % self.ftpServerLabel.text())
             self.fileList.setFocus()
             self.ftp.list()
             self.outFile = None
@@ -334,15 +338,14 @@ class Sub_path(QtGui.QDialog):
         self.setCursor(QtCore.Qt.WaitCursor)
         self.fileList.clear()
         self.isDirectory.clear()
-
         dirs = self.currentPath.split('/')
         if len(dirs) > 1:
+            self.currentPath = '/'.join(dirs[:-1])
+            self.ftp.cd(self.currentPath)
+        else:
             self.currentPath = ''
             self.cdToParentButton.setEnabled(False)
             self.ftp.cd('/')
-        else:
-            self.currentPath = '/'.join(dirs[:-1])
-            self.ftp.cd(self.currentPath)
 
         self.ftp.list()
     
@@ -782,13 +785,13 @@ class FtpWindow(QtGui.QDialog):
         ftp = ftputil.FTPHost(self.ftpServerLabel.text(),'anonymous','')
         recursive = ftp.walk(root,topdown=True,onerror=None)
         for path,_,files in recursive:
-            if any(self.word in i.lower() for i in files):
+            if any(self.word.lower() in i.lower() for i in files):
                 self.all_path.append(path)
                 break
     
 
     def regural_search(self):
-        workers = Pool(processes=6)
+        workers = Pool(processes=self.length)
         results = workers.map(pickle_self,self.leading)
 
         if results:
@@ -797,12 +800,8 @@ class FtpWindow(QtGui.QDialog):
             self.wid.setWindowTitle('NewWindow')
             self.wid.show()
 
-
-
 if __name__ == '__main__':
-
     import sys
-
     app = QtGui.QApplication(sys.argv)
     ftpWin = FtpWindow()
     ftpWin.show()
