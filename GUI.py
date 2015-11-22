@@ -41,14 +41,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # -------------------------------------------------------------------------------------------
-
 from PySide import QtCore, QtGui, QtNetwork
-import csv,json
+import json
 import ftp_rc
 from PyQt4.QtCore import pyqtSlot,SIGNAL,SLOT
-import ftputil
-from multiprocessing import Pool,Manager
-from itertools import repeat
+import ftplib
+from os import path
+from threading import Thread
+from Queue import Queue
+
 
 global server_names
 
@@ -338,14 +339,15 @@ class Sub_path(QtGui.QDialog):
         self.setCursor(QtCore.Qt.WaitCursor)
         self.fileList.clear()
         self.isDirectory.clear()
+
         dirs = self.currentPath.split('/')
-        if len(dirs) > 1:
+        if len(dirs) == 2:
+            self.currentPath = '/'
+            self.ftp.cd(self.currentPath)
+            self.cdToParentButton.setEnabled(False)
+        else :
             self.currentPath = '/'.join(dirs[:-1])
             self.ftp.cd(self.currentPath)
-        else:
-            self.currentPath = ''
-            self.cdToParentButton.setEnabled(False)
-            self.ftp.cd('/')
 
         self.ftp.list()
     
@@ -430,8 +432,81 @@ class Path_results(QtGui.QDialog):
         self.wind.show()
 
 
-def pickle_self(arg):
-    ftpWin.Traverse(arg)
+class ftp_walker(object):
+    def __init__(self,servername):
+        self.length = 2
+        self.servername = servername
+        # manager = Manager()
+        self.all_path = Queue() # manager.list() 
+        self.base,self.leading = self.find_leading()
+        #self.connection_pool = self.createConnectionPool()
+
+    def createConnectionPool(self):
+        for _path in self.leading:
+            conn=ftplib.FTP(self.servername)
+            conn.login()
+            try:
+                conn.cwd(_path)
+            except:
+                pass
+            else:
+                yield _path
+
+    def find_leading(self):
+        base = []
+        conn=ftplib.FTP(self.servername)
+        conn.login()
+        for p,dirs,files in self.Walk(conn,'/'):
+            length = len(dirs)
+            base.append((p,files))
+            if length > 1 :
+                p = '/'.join(p.split('/')[1:])
+                self.length = length
+                return base,[p+'/'+i for i in dirs]
+
+    def listdir(self, connection, _path):
+        file_list, dirs, nondirs = [],[],[]
+        try:
+            connection.cwd(_path)
+        except:
+            return [],[]
+
+        connection.retrlines('LIST',lambda x:file_list.append(x.split()))
+        for info in file_list:
+            ls_type,name = info[0],info[-1]
+            if ls_type.startswith('d'):
+                dirs.append(name)
+            else:
+                nondirs.append(name)
+        return dirs,nondirs
+
+    def Walk(self, connection, top):
+        dirs, nondirs = self.listdir(connection,top)
+        yield top, dirs, nondirs
+        for name in dirs:
+            new_path = path.join(top, name)
+            for x in self.Walk(connection, new_path):
+                yield x
+
+    def Traverse(self,_path='/'):
+        connection=ftplib.FTP(self.servername)
+        connection.login()
+        #try:
+        #    conn.cwd(path)
+        #except:
+        #    pass
+        for _path,_,files in self.Walk(connection, _path):
+            #if any('a' in i.lower() for i in files):
+            self.all_path.put((_path,files))
+                
+    def run(self,threads=[]):
+        print 'start threads...'
+        for conn in self.leading:
+            thread = Thread(target=self.Traverse,args=(conn,))
+            thread.start()
+            threads.append(thread)
+        for thread in threads:
+                thread.join()
 
 class FtpWindow(QtGui.QDialog):
     def __init__(self, parent=None):
@@ -440,6 +515,7 @@ class FtpWindow(QtGui.QDialog):
         self.isDirectory = {}
         self.ftp = None
         self.outFile = None
+        self.server_names = self.getServerNames()
         frameStyle = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
 
         self.senameLabel = QtGui.QLabel("FTP name : ")
@@ -475,6 +551,7 @@ class FtpWindow(QtGui.QDialog):
         self.dialogbox=QtGui.QInputDialog()
         
         self.EditserverButton = QtGui.QPushButton("Editservers")
+        self.UpdateserverButton = QtGui.QPushButton("Update custom servers")
         
         buttonBox = QtGui.QDialogButtonBox()
         buttonBox.addButton(self.downloadButton,
@@ -482,9 +559,11 @@ class FtpWindow(QtGui.QDialog):
         buttonBox.addButton(self.quitButton, QtGui.QDialogButtonBox.RejectRole)
         buttonBox.addButton(self.EditserverButton, QtGui.QDialogButtonBox.ActionRole)
         buttonBox.addButton(self.searchButton, QtGui.QDialogButtonBox.ActionRole)
+        buttonBox.addButton(self.UpdateserverButton, QtGui.QDialogButtonBox.ActionRole)
         buttonBox.addButton(self.downloadButton,QtGui.QDialogButtonBox.ActionRole)
         buttonBox.addButton(self.quitButton, QtGui.QDialogButtonBox.RejectRole)
         buttonBox.addButton(self.searchButton, QtGui.QDialogButtonBox.ActionRole)
+
 
         self.progressDialog = QtGui.QProgressDialog(self)
 
@@ -498,6 +577,7 @@ class FtpWindow(QtGui.QDialog):
         self.searchButton.clicked.connect(self.search)
         self.serverButton.clicked.connect(self.select)
         self.EditserverButton.clicked.connect(self.editservers)
+        self.UpdateserverButton.clicked.connect(self.updateservers)
 
         topLayout = QtGui.QHBoxLayout()
         topLayout.addWidget(self.senameLabel)
@@ -513,9 +593,6 @@ class FtpWindow(QtGui.QDialog):
         mainLayout.addWidget(buttonBox)
         self.setLayout(mainLayout)
 
-        manager = Manager()
-        self.all_path=manager.list()
-
         self.setWindowTitle("BioNetHub")
         self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
         QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
@@ -523,27 +600,48 @@ class FtpWindow(QtGui.QDialog):
         QLineEdit{background-color:white; color:black}
         QTextEdit{background-color:#ffffff; color:#000000}QInputDialog{border-radius:4px;color :black;font-weight:500; font-size: 12pt}""")
 
-    def select(self):
-        global servers
 
+    def getServerNames(self):
         try:
             with open('Server_names.json')as f:
-                servers=json.load(f)
-
-                item, ok = QtGui.QInputDialog.getItem(self, "Select the server name ",
-                        "Season:", servers.keys(), 0, False)
-                if ok and item:
-                    self.ftpServerLabel.setText(servers[item])
-        
+                return json.load(f)
         except IOError:
-            print("Can't find server file.")
             with open('Server_names.json','w') as f:
                 json.dump(server_names,f,indent=4)
-                MESSAGE="""<p>Couldn't find the servers file.</p>
+                MESSAGE="""<p>Couldn't find the server file.</p>
                 <p>Server names has beed rewrite, you can try again.</p>"""
                 QtGui.QMessageBox.information(self,
                 "QMessageBox.information()", MESSAGE)
-            
+
+    def select(self):
+        item, ok = QtGui.QInputDialog.getItem(self, "Select a server name ",
+                "Season:", self.server_names.keys(), 0, False)
+        if ok and item:
+            self.ftpServerLabel.setText(self.server_names[item])
+
+    def updateservers(self):
+        item, ok = QtGui.QInputDialog.getItem(self, "Select a server name ",
+                "Season:", self.server_names.keys(), 0, False)
+        if ok and item:
+            self.updateServerFile(item)
+
+    def updateServerFile(self,name):
+        try:
+            FT=ftp_walker(self.server_names[name])
+            FT.run()
+        except ftplib.error_temp:
+            MESSAGE="""<p>Couldn't find the server file.</p>
+            <p>Server names has beed rewrite, you can try again.</p>"""
+            QtGui.QMessageBox.information(self,
+            "QMessageBox.information()", MESSAGE)
+        l=[]
+        while FT.all_path.qsize() > 0:
+            l.append(FT.all_path.get())
+        d= dict(FT.base+l)
+        with open('{}.json'.format(name), 'w') as fp:
+            json.dump(d,fp,indent=4)
+        del l
+        del d
 
     def editservers(self):
         self.wid = Edit_servers()
@@ -709,11 +807,11 @@ class FtpWindow(QtGui.QDialog):
         self.isDirectory.clear()
 
         dirs = self.currentPath.split('/')
-        if len(dirs) > 1:
-            self.currentPath = ''
+        if len(dirs) == 2:
+            self.currentPath = '/'
+            self.ftp.cd(self.currentPath)
             self.cdToParentButton.setEnabled(False)
-            self.ftp.cd('/')
-        else:
+        else :
             self.currentPath = '/'.join(dirs[:-1])
             self.ftp.cd(self.currentPath)
 
@@ -779,26 +877,6 @@ class FtpWindow(QtGui.QDialog):
                 self.leading = ['/'+i for i in self.ftpu.listdir(self.ftpu.curdir) if not self.ftpu.path.isfile(i)]
                 self.length=len(self.leading)
                 self.regural_search()
-
-    def Traverse(self,root):
-
-        ftp = ftputil.FTPHost(self.ftpServerLabel.text(),'anonymous','')
-        recursive = ftp.walk(root,topdown=True,onerror=None)
-        for path,_,files in recursive:
-            if any(self.word.lower() in i.lower() for i in files):
-                self.all_path.append(path)
-                break
-    
-
-    def regural_search(self):
-        workers = Pool(processes=self.length)
-        results = workers.map(pickle_self,self.leading)
-
-        if results:
-            self.wid = Path_results(self.ftp,self.all_path,self.ftpServerLabel.text())
-            self.wid.resize(350, 650)
-            self.wid.setWindowTitle('NewWindow')
-            self.wid.show()
 
 if __name__ == '__main__':
     import sys
