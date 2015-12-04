@@ -8,9 +8,7 @@ class DBcreator:
 
     def __init__(self,dbname):
         self.dbname = dbname
-        self.collection_name = "directoryTree"
         self.mongo_cursor = self.mongo_connector()
-        self.indexer()
 
     def mongo_connector(self):
         # Connect to mongoDB and return a connection object.
@@ -26,11 +24,13 @@ class DBcreator:
     def importer(self):
         for _,_,files in os.walk('json_files/'):
             for file_name in files:
-                print("Start inserting of {} ...".format(file_name)
+                print("Start inserting of {} ...".format(file_name))
                 with open('json_files/{}'.format(file_name)) as f:
                     result = json.load(f,encoding='latin1')
                     for _path,file_names in result.iteritems():
-                        self.mongo_cursor[self.collection_name].insert(
+                        collection_name = file_name.split('.')[0]
+                        self.indexer(collection_name)
+                        self.mongo_cursor[collection_name].insert(
                             {
                                 'path': _path,
                                 'files': files
@@ -38,8 +38,8 @@ class DBcreator:
                         )
                 print ("Inserting finished.")
 
-    def indexer(self):
-            self.mongo_cursor[self.collection_name].ensure_index(
+    def indexer(self,collection_name):
+            self.mongo_cursor[collection_name].ensure_index(
                 [
                     ('path', ASCENDING),
                 ],
