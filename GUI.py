@@ -432,14 +432,12 @@ class Path_results(QtGui.QDialog):
         self.wind.show()
 
 
-class ftp_walker(object):
+class FtpWalker(object):
     def __init__(self,servername):
         self.length = 2
         self.servername = servername
-        # manager = Manager()
-        self.all_path = Queue() # manager.list() 
+        self.all_path = Queue() 
         self.base,self.leading = self.find_leading()
-        #self.connection_pool = self.createConnectionPool()
 
     def createConnectionPool(self):
         for _path in self.leading:
@@ -491,16 +489,10 @@ class ftp_walker(object):
     def Traverse(self,_path='/'):
         connection=ftplib.FTP(self.servername)
         connection.login()
-        #try:
-        #    conn.cwd(path)
-        #except:
-        #    pass
         for _path,_,files in self.Walk(connection, _path):
-            #if any('a' in i.lower() for i in files):
             self.all_path.put((_path,files))
                 
     def run(self,threads=[]):
-        print 'start threads...'
         for conn in self.leading:
             thread = Thread(target=self.Traverse,args=(conn,))
             thread.start()
@@ -592,7 +584,6 @@ class FtpWindow(QtGui.QDialog):
         mainLayout.addWidget(self.statusLabel)
         mainLayout.addWidget(buttonBox)
         self.setLayout(mainLayout)
-
         self.setWindowTitle("BioNetHub")
         self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
         QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
@@ -620,6 +611,7 @@ class FtpWindow(QtGui.QDialog):
             self.ftpServerLabel.setText(self.server_names[item])
 
     def updateservers(self):
+        self.statusLabel.setText("Start updating ...")
         item, ok = QtGui.QInputDialog.getItem(self, "Select a server name ",
                 "Season:", self.server_names.keys(), 0, False)
         if ok and item:
@@ -627,13 +619,17 @@ class FtpWindow(QtGui.QDialog):
 
     def updateServerFile(self,name):
         try:
-            FT=ftp_walker(self.server_names[name])
+            self.statusLabel.setText("Start updating of {} ...".format(name))
+            FT=FtpWalker(self.server_names[name])
             FT.run()
-        except ftplib.error_temp:
-            MESSAGE="""<p>Couldn't find the server file.</p>
-            <p>Server names has beed rewrite, you can try again.</p>"""
-            QtGui.QMessageBox.information(self,
-            "QMessageBox.information()", MESSAGE)
+        except ftplib.error_temp as e:
+            self.statusLabel.setText("Update Failed")
+            QtGui.QMessageBox.error(self,
+            "QMessageBox.information()", e)
+        except ftplib.error_perm as e:
+            self.statusLabel.setText("Update Failed")
+            QtGui.QMessageBox.error(self,
+            "QMessageBox.information()", e)
         l=[]
         while FT.all_path.qsize() > 0:
             l.append(FT.all_path.get())
