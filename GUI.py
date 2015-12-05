@@ -49,7 +49,8 @@ import ftplib
 from os import path
 from threading import Thread
 from Queue import Queue
-
+from pymongo import MongoClient, ASCENDING
+from pymongo.errors import ConnectionFailure
 
 global server_names
 
@@ -503,7 +504,8 @@ class FtpWalker(object):
 class FtpWindow(QtGui.QDialog):
     def __init__(self, parent=None):
         super(FtpWindow, self).__init__(parent)
-        self.defaulturl='ftp://ftp.xenbase.org/pub/Genomics/Sequences'
+        self.dbname = "BioNetHub"
+        self.mongo_cursor = self.mongo_connector()
         self.isDirectory = {}
         self.ftp = None
         self.outFile = None
@@ -609,6 +611,7 @@ class FtpWindow(QtGui.QDialog):
                 "Season:", self.server_names.keys(), 0, False)
         if ok and item:
             self.ftpServerLabel.setText(self.server_names[item])
+            self.servername = item
 
     def updateservers(self):
         self.statusLabel.setText("Start updating ...")
@@ -833,32 +836,34 @@ class FtpWindow(QtGui.QDialog):
         else:
             self.downloadButton.setEnabled(False)
 
+    def mongo_connector(self):
+        # Connect to mongoDB and return a connection object.
+        try:
+            c = MongoClient(host="localhost", port=27017)
+        except ConnectionFailure, error:
+            sys.stderr.write("Could not connect to MongoDB: {}".format(error))
+        else:
+            print "Connected successfully"
+
+        return c[self.dbname]
+
     def search(self):
         MESSAGE = QtCore.QT_TR_NOOP("<p>You have an erron in your connection.</p>"
                                 "<p>Please select one of the server names and connect to it.</p>")
         text,ok=self.dialogbox.getText(QtGui.QInputDialog(),"Search for file",'Enter the name of your file ',QtGui.QLineEdit.Normal)
         if ok:
-            try :
-                self.outFile = QtCore.QFile('biocsv.csv')
-                self.filename = 'BioNetHub.csv'
-                try:
-                    self.ftp.get(text,self.outFile)
-                except AttributeError:
-                    QtGui.QMessageBox.critical(self, self.tr("QMessageBox.showCritical()"),
-                                               MESSAGE, 1|
-                                               QtGui.QMessageBox.StandardButton.Ok)
-                with open('BioNetHub.csv') as csvfile:
-                    seen_pathes=set()
-                    spamreader = csv.reader(csvfile, delimiter=',')
-                    for row in spamreader:
-                        if any(self.name in i for i in row[1:]):
-                            path= row[0]
-                            seen_pathes.add(path)
-                            self.setCursor(QtCore.Qt.WaitCursor)
-                            self.fileList.clear()
-                            self.isDirectory.clear()
-                            self.ftp.cd(path)
-                            self.ftp.list()
+            try:
+                results = self.mongo_cursor[self.servername].find({})
+                paths = [i['path'] for i in results if any(text in f for f in i['files'])]
+                if paths:
+                    self.wid = Path_results(self.ftp,paths,self.ftpServerLabel.text())
+                    self.wid.resize(350, 650)
+                    self.wid.setWindowTitle('NewWindow')
+                    self.wid.show()
+                else:
+                    MESSAGE="""<p>No results.<p>Please try with another pattern.</p>"""
+                    QtGui.QMessageBox.information(self,"QMessageBox.information()", MESSAGE)
+
             except IOError:
                 global word
                 MESSAGE="""<p>Unfortunately this server doesn't provide a CSV file fro quick search.
@@ -868,11 +873,6 @@ class FtpWindow(QtGui.QDialog):
                 self.fileList.clear()
                 self.isDirectory.clear()
                 self.setCursor(QtCore.Qt.WaitCursor)
-                self.word=text
-                self.ftpu = ftputil.FTPHost(self.ftpServerLabel.text(),'anonymous','')
-                self.leading = ['/'+i for i in self.ftpu.listdir(self.ftpu.curdir) if not self.ftpu.path.isfile(i)]
-                self.length=len(self.leading)
-                self.regural_search()
 
 if __name__ == '__main__':
     import sys
