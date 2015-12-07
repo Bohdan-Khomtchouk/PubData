@@ -435,21 +435,9 @@ class Path_results(QtGui.QDialog):
 
 class FtpWalker(object):
     def __init__(self,servername):
-        self.length = 2
         self.servername = servername
-        self.all_path = Queue() 
+        self.all_path = Queue()
         self.base,self.leading = self.find_leading()
-
-    def createConnectionPool(self):
-        for _path in self.leading:
-            conn=ftplib.FTP(self.servername)
-            conn.login()
-            try:
-                conn.cwd(_path)
-            except:
-                pass
-            else:
-                yield _path
 
     def find_leading(self):
         base = []
@@ -460,7 +448,6 @@ class FtpWalker(object):
             base.append((p,files))
             if length > 1 :
                 p = '/'.join(p.split('/')[1:])
-                self.length = length
                 return base,[p+'/'+i for i in dirs]
 
     def listdir(self, connection, _path):
@@ -487,19 +474,35 @@ class FtpWalker(object):
             for x in self.Walk(connection, new_path):
                 yield x
 
-    def Traverse(self,_path='/'):
+    def Traverse(self, _path='/',word=''):
         connection=ftplib.FTP(self.servername)
-        connection.login()
-        for _path,_,files in self.Walk(connection, _path):
-            self.all_path.put((_path,files))
+        try:
+            connection.login()
+        except:
+            print 'Connection failed for path : ', _path
+        else:
+            try:
+                conn.cwd(path)
+            except:
+                pass
+            else:
+                for _path,_,files in self.Walk(connection, _path):
+                    if word:
+                        if any(word in file_name for file_name in files):
+                            self.all_path.put((_path,files))
+                    else:
+                        self.all_path.put((_path,files))
                 
-    def run(self,threads=[]):
+    def run(self, word, threads=[]):
+        print 'start threads...'
+        mkdir(self.servername)
         for conn in self.leading:
-            thread = Thread(target=self.Traverse,args=(conn,))
+            thread = Thread(target=self.Traverse,args=(conn,word))
             thread.start()
             threads.append(thread)
         for thread in threads:
                 thread.join()
+
 
 class FtpWindow(QtGui.QDialog):
     def __init__(self, parent=None):
@@ -620,6 +623,10 @@ class FtpWindow(QtGui.QDialog):
         if ok and item:
             self.updateServerFile(item)
 
+    def queue_traverser(self,queue):
+        while queue.qsize() > 0:
+            yield queue.get()
+
     def updateServerFile(self,name):
         try:
             self.statusLabel.setText("Start updating of {} ...".format(name))
@@ -633,14 +640,18 @@ class FtpWindow(QtGui.QDialog):
             self.statusLabel.setText("Update Failed")
             QtGui.QMessageBox.error(self,
             "QMessageBox.information()", e)
-        l=[]
-        while FT.all_path.qsize() > 0:
-            l.append(FT.all_path.get())
-        d= dict(FT.base+l)
-        with open('{}.json'.format(name), 'w') as fp:
-            json.dump(d,fp,indent=4)
-        del l
-        del d
+        except socket.gaierror as e:
+            self.statusLabel.setText("Update Failed")
+            QtGui.QMessageBox.error(self,
+            "QMessageBox.information()", e)
+        else:
+            for _path, files in queue_traverser(FT.all_path)
+                mongo_cursor[].insert(
+                    {
+                        'path': _path
+                        'files': files
+                    }
+                )
 
     def editservers(self):
         self.wid = Edit_servers()
@@ -854,6 +865,7 @@ class FtpWindow(QtGui.QDialog):
         if ok:
             try:
                 results = self.mongo_cursor[self.servername].find({})
+                print [[i['path'],i['files']] for i in results]
                 paths = [i['path'] for i in results if any(text in f for f in i['files'])]
                 if paths:
                     self.wid = Path_results(self.ftp,paths,self.ftpServerLabel.text())
@@ -865,14 +877,36 @@ class FtpWindow(QtGui.QDialog):
                     QtGui.QMessageBox.information(self,"QMessageBox.information()", MESSAGE)
 
             except IOError:
-                global word
-                MESSAGE="""<p>Unfortunately this server doesn't provide a CSV file fro quick search.
-                </p>Press OK to regural search.<p>It may takes between 2 to 7 minute.</p>"""
+                MESSAGE="""<p>Unfortunately there is no collections with the name of this server in database.
+                </p>Press OK to regural search.<p>It may takes between 2 to 10 minute.</p>"""
                 QtGui.QMessageBox.information(self,
                 "QMessageBox.information()", MESSAGE)
                 self.fileList.clear()
                 self.isDirectory.clear()
                 self.setCursor(QtCore.Qt.WaitCursor)
+                self.regural_search(text,self.ftp,self.servername,self.ftpServerLabel.text())
+    
+    def regural_search(self, word, ftp, severname, sever_url):
+        try:
+            FT=ftp_walker(j)
+            FT.run(word)
+        except ftplib.error_temp as e:
+            QtGui.QMessageBox.information(self,"QMessageBox.information()", e)
+        except ftplib.error_perm as e:
+            QtGui.QMessageBox.information(self,"QMessageBox.information()", e)
+        except socket.gaierror as e:
+            QtGui.QMessageBox.information(self,"QMessageBox.information()", e)
+        else:
+            paths = FT.all_path
+            if paths:
+                self.wid = Path_results(ftp, paths, servername, url)
+                self.wid.resize(350, 650)
+                self.wid.setWindowTitle('NewWindow')
+                self.wid.show()
+            else:
+                MESSAGE="""<p>No results.<p>Please try with another pattern.</p>"""
+                QtGui.QMessageBox.information(self,"QMessageBox.information()", MESSAGE)
+
 
 if __name__ == '__main__':
     import sys
