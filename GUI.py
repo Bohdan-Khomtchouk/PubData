@@ -645,10 +645,10 @@ class FtpWindow(QtGui.QDialog):
             QtGui.QMessageBox.error(self,
             "QMessageBox.information()", e)
         else:
-            for _path, files in queue_traverser(FT.all_path)
-                mongo_cursor[].insert(
+            for _path, files in queue_traverser(FT.all_path):
+                mongo_cursor[self.servername].insert(
                     {
-                        'path': _path
+                        'path': _path,
                         'files': files
                     }
                 )
@@ -865,7 +865,6 @@ class FtpWindow(QtGui.QDialog):
         if ok:
             try:
                 results = self.mongo_cursor[self.servername].find({})
-                print [[i['path'],i['files']] for i in results]
                 paths = [i['path'] for i in results if any(text in f for f in i['files'])]
                 if paths:
                     self.wid = Path_results(self.ftp,paths,self.ftpServerLabel.text())
