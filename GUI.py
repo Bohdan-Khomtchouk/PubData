@@ -52,9 +52,7 @@ from Queue import Queue
 from pymongo import MongoClient, ASCENDING
 from pymongo.errors import ConnectionFailure
 
-global server_names
-
-server_names={'Ensembl Genome Browser':'ftp.ensembl.org',
+SERVER_NAMES={'Ensembl Genome Browser':'ftp.ensembl.org',
 'UCSC Genome Browser':'hgdownload.cse.ucsc.edu',
 'Uniprot':'ftp.uniprot.org',
 'Flybase':'ftp.flybase.net',
@@ -88,7 +86,7 @@ class Edit_servers(QtGui.QDialog):
         self.listA=QtGui.QTreeWidget()
         self.listA.setHeaderLabels(['Server Names'])
         self.dialogbox=QtGui.QInputDialog()
-        with open('Server_names.json')as f:
+        with open('SERVER_NAMES.json')as f:
                 self.servers=json.load(f)
         
         for i in self.servers:    
@@ -145,7 +143,7 @@ class Edit_servers(QtGui.QDialog):
                 itemIndex=self.listA.indexOfTopLevelItem(item)
                 self.listA.takeTopLevelItem(itemIndex)
                 self.itemadder(name)
-                with open('Server_names.json','w') as f:
+                with open('SERVER_NAMES.json','w') as f:
                     json.dump(self.servers,f,indent=4)
 
 
@@ -175,7 +173,7 @@ class Edit_servers(QtGui.QDialog):
             if ok:
                 self.servers[name]=address
                 self.itemadder(name)
-                with open('Server_names.json','w') as f:
+                with open('SERVER_NAMES.json','w') as f:
                     json.dump(self.servers,f,indent=4)
 
 
@@ -443,14 +441,14 @@ class SelectServers(QtGui.QDialog):
         super(SelectServers, self).__init__(parent)                
         self.mainLayout = QtGui.QVBoxLayout()
         self.setLayout(self.mainLayout)
-        self.selected_server_names = []
+        self.selected_SERVER_NAMES = []
         self.hLayout = QtGui.QHBoxLayout()
         self.mainLayout.insertLayout(0, self.hLayout)
 
         self.listA=QtGui.QTreeWidget()
         self.listA.setHeaderLabels(['Server Names', 'Exists in DB'])
         self.dialogbox=QtGui.QInputDialog()
-        with open('Server_names.json')as f:
+        with open('SERVER_NAMES.json')as f:
                 self.servers=json.load(f)
         
         for i in self.servers:    
@@ -490,7 +488,7 @@ class SelectServers(QtGui.QDialog):
             item = listItems.child(i)
             if item.checkState(0)==QtCore.Qt.CheckState.Checked:
                 checked_items.add(item)
-        self.selected_server_names = [i.text(0) for i in checked_items]
+        self.selected_SERVER_NAMES = [i.text(0) for i in checked_items]
         self.close()
 
 
@@ -577,7 +575,7 @@ class FtpWindow(QtGui.QDialog):
         self.isDirectory = {}
         self.ftp = None
         self.outFile = None
-        self.server_names = self.getServerNames()
+        self.SERVER_NAMES = self.getServerNames()
         frameStyle = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
 
         self.senameLabel = QtGui.QLabel("FTP name : ")
@@ -667,11 +665,11 @@ class FtpWindow(QtGui.QDialog):
 
     def getServerNames(self):
         try:
-            with open('Server_names.json')as f:
+            with open('SERVER_NAMES.json')as f:
                 return json.load(f)
         except IOError:
-            with open('Server_names.json','w') as f:
-                json.dump(server_names,f,indent=4)
+            with open('SERVER_NAMES.json','w') as f:
+                json.dump(SERVER_NAMES,f,indent=4)
                 MESSAGE="""<p>Couldn't find the server file.</p>
                 <p>Server names has beed rewrite, you can try again.</p>"""
                 QtGui.QMessageBox.information(self,
@@ -679,21 +677,21 @@ class FtpWindow(QtGui.QDialog):
 
     def select(self):
         item, ok = QtGui.QInputDialog.getItem(self, "Select a server name ",
-                "Season:", self.server_names.keys(), 0, False)
+                "Season:", self.SERVER_NAMES.keys(), 0, False)
         if ok and item:
-            self.ftpServerLabel.setText(self.server_names[item])
+            self.ftpServerLabel.setText(self.SERVER_NAMES[item])
             self.servername = item
 
     @pyqtSlot(QtGui.QTreeWidget)
     def put_get_servers(self):
-        self.selected_server_names = self.Select_s.selected_server_names
-        #self.ftpServerLabel.text() = self.selected_server_names.pop(0)
-        self.statusLabel.setText("Search in servers: {}".format(','.join(self.selected_server_names)))
+        self.selected_SERVER_NAMES = self.Select_s.selected_SERVER_NAMES
+        #self.ftpServerLabel.text() = self.selected_SERVER_NAMES.pop(0)
+        self.statusLabel.setText("Search in servers: {}".format(','.join(self.selected_SERVER_NAMES)))
 
     def updateservers(self):
         self.statusLabel.setText("Start updating ...")
         item, ok = QtGui.QInputDialog.getItem(self, "Select a server name ",
-                "Season:", self.server_names.keys(), 0, False)
+                "Season:", self.SERVER_NAMES.keys(), 0, False)
         if ok and item:
             self.updateServerFile(item)
 
@@ -704,7 +702,7 @@ class FtpWindow(QtGui.QDialog):
     def updateServerFile(self,name):
         try:
             self.statusLabel.setText("Start updating of {} ...".format(name))
-            FT=FtpWalker(self.server_names[name])
+            FT=FtpWalker(self.SERVER_NAMES[name])
             FT.run()
         except ftplib.error_temp as e:
             self.statusLabel.setText("Update Failed")
@@ -939,7 +937,7 @@ class FtpWindow(QtGui.QDialog):
         if ok:
             try:
                 total_find = {}
-                for servername in self.selected_server_names:
+                for servername in self.selected_SERVER_NAMES:
                     regex = re.compile(r'.*{}.*'.format(text),re.I)
                     results = self.mongo_cursor[servername].find({"files":{'$regex':regex}})
                     paths = [i['path']  for i in results]
