@@ -41,6 +41,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # -------------------------------------------------------------------------------------------
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from PySide import QtCore, QtGui, QtNetwork
 import json
 import ftp_rc
@@ -51,6 +54,9 @@ from threading import Thread
 from Queue import Queue
 from pymongo import MongoClient, ASCENDING
 from pymongo.errors import ConnectionFailure
+from nltk.corpus import wordnet
+from itertools import chain
+import re
 
 SERVER_NAMES={'Ensembl Genome Browser':'ftp.ensembl.org',
 'UCSC Genome Browser':'hgdownload.cse.ucsc.edu',
@@ -178,7 +184,7 @@ class Edit_servers(QtGui.QDialog):
 
 
 class Sub_path(QtGui.QDialog):
-    def __init__(self,ftp,root, path, parent=None):
+    def __init__(self,root, path, parent=None):
         super(Sub_path, self).__init__(parent)
         self.root = root
         self.path = path
@@ -188,6 +194,7 @@ class Sub_path(QtGui.QDialog):
         frameStyle = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
 
         self.senameLabel = QtGui.QLabel("FTP name : ")
+        self.senameLabel.setText(root)
         self.ftpServerLabel = QtGui.QLabel('...')
         self.ftpServerLabel.setFrameStyle(frameStyle)
 
@@ -396,24 +403,23 @@ class Sub_path(QtGui.QDialog):
         self.ftp.abort()
 
 class Path_results(QtGui.QDialog):    
-    def __init__(self,ftp,pathes,basename, path_number, parent=None):
+    def __init__(self,server_names, total_find, path_number, parent=None):
         super(Path_results, self).__init__(parent)                
         self.mainLayout = QtGui.QVBoxLayout()
         self.path_number = path_number
         self.setLayout(self.mainLayout)
-        self.pathes=pathes
-        self.basename=basename
+        self.total_find = total_find
+        self.SERVER_NAMES = server_names
         self.hLayout = QtGui.QHBoxLayout()
         self.countLabel = QtGui.QLabel("{} Results founded!".format(self.path_number))
         topLayout = QtGui.QVBoxLayout()
         topLayout.addWidget(self.countLabel)
         self.mainLayout.addLayout(topLayout)
         self.mainLayout.insertLayout(0, self.hLayout)
-        self.ftp = ftp
         self.listA=QtGui.QTreeWidget()
         self.listA.setHeaderLabels(['Matched Paths', 'Server name'])
         self.dialogbox=QtGui.QInputDialog()
-        for s_name,all_path in self.pathes.items():
+        for s_name,all_path in self.total_find.items():
             for p in all_path:
                 item=QtGui.QTreeWidgetItem()
                 item.setText(0, p)
@@ -431,7 +437,7 @@ class Path_results(QtGui.QDialog):
 
     @pyqtSlot(QtGui.QTreeWidget)
     def doubleClicked_path(self,item):
-        self.wind = Sub_path(self.ftp,self.basename,item.text(0))
+        self.wind = Sub_path(self.SERVER_NAMES[item.text(1)],item.text(0))
         self.wind.resize(450, 650)
         self.wind.setWindowTitle('Sub Path')
         self.wind.show()
@@ -930,21 +936,21 @@ class FtpWindow(QtGui.QDialog):
         return c[self.dbname]
 
     def search(self):
-        import re
         MESSAGE = QtCore.QT_TR_NOOP("<p>You have an erron in your connection.</p>"
                                 "<p>Please select one of the server names and connect to it.</p>")
         text,ok=self.dialogbox.getText(QtGui.QInputDialog(),"Search for file",'Enter the name of your file ',QtGui.QLineEdit.Normal)
         if ok:
             try:
                 total_find = {}
+                regex = self.cal_regex(text)
                 for servername in self.selected_SERVER_NAMES:
-                    regex = re.compile(r'.*{}.*'.format(text),re.I)
-                    results = self.mongo_cursor[servername].find({"files":{'$regex':regex}})
-                    paths = [i['path']  for i in results]
+                    results = self.mongo_cursor[servername].find(
+                        {"$or":[{"path":{"$regex":regex}},{"files":{'$regex':regex}}]})  
+                    paths = [i['path'] for i in results]
                     total_find[servername] = paths
                 match_path_number = sum(map(len,total_find.values()))
                 if match_path_number:
-                    self.wid = Path_results(self.ftp, total_find, self.ftpServerLabel.text(), match_path_number)
+                    self.wid = Path_results(self.SERVER_NAMES, total_find, match_path_number)
                     self.wid.resize(350, 650)
                     self.wid.setWindowTitle('NewWindow')
                     self.wid.show()
@@ -957,11 +963,18 @@ class FtpWindow(QtGui.QDialog):
                 </p>Press OK to regural search.<p>It may takes between 2 to 10 minute.</p>"""
                 QtGui.QMessageBox.information(self,
                 "QMessageBox.information()", MESSAGE)
-                self.fileList.clear()
-                self.isDirectory.clear()
-                self.setCursor(QtCore.Qt.WaitCursor)
-                self.regural_search(text,self.ftp,self.servername,self.ftpServerLabel.text())
+                #self.fileList.clear()
+                #self.isDirectory.clear()
+                #self.setCursor(QtCore.Qt.WaitCursor)
+                #self.regural_search(text,self.servername,self.ftpServerLabel.text())
     
+    def cal_regex(self, text):
+        synonyms = wordnet.synsets(text)
+        lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
+        print lemmas
+        pre_regex = '|'.join(lemmas)
+        return re.compile(r'.*{}.*'.format(pre_regex),re.I)
+
     def regural_search(self, word, ftp, severname, sever_url):
         try:
             FT=ftp_walker(j)
@@ -975,7 +988,7 @@ class FtpWindow(QtGui.QDialog):
         else:
             paths = FT.all_path
             if paths:
-                self.wid = Path_results(ftp, paths, servername, url)
+                self.wid = Path_results(ftp, paths, servername)
                 self.wid.resize(350, 650)
                 self.wid.setWindowTitle('NewWindow')
                 self.wid.show()
