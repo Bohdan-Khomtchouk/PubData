@@ -33,7 +33,7 @@ class DBcreator:
                         self.mongo_cursor[collection_name].insert(
                             {
                                 'path': _path,
-                                'files': files
+                                'files': file_names
                             }
                         )
                 print ("Inserting finished.")
