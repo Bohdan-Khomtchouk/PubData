@@ -2,7 +2,7 @@
 
 ## About
 
-PubData is a user-friendly search engine for all bioinformatics databases worldwide.  PubData searches biomedical FTP data in a user-friendly fashion similar to how PubMed searches biomedical literature.  However, PubData is currently hosted as a GUI software program, while PubMed is hosted as an online web server.  PubData is built on novel network programming and natural language processing algorithms that can patch into any user-specified bioinformatics online database and query its contents.
+PubData is a genomics search engine for all bioinformatics databases worldwide.  PubData searches biomedical FTP data in a user-friendly fashion similar to how PubMed searches biomedical literature.  PubData is hosted as a standalone GUI software program, while PubMed is hosted as an online web server.  PubData is built on novel network programming and natural language processing algorithms that can patch into any user-specified bioinformatics online database and query its contents.
 
 Future plans include adding web server support for PubData, and contributions from the open source community are welcome.
 
@@ -12,7 +12,7 @@ By assembling all major bioinformatics databases under the roof of one software 
 
 PubData is an ongoing bioinformatics software project financially supported by the United States Department of Defense (DoD) through the National Defense Science and Engineering Graduate Fellowship (NDSEG) Program. This research was conducted with Government support under and awarded by DoD, Army Research Office (ARO), National Defense Science and Engineering Graduate (NDSEG) Fellowship, 32 CFR 168a.
 
-Please cite: "Khomtchouk et al.: 'PubData: search engine for bioinformatics databases', 2016 (in preparation)" within any source that makes use of any methods inspired by PubData.
+Please cite: "Khomtchouk et al.: 'PubData: genomics search engine for bioinformatics databases', 2016 (in preparation)" within any source that makes use of any methods inspired by PubData.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
