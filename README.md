@@ -25,3 +25,12 @@ You should have received a copy of the GNU General Public License along with thi
 ### Requirements
 
 * Python >= 2.7
+
+## Screenshots
+
+![main-window](https://cloud.githubusercontent.com/assets/9893806/13992741/a86270a4-f0f3-11e5-903d-8bcac9127cc0.png)
+![edit-servers](https://cloud.githubusercontent.com/assets/9893806/13992743/aa6d227c-f0f3-11e5-865b-1fad5568c24a.png)
+![write-the-keyword-for-search](https://cloud.githubusercontent.com/assets/9893806/13992748/ae49899e-f0f3-11e5-96a9-65392fddbb24.png)
+![search-result](https://cloud.githubusercontent.com/assets/9893806/13992773/c0d094f4-f0f3-11e5-8672-20cf9e8573e2.png)
+![openning-a-path-from-serach-resutl](https://cloud.githubusercontent.com/assets/9893806/13992781/c6efae92-f0f3-11e5-9bc9-e71b518db14e.png)
+![select-server-names-for-search](https://cloud.githubusercontent.com/assets/9893806/13992790/cf336c60-f0f3-11e5-8542-ee169271d487.png)
