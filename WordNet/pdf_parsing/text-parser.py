@@ -1,3 +1,8 @@
+"""
+Create a json file ocntain the encyclopedia words and relative descriptions.The result is not precisely same as the PDF,
+approximately about 95% is correct.
+"""
+
 import json
 from collections import OrderedDict
 import codecs
