@@ -37,27 +37,27 @@ from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
 
-SERVER_NAMES = {'Ensembl Genome Browser': 'ftp_walker_insp.ensembl.org',
+SERVER_NAMES = {'Ensembl Genome Browser': 'ftp.ensembl.org',
                 'UCSC Genome Browser': 'hgdownload.cse.ucsc.edu',
-                'Uniprot': 'ftp_walker_insp.uniprot.org',
-                'Flybase': 'ftp_walker_insp.flybase.net',
-                'Xenbase': 'ftp_walker_insp.xenbase.org',
-                'The Arabidopsis Information Resource': 'ftp_walker_insp.arabidopsis.org/home',
+                'Uniprot': 'ftp.uniprot.org',
+                'Flybase': 'ftp.flybase.net',
+                'Xenbase': 'ftp.xenbase.org',
+                'The Arabidopsis Information Resource': 'ftp.arabidopsis.org/home',
                 'Rat Genome Database': 'rgd.mcw.edu',
-                'Human Microbiome Project': 'public-ftp_walker_insp.hmpdacc.org',
-                'National Center for Biotechnology Information': 'ftp_walker_insp.ncbi.nlm.nih.gov',
-                'REBASE': 'ftp_walker_insp.neb.com',
-                'NECTAR': 'ftp_walker_insp.nectarmutation.org',
-                'Global Proteome Machine and Database': 'ftp_walker_insp.thegpm.org',
-                'Protein Information Resource': 'ftp_walker_insp.pir.georgetown.edu',
-                'O-GLYCBASE': 'ftp_walker_insp.cbs.dtu.dk',
-                'Pasteur Insitute': 'ftp_walker_insp.pasteur.fr',
+                'Human Microbiome Project': 'public-ftp.hmpdacc.org',
+                'National Center for Biotechnology Information': 'ftp.ncbi.nlm.nih.gov',
+                'REBASE': 'ftp.neb.com',
+                'NECTAR': 'ftp.nectarmutation.org',
+                'Global Proteome Machine and Database': 'ftp.thegpm.org',
+                'Protein Information Resource': 'ftp.pir.georgetown.edu',
+                'O-GLYCBASE': 'ftp.cbs.dtu.dk',
+                'Pasteur Insitute': 'ftp.pasteur.fr',
                 'miRBase': 'mirbase.org',
-                'Genomicus': 'ftp_walker_insp.biologie.ens.fr',
-                'AAindex': 'ftp_walker_insp.genome.jp',
+                'Genomicus': 'ftp.biologie.ens.fr',
+                'AAindex': 'ftp.genome.jp',
                 'PairsDB': 'nic.funet.fi',
                 'Molecular INTeraction database': 'mint.bio.uniroma2.it',
-                'PANTHER': 'ftp_walker_insp.pantherdb.org'}
+                'PANTHER': 'ftp.pantherdb.org'}
 
 
 class Edit_servers(QtGui.QDialog):
@@ -70,9 +70,7 @@ class Edit_servers(QtGui.QDialog):
     def __init__(self, parent=None):
         """
         .. py:attribute:: __init__()
-           :param parent:
-           :type parent:
-           :rtype: UNKNOWN
+
         .. note::
         .. todo::
         """
@@ -97,9 +95,9 @@ class Edit_servers(QtGui.QDialog):
 
         self.h_layout.addWidget(self.list_a)
 
-        self.self.button_group_box = QtGui.QGroupBox()
+        self.button_group_box = QtGui.QGroupBox()
         self.button_layout = QtGui.QVBoxLayout()
-        self.self.button_group_box.setLayout(self.button_layout)
+        self.button_group_box.setLayout(self.button_layout)
 
         get_data_button = QtGui.QPushButton('Add new server')
         get_data_button.clicked.connect(self.addnew)
@@ -109,7 +107,7 @@ class Edit_servers(QtGui.QDialog):
         ok_button.clicked.connect(self.removeSel)
         self.button_layout.addWidget(ok_button)
 
-        self.main_layout.addWidget(self.self.button_group_box)
+        self.main_layout.addWidget(self.button_group_box)
         self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
         QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
         border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
@@ -178,9 +176,8 @@ class Edit_servers(QtGui.QDialog):
             item = list_items.child(i)
             if item.checkState(0) == QtCore.Qt.CheckState.Checked:
                 checked_items.add(item)
-        names = [i.text(0) for i in checked_items]
         for item in checked_items:
-            item_index = self.list_a.indexOftp_walker_insopLevelItem(item)
+            item_index = self.list_a.indexOfTopLevelItem(item)
             self.list_a.takeTopLevelItem(item_index)
 
 
@@ -238,12 +235,12 @@ class Sub_path(QtGui.QDialog):
         self.outFile = None
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
 
-        self.senameLabel = QtGui.QLabel("ftp_walker_insP name : ")
+        self.senameLabel = QtGui.QLabel("ftp name : ")
         self.senameLabel.setText(root)
         self.ftp_walker_inspServerLabel = QtGui.QLabel('...')
         self.ftp_walker_inspServerLabel.setFrameStyle(frame_style)
 
-        # self.statusLabel = QtGui.QLabel("Please select the name of an ftp_walker_insP server.")
+        # self.statusLabel = QtGui.QLabel("Please select the name of an ftp server.")
 
         self.fileList = QtGui.QTreeWidget()
         self.fileList.setEnabled(False)
@@ -344,7 +341,7 @@ class Sub_path(QtGui.QDialog):
                 self.ftp_walker_insp.cd(url.path())
 
         self.fileList.setEnabled(True)
-        #self.statusLabel.setText("Connecting to ftp_walker_insP server %s..." % self.ftp_walker_inspServerLabel.text())
+        #self.statusLabel.setText("Connecting to ftp server %s..." % self.ftp_walker_inspServerLabel.text())
 
     def ftp_walker_inspCommandFinished(self, _, error):
         """
@@ -363,8 +360,8 @@ class Sub_path(QtGui.QDialog):
             if error:
                 QtGui.QMessageBox.information(
                     self,
-                    "ftp_walker_insP",
-                    "Unable to connect to the ftp_walker_insP server at %s. Please "
+                    "ftp",
+                    "Unable to connect to the ftp server at %s. Please "
                     "check that the host name is correct." % self.ftp_walker_inspServerLabel.text())
                 self.connectOrDisconnect()
                 return
@@ -503,7 +500,7 @@ class Sub_path(QtGui.QDialog):
         if QtCore.QFile.exists(file_name):
             QtGui.QMessageBox.information(
                 self,
-                "ftp_walker_insP",
+                "ftp",
                 "There already exists a file called %s in the current "
                 "directory." % file_name)
             return
@@ -512,7 +509,7 @@ class Sub_path(QtGui.QDialog):
         if not self.outFile.open(QtCore.QIODevice.WriteOnly):
             QtGui.QMessageBox.information(
                 self,
-                "ftp_walker_insP",
+                "ftp",
                 "Unable to save the file %s: %s." % (file_name, self.outFile.errorString()))
             self.outFile = None
             return
@@ -722,7 +719,7 @@ class ftp_walker_inspWalker(object):
         .. todo::
         """
         base = []
-        conn = ftplib.ftp_walker_insP(self.servername)
+        conn = ftplib.ftp(self.servername)
         conn.login()
         for p, dirs, files in self.Walk(conn, '/'):
             length = len(dirs)
@@ -786,7 +783,7 @@ class ftp_walker_inspWalker(object):
         .. note::
         .. todo::
         """
-        connection = ftp_walker_insP(self.servername)
+        connection = ftp(self.servername)
         try:
             connection.login()
         except:
@@ -861,11 +858,11 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         self.SERVER_NAMES = self.getServerNames()
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
 
-        self.senameLabel = QtGui.QLabel("ftp_walker_insP name : ")
+        self.senameLabel = QtGui.QLabel("ftp name : ")
         self.ftp_walker_inspServerLabel = QtGui.QLabel('...')
         self.ftp_walker_inspServerLabel.setFrameStyle(frame_style)
 
-        self.statusLabel = QtGui.QLabel("Please select the name of an ftp_walker_insP server.")
+        self.statusLabel = QtGui.QLabel("Please select the name of an ftp server.")
 
         self.fileList = QtGui.QTreeWidget()
         self.fileList.setEnabled(False)
@@ -936,7 +933,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         main_layout.addWidget(self.statusLabel)
         main_layout.addWidget(button_box)
         self.setLayout(main_layout)
-        self.setWindowTitle("BioNetHub")
+        self.setWindowTitle("PubData")
         self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
         QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
         border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
@@ -1137,7 +1134,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         self.fileList.setEnabled(True)
         self.connectButton.setEnabled(False)
         self.connectButton.setText("Disconnect")
-        self.statusLabel.setText("Connecting to ftp_walker_insP server %s..." % self.ftp_walker_inspServerLabel.text())
+        self.statusLabel.setText("Connecting to ftp server %s..." % self.ftp_walker_inspServerLabel.text())
 
     def downloadFile(self):
         """
@@ -1151,7 +1148,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         if QtCore.QFile.exists(file_name):
             QtGui.QMessageBox.information(
                 self,
-                "ftp_walker_insP",
+                "ftp",
                 "There already exists a file called %s in the current "
                 "directory." % file_name)
             return
@@ -1160,7 +1157,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         if not self.outFile.open(QtCore.QIODevice.WriteOnly):
             QtGui.QMessageBox.information(
                 self,
-                "ftp_walker_insP",
+                "ftp",
                 "Unable to save the file %s: %s." % (file_name, self.outFile.errorString()))
             self.outFile = None
             return
@@ -1197,8 +1194,8 @@ class ftp_walker_inspWindow(QtGui.QDialog):
             if error:
                 QtGui.QMessageBox.information(
                     self,
-                    "ftp_walker_insP",
-                    "Unable to connect to the ftp_walker_insP server at %s. Please "
+                    "ftp",
+                    "Unable to connect to the ftp server at %s. Please "
                     "check that the host name is correct." % self.ftp_walker_inspServerLabel.text())
                 self.connectOrDisconnect()
                 return
