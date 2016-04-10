@@ -65,12 +65,12 @@ class Edit_servers(QtGui.QDialog):
     ==============
     ``Edit_servers``
     ----------
+    Let users update the servers optionally.
     .. py:class:: Edit_servers()
     """
     def __init__(self, parent=None):
         """
         .. py:attribute:: __init__()
-
         .. note::
         .. todo::
         """
@@ -118,6 +118,7 @@ class Edit_servers(QtGui.QDialog):
 
     def itemadder(self, name):
         """
+        Create the list of server names.
         .. py:attribute:: itemadder()
            :param name:
            :type name:
@@ -134,6 +135,8 @@ class Edit_servers(QtGui.QDialog):
     @pyqtSlot(QtGui.QTreeWidget)
     def doubleClickedSlot(self, item):
         """
+        Lunch the relative pop up windows for editing the name and address of servers,
+        by double clicking on items in the list.
         .. py:attribute:: doubleClickedSlot()
            :param item:
            :type item:
@@ -162,6 +165,7 @@ class Edit_servers(QtGui.QDialog):
 
     def removeSel(self):
         """
+        Remove the checked items.
         .. py:attribute:: removeSel()
             :rtype: UNKNOWN
         .. note::
@@ -183,6 +187,7 @@ class Edit_servers(QtGui.QDialog):
 
     def addnew(self):
         """
+        Add new server.
         .. py:attribute:: addnew()
             :rtype: UNKNOWN
         .. note::
@@ -207,23 +212,17 @@ class Sub_path(QtGui.QDialog):
     ==============
     ``Sub_path``
     ----------
-    .. py:class:: Sub_path()
-       :param :
-       :type :
-       :rtype: UNKNOWN
+    This class will open a path from the result of user's search (see :ref:`Path_results`). 
     .. note::
     .. todo::
     """
     def __init__(self, root, path, parent=None):
         """
         .. py:attribute:: __init__()
-           :param root:
-           :type root:
-           :param path:
-           :type path:
-           :param parent:
-           :type parent:
-            :rtype: UNKNOWN
+           :param root: The server's root address (ftp URL)
+           :type root: str
+           :param path: The intended path
+           :type path: str
         .. note::
         .. todo::
         """
@@ -231,14 +230,14 @@ class Sub_path(QtGui.QDialog):
         self.root = root
         self.path = path
         self.isDirectory = {}
-        self.ftp_walker_insp = None
+        self.ftp = None
         self.outFile = None
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
 
         self.senameLabel = QtGui.QLabel("ftp name : ")
         self.senameLabel.setText(root)
-        self.ftp_walker_inspServerLabel = QtGui.QLabel('...')
-        self.ftp_walker_inspServerLabel.setFrameStyle(frame_style)
+        self.ftpServerLabel = QtGui.QLabel('...')
+        self.ftpServerLabel.setFrameStyle(frame_style)
 
         # self.statusLabel = QtGui.QLabel("Please select the name of an ftp server.")
 
@@ -280,49 +279,38 @@ class Sub_path(QtGui.QDialog):
         QTextEdit{background-color:#ffffff; color:#000000}QInputDialog{border-radius:4px;color :black;font-weight:500; font-size: 12pt}""")
         self.connectOrDisconnect()
 
-
-    def sizeHint(self):
-        """
-        .. py:attribute:: sizeHint()
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        return QtCore.QSize(800, 400)
-
-
     def connectOrDisconnect(self):
         """
+        Connecting to and disconnecting from FTP host.
         .. py:attribute:: connectOrDisconnect()
             :rtype: UNKNOWN
         .. note::
         .. todo::
         """
-        if not self.ftp_walker_insp:
-            print 'ceate new ftp_walker_insp'
-            self.ftp_walker_insp = QtNetwork.QFtp(self)
+        if not self.ftp:
+            print 'create new FTP connection'
+            self.ftp = QtNetwork.QFtp(self)
 
         self.setCursor(QtCore.Qt.WaitCursor)
-        self.ftp_walker_insp.commandFinished.connect(self.ftp_walker_inspCommandFinished)
-        self.ftp_walker_insp.listInfo.connect(self.addToList)
-        self.ftp_walker_insp.dataTransferProgress.connect(self.updateDataTransferProgress)
+        self.ftp.commandFinished.connect(self.ftpCommandFinished)
+        self.ftp.listInfo.connect(self.addToList)
+        self.ftp.dataTransferProgress.connect(self.updateDataTransferProgress)
 
         self.fileList.clear()
         self.currentPath = ''
         self.isDirectory.clear()
         print self.path
         url = QtCore.QUrl(self.root)
-        if not url.isValid() or url.scheme().lower() != 'ftp_walker_insp':
-            self.ftp_walker_insp.connectToHost(self.root, 21)
-            self.ftp_walker_insp.login()
+        if not url.isValid() or url.scheme().lower() != 'ftp':
+            self.ftp.connectToHost(self.root, 21)
+            self.ftp.login()
             self.setCursor(QtCore.Qt.WaitCursor)
             self.fileList.clear()
             self.currentPath = '/'.join(self.path.split('/')[:-1])
-            self.ftp_walker_insp.cd(self.path)
-            # self.ftp_walker_insp.list()
+            self.ftp.cd(self.path)
             self.cdToParentButton.setEnabled(True)
         else:
-            self.ftp_walker_insp.connectToHost(url.host(), url.port(21))
+            self.ftp.connectToHost(url.host(), url.port(21))
 
             user_name = url.userName()
             if user_name:
@@ -333,19 +321,19 @@ class Sub_path(QtGui.QDialog):
                     # Python v2.
                     pass
 
-                self.ftp_walker_insp.login(QtCore.QUrl.fromPercentEncoding(user_name), url.password())
+                self.ftp.login(QtCore.QUrl.fromPercentEncoding(user_name), url.password())
             else:
-                self.ftp_walker_insp.login()
+                self.ftp.login()
 
             if url.path():
-                self.ftp_walker_insp.cd(url.path())
+                self.ftp.cd(url.path())
 
         self.fileList.setEnabled(True)
-        #self.statusLabel.setText("Connecting to ftp server %s..." % self.ftp_walker_inspServerLabel.text())
+        #self.statusLabel.setText("Connecting to ftp server %s..." % self.ftpServerLabel.text())
 
-    def ftp_walker_inspCommandFinished(self, _, error):
+    def ftpCommandFinished(self, _, error):
         """
-        .. py:attribute:: ftp_walker_inspCommandFinished()
+        .. py:attribute:: ftpCommandFinished()
            :param _:
            :type _:
            :param error:
@@ -356,22 +344,22 @@ class Sub_path(QtGui.QDialog):
         """
         self.setCursor(QtCore.Qt.ArrowCursor)
 
-        if self.ftp_walker_insp.currentCommand() == QtNetwork.QFtp.ConnectToHost:
+        if self.ftp.currentCommand() == QtNetwork.QFtp.ConnectToHost:
             if error:
                 QtGui.QMessageBox.information(
                     self,
                     "ftp",
                     "Unable to connect to the ftp server at %s. Please "
-                    "check that the host name is correct." % self.ftp_walker_inspServerLabel.text())
+                    "check that the host name is correct." % self.ftpServerLabel.text())
                 self.connectOrDisconnect()
                 return
 
-            # self.statusLabel.setText("Logged onto %s." % self.ftp_walker_inspServerLabel.text())
+            # self.statusLabel.setText("Logged onto %s." % self.ftpServerLabel.text())
             self.fileList.setFocus()
-            self.ftp_walker_insp.list()
+            self.ftp.list()
             self.outFile = None
             self.progressDialog.hide()
-        elif self.ftp_walker_insp.currentCommand() == QtNetwork.QFtp.List:
+        elif self.ftp.currentCommand() == QtNetwork.QFtp.List:
             if not self.isDirectory:
                 self.fileList.addTopLevelItem(QtGui.QTreeWidgetItem(["<empty>"]))
                 self.fileList.setEnabled(False)
@@ -418,8 +406,8 @@ class Sub_path(QtGui.QDialog):
             self.fileList.clear()
             self.isDirectory.clear()
             self.currentPath += '/' + name
-            self.ftp_walker_insp.cd(name)
-            self.ftp_walker_insp.list()
+            self.ftp.cd(name)
+            self.ftp.list()
             self.cdToParentButton.setEnabled(True)
             self.setCursor(QtCore.Qt.WaitCursor)
 
@@ -437,13 +425,13 @@ class Sub_path(QtGui.QDialog):
         dirs = self.currentPath.split('/')
         if len(dirs) == 2:
             self.currentPath = '/'
-            self.ftp_walker_insp.cd(self.currentPath)
+            self.ftp.cd(self.currentPath)
             self.cdToParentButton.setEnabled(False)
         else:
             self.currentPath = '/'.join(dirs[:-1])
-            self.ftp_walker_insp.cd(self.currentPath)
+            self.ftp.cd(self.currentPath)
 
-        self.ftp_walker_insp.list()
+        self.ftp.list()
 
     def change_path(self, path):
         """
@@ -454,12 +442,12 @@ class Sub_path(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.ftp_walker_insp = QtNetwork.QFtp(self)
+        self.ftp = QtNetwork.QFtp(self)
         self.setCursor(QtCore.Qt.WaitCursor)
         self.fileList.clear()
         self.isDirectory.clear()
-        self.ftp_walker_insp.cd(path)
-        self.ftp_walker_insp.list()
+        self.ftp.cd(path)
+        self.ftp.list()
 
     def updateDataTransferProgress(self, readBytes, totalBytes):
         """
@@ -488,6 +476,7 @@ class Sub_path(QtGui.QDialog):
             self.downloadButton.setEnabled(not self.isDirectory.get(current_file))
         else:
             self.downloadButton.setEnabled(False)
+
     def downloadFile(self):
         """
         .. py:attribute:: downloadFile()
@@ -515,7 +504,7 @@ class Sub_path(QtGui.QDialog):
             return
 
         print self.fileList.currentItem().text(0)
-        self.ftp_walker_insp.get(self.fileList.currentItem().text(0), self.outFile)
+        self.ftp.get(self.fileList.currentItem().text(0), self.outFile)
 
         self.progressDialog.setLabelText("Downloading %s..." % file_name)
         self.downloadButton.setEnabled(False)
@@ -528,7 +517,8 @@ class Sub_path(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.ftp_walker_insp.abort()
+        self.ftp.abort()
+
 
 class Path_results(QtGui.QDialog):    
     """
@@ -603,7 +593,8 @@ class Path_results(QtGui.QDialog):
         self.wind.setWindowTitle('Sub Path')
         self.wind.show()
 
-class SelectServers(QtGui.QDialog):    
+
+class SelectServers(QtGui.QDialog):
     """
     ==============
     ``SelectServers``
@@ -686,12 +677,12 @@ class SelectServers(QtGui.QDialog):
         self.close()
 
 
-class ftp_walker_inspWalker(object):
+class ftpWalker(object):
     """
     ==============
-    ``ftp_walker_inspWalker``
+    ``ftpWalker``
     ----------
-    .. py:class:: ftp_walker_inspWalker()
+    .. py:class:: ftpWalker()
        :param :
        :type :
        :rtype: UNKNOWN
@@ -822,12 +813,12 @@ class ftp_walker_inspWalker(object):
                 thread.join()
 
 
-class ftp_walker_inspWindow(QtGui.QDialog):
+class ftpWindow(QtGui.QDialog):
     """
     ==============
-    ``ftp_walker_inspWindow``
+    ``ftpWindow``
     ----------
-    .. py:class:: ftp_walker_inspWindow()
+    .. py:class:: ftpWindow()
        :param :
        :type :
        :rtype: UNKNOWN
@@ -845,7 +836,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        super(ftp_walker_inspWindow, self).__init__(parent)
+        super(ftpWindow, self).__init__(parent)
         self.dbname = "BioNetHub"
         self.mongo_cursor = self.mongo_connector()
         self.collection_names = self.mongo_cursor.collection_names()
@@ -853,14 +844,14 @@ class ftp_walker_inspWindow(QtGui.QDialog):
             self.Select_s = SelectServers()
             self.Select_s.ok_button.clicked.connect(self.put_get_servers)
         self.isDirectory = {}
-        self.ftp_walker_insp = None
+        self.ftp = None
         self.outFile = None
         self.SERVER_NAMES = self.getServerNames()
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
 
         self.senameLabel = QtGui.QLabel("ftp name : ")
-        self.ftp_walker_inspServerLabel = QtGui.QLabel('...')
-        self.ftp_walker_inspServerLabel.setFrameStyle(frame_style)
+        self.ftpServerLabel = QtGui.QLabel('...')
+        self.ftpServerLabel.setFrameStyle(frame_style)
 
         self.statusLabel = QtGui.QLabel("Please select the name of an ftp server.")
 
@@ -922,7 +913,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
 
         top_layout = QtGui.QHBoxLayout()
         top_layout.addWidget(self.senameLabel)
-        top_layout.addWidget(self.ftp_walker_inspServerLabel)
+        top_layout.addWidget(self.ftpServerLabel)
         top_layout.addWidget(self.serverButton)
         top_layout.addWidget(self.cdToParentButton)
         top_layout.addWidget(self.connectButton)
@@ -973,7 +964,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
                                               0,
                                               False)
         if ok and item:
-            self.ftp_walker_inspServerLabel.setText(self.SERVER_NAMES[item])
+            self.ftpServerLabel.setText(self.SERVER_NAMES[item])
             self.servername = item
 
     @pyqtSlot(QtGui.QTreeWidget)
@@ -985,7 +976,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         .. todo::
         """
         self.selected_SERVER_NAMES = self.Select_s.selected_SERVER_NAMES
-        # self.ftp_walker_inspServerLabel.text() = self.selected_SERVER_NAMES.pop(0)
+        # self.ftpServerLabel.text() = self.selected_SERVER_NAMES.pop(0)
         self.statusLabel.setText("Search in servers: {}".format(','.join(self.selected_SERVER_NAMES)))
 
     def updateservers(self):
@@ -1028,7 +1019,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         """
         try:
             self.statusLabel.setText("Start updating of {} ...".format(name))
-            ftp_walker_ins = ftp_walker_inspWalker(self.SERVER_NAMES[name])
+            ftp_walker_ins = ftpWalker(self.SERVER_NAMES[name])
             ftp_walker_ins.run()
         except ftplib.error_temp as e:
             self.statusLabel.setText("Update Failed")
@@ -1083,10 +1074,10 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        if self.ftp_walker_insp:
-            self.ftp_walker_insp.abort()
-            self.ftp_walker_insp.deleteLater()
-            self.ftp_walker_insp = None
+        if self.ftp:
+            self.ftp.abort()
+            self.ftp.deleteLater()
+            self.ftp = None
 
             self.fileList.setEnabled(False)
             self.cdToParentButton.setEnabled(False)
@@ -1099,21 +1090,21 @@ class ftp_walker_inspWindow(QtGui.QDialog):
 
         self.setCursor(QtCore.Qt.WaitCursor)
 
-        self.ftp_walker_insp = QtNetwork.QFtp(self)
-        self.ftp_walker_insp.commandFinished.connect(self.ftp_walker_inspCommandFinished)
-        self.ftp_walker_insp.listInfo.connect(self.addToList)
-        self.ftp_walker_insp.dataTransferProgress.connect(self.updateDataTransferProgress)
+        self.ftp = QtNetwork.QFtp(self)
+        self.ftp.commandFinished.connect(self.ftpCommandFinished)
+        self.ftp.listInfo.connect(self.addToList)
+        self.ftp.dataTransferProgress.connect(self.updateDataTransferProgress)
 
         self.fileList.clear()
         self.currentPath = ''
         self.isDirectory.clear()
 
-        url = QtCore.QUrl(self.ftp_walker_inspServerLabel.text())
-        if not url.isValid() or url.scheme().lower() != 'ftp_walker_insp':
-            self.ftp_walker_insp.connectToHost(self.ftp_walker_inspServerLabel.text(), 21)
-            self.ftp_walker_insp.login()
+        url = QtCore.QUrl(self.ftpServerLabel.text())
+        if not url.isValid() or url.scheme().lower() != 'ftp':
+            self.ftp.connectToHost(self.ftpServerLabel.text(), 21)
+            self.ftp.login()
         else:
-            self.ftp_walker_insp.connectToHost(url.host(), url.port(21))
+            self.ftp.connectToHost(url.host(), url.port(21))
 
             user_name = url.userName()
             if user_name:
@@ -1124,17 +1115,17 @@ class ftp_walker_inspWindow(QtGui.QDialog):
                     # Python v2.
                     pass
 
-                self.ftp_walker_insp.login(QtCore.QUrl.fromPercentEncoding(user_name), url.password())
+                self.ftp.login(QtCore.QUrl.fromPercentEncoding(user_name), url.password())
             else:
-                self.ftp_walker_insp.login()
+                self.ftp.login()
 
             if url.path():
-                self.ftp_walker_insp.cd(url.path())
+                self.ftp.cd(url.path())
 
         self.fileList.setEnabled(True)
         self.connectButton.setEnabled(False)
         self.connectButton.setText("Disconnect")
-        self.statusLabel.setText("Connecting to ftp server %s..." % self.ftp_walker_inspServerLabel.text())
+        self.statusLabel.setText("Connecting to ftp server %s..." % self.ftpServerLabel.text())
 
     def downloadFile(self):
         """
@@ -1163,7 +1154,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
             return
 
         print self.fileList.currentItem().text(0)
-        self.ftp_walker_insp.get(self.fileList.currentItem().text(0), self.outFile)
+        self.ftp.get(self.fileList.currentItem().text(0), self.outFile)
 
         self.progressDialog.setLabelText("Downloading %s..." % file_name)
         self.downloadButton.setEnabled(False)
@@ -1176,11 +1167,11 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.ftp_walker_insp.abort()
+        self.ftp.abort()
 
-    def ftp_walker_inspCommandFinished(self, _, error):
+    def ftpCommandFinished(self, _, error):
         """
-        .. py:attribute:: ftp_walker_inspCommandFinished()
+        .. py:attribute:: ftpCommandFinished()
            :param _:
            :type _:
            :param error:
@@ -1190,26 +1181,26 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         .. todo::
         """
         self.setCursor(QtCore.Qt.ArrowCursor)
-        if self.ftp_walker_insp.currentCommand() == QtNetwork.QFtp.ConnectToHost:
+        if self.ftp.currentCommand() == QtNetwork.QFtp.ConnectToHost:
             if error:
                 QtGui.QMessageBox.information(
                     self,
                     "ftp",
                     "Unable to connect to the ftp server at %s. Please "
-                    "check that the host name is correct." % self.ftp_walker_inspServerLabel.text())
+                    "check that the host name is correct." % self.ftpServerLabel.text())
                 self.connectOrDisconnect()
                 return
 
-            self.statusLabel.setText("Logged onto %s." % self.ftp_walker_inspServerLabel.text())
+            self.statusLabel.setText("Logged onto %s." % self.ftpServerLabel.text())
             self.fileList.setFocus()
             self.downloadButton.setDefault(True)
             self.connectButton.setEnabled(True)
             return
 
-        if self.ftp_walker_insp.currentCommand() == QtNetwork.QFtp.Login:
-            self.ftp_walker_insp.list()
+        if self.ftp.currentCommand() == QtNetwork.QFtp.Login:
+            self.ftp.list()
 
-        if self.ftp_walker_insp.currentCommand() == QtNetwork.QFtp.Get:
+        if self.ftp.currentCommand() == QtNetwork.QFtp.Get:
             if error:
                 self.statusLabel.setText("Canceled download of %s." % self.outFile.file_name())
                 self.outFile.close()
@@ -1221,7 +1212,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
             self.outFile = None
             self.enableDownloadButton()
             self.progressDialog.hide()
-        elif self.ftp_walker_insp.currentCommand() == QtNetwork.QFtp.List:
+        elif self.ftp.currentCommand() == QtNetwork.QFtp.List:
             if not self.isDirectory:
                 self.fileList.addTopLevelItem(QtGui.QTreeWidgetItem(["<empty>"]))
                 self.fileList.setEnabled(False)
@@ -1268,8 +1259,8 @@ class ftp_walker_inspWindow(QtGui.QDialog):
             self.fileList.clear()
             self.isDirectory.clear()
             self.currentPath += '/' + name
-            self.ftp_walker_insp.cd(name)
-            self.ftp_walker_insp.list()
+            self.ftp.cd(name)
+            self.ftp.list()
             self.cdToParentButton.setEnabled(True)
             self.setCursor(QtCore.Qt.WaitCursor)
 
@@ -1287,13 +1278,13 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         dirs = self.currentPath.split('/')
         if len(dirs) == 2:
             self.currentPath = '/'
-            self.ftp_walker_insp.cd(self.currentPath)
+            self.ftp.cd(self.currentPath)
             self.cdToParentButton.setEnabled(False)
         else:
             self.currentPath = '/'.join(dirs[:-1])
-            self.ftp_walker_insp.cd(self.currentPath)
+            self.ftp.cd(self.currentPath)
 
-        self.ftp_walker_insp.list()
+        self.ftp.list()
 
     def change_path(self, path):
         """
@@ -1304,12 +1295,12 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.ftp_walker_insp = QtNetwork.QFtp(self)
+        self.ftp = QtNetwork.QFtp(self)
         self.setCursor(QtCore.Qt.WaitCursor)
         self.fileList.clear()
         self.isDirectory.clear()
-        self.ftp_walker_insp.cd(path)
-        self.ftp_walker_insp.list()
+        self.ftp.cd(path)
+        self.ftp.list()
 
     def updateDataTransferProgress(self, readBytes, totalBytes):
         """
@@ -1395,7 +1386,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
                 # self.fileList.clear()
                 # self.isDirectory.clear()
                 # self.setCursor(QtCore.Qt.WaitCursor)
-                # self.regural_search(text,self.servername,self.ftp_walker_inspServerLabel.text())
+                # self.regural_search(text,self.servername,self.ftpServerLabel.text())
 
     def cal_regex(self, text):
         """
@@ -1411,13 +1402,13 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         pre_regex = '|'.join(lemmas)
         return re.compile(r'.*{}.*'.format(pre_regex), re.I)
 
-    def regural_search(self, word, ftp_walker_insp, severname, sever_url):
+    def regural_search(self, word, ftp, severname, sever_url):
         """
         .. py:attribute:: regural_search()
            :param word:
            :type word:
-           :param ftp_walker_insp:
-           :type ftp_walker_insp:
+           :param ftp:
+           :type ftp:
            :param severname:
            :type severname:
            :param sever_url:
@@ -1427,7 +1418,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         .. todo::
         """
         try:
-            ftp_walker_ins = ftp_walker_insp_walker(j)
+            ftp_walker_ins = ftp_walker(j)
             ftp_walker_ins.run(word)
         except ftplib.error_temp as e:
             QtGui.QMessageBox.information(self, "QMessageBox.information()", e)
@@ -1438,7 +1429,7 @@ class ftp_walker_inspWindow(QtGui.QDialog):
         else:
             paths = ftp_walker_ins.all_path
             if paths:
-                self.wid = Path_results(ftp_walker_insp, paths, servername)
+                self.wid = Path_results(ftp, paths, servername)
                 self.wid.resize(350, 650)
                 self.wid.setWindowTitle('NewWindow')
                 self.wid.show()
@@ -1460,10 +1451,10 @@ class ftp_walker_inspWindow(QtGui.QDialog):
 if __name__ == '__main__':
     import sys
     app = QtGui.QApplication(sys.argv)
-    ftp_walker_inspWin_ = ftp_walker_inspWindow()
-    COLLECTION_NAMES = ftp_walker_inspWin_.collection_names
+    ftpWin_ = ftpWindow()
+    COLLECTION_NAMES = ftpWin_.collection_names
     selected_s = SelectServers
-    ftp_walker_inspWin = ftp_walker_inspWindow(selected_s)
-    COLLECTION_NAMES = ftp_walker_inspWin.collection_names
-    ftp_walker_inspWin.show()
-    sys.exit(ftp_walker_inspWin.exec_())
+    ftpWin = ftpWindow(selected_s)
+    COLLECTION_NAMES = ftpWin.collection_names
+    ftpWin.show()
+    sys.exit(ftpWin.exec_())
