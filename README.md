@@ -28,9 +28,12 @@ You should have received a copy of the GNU General Public License along with thi
 
 ## Screenshots
 
-![main-window](https://cloud.githubusercontent.com/assets/9893806/13992741/a86270a4-f0f3-11e5-903d-8bcac9127cc0.png)
-![edit-servers](https://cloud.githubusercontent.com/assets/9893806/13992743/aa6d227c-f0f3-11e5-865b-1fad5568c24a.png)
-![write-the-keyword-for-search](https://cloud.githubusercontent.com/assets/9893806/13992748/ae49899e-f0f3-11e5-96a9-65392fddbb24.png)
-![search-result](https://cloud.githubusercontent.com/assets/9893806/13992773/c0d094f4-f0f3-11e5-8672-20cf9e8573e2.png)
-![openning-a-path-from-serach-resutl](https://cloud.githubusercontent.com/assets/9893806/13992781/c6efae92-f0f3-11e5-9bc9-e71b518db14e.png)
-![select-server-names-for-search](https://cloud.githubusercontent.com/assets/9893806/13992790/cf336c60-f0f3-11e5-8542-ee169271d487.png)
+![select-server-for-connect](https://cloud.githubusercontent.com/assets/9893806/14414608/b08b9656-ff63-11e5-8764-448dafa0dfbb.png)
+![root-directory](https://cloud.githubusercontent.com/assets/9893806/14414613/b427e616-ff63-11e5-9f01-fc42ddaffa73.png)
+![edit-servers](https://cloud.githubusercontent.com/assets/9893806/14414614/b9b979dc-ff63-11e5-851d-368825865d2a.png)
+![add-keyword-to-search](https://cloud.githubusercontent.com/assets/9893806/14414615/bb88d014-ff63-11e5-9997-7bb2c7188e32.png)
+![edit-server-add-new](https://cloud.githubusercontent.com/assets/9893806/14414616/bdbe96e8-ff63-11e5-95f7-9a02444b1474.png)
+![edit-server-update-exist-name](https://cloud.githubusercontent.com/assets/9893806/14414618/c2bf7748-ff63-11e5-976a-a4c738474eb3.png)
+![result-of-seach](https://cloud.githubusercontent.com/assets/9893806/14414622/c857eab4-ff63-11e5-9982-4280532d3c2d.png)
+![open-one-of-the-paths](https://cloud.githubusercontent.com/assets/9893806/14414620/c50dc75c-ff63-11e5-94a3-c5eba96cb501.png)
+![downloading-file](https://cloud.githubusercontent.com/assets/9893806/14414624/caefc7ec-ff63-11e5-8a70-f477e07c8d4d.png)

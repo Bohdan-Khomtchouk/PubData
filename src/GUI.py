@@ -677,6 +677,7 @@ class SelectServers(QtGui.QDialog):
         self.close()
 
 
+# Optimize with C++
 class ftpWalker(object):
     """
     ==============
