@@ -28,12 +28,25 @@ You should have received a copy of the GNU General Public License along with thi
 
 ## Screenshots
 
-![select-server-for-connect](https://cloud.githubusercontent.com/assets/9893806/14414608/b08b9656-ff63-11e5-8764-448dafa0dfbb.png)
-![root-directory](https://cloud.githubusercontent.com/assets/9893806/14414613/b427e616-ff63-11e5-9f01-fc42ddaffa73.png)
-![edit-servers](https://cloud.githubusercontent.com/assets/9893806/14414614/b9b979dc-ff63-11e5-851d-368825865d2a.png)
-![add-keyword-to-search](https://cloud.githubusercontent.com/assets/9893806/14414615/bb88d014-ff63-11e5-9997-7bb2c7188e32.png)
-![edit-server-add-new](https://cloud.githubusercontent.com/assets/9893806/14414616/bdbe96e8-ff63-11e5-95f7-9a02444b1474.png)
-![edit-server-update-exist-name](https://cloud.githubusercontent.com/assets/9893806/14414618/c2bf7748-ff63-11e5-976a-a4c738474eb3.png)
-![result-of-seach](https://cloud.githubusercontent.com/assets/9893806/14414622/c857eab4-ff63-11e5-9982-4280532d3c2d.png)
-![open-one-of-the-paths](https://cloud.githubusercontent.com/assets/9893806/14414620/c50dc75c-ff63-11e5-94a3-c5eba96cb501.png)
-![downloading-file](https://cloud.githubusercontent.com/assets/9893806/14414624/caefc7ec-ff63-11e5-8a70-f477e07c8d4d.png)
+When you open PubData, first pick a bioinformatics database to login to:
+
+![screenshot1](https://cloud.githubusercontent.com/assets/9893806/14540544/9ed860c2-0253-11e6-93e7-77ffd2a934d4.png)
+![screenshot2](https://cloud.githubusercontent.com/assets/9893806/14540546/a15c2b62-0253-11e6-9753-3cf1005e6dad.png)
+
+If your favorite bioinformatics database is not yet in the list, just add it yourself:
+
+![screenshot4](https://cloud.githubusercontent.com/assets/9893806/14540549/a59546aa-0253-11e6-8812-31a245561517.png)
+![screenshot5](https://cloud.githubusercontent.com/assets/9893806/14540551/a705302c-0253-11e6-96b7-cb5f8808e4fa.png)
+
+If you want to search multiple existing databases simultaneously, tick the respective checkboxes and then click the “Smart search” feature (e.g., search for *Homo sapiens* files):
+
+![screenshot3](https://cloud.githubusercontent.com/assets/9893806/14540548/a46a199a-0253-11e6-892c-927bb9395530.png)
+![screenshot6](https://cloud.githubusercontent.com/assets/9893806/14540552/a8bddedc-0253-11e6-984f-2a4c96c55223.png)
+
+Browse the most relevant results and download your file:
+
+![screenshot7](https://cloud.githubusercontent.com/assets/9893806/14540557/ac0dd15a-0253-11e6-98b3-3c9b770370dd.png)
+![screenshot8](https://cloud.githubusercontent.com/assets/9893806/14540559/ae5bbee0-0253-11e6-9b9e-4eeae47752ef.png)
+
+
+
