@@ -35,12 +35,14 @@ When you open PubData, first pick a bioinformatics database to login to:
 
 If your favorite bioinformatics database is not yet in the list, just add it yourself:
 
+![screenshot3](https://cloud.githubusercontent.com/assets/9893806/14540548/a46a199a-0253-11e6-892c-927bb9395530.png)
 ![screenshot4](https://cloud.githubusercontent.com/assets/9893806/14540549/a59546aa-0253-11e6-8812-31a245561517.png)
 ![screenshot5](https://cloud.githubusercontent.com/assets/9893806/14540551/a705302c-0253-11e6-96b7-cb5f8808e4fa.png)
 
 If you want to search multiple existing databases simultaneously, tick the respective checkboxes and then click the “Smart search” feature (e.g., search for *Homo sapiens* files):
 
-![screenshot3](https://cloud.githubusercontent.com/assets/9893806/14540548/a46a199a-0253-11e6-892c-927bb9395530.png)
+![screenshot - 04152016 - 02 33 52 am](https://cloud.githubusercontent.com/assets/5694520/14545247/b8fad78c-02b2-11e6-8d7d-5dc770dee46b.png)
+![screenshot7](https://cloud.githubusercontent.com/assets/9893806/14540557/ac0dd15a-0253-11e6-98b3-3c9b770370dd.png)
 ![screenshot6](https://cloud.githubusercontent.com/assets/9893806/14540552/a8bddedc-0253-11e6-984f-2a4c96c55223.png)
 
 Browse the most relevant results and download your file:
