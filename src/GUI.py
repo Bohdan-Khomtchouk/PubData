@@ -82,7 +82,7 @@ class Edit_servers(QtGui.QDialog):
         self.main_layout.insertLayout(0, self.h_layout)
 
         self.list_a = QtGui.QTreeWidget()
-        self.list_a.setHeaderLabels(['Server Names'])
+        self.list_a.setHeaderLabels(['Server names'])
         self.dialog_box = QtGui.QInputDialog()
         with open('SERVER_NAMES.json') as f:
                 self.servers = json.load(f)
@@ -103,7 +103,7 @@ class Edit_servers(QtGui.QDialog):
         get_data_button.clicked.connect(self.addnew)
         self.button_layout.addWidget(get_data_button)
 
-        ok_button = QtGui.QPushButton('Remove Selected')
+        ok_button = QtGui.QPushButton('Remove selected')
         ok_button.clicked.connect(self.removeSel)
         self.button_layout.addWidget(ok_button)
 
@@ -146,13 +146,13 @@ class Edit_servers(QtGui.QDialog):
         """
         current_name = item.text(0)
         name, ok = self.dialog_box.getText(self,
-                                           "Edit Servername!",
+                                           "Edit server name",
                                            "Edit the name : {}".format(current_name))
         if ok:
 
             address, ok = self.dialog_box.getText(self,
-                                                  "Edit Server Adress!",
-                                                  "Edit the Adress : {}".format(self.servers[current_name]))
+                                                  "Edit server address!",
+                                                  "Edit the address : {}".format(self.servers[current_name]))
             if ok:
                 del self.servers[current_name]
                 self.servers[name] = address
@@ -194,12 +194,12 @@ class Edit_servers(QtGui.QDialog):
         .. todo::
         """
         name, ok = self.dialog_box.getText(self,
-                                           "Add Servername!",
+                                           "Add server name",
                                            "Add the name")
         if ok:
             address, ok = self.dialog_box.getText(self,
-                                                  "Add Server Adress!",
-                                                  "Add the Adress")
+                                                  "Add server address",
+                                                  "Add the address")
             if ok:
                 self.servers[name] = address
                 self.itemadder(name)
@@ -271,7 +271,7 @@ class Sub_path(QtGui.QDialog):
         main_layout.addWidget(button_box)
         self.setLayout(main_layout)
 
-        self.setWindowTitle("BioNetHub")
+        self.setWindowTitle("PubData")
         self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
         QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
         border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
@@ -560,7 +560,7 @@ class Path_results(QtGui.QDialog):
         self.main_layout.addLayout(top_layout)
         self.main_layout.insertLayout(0, self.h_layout)
         self.list_a = QtGui.QTreeWidget()
-        self.list_a.setHeaderLabels(['Matched Paths', 'Server name'])
+        self.list_a.setHeaderLabels(['Matched paths', 'Server name'])
         self.dialog_box = QtGui.QInputDialog()
         for s_name, all_path in self.total_find.items():
             for p in all_path:
@@ -590,7 +590,7 @@ class Path_results(QtGui.QDialog):
         """
         self.wind = Sub_path(self.SERVER_NAMES[item.text(1)], item.text(0))
         self.wind.resize(450, 650)
-        self.wind.setWindowTitle('Sub Path')
+        self.wind.setWindowTitle('Sub-path')
         self.wind.show()
 
 
@@ -624,7 +624,7 @@ class SelectServers(QtGui.QDialog):
         self.main_layout.insertLayout(0, self.h_layout)
 
         self.list_a = QtGui.QTreeWidget()
-        self.list_a.setHeaderLabels(['Server Names', 'Exists in DB'])
+        self.list_a.setHeaderLabels(['Server names', 'Exists in DB'])
         self.dialog_box = QtGui.QInputDialog()
         with open('SERVER_NAMES.json')as f:
                 self.servers = json.load(f)
@@ -677,7 +677,6 @@ class SelectServers(QtGui.QDialog):
         self.close()
 
 
-# Optimize with C++
 class ftpWalker(object):
     """
     ==============
@@ -775,7 +774,7 @@ class ftpWalker(object):
         .. note::
         .. todo::
         """
-        connection = ftp(self.servername)
+        connection = ftplib.ftp(self.servername)
         try:
             connection.login()
         except:
@@ -838,7 +837,7 @@ class ftpWindow(QtGui.QDialog):
         .. todo::
         """
         super(ftpWindow, self).__init__(parent)
-        self.dbname = "BioNetHub"
+        self.dbname = "PubData"
         self.mongo_cursor = self.mongo_connector()
         self.collection_names = self.mongo_cursor.collection_names()
         if SelectServers:
@@ -854,7 +853,7 @@ class ftpWindow(QtGui.QDialog):
         self.ftpServerLabel = QtGui.QLabel('...')
         self.ftpServerLabel.setFrameStyle(frame_style)
 
-        self.statusLabel = QtGui.QLabel("Please select the name of an ftp server.")
+        self.statusLabel = QtGui.QLabel("Please select name of a server")
 
         self.fileList = QtGui.QTreeWidget()
         self.fileList.setEnabled(False)
@@ -876,14 +875,10 @@ class ftpWindow(QtGui.QDialog):
         self.addserverButton = QtGui.QPushButton("Add server to search")
 
         self.quitButton = QtGui.QPushButton("Quit")
-        self.searchButton = QtGui.QPushButton("Smart Search")
+        self.searchButton = QtGui.QPushButton("Smart search")
         self.dialog_box = QtGui.QInputDialog()
 
-        self.quitButton = QtGui.QPushButton("Quit")
-        self.searchButton = QtGui.QPushButton("Smart Search")
-        self.dialog_box = QtGui.QInputDialog()
-
-        self.EditserverButton = QtGui.QPushButton("Editservers")
+        self.EditserverButton = QtGui.QPushButton("Edit servers")
         self.UpdateserverButton = QtGui.QPushButton("Update custom servers")
 
         button_box = QtGui.QDialogButtonBox()
@@ -928,9 +923,11 @@ class ftpWindow(QtGui.QDialog):
         self.setWindowTitle("PubData")
         self.setStyleSheet("""QWidget {border-radius:4px;color :black;font-weight:500; font-size: 12pt}
         QPushButton{color:#099ff0;border-style: outset;border-width: 2px;border-radius: 10px;
-        border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}QPushButton:pressed { background-color: orange }
+        border-color: beige;font: bold 14px;min-width: 10em;padding: 8px;}
+        QPushButton:pressed { background-color: orange }
         QLineEdit{background-color:white; color:black}
-        QTextEdit{background-color:#ffffff; color:#000000}QInputDialog{border-radius:4px;color :black;font-weight:500; font-size: 12pt}""")
+        QTextEdit{background-color:#ffffff; color:#000000}
+        QInputDialog{border-radius:4px; color:black; font-weight:500; font-size:12pt}""")
 
     def getServerNames(self):
         """
@@ -960,7 +957,7 @@ class ftpWindow(QtGui.QDialog):
         """
         item, ok = QtGui.QInputDialog.getItem(self,
                                               "Select a server name ",
-                                              "Season:",
+                                              "Server names:",
                                               self.SERVER_NAMES.keys(),
                                               0,
                                               False)
@@ -1023,17 +1020,17 @@ class ftpWindow(QtGui.QDialog):
             ftp_walker_ins = ftpWalker(self.SERVER_NAMES[name])
             ftp_walker_ins.run()
         except ftplib.error_temp as e:
-            self.statusLabel.setText("Update Failed")
+            self.statusLabel.setText("Update failed")
             QtGui.QMessageBox.error(self,
                                     "QMessageBox.information()",
                                     e)
         except ftplib.error_perm as e:
-            self.statusLabel.setText("Update Failed")
+            self.statusLabel.setText("Update failed")
             QtGui.QMessageBox.error(self,
                                     "QMessageBox.information()",
                                     e)
         except socket.gaierror as e:
-            self.statusLabel.setText("Update Failed")
+            self.statusLabel.setText("Update failed")
             QtGui.QMessageBox.error(self,
                                     "QMessageBox.information()",
                                     e)
@@ -1055,7 +1052,7 @@ class ftpWindow(QtGui.QDialog):
         """
         self.wid = Edit_servers()
         self.wid.resize(350, 650)
-        self.wid.setWindowTitle('NewWindow')
+        self.wid.setWindowTitle('Edit servers')
         self.wid.show()
 
     def sizeHint(self):
@@ -1187,8 +1184,8 @@ class ftpWindow(QtGui.QDialog):
                 QtGui.QMessageBox.information(
                     self,
                     "ftp",
-                    "Unable to connect to the ftp server at %s. Please "
-                    "check that the host name is correct." % self.ftpServerLabel.text())
+                    """Unable to connect to the ftp server at %s. Please
+                    check that the host name is correct.""" % self.ftpServerLabel.text())
                 self.connectOrDisconnect()
                 return
 
@@ -1358,7 +1355,7 @@ class ftpWindow(QtGui.QDialog):
         message = QtCore.QT_TR_NOOP(
             "<p>You have an error in your connection.</p>"
             "<p>Please select one of the server names and connect to it.</p>")
-        text, ok = self.dialog_box.getText(QtGui.QInputDialog(), "Search for file",'Enter the name of your file ',QtGui.QLineEdit.Normal)
+        text, ok = self.dialog_box.getText(self, "Search for file", 'Enter your keyword',QtGui.QLineEdit.Normal)
         if ok:
             try:
                 total_find = {}
@@ -1372,7 +1369,7 @@ class ftpWindow(QtGui.QDialog):
                 if match_path_number:
                     self.wid = Path_results(self.SERVER_NAMES, total_find, match_path_number)
                     self.wid.resize(350, 650)
-                    self.wid.setWindowTitle('NewWindow')
+                    self.wid.setWindowTitle('Search')
                     self.wid.show()
                 else:
                     message = """<p>No results.<p>Please try with another pattern.</p>"""
@@ -1432,7 +1429,7 @@ class ftpWindow(QtGui.QDialog):
             if paths:
                 self.wid = Path_results(ftp, paths, servername)
                 self.wid.resize(350, 650)
-                self.wid.setWindowTitle('NewWindow')
+                self.wid.setWindowTitle('Regular search')
                 self.wid.show()
             else:
                 message = """<p>No results.<p>Please try with another pattern.</p>"""
@@ -1446,7 +1443,7 @@ class ftpWindow(QtGui.QDialog):
         .. todo::
         """
         self.Select_s.resize(350, 650)
-        self.Select_s.setWindowTitle('Select server')
+        self.Select_s.setWindowTitle('Select server for search')
         self.Select_s.show()
 
 if __name__ == '__main__':
