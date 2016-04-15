@@ -1,7 +1,5 @@
 """
-Copyright (C) 2015-2016 Bohdan Khomtchouk, Kasra Ahmadvand, Thor Wahlestedt, Kelly Khomtchouk,
-Vytas Dargis-Robinson, Claes Wahlestedt.
-
+Copyright (C) 2015-2016 Bohdan Khomtchouk, Kasra Ahmadvand, Thor Wahlestedt, Kelly Khomtchouk, Vytas Dargis-Robinson, Claes Wahlestedt.
 PubData is a genomics search engine and file retrieval system for all bioinformatics databases worldwide.
 PubData searches biomedical FTP data in a user-friendly fashion similar to how PubMed searches biomedical literature.
 PubData is hosted as a standalone GUI software program, while PubMed is hosted as an online web server.
