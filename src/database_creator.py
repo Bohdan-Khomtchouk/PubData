@@ -18,11 +18,12 @@ from pymongo import MongoClient, ASCENDING
 from pymongo.errors import ConnectionFailure
 import os
 import json
+import sys
 
 
 class DBcreator:
 
-    def __init__(self,dbname):
+    def __init__(self, dbname):
         self.dbname = dbname
         self.mongo_cursor = self.mongo_connector()
 
@@ -38,23 +39,27 @@ class DBcreator:
         return c[self.dbname]
 
     def importer(self):
-        for _,_,files in os.walk('json_files/'):
+        for _, _, files in os.walk('../json_databases/'):
             for file_name in files:
                 print("Start inserting of {} ...".format(file_name))
-                with open('json_files/{}'.format(file_name)) as f:
-                    result = json.load(f,encoding='latin1')
-                    for _path,file_names in result.iteritems():
-                        collection_name = file_name.split('.')[0]
-                        self.indexer(collection_name)
-                        self.mongo_cursor[collection_name].insert(
-                            {
-                                'path': _path,
-                                'files': file_names
-                            }
-                        )
-                print ("Inserting finished.")
+                with open('../json_databases/{}'.format(file_name)) as f:
+                    try:
+                        result = json.load(f, encoding='latin1')
+                        for _path, file_names in result.iteritems():
+                            collection_name = file_name.split('.')[0]
+                            self.indexer(collection_name)
+                            self.mongo_cursor[collection_name].insert(
+                                {
+                                    'path': _path,
+                                    'files': file_names
+                                }
+                            )
+                    except Exception as e:
+                        print ("File {} gets escaped. {}".format(file_name, e))
+                    else:
+                        print ("Inserting finished.")
 
-    def indexer(self,collection_name):
+    def indexer(self, collection_name):
             self.mongo_cursor[collection_name].ensure_index(
                 [
                     ('path', ASCENDING),
@@ -62,5 +67,5 @@ class DBcreator:
             )
 
 if __name__ == '__main__':
-    DBC = DBcreator('BioNetHub')
+    DBC = DBcreator('PubData')
     DBC.importer()
