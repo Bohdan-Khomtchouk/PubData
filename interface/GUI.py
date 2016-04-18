@@ -33,160 +33,18 @@ If not, see <http://www.gnu.org/licenses/>.
 # -*- coding: utf-8 -*-
 
 
-import ftplib
 import json
-import os
 import re
-import socket
-from Queue import Queue
 from itertools import chain
-from threading import Thread
 from extras import general_style
 from PyQt4.QtCore import pyqtSlot
 from PySide import QtCore, QtGui, QtNetwork
 from nltk.corpus import wordnet
-from pymongo import MongoClient
-from pymongo.errors import ConnectionFailure
 from searchpath import Path_results
 from editserver import Edit_servers
 from selectservers import SelectServers
-from extras import SERVER_NAMES
 import sqlite3 as lite
-
-class ftpWalker(object):
-    """
-    ==============
-    ``ftpWalker``
-    ----------
-    .. py:class:: ftpWalker()
-       :param :
-       :type :
-       :rtype: UNKNOWN
-    .. note::
-    .. todo::
-    """
-    def __init__(self, servername):
-        """
-        .. py:attribute:: __init__()
-           :param servername:
-           :type servername:
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        self.servername = servername
-        self.all_path = Queue()
-        self.base, self.leading = self.find_leading()
-
-    def find_leading(self):
-        """
-        .. py:attribute:: find_leading()
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        base = []
-        conn = ftplib.ftp(self.servername)
-        conn.login()
-        for p, dirs, files in self.Walk(conn, '/'):
-            length = len(dirs)
-            base.append((p, files))
-            if length > 1:
-                p = '/'.join(p.split('/')[1:])
-                return base, [p + '/' + i for i in dirs]
-
-    def listdir(self, connection, _path):
-        """
-        .. py:attribute:: listdir()
-           :param connection:
-           :type connection:
-           :param _path:
-           :type _path:
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        file_list, dirs, nondirs = [], [], []
-        try:
-            connection.cwd(_path)
-        except:
-            return [], []
-
-        connection.retrlines('LIST', lambda x: file_list.append(x.split()))
-        for info in file_list:
-            ls_type, name = info[0], info[-1]
-            if ls_type.startswith('d'):
-                dirs.append(name)
-            else:
-                nondirs.append(name)
-        return dirs, nondirs
-
-    def Walk(self, connection, top):
-        """
-        .. py:attribute:: Walk()
-           :param connection:
-           :type connection:
-           :param top:
-           :type top:
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        dirs, nondirs = self.listdir(connection, top)
-        yield top, dirs, nondirs
-        for name in dirs:
-            new_path = os.path.join(top, name)
-            for x in self.Walk(connection, new_path):
-                yield x
-
-    def Traverse(self, _path='/', word=''):
-        """
-        .. py:attribute:: Traverse()
-           :param _path:
-           :type _path:
-           :param word:
-           :type word:
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        connection = ftplib.ftp(self.servername)
-        try:
-            connection.login()
-        except:
-            print 'Connection failed for path : ', _path
-        else:
-            try:
-                connection.cwd(_path)
-            except:
-                pass
-            else:
-                for _path, _, files in self.Walk(connection, _path):
-                    if word:
-                        if any(word in file_name for file_name in files):
-                            self.all_path.put((_path, files))
-                    else:
-                        self.all_path.put((_path, files))
-
-    def run(self, word, threads=[]):
-        """
-        .. py:attribute:: run()
-           :param word:
-           :type word:
-           :param threads:
-           :type threads:
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        print 'start threads...'
-        os.mkdir(self.servername)
-        for conn in self.leading:
-            thread = Thread(target=self.Traverse, args=(conn, word))
-            thread.start()
-            threads.append(thread)
-        for thread in threads:
-                thread.join()
+from updateservers import MainUpdate
 
 
 class ftpWindow(QtGui.QDialog):
@@ -204,8 +62,6 @@ class ftpWindow(QtGui.QDialog):
     def __init__(self, parent=None):
         """
         .. py:attribute:: __init__()
-           :param SelectServers:
-           :type SelectServers:
            :param parent:
            :type parent:
             :rtype: UNKNOWN
@@ -214,14 +70,15 @@ class ftpWindow(QtGui.QDialog):
         """
         super(ftpWindow, self).__init__(parent)
         self.dbname = "PubData"
-        self.mongo_cursor = self.mongo_connector()
-        self.collection_names = self.mongo_cursor.collection_names()
-        self.Select_s = SelectServers(SERVER_NAMES)
-        self.Select_s.ok_button.clicked.connect(self.put_get_servers)
+        self.createMenu()
+        self.server_dict, self.server_names = self.getServerNames()
         self.isDirectory = {}
         self.ftp = None
         self.outFile = None
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
+
+        self.select_s = SelectServers(self.server_names)
+        self.select_s.ok_button.clicked.connect(self.put_get_servers)
 
         self.senameLabel = QtGui.QLabel("ftp name : ")
         self.ftpServerLabel = QtGui.QLabel('...')
@@ -278,7 +135,7 @@ class ftpWindow(QtGui.QDialog):
         self.searchButton.clicked.connect(self.search)
         self.serverButton.clicked.connect(self.select)
         self.EditserverButton.clicked.connect(self.editservers)
-        self.UpdateserverButton.clicked.connect(self.updateservers)
+        self.UpdateserverButton.clicked.connect(self.update_servers_all)
         self.addserverButton.clicked.connect(self.add_server_for_search)
 
         top_layout = QtGui.QHBoxLayout()
@@ -293,9 +150,49 @@ class ftpWindow(QtGui.QDialog):
         main_layout.addWidget(self.fileList)
         main_layout.addWidget(self.statusLabel)
         main_layout.addWidget(button_box)
+        main_layout.setMenuBar(self.menuBar)
         self.setLayout(main_layout)
         self.setWindowTitle("PubData")
         self.setStyleSheet(general_style)
+
+    def createMenu(self):
+        self.menuBar = QtGui.QMenuBar()
+
+        self.fileMenu1 = QtGui.QMenu("&File", self)
+        self.server_list_action = self.fileMenu1.addAction("Server list")
+        self.exit_action = self.fileMenu1.addAction("Exit")
+        self.exit_action.setShortcut('Ctrl+E')
+        self.exit_action.setStatusTip('Exit application')
+        self.fileMenu2 = QtGui.QMenu("&Action", self)
+        self.edit_servers_action = self.fileMenu2.addAction("Edit servers")
+        self.update_all_action = self.fileMenu2.addAction("Update all")
+        self.update_manual_action = self.fileMenu2.addAction("Update manual")
+
+        self.fileMenu3 = QtGui.QMenu("&Search", self)
+        self.manual_search_action = self.fileMenu3.addAction("Manual search")
+        self.search_all_action = self.fileMenu3.addAction("Search in all databases")
+
+        self.fileMenu4 = QtGui.QMenu("&Help", self)
+        self.help_action = self.fileMenu4.addAction("Help")
+        self.about_ction = self.fileMenu4.addAction("About us")
+
+        self.menuBar.addMenu(self.fileMenu1)
+        self.menuBar.addMenu(self.fileMenu2)
+        self.menuBar.addMenu(self.fileMenu3)
+        self.menuBar.addMenu(self.fileMenu4)
+
+        self.server_list_action.triggered.connect(self.select)
+        self.exit_action.triggered.connect(self.close)
+
+        self.edit_servers_action.triggered.connect(self.editservers)
+        self.update_all_action.triggered.connect(self.update_servers_all)
+        self.update_manual_action.triggered.connect(self.update_servers_manual)
+
+        self.manual_search_action.triggered.connect(self.manual_search)
+        self.search_all_action.triggered.connect(self.search_all)
+
+        # self.help_action.triggered.connect()
+        # self.about_list_action.triggered.connect()
 
     def getServerNames(self):
         """
@@ -304,17 +201,9 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        try:
-            with open('data/SERVER_NAMES.json')as f:
-                return json.load(f)
-        except IOError:
-            with open('SERVER_NAMES.json', 'w') as f:
-                json.dump(SERVER_NAMES, f, indent=4)
-                message = """<p>Couldn't find the server file.</p>
-                <p>Server names has beed rewrite, you can try again.</p>"""
-                QtGui.QMessageBox.information(self,
-                                              "QMessageBox.information()",
-                                              message)
+        with open('data/SERVER_NAMES.json')as f:
+            d = json.load(f)
+            return d, d.keys()
 
     def select(self):
         """
@@ -326,89 +215,29 @@ class ftpWindow(QtGui.QDialog):
         item, ok = QtGui.QInputDialog.getItem(self,
                                               "Select a server name ",
                                               "Server names:",
-                                              SERVER_NAMES.keys(),
+                                              self.server_names,
                                               0,
                                               False)
         if ok and item:
-            self.ftpServerLabel.setText(SERVER_NAMES[item])
+            self.ftpServerLabel.setText(self.server_dict[item])
             self.servername = item
 
-    @pyqtSlot(QtGui.QTreeWidget)
-    def put_get_servers(self):
+    def update_servers_all(self):
         """
-        .. py:attribute:: put_get_servers()
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        self.selected_SERVER_NAMES = self.Select_s.selected_SERVER_NAMES
-        self.statusLabel.setText("Search in servers...")
-
-    def updateservers(self):
-        """
-        .. py:attribute:: updateservers()
+        .. py:attribute:: update_servers_all()
             :rtype: UNKNOWN
         .. note::
         .. todo::
         """
         self.statusLabel.setText("Start updating ...")
-        item, ok = QtGui.QInputDialog.getItem(self,
-                                              "Select a server name ",
-                                              "Season:",
-                                              SERVER_NAMES.keys(),
-                                              0,
-                                              False)
-        if ok and item:
-            self.updateServerFile(item)
+        mu = MainUpdate()
+        mu.update_all()
 
-    def queue_traverser(self, queue):
-        """
-        .. py:attribute:: queue_traverser()
-           :param queue:
-           :type queue:
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        while queue.qsize() > 0:
-            yield queue.get()
-
-    def updateServerFile(self, name):
-        """
-        .. py:attribute:: updateServerFile()
-           :param name:
-           :type name:
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        try:
-            self.statusLabel.setText("Start updating of {} ...".format(name))
-            ftp_walker_ins = ftpWalker(SERVER_NAMES[name])
-            ftp_walker_ins.run()
-        except ftplib.error_temp as e:
-            self.statusLabel.setText("Update failed")
-            QtGui.QMessageBox.error(self,
-                                    "QMessageBox.information()",
-                                    e)
-        except ftplib.error_perm as e:
-            self.statusLabel.setText("Update failed")
-            QtGui.QMessageBox.error(self,
-                                    "QMessageBox.information()",
-                                    e)
-        except socket.gaierror as e:
-            self.statusLabel.setText("Update failed")
-            QtGui.QMessageBox.error(self,
-                                    "QMessageBox.information()",
-                                    e)
-        else:
-            for _path, files in queue_traverser(ftp_walker_ins.all_path):
-                self.mongo_cursor[self.servername].insert(
-                    {
-                        'path': _path,
-                        'files': files
-                    }
-                )
+    def update_servers_manual(self):
+        self.statusLabel.setText("Start updating ...")
+        selected_server_names = self.Select_s.selected_SERVER_NAMES
+        mu = MainUpdate(manual_list=selected_server_names)
+        mu.update_manual()
 
     def editservers(self):
         """
@@ -417,7 +246,7 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.wid = Edit_servers(SERVER_NAMES)
+        self.wid = Edit_servers(self.server_names)
         self.wid.resize(350, 650)
         self.wid.setWindowTitle('Edit servers')
         self.wid.show()
@@ -430,7 +259,6 @@ class ftpWindow(QtGui.QDialog):
         .. todo::
         """
         return QtCore.QSize(800, 400)
-
 
     def connectOrDisconnect(self):
         """
@@ -695,24 +523,22 @@ class ftpWindow(QtGui.QDialog):
         else:
             self.downloadButton.setEnabled(False)
 
-    def mongo_connector(self):
-        """
-        .. py:attribute:: mongo_connector()
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        # Connect to mongoDB and return a connection object.
-        try:
-            c = MongoClient(host="localhost", port=27017)
-        except ConnectionFailure, error:
-            sys.stderr.write("Could not connect to MongoDB: {}".format(error))
-        else:
-            print "Connected successfully"
+    @pyqtSlot(QtGui.QTreeWidget)
+    def put_get_servers(self):
+        selected_names = self.select_s.selected_server_names
+        self.search(selected_names)
+        self.statusLabel.setText("Search in servers...")
 
-        return c[self.dbname]
+    def manual_search(self):
+        self.select_s.resize(350, 650)
+        self.select_s.setWindowTitle('Select server names for search')
+        self.select_s.show()
 
-    def search(self):
+    def search_all(self):
+        self.statusLabel.setText("Search in servers...")
+        self.search(self.server_names)
+
+    def search(self, server_names):
         """
         .. py:attribute:: search()
             :rtype: UNKNOWN
@@ -724,50 +550,38 @@ class ftpWindow(QtGui.QDialog):
             "<p>Please select one of the server names and connect to it.</p>")
         text, ok = self.dialog_box.getText(self, "Search for file", 'Enter your keyword',QtGui.QLineEdit.Normal)
         if ok:
-            try:
-                total_find = {}
-                match_path_number = 0
-                for servername in self.selected_SERVER_NAMES:
+            total_find = {}
+            match_path_number = 0
+            for servername in server_names:
+                try:
+                    conn = lite.connect('../database/PubData.db')
+                    conn.row_factory = lambda cursor, row: row[0]
+                    cursor = conn.cursor()
+                except Exception as exp:
+                    print exp
+                else:
+                    conn.create_function("REGEXP", 2, self.cal_regex)
+                    t_name = '_'.join(map(unicode.lower, servername.split()))
                     try:
-                        conn = lite.connect('../database/PubData.db')
-                        conn.row_factory = lambda cursor, row: row[0]
-                        cursor = conn.cursor()
+                        query = """SELECT file_path FROM {t_name}
+                        WHERE file_path REGEXP ? or
+                        file_name REGEXP ?""".format(t_name=t_name)
+                        cursor.execute(query, (text, text))
+                        rows = cursor.fetchall()
                     except Exception as exp:
                         print exp
                     else:
-                        conn.create_function("REGEXP", 2, self.cal_regex)
-                        t_name = '_'.join(map(unicode.lower, servername.split()))
-                        try:
-                            query = """SELECT file_path FROM {t_name}
-                            WHERE file_path REGEXP ? or
-                            file_name REGEXP ?""".format(t_name=t_name)
-                            cursor.execute(query, (text, text))
-                            rows = cursor.fetchall()
-                        except Exception as exp:
-                            print exp
-                        else:
-                            total_find[servername] = rows
-                            match_path_number += len(rows)
-                if match_path_number:
-                    print rows
-                    self.wid = Path_results(SERVER_NAMES, total_find, match_path_number)
-                    self.wid.resize(350, 650)
-                    self.wid.setWindowTitle('Search')
-                    self.wid.show()
-                else:
-                    message = """<p>No results.<p>Please try with another pattern.</p>"""
-                    QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
-
-            except IOError:
-                message = """<p>Unfortunately there is no collections with the name of this server in database.
-                </p>Press OK to regural search.<p>It may takes between 2 to 10 minute.</p>"""
-                QtGui.QMessageBox.information(self,
-                                              "QMessageBox.information()",
-                                              message)
-                # self.fileList.clear()
-                # self.isDirectory.clear()
-                # self.setCursor(QtCore.Qt.WaitCursor)
-                # self.regural_search(text,self.servername,self.ftpServerLabel.text())
+                        total_find[servername] = rows
+                        match_path_number += len(rows)
+            if match_path_number:
+                print rows
+                self.wid = Path_results(self.server_names, total_find, match_path_number)
+                self.wid.resize(350, 650)
+                self.wid.setWindowTitle('Search')
+                self.wid.show()
+            else:
+                message = """<p>No results.<p>Please try with another pattern.</p>"""
+                QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
 
     def cal_regex(self, text, item):
         """
@@ -781,41 +595,6 @@ class ftpWindow(QtGui.QDialog):
         lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
         self.statusLabel.setText("Search into selected databases. Please wait...")
         return re.search(r'.*{}.*'.format('|'.join(lemmas)), item) is not None
-
-    def regural_search(self, word, ftp, severname, sever_url):
-        """
-        .. py:attribute:: regural_search()
-           :param word:
-           :type word:
-           :param ftp:
-           :type ftp:
-           :param severname:
-           :type severname:
-           :param sever_url:
-           :type sever_url:
-            :rtype: UNKNOWN
-        .. note::
-        .. todo::
-        """
-        try:
-            ftp_walker_ins = ftp_walker(j)
-            ftp_walker_ins.run(word)
-        except ftplib.error_temp as e:
-            QtGui.QMessageBox.information(self, "QMessageBox.information()", e)
-        except ftplib.error_perm as e:
-            QtGui.QMessageBox.information(self, "QMessageBox.information()", e)
-        except socket.gaierror as e:
-            QtGui.QMessageBox.information(self, "QMessageBox.information()", e)
-        else:
-            paths = ftp_walker_ins.all_path
-            if paths:
-                self.wid = Path_results(ftp, paths, servername)
-                self.wid.resize(350, 650)
-                self.wid.setWindowTitle('Regular search')
-                self.wid.show()
-            else:
-                message = """<p>No results.<p>Please try with another pattern.</p>"""
-                QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
 
     def add_server_for_search(self):
         """
@@ -832,8 +611,6 @@ if __name__ == '__main__':
     import sys
     app = QtGui.QApplication(sys.argv)
     ftpWin_ = ftpWindow()
-    COLLECTION_NAMES = ftpWin_.collection_names
     ftpWin = ftpWindow()
-    COLLECTION_NAMES = ftpWin.collection_names
     ftpWin.show()
     sys.exit(ftpWin.exec_())
