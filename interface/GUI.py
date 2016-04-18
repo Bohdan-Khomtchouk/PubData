@@ -115,14 +115,7 @@ class ftpWindow(QtGui.QDialog):
         button_box = QtGui.QDialogButtonBox()
         button_box.addButton(self.downloadButton,
                              QtGui.QDialogButtonBox.ActionRole)
-        button_box.addButton(self.quitButton, QtGui.QDialogButtonBox.RejectRole)
-        button_box.addButton(self.EditserverButton, QtGui.QDialogButtonBox.ActionRole)
-        button_box.addButton(self.searchButton, QtGui.QDialogButtonBox.ActionRole)
-        button_box.addButton(self.UpdateserverButton, QtGui.QDialogButtonBox.ActionRole)
         button_box.addButton(self.downloadButton, QtGui.QDialogButtonBox.ActionRole)
-        button_box.addButton(self.quitButton, QtGui.QDialogButtonBox.RejectRole)
-        button_box.addButton(self.searchButton, QtGui.QDialogButtonBox.ActionRole)
-        button_box.addButton(self.addserverButton, QtGui.QDialogButtonBox.ActionRole)
 
         self.progressDialog = QtGui.QProgressDialog(self)
         self.fileList.itemActivated.connect(self.processItem)
@@ -131,12 +124,6 @@ class ftpWindow(QtGui.QDialog):
         self.connectButton.clicked.connect(self.connectOrDisconnect)
         self.cdToParentButton.clicked.connect(self.cdToParent)
         self.downloadButton.clicked.connect(self.downloadFile)
-        self.quitButton.clicked.connect(self.close)
-        self.searchButton.clicked.connect(self.search)
-        self.serverButton.clicked.connect(self.select)
-        self.EditserverButton.clicked.connect(self.editservers)
-        self.UpdateserverButton.clicked.connect(self.update_servers_all)
-        self.addserverButton.clicked.connect(self.add_server_for_search)
 
         top_layout = QtGui.QHBoxLayout()
         top_layout.addWidget(self.senameLabel)
@@ -258,7 +245,7 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        return QtCore.QSize(800, 400)
+        return QtCore.QSize(900, 400)
 
     def connectOrDisconnect(self):
         """
@@ -612,5 +599,6 @@ if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
     ftpWin_ = ftpWindow()
     ftpWin = ftpWindow()
+    ftpWin.resize(950, 600)
     ftpWin.show()
     sys.exit(ftpWin.exec_())
