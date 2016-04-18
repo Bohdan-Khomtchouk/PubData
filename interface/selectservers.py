@@ -29,7 +29,7 @@ class SelectServers(QtGui.QDialog):
         super(SelectServers, self).__init__(parent)
         self.main_layout = QtGui.QVBoxLayout()
         self.setLayout(self.main_layout)
-        self.selected_SERVER_NAMES = []
+        self.selected_server_names = []
         self.h_layout = QtGui.QHBoxLayout()
         self.main_layout.insertLayout(0, self.h_layout)
         self.server_names = servers
@@ -74,5 +74,5 @@ class SelectServers(QtGui.QDialog):
             item = list_items.child(i)
             if item.checkState(0) == QtCore.Qt.CheckState.Checked:
                 checked_items.add(item)
-        self.selected_SERVER_NAMES = [i.text(0) for i in checked_items]
+        self.selected_server_names = [i.text(0) for i in checked_items]
         self.close()
