@@ -547,7 +547,7 @@ class ftpWindow(QtGui.QDialog):
                         match_path_number += len(rows)
             if match_path_number:
                 print rows
-                self.wid = Path_results(self.server_names, total_find, match_path_number)
+                self.wid = Path_results(self.server_dict, total_find, match_path_number)
                 self.wid.resize(350, 650)
                 self.wid.setWindowTitle('Search')
                 self.wid.show()
@@ -563,7 +563,8 @@ class ftpWindow(QtGui.QDialog):
             :rtype: UNKNOWN
         .. note::
         """
-        synonyms = wordnet.synsets(text)
+        all_text = re.split(r'\W', text)
+        synonyms = set(chain.from_iterable([wordnet.synsets(i) for i in all_text]))
         lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
         self.statusLabel.setText("Search into selected databases. Please wait...")
         return re.search(r'.*{}.*'.format('|'.join(lemmas)), item) is not None
