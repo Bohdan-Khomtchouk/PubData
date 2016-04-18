@@ -7,6 +7,7 @@ general_style = """QWidget {border-radius:4px;color :black;font-weight:500; font
         QTextEdit{background-color:#ffffff; color:#000000}
         QInputDialog{border-radius:4px; color:black; font-weight:500; font-size:12pt}"""
 
+
 SERVER_NAMES = {'Ensembl Genome Browser': 'ftp.ensembl.org',
                 'UCSC Genome Browser': 'hgdownload.cse.ucsc.edu',
                 'Uniprot': 'ftp.uniprot.org',
