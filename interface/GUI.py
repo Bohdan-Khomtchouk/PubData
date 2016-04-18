@@ -51,7 +51,7 @@ from searchpath import Path_results
 from editserver import Edit_servers
 from selectservers import SelectServers
 from extras import SERVER_NAMES
-
+import sqlite3 as lite
 
 class ftpWalker(object):
     """
@@ -342,8 +342,7 @@ class ftpWindow(QtGui.QDialog):
         .. todo::
         """
         self.selected_SERVER_NAMES = self.Select_s.selected_SERVER_NAMES
-        # self.ftpServerLabel.text() = self.selected_SERVER_NAMES.pop(0)
-        self.statusLabel.setText("Search in servers: {}".format(','.join(self.selected_SERVER_NAMES)))
+        self.statusLabel.setText("Search in servers...")
 
     def updateservers(self):
         """
@@ -727,14 +726,30 @@ class ftpWindow(QtGui.QDialog):
         if ok:
             try:
                 total_find = {}
-                regex = self.cal_regex(text)
+                match_path_number = 0
                 for servername in self.selected_SERVER_NAMES:
-                    results = self.mongo_cursor[servername].find(
-                        {"$or": [{"path": {"$regex": regex}}, {"files": {'$regex': regex}}]})
-                    paths = [i['path'] for i in results]
-                    total_find[servername] = paths
-                match_path_number = sum(map(len, total_find.values()))
+                    try:
+                        conn = lite.connect('../database/PubData.db')
+                        conn.row_factory = lambda cursor, row: row[0]
+                        cursor = conn.cursor()
+                    except Exception as exp:
+                        print exp
+                    else:
+                        conn.create_function("REGEXP", 2, self.cal_regex)
+                        t_name = '_'.join(map(unicode.lower, servername.split()))
+                        try:
+                            query = """SELECT file_path FROM {t_name}
+                            WHERE file_path REGEXP ? or
+                            file_name REGEXP ?""".format(t_name=t_name)
+                            cursor.execute(query, (text, text))
+                            rows = cursor.fetchall()
+                        except Exception as exp:
+                            print exp
+                        else:
+                            total_find[servername] = rows
+                            match_path_number += len(rows)
                 if match_path_number:
+                    print rows
                     self.wid = Path_results(SERVER_NAMES, total_find, match_path_number)
                     self.wid.resize(350, 650)
                     self.wid.setWindowTitle('Search')
@@ -754,7 +769,7 @@ class ftpWindow(QtGui.QDialog):
                 # self.setCursor(QtCore.Qt.WaitCursor)
                 # self.regural_search(text,self.servername,self.ftpServerLabel.text())
 
-    def cal_regex(self, text):
+    def cal_regex(self, text, item):
         """
         .. py:attribute:: cal_regex()
            :param text:
@@ -764,9 +779,8 @@ class ftpWindow(QtGui.QDialog):
         """
         synonyms = wordnet.synsets(text)
         lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
-        print lemmas
-        pre_regex = '|'.join(lemmas)
-        return re.compile(r'.*{}.*'.format(pre_regex), re.I)
+        self.statusLabel.setText("Search into selected databases. Please wait...")
+        return re.search(r'.*{}.*'.format('|'.join(lemmas)), item) is not None
 
     def regural_search(self, word, ftp, severname, sever_url):
         """

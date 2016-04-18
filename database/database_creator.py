@@ -11,7 +11,8 @@ for path_, _, files in os.walk("json_files"):
         table_name = file_name.split('.')[0].replace(' ', '_')
         query = """CREATE TABLE {} (id int PRIMARY KEY NOT NULL,
                                     file_path text     NOT NULL,
-                                    file_name text     NOT NULL);""".format(table_name)
+                                    file_name text     NOT NULL,
+                                    UNIQUE());""".format(table_name)
         curs.execute(query)
         try:
             with open(os.path.join(path_, file_name)) as f:
