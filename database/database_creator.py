@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+
+# Copyright (C) 2015-2016 Bohdan Khomtchouk, Kasra Ahmadvand, Thor Wahlestedt, Grant Kimes, Kelly Khomtchouk, Vytas Dargis-Robinson, Claes Wahlestedt
+
+# This file is part of PubData.
+
+# -------------------------------------------------------------------------------------------
+
 import sqlite3 as lite
 import os
 import json
