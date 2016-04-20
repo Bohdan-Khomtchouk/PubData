@@ -57,11 +57,11 @@ Keyword search for ChIP-seq files across these selected databases (multiple keyw
 
 Showing all relevant search results pertaining to ChIP-seq files across all selected databases:
 
-![s12_lean](https://cloud.githubusercontent.com/assets/9893806/14683458/c4601ec6-06f8-11e6-8bb6-3d47a5ebbe3f.png)
+![s13_lean](https://cloud.githubusercontent.com/assets/9893806/14683461/c696bcea-06f8-11e6-8334-37ba00b48b1c.png)
 
 Keyword search for RNA-seq files across these selected databases (multiple keywords may be used as well):
 
-![s13_lean](https://cloud.githubusercontent.com/assets/9893806/14683461/c696bcea-06f8-11e6-8334-37ba00b48b1c.png)
+![s12_lean](https://cloud.githubusercontent.com/assets/9893806/14683458/c4601ec6-06f8-11e6-8bb6-3d47a5ebbe3f.png)
 
 Showing all relevant search results pertaining to RNA-seq files (from the selected databases):
 
