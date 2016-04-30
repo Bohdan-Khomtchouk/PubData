@@ -26,6 +26,14 @@ You should have received a copy of the GNU General Public License along with thi
 
 * Python >= 2.7
 
+### Linux:
+* Make sure you have Python 2.7 installed.
+* Python libraries needed: PySide, PyQt
+* Git clone PubData directory.
+* Navigate to /interface directory.
+* Run “python GUI.py”.
+* If you are missing a Python library, it will tell you when running this. 
+
 ## Screenshots
 
 ![s1_lean](https://cloud.githubusercontent.com/assets/9893806/14683412/9bb0cb6a-06f8-11e6-8e91-1279b9159c57.png)
