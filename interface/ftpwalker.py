@@ -80,12 +80,12 @@ class ftp_walker(object):
 
 if __name__ == "__main__":
 
-    server_names = {'Ensembl Genome Browser': 'ftp.ensembl.org',
+    """server_names = {'Ensembl Genome Browser': 'ftp.ensembl.org',
                     'The Arabidopsis Information Resource': 'ftp.arabidopsis.org/home',
                     'National Center for Biotechnology Information': 'ftp.ncbi.nlm.nih.gov',
                     'O-GLYCBASE': 'ftp.cbs.dtu.dk',
-                    'PairsDB': 'nic.funet.fi'}
-
+                    'PairsDB': 'nic.funet.fi'}"""
+    server_names = {'ClinVar': 'ftp.ncbi.nlm.nih.gov'}
     for i, j in server_names.items():
         print '---' * 5, datetime.now(), '{}'.format(j), '---' * 5
         try:
