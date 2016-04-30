@@ -26,29 +26,54 @@ You should have received a copy of the GNU General Public License along with thi
 
 * Python >= 2.7
 
+### Linux:
+* Make sure you have Python 2.7 installed.
+* Python libraries needed: PySide, PyQt
+* Git clone PubData directory.
+* Navigate to /interface directory.
+* Run “python GUI.py”.
+* If you are missing a Python library, it will tell you when running this. 
+
 ## Screenshots
+
+![s1_lean](https://cloud.githubusercontent.com/assets/9893806/14683412/9bb0cb6a-06f8-11e6-8e91-1279b9159c57.png)
+![s2_lean](https://cloud.githubusercontent.com/assets/9893806/14683417/9f30459a-06f8-11e6-848b-05e695b3f1b4.png)
+![s3_lean](https://cloud.githubusercontent.com/assets/9893806/14683424/a764e9dc-06f8-11e6-9a24-d5a20c0c4e14.png)
+![s4_lean](https://cloud.githubusercontent.com/assets/9893806/14683425/a8d5b3c8-06f8-11e6-83a0-1e9a6c73544c.png)
+![s5_lean](https://cloud.githubusercontent.com/assets/9893806/14683428/ab37473a-06f8-11e6-8231-5d09dc248086.png)
 
 When you open PubData, first pick a bioinformatics database to login to:
 
-![screenshot1](https://cloud.githubusercontent.com/assets/9893806/14540544/9ed860c2-0253-11e6-93e7-77ffd2a934d4.png)
-![screenshot2](https://cloud.githubusercontent.com/assets/9893806/14540546/a15c2b62-0253-11e6-9753-3cf1005e6dad.png)
+![s6_lean](https://cloud.githubusercontent.com/assets/9893806/14683433/b2016ff0-06f8-11e6-813c-a1eccf2a2e30.png)
 
-If your favorite bioinformatics database is not yet in the list, just add it yourself:
+Logged into PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System database:
 
-![screenshot3](https://cloud.githubusercontent.com/assets/9893806/14540548/a46a199a-0253-11e6-892c-927bb9395530.png)
-![screenshot4](https://cloud.githubusercontent.com/assets/9893806/14540549/a59546aa-0253-11e6-8812-31a245561517.png)
-![screenshot5](https://cloud.githubusercontent.com/assets/9893806/14540551/a705302c-0253-11e6-96b7-cb5f8808e4fa.png)
+![s7_lean](https://cloud.githubusercontent.com/assets/9893806/14683441/b53109a6-06f8-11e6-9065-b74e22d51c80.png)
 
-If you want to search multiple existing databases simultaneously, tick the respective checkboxes and then click the “Smart search” feature (e.g., search for *Homo sapiens* files):
+If you don’t see your favorite database in the list, you can manually insert it yourself (convenient for recently published databases):
 
-![screenshot - 04152016 - 02 33 52 am](https://cloud.githubusercontent.com/assets/5694520/14545247/b8fad78c-02b2-11e6-8d7d-5dc770dee46b.png)
-![screenshot7](https://cloud.githubusercontent.com/assets/9893806/14540557/ac0dd15a-0253-11e6-98b3-3c9b770370dd.png)
-![screenshot6](https://cloud.githubusercontent.com/assets/9893806/14540552/a8bddedc-0253-11e6-984f-2a4c96c55223.png)
+![s8_lean](https://cloud.githubusercontent.com/assets/9893806/14683444/b73f6f4e-06f8-11e6-80d7-893ca56a16d1.png)
+![s9_lean](https://cloud.githubusercontent.com/assets/9893806/14683448/bd1b40c8-06f8-11e6-82a9-0459c6b56c7e.png)
 
-Browse the most relevant results and download your file:
+Let’s say you want to "Google search" multiple databases simultaneously:
 
-![screenshot7](https://cloud.githubusercontent.com/assets/9893806/14540557/ac0dd15a-0253-11e6-98b3-3c9b770370dd.png)
-![screenshot8](https://cloud.githubusercontent.com/assets/9893806/14540559/ae5bbee0-0253-11e6-9b9e-4eeae47752ef.png)
+![s10_lean](https://cloud.githubusercontent.com/assets/9893806/14683452/c080e0c4-06f8-11e6-9c50-4931a31b600d.png)
+
+Keyword search for ChIP-seq files across these selected databases (multiple keywords may be used as well):
+
+![s11_lean](https://cloud.githubusercontent.com/assets/9893806/14683455/c21264d0-06f8-11e6-98cc-6cc74f5b5588.png)
+
+Showing all relevant search results pertaining to ChIP-seq files across all selected databases:
+
+![s13_lean](https://cloud.githubusercontent.com/assets/9893806/14683461/c696bcea-06f8-11e6-8334-37ba00b48b1c.png)
+
+Keyword search for RNA-seq files across these selected databases (multiple keywords may be used as well):
+
+![s12_lean](https://cloud.githubusercontent.com/assets/9893806/14683458/c4601ec6-06f8-11e6-8bb6-3d47a5ebbe3f.png)
+
+Showing all relevant search results pertaining to RNA-seq files (from the selected databases):
+
+![s14_lean](https://cloud.githubusercontent.com/assets/9893806/14683465/cabf7348-06f8-11e6-85f7-2c61a9a12d2c.png)
 
 
 
