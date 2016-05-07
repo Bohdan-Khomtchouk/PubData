@@ -101,6 +101,7 @@ class ftpWindow(QtGui.QDialog):
         self.connectButton.clicked.connect(self.connectOrDisconnect)
         self.cdToParentButton.clicked.connect(self.cdToParent)
         self.downloadButton.clicked.connect(self.downloadFile)
+        self.serverButton.clicked.connect(self.select)
 
         top_layout = QtGui.QHBoxLayout()
         top_layout.addWidget(self.senameLabel)
