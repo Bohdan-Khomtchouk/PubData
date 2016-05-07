@@ -36,7 +36,7 @@ class Run(object):
         except Exception as exp:
             print exp.__str__()
         else:
-            fw = ftp_walker(connection, self.root, root)
+            fw = ftp_walker(connection, self.root)
             for _path, _, files in fw.Walk(root):
                 self.all_path.put((_path, files))
                 print _path
