@@ -26,7 +26,7 @@ for path_, _, files in os.walk("json_files"):
                 with open(os.path.join(path_, file_name)) as f:
                     result = json.load(f)
             except:
-                print "File {} gtes excaped!".format(file_name)
+                print "File {} gtes escaped!".format(file_name)
             else:
                 id_ = 0
                 for path_add, file_names_ in result.items():
