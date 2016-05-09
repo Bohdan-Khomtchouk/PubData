@@ -563,7 +563,7 @@ class ftpWindow(QtGui.QDialog):
         all_text = re.split(r'\W', text)
         synonyms = set(chain.from_iterable([wordnet.synsets(i) for i in all_text]))
         lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
-        # lemmas = self.get_wordnet_words(text).union(lemmas)
+        lemmas = self.get_wordnet_words(text).union(lemmas)
         self.statusLabel.setText("Search into selected databases. Please wait...")
         return lemmas
 
@@ -573,9 +573,8 @@ class ftpWindow(QtGui.QDialog):
         cursor.execute("SELECT * FROM wordnet WHERE word like '%{}%';".format(text))
         seen = set()
         try:
-            for row in cursor.fetchall():
-                for _, w, syns in row:
-                    seen |= set(literal_eval(syns))|{w}
+            for _, w, syns in cursor.fetchall():
+                seen |= set(literal_eval(syns)) | {w}
         except Exception as exp:
             print 'Exception: ', str(exp)
             return set()
