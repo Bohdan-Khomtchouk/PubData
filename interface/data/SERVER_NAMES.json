@@ -18,7 +18,13 @@
     "REBASE": "ftp.neb.com", 
     "UCSC Genome Browser": "hgdownload.cse.ucsc.edu", 
     "PairsDB": "nic.funet.fi", 
-    "Molecular INTeraction database": "mint.bio.uniroma2.it", 
-    "National Center for Biotechnology Information": "ftp.ncbi.nlm.nih.gov", 
-    "example": "example.com"
+    "Molecular INTeraction database": "mint.bio.uniroma2.it",
+    "Gene Expression Omnibus": "ftp.ncbi.nlm.nih.gov/geo",
+    "1000 Genomes Project": "ftp.ncbi.nlm.nih.gov/1000genomes",
+    "dbGaP": "ftp.ncbi.nlm.nih.gov/dbgap",
+    "GenBank": "ftp.ncbi.nlm.nih.gov/genbank",
+    "Epigenomics Database": "ftp.ncbi.nlm.nih.gov/epigenomics",
+    "Sequence Read Archive": "ftp.ncbi.nlm.nih.gov/sra",
+    "RefSeq": "ftp.ncbi.nlm.nih.gov/refseq",
+    "Entrez": "ftp.ncbi.nlm.nih.gov/entrez"
 }
