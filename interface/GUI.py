@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # Copyright (C) 2015-2016 Bohdan Khomtchouk, Kasra Ahmadvand, Thor Wahlestedt, Grant Kimes, Kelly Khomtchouk, Vytas Dargis-Robinson, Claes Wahlestedt
 
@@ -6,8 +7,6 @@
 
 # -------------------------------------------------------------------------------------------
 
-
-# -*- coding: utf-8 -*-
 
 
 import json
@@ -529,16 +528,16 @@ class ftpWindow(QtGui.QDialog):
                         # conn.create_function("REGEXP", 2, self.cal_regex)
                         t_name = '_'.join(map(unicode.lower, servername.split()))
                         items = [i for j in zip(words, words) for i in j]
-                        str_query = "OR file_name like '%{}%' OR file_path like '%{}%' " * len(words)
+                        str_query = u"OR file_name like '%{}%' OR file_path like '%{}%' " * len(words)
                         str_query = str_query.format(*items)
                         try:
-                            query = """SELECT file_path FROM {} WHERE file_name like '%{}%'
+                            query = u"""SELECT file_path FROM {} WHERE file_name like '%{}%'
                                                                 OR    file_path like '%{}%'
                                                                 {}""".format(t_name, text, text, str_query)
                             cursor.execute(query)
                             rows = {i[0] for i in cursor.fetchall()}
                         except Exception as exp:
-                            print exp
+                            print "Error occurred in running the query.", exp
                         else:
                             total_find[servername] = rows
                             match_path_number += len(rows)
@@ -562,7 +561,7 @@ class ftpWindow(QtGui.QDialog):
         print "cal_regex"
         all_text = re.split(r'\W', text)
         synonyms = set(chain.from_iterable([wordnet.synsets(i) for i in all_text]))
-        lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
+        lemmas = set(chain.from_iterable([word.lemma_names for word in synonyms]))
         lemmas = self.get_wordnet_words(text).union(lemmas)
         self.statusLabel.setText("Search into selected databases. Please wait...")
         return lemmas
