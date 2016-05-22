@@ -5,14 +5,19 @@
 # This file is part of PubData.
 
 # -------------------------------------------------------------------------------------------
-
-from extras import general_style
-from PyQt4.QtCore import pyqtSlot
-
 from PySide import QtCore, QtGui, QtNetwork
 
+from extras import general_style
 
-class Path_results(QtGui.QDialog):    
+import sys
+
+from PyQt4.QtCore import pyqtSlot
+
+sys.path.append('/home/kasra/PubData/database')
+from Metafiles import Meta
+
+
+class Path_results(QtGui.QDialog):
     """
     ==============
     ``Path_results``
@@ -76,10 +81,11 @@ class Path_results(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.wind = Sub_path(self.SERVER_NAMES[item.text(1)], item.text(0))
+        self.wind = Sub_path(self.SERVER_NAMES[item.text(1)], item.text(0), item.text(1))
         self.wind.resize(450, 650)
         self.wind.setWindowTitle('Sub-path')
         self.wind.show()
+
 
 class Sub_path(QtGui.QDialog):
     """
@@ -90,7 +96,7 @@ class Sub_path(QtGui.QDialog):
     .. note::
     .. todo::
     """
-    def __init__(self, root, path, parent=None):
+    def __init__(self, root, path, name, parent=None):
         """
         .. py:attribute:: __init__()
            :param root: The server's root address (ftp URL)
@@ -101,6 +107,7 @@ class Sub_path(QtGui.QDialog):
         .. todo::
         """
         super(Sub_path, self).__init__(parent)
+        self.metainstance = Meta(name)
         self.root = root
         self.path = path
         self.isDirectory = {}
@@ -122,6 +129,7 @@ class Sub_path(QtGui.QDialog):
         self.fileList.header().setStretchLastSection(True)
 
         self.downloadButton = QtGui.QPushButton("Download")
+        self.downloadButton2 = QtGui.QPushButton("Metadata")
         self.cdToParentButton = QtGui.QPushButton()
         self.cdToParentButton.setIcon(QtGui.QIcon('../images/cdtoparent.png'))
         self.cdToParentButton.setEnabled(False)
@@ -131,9 +139,11 @@ class Sub_path(QtGui.QDialog):
         self.fileList.itemActivated.connect(self.processItem)
         self.cdToParentButton.clicked.connect(self.cdToParent)
         self.downloadButton.clicked.connect(self.downloadFile)
+        self.downloadButton2.clicked.connect(self.show_metadata)
 
         button_box = QtGui.QDialogButtonBox()
         button_box.addButton(self.downloadButton, QtGui.QDialogButtonBox.ActionRole)
+        button_box.addButton(self.downloadButton2, QtGui.QDialogButtonBox.ActionRole)
         top_layout = QtGui.QHBoxLayout()
         top_layout.addWidget(self.senameLabel)
         top_layout.addWidget(self.cdToParentButton)
@@ -388,3 +398,8 @@ class Sub_path(QtGui.QDialog):
         .. todo::
         """
         self.ftp.abort()
+
+    def show_metadata(self):
+        self.metainstance.setWindowTitle("Meta files")
+        self.metainstance.resize(640, 480)
+        self.metainstance.show()
