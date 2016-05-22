@@ -165,9 +165,11 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        with open('data/SERVER_NAMES.json')as f:
-            d = json.load(f)
-            return d, d.keys()
+        conn = lite.connect('../PubData.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM servernames")
+        d = {k: v for _, k, v in cursor.fetchall()}
+        return d, d.keys()
 
     def select(self):
         """
@@ -518,7 +520,7 @@ class ftpWindow(QtGui.QDialog):
             total_find = {}
             match_path_number = 0
             try:
-                conn = lite.connect('../database/PubData.db')
+                conn = lite.connect('../PubData.db')
                 # conn.row_factory = lambda cursor, row: row[0]
                 cursor = conn.cursor()
             except Exception as exp:
@@ -567,7 +569,7 @@ class ftpWindow(QtGui.QDialog):
         return lemmas
 
     def get_wordnet_words(self, text):
-        conn = lite.connect('../database/PubData.db')
+        conn = lite.connect('../PubData.db')
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM wordnet WHERE word like '%{}%';".format(text))
         seen = set()
