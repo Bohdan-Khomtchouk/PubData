@@ -11,7 +11,7 @@ class ftp_walker(object):
         try:
             self.connection.cwd(_path)
         except Exception as exp:
-            print "the path is : ", self.connection.pwd(), exp.__str__(), _path
+            print "the current path is : ", self.connection.pwd(), exp.__str__(), _path
             return [], []
         else:
             self.connection.retrlines('LIST', lambda x: file_list.append(x.split()))
@@ -25,7 +25,9 @@ class ftp_walker(object):
 
     def Walk(self, top, path=''):
         dirs, nondirs = self.listdir(top)
-        yield path or top, dirs, nondirs
+        yield (path or top), dirs, nondirs
+        path = top
+        print dirs
         for name in dirs:
             path = os.path.join(path, name)
             for x in self.Walk(name, path):

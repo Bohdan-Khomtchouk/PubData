@@ -15,13 +15,14 @@ class Run(object):
         self.name = name
 
     def find_leading(self):
-        base, length = [], 2
+        print "Find leading..."
+        length = 2
         conn = ftplib.FTP(self.server_name)
         conn.login()
         fw = ftp_walker(conn, self.root)
         for p, dirs, files in fw.Walk(self.root):
             length = len(dirs)
-            base.append((p, files))
+            base = (p, files)
             if length > 1:
                 p = '/'.join(p.split('/')[1:])
                 length = length
@@ -36,7 +37,8 @@ class Run(object):
         except Exception as exp:
             print exp.__str__()
         else:
-            fw = ftp_walker(connection, self.root)
+            print "root is ", root
+            fw = ftp_walker(connection, self.root.split('/')[-1])
             for _path, _, files in fw.Walk(root):
                 self.all_path.put((_path, files))
                 print _path
