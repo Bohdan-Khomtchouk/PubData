@@ -8,9 +8,8 @@
 from PySide import QtCore, QtGui, QtNetwork
 
 from extras import general_style
-
-import os, sys
-
+import sys
+import os
 from PyQt4.QtCore import pyqtSlot
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from database.Metafiles import Meta
