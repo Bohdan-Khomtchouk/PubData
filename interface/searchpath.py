@@ -9,12 +9,11 @@ from PySide import QtCore, QtGui, QtNetwork
 
 from extras import general_style
 
-import sys
+import os, sys
 
 from PyQt4.QtCore import pyqtSlot
-
-sys.path.append('/home/kasra/PubData/database')
-from Metafiles import Meta
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from database.Metafiles import Meta
 
 
 class Path_results(QtGui.QDialog):

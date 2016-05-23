@@ -2,8 +2,8 @@ import os
 from PySide import QtCore, QtGui
 from PyQt4.QtCore import pyqtSlot
 import sys
-sys.path.append('/home/kasra/PubData/interface')
-from extras import general_style
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from interface.extras import general_style
 
 
 
