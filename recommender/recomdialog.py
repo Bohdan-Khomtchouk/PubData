@@ -46,10 +46,11 @@ class Searchdialog(QtGui.QDialog):
     def get_recommended_words(self):
         conn = lite.connect('../PubData.db')
         cursor = conn.cursor()
-        cursor.execute("SELECT word FROM 'recommender_exact' ORDER BY 'rank' ASC LIMIT 12")
+        cursor.execute("SELECT word FROM 'recommender_exact' ORDER BY rank DESC LIMIT 12")
         try:
             exact = zip(*cursor.fetchall())[0]
-            cursor.execute("SELECT word FROM 'recommender_syns' ORDER BY 'rank' ASC LIMIT 12")
+            print exact
+            cursor.execute("SELECT word FROM 'recommender_syns' ORDER BY rank DESC LIMIT 12")
             syns = zip(*cursor.fetchall())[0]
         except IndexError:
             exact = syns = []
