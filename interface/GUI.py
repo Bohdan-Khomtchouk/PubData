@@ -8,9 +8,9 @@
 # -------------------------------------------------------------------------------------------
 
 
-
-import json
 import re
+from os import path as ospath
+from sys import path as syspath
 from itertools import chain
 from extras import general_style
 from PyQt4.QtCore import pyqtSlot
@@ -22,6 +22,9 @@ from selectservers import SelectServers
 import sqlite3 as lite
 from updateservers import MainUpdate
 from ast import literal_eval
+syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
+from recommender import recomdialog
+
 
 class ftpWindow(QtGui.QDialog):
     """
@@ -55,6 +58,8 @@ class ftpWindow(QtGui.QDialog):
 
         self.select_s = SelectServers(self.server_names)
         self.select_s.ok_button.clicked.connect(self.put_get_servers)
+        self.dialog = recomdialog.Searchdialog()
+        self.dialog.ok_button.clicked.connect(self.get_keyword)
 
         self.senameLabel = QtGui.QLabel("ftp name : ")
         self.ftpServerLabel = QtGui.QLabel('...')
@@ -491,9 +496,8 @@ class ftpWindow(QtGui.QDialog):
 
     @pyqtSlot(QtGui.QTreeWidget)
     def put_get_servers(self):
-        selected_names = self.select_s.selected_server_names
-        self.search(selected_names)
-        self.statusLabel.setText("Search in servers...")
+        self.selected_names = self.select_s.selected_server_names
+        self.show_dialog()
 
     def manual_search(self):
         self.select_s.resize(350, 650)
@@ -502,9 +506,24 @@ class ftpWindow(QtGui.QDialog):
 
     def search_all(self):
         self.statusLabel.setText("Search in servers...")
-        self.search(self.server_names)
+        self.show_dialog(search_all=True)
 
-    def search(self, server_names):
+    @pyqtSlot(QtGui.QLineEdit)
+    def get_keyword(self):
+        keyword = self.dialog.get_keyword()
+        if self.dialog.search_all:
+            self.search(self.server_names, keyword)
+        else:
+            self.search(self.selected_names, keyword)
+        self.statusLabel.setText("Search in servers...")
+
+    def show_dialog(self, search_all=False):
+        self.dialog.search_all = search_all
+        self.dialog.resize(350, 650)
+        self.dialog.setWindowTitle('Search for keyword')
+        self.dialog.show()
+
+    def search(self, server_names, keyword):
         """
         .. py:attribute:: search()
             :rtype: UNKNOWN
@@ -514,45 +533,46 @@ class ftpWindow(QtGui.QDialog):
         message = QtCore.QT_TR_NOOP(
             "<p>You have an error in your connection.</p>"
             "<p>Please select one of the server names and connect to it.</p>")
-        text, ok = self.dialog_box.getText(self, "Search for file", 'Enter your keyword',QtGui.QLineEdit.Normal)
-        if ok:
-            words = self.cal_regex(text)
-            total_find = {}
-            match_path_number = 0
-            try:
-                conn = lite.connect('../PubData.db')
-                # conn.row_factory = lambda cursor, row: row[0]
-                cursor = conn.cursor()
-            except Exception as exp:
-                print exp
-            else:
-                for servername in server_names:
-                        # conn.create_function("REGEXP", 2, self.cal_regex)
-                        t_name = '_'.join(map(unicode.lower, servername.split()))
-                        items = [i for j in zip(words, words) for i in j]
-                        str_query = u"OR file_name like '%{}%' OR file_path like '%{}%' " * len(words)
-                        str_query = str_query.format(*items)
-                        try:
-                            query = u"""SELECT file_path FROM {} WHERE file_name like '%{}%'
-                                                                OR    file_path like '%{}%'
-                                                                {}""".format(t_name, text, text, str_query)
-                            cursor.execute(query)
-                            rows = {i[0] for i in cursor.fetchall()}
-                        except Exception as exp:
-                            print "Error occurred in running the query.", exp
-                        else:
-                            total_find[servername] = rows
-                            match_path_number += len(rows)
-                if match_path_number:
-                    self.wid = Path_results(self.server_dict, total_find, match_path_number)
-                    self.wid.resize(350, 650)
-                    self.wid.setWindowTitle('Search')
-                    self.wid.show()
-                else:
-                    message = """<p>No results.<p>Please try with another pattern.</p>"""
-                    QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
 
-    def cal_regex(self, text):
+        words = self.get_lemmas(keyword)
+        total_find = {}
+        match_path_number = 0
+        try:
+            conn = lite.connect('../PubData.db')
+            # conn.row_factory = lambda cursor, row: row[0]
+            cursor = conn.cursor()
+        except Exception as exp:
+            print exp
+        else:
+            for servername in server_names:
+                    # conn.create_function("REGEXP", 2, self.cal_regex)
+                    t_name = '_'.join(map(unicode.lower, servername.split()))
+                    items = [i for j in zip(words, words) for i in j]
+                    str_query = u"OR file_name like '%{}%' OR file_path like '%{}%' " * len(words)
+                    str_query = str_query.format(*items)
+                    try:
+                        query = u"""SELECT file_path FROM {} WHERE file_name like '%{}%'
+                                                            OR    file_path like '%{}%'
+                                                            {}""".format(t_name, keyword, keyword, str_query)
+                        cursor.execute(query)
+                        rows = {i[0] for i in cursor.fetchall()}
+                    except Exception as exp:
+                        print "Error occurred in running the query.", exp
+                    else:
+                        total_find[servername] = rows
+                        match_path_number += len(rows)
+            if match_path_number:
+                self.wid = Path_results(self.server_dict, total_find, match_path_number)
+                self.wid.resize(350, 650)
+                self.wid.setWindowTitle('Search')
+                self.wid.show()
+            else:
+                message = """<p>No results.<p>Please try with another pattern.</p>"""
+                QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
+
+            self.set_recommender(keyword, *words)
+
+    def get_lemmas(self, text):
         """
         .. py:attribute:: cal_regex()
            :param text:
@@ -568,10 +588,23 @@ class ftpWindow(QtGui.QDialog):
         self.statusLabel.setText("Search into selected databases. Please wait...")
         return lemmas
 
+    def set_recommender(self, word, *syns):
+        conn = lite.connect('../PubData.db')
+        cursor = conn.cursor()
+        insert_query = u"""INSERT OR IGNORE INTO {} (word, rank) VALUES(?, ?);"""
+        update_query = u"""UPDATE '{}' SET rank=rank+1 WHERE word='{}';"""
+
+        cursor.execute(insert_query.format('recommender_exact'), (word, 0))
+        cursor.execute(update_query.format('recommender_exact', word))
+        for syn in syns:
+            cursor.execute(insert_query.format('recommender_syns'), (syn, 0))
+            cursor.execute(update_query.format('recommender_syns', syn))
+        conn.commit()
+
     def get_wordnet_words(self, text):
         conn = lite.connect('../PubData.db')
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM wordnet WHERE word like '%{}%';".format(text))
+        cursor.execute("SELECT * FROM wordnet WHERE word LIKE '%{}%';".format(text))
         seen = set()
         try:
             for _, w, syns in cursor.fetchall():

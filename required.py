@@ -42,6 +42,7 @@ server_names = {"PANTHER": "ftp.pantherdb.org",
 
 
 def create_servernames_table(servernames):
+    print "Creating server names table..."
     conn = lite.connect('PubData.db')
     curs = conn.cursor()
     table_name = "servernames"
@@ -81,8 +82,8 @@ def database_creator():
                                             VALUES (?, ?, ?)""".format(table_name), (id_, path_add, name))
                     print "File {} successfully gets imported".format(file_name)
 
-        # curs.execute("""CREATE INDEX index_name on table_name (column1, column2);""")
-            conn.commit()
+        curs.execute("""CREATE INDEX {}_index on {} (file_path, file_name);""".format(table_name, table_name))
+        conn.commit()
 
 def create_wordnet_table():
     conn = lite.connect('PubData.db')
@@ -105,6 +106,25 @@ def create_wordnet_table():
     curs.execute("""CREATE INDEX alphabet on {} (word, synonyms);""".format(table_name))
     conn.commit()
 
+def create_recommender_table():
+    print "Creating recommender system tables..."
+    conn = lite.connect('PubData.db')
+    curs = conn.cursor()
+
+    table_name = "recommender_exact"
+    query = """CREATE TABLE {} (id   int PRIMARY KEY,
+                                word text   NOT NULL UNIQUE,
+                                rank text   NOT NULL );""".format(table_name)
+    curs.execute(query)
+    curs.execute("""CREATE INDEX {}_index on {} (word);""".format(table_name, table_name))
+    table_name = "recommender_syns"
+    query = """CREATE TABLE {} (id   int PRIMARY KEY,
+                                word text   NOT NULL UNIQUE,
+                                rank text   NOT NULL);""".format(table_name)
+    curs.execute(query)
+    curs.execute("""CREATE INDEX {}_index on {} (word);""".format(table_name, table_name))
+    conn.commit()
+
 
 if __name__ == "__main__":
     try:
@@ -113,3 +133,4 @@ if __name__ == "__main__":
         print exp
     database_creator()
     create_wordnet_table()
+    create_recommender_table()
