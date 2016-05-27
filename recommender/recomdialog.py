@@ -47,10 +47,12 @@ class Searchdialog(QtGui.QDialog):
         conn = lite.connect('../PubData.db')
         cursor = conn.cursor()
         cursor.execute("SELECT word FROM 'recommender_exact' ORDER BY 'rank' ASC LIMIT 12")
-        exact = zip(*cursor.fetchall())[0]
-        cursor.execute("SELECT word FROM 'recommender_syns' ORDER BY 'rank' ASC LIMIT 12")
-        syns = zip(*cursor.fetchall())[0]
-
+        try:
+            exact = zip(*cursor.fetchall())[0]
+            cursor.execute("SELECT word FROM 'recommender_syns' ORDER BY 'rank' ASC LIMIT 12")
+            syns = zip(*cursor.fetchall())[0]
+        except IndexError:
+            exact = syns = []
         text = """
                 <ul>
                     <li><font color='red'><b>Exact words:</b></font></li>
