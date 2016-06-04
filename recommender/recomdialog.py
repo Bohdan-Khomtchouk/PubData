@@ -41,7 +41,7 @@ class Searchdialog(QtGui.QDialog):
         self.setStyleSheet(general_style)
 
     def get_keyword(self):
-        return self.lineedit.text()
+        return self.lineedit.text().strip()
 
     def get_recommended_words(self):
         conn = lite.connect('../PubData.db')
@@ -50,7 +50,7 @@ class Searchdialog(QtGui.QDialog):
         try:
             exact = zip(*cursor.fetchall())[0]
             print exact
-            cursor.execute("SELECT word FROM 'recommender_syns' ORDER BY rank DESC LIMIT 12")
+            cursor.execute("SELECT word FROM 'recommender_syns' ORDER BY rank DESC LIMIT 20")
             syns = zip(*cursor.fetchall())[0]
         except IndexError:
             exact = syns = []
