@@ -24,7 +24,7 @@ from updateservers import MainUpdate
 from ast import literal_eval
 syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
 from recommender import recomdialog
-
+from string import punctuation
 
 class ftpWindow(QtGui.QDialog):
     """
@@ -126,7 +126,7 @@ class ftpWindow(QtGui.QDialog):
 
     def createMenu(self):
         self.menuBar = QtGui.QMenuBar()
-
+        # self.menuBar.setNativeMenuBar(False)
         self.fileMenu1 = QtGui.QMenu("&File", self)
         self.server_list_action = self.fileMenu1.addAction("Server list")
         self.exit_action = self.fileMenu1.addAction("Exit")
@@ -580,12 +580,16 @@ class ftpWindow(QtGui.QDialog):
             :rtype: UNKNOWN
         .. note::
         """
+        punc = set(punctuation)
         print "cal_regex"
-        all_text = re.split(r'\W', text)
-        synonyms = set(chain.from_iterable([wordnet.synsets(i) for i in all_text]))
-        lemmas = set(chain.from_iterable([word.lemma_names for word in synonyms]))
-        lemmas = self.get_wordnet_words(text).union(lemmas)
-        self.statusLabel.setText("Search into selected databases. Please wait...")
+        if punc.intersection(text):
+            all_text = re.split(r'\W', text)
+            lemmas = self.get_wordnet_words(text).union([text] + all_text)
+        else:
+            synonyms = wordnet.synsets(text)
+            lemmas = set(chain.from_iterable([word.lemma_names for word in synonyms]))
+            lemmas = self.get_wordnet_words(text).union(lemmas)
+            self.statusLabel.setText("Search into selected databases. Please wait...")
         return lemmas
 
     def set_recommender(self, word, *syns):
