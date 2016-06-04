@@ -9,6 +9,7 @@
 import json
 from nltk import word_tokenize, pos_tag
 import codecs
+from itertools import chain
 
 
 class Corpus():
@@ -19,7 +20,7 @@ class Corpus():
     def create_dict(self):
         with codecs.open(self.input_file, encoding='UTF-8') as f:
             words = json.load(f)
-        new_dict = {k: [word for word, tag in pos_tag(word_tokenize(v)) if tag == 'NN' and len(word)>3] for k, v in words.items()}
+        new_dict = {k: [word for word, tag in pos_tag(list(chain.from_iterable([word_tokenize(i) for i in v]))) if 'NN' in tag and len(word)>3] for k, v in words.items()}
         return new_dict
 
     def create_json(self):

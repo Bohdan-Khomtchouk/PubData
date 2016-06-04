@@ -8,7 +8,7 @@
 
 """
 Create a JSON file containing the encyclopedia words and relative descriptions. The result is not precisely the same as the PDF,
-approximately 95% is correct (the desired content is correct, the rest is garbage, e.g., table of contents, appendices, misc footnotes).
+approximately 95% is correct (the desired content is correct, the rest is extra, e.g., table of contents, appendices, misc footnotes).
 
 """
 
@@ -18,7 +18,6 @@ import codecs
 from xml.etree import ElementTree
 from itertools import chain
 from operator import itemgetter
-
 
 
 class Mainparser():
@@ -38,7 +37,7 @@ class Mainparser():
             sub = [[node.text] if node.text else [sub.text + ' ' if sub.text else '' for sub in node.getchildren()] for node in neighbor.getchildren()]
             sub = chain.from_iterable(sub)
             if neighbor.text:
-                yield (int(neighbor.get('number')) - 17, neighbor.text + ''.join(sub))
+                yield (int(neighbor.get('number')) - 17, neighbor.text + ' '.join(sub))
 
     def create_dict(self):
         return OrderedDict(self.pager())
@@ -68,9 +67,12 @@ class Mainparser():
             yield all_slices
 
     def create_json(self):
-        words = OrderedDict(chain.from_iterable(self.splitter()))
+        words = OrderedDict()
+        for sub in self.splitter():
+            for w, desc in sub:
+                words.setdefault(w, []).append(desc)
         # words = OrderedDict(chain(self.pager()))
-        with codecs.open('pages.json', 'w', encoding='UTF-8') as f:
+        with codecs.open('final_result.json', 'w', encoding='UTF-8') as f:
             json.dump(words, f, indent=4)
 
 
