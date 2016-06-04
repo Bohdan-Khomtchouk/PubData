@@ -94,7 +94,7 @@ def create_wordnet_table():
                                 word     text            NOT NULL,
                                 synonyms text            NOT NULL);""".format(table_name)
     curs.execute(query)
-    with open("WordNet/corpus.json") as f:
+    with open("WordNet/corpus_new.json") as f:
         result = json.load(f)
 
     id_ = 0
