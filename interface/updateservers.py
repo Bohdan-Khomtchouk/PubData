@@ -11,7 +11,7 @@ from os import path
 from datetime import datetime
 import json
 import socket
-from extras import SERVER_NAMES
+from extras.extras import SERVER_NAMES
 import sqlite3 as lite
 
 

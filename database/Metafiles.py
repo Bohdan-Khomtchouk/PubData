@@ -3,7 +3,7 @@ from PySide import QtCore, QtGui
 from PyQt4.QtCore import pyqtSlot
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from interface.extras import general_style
+from interface.extras.extras import general_style
 
 
 

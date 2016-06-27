@@ -6,9 +6,8 @@
 
 # -------------------------------------------------------------------------------------------
 
-from extras import general_style
+from extras.extras import general_style
 from PySide import QtCore, QtGui
-import json
 
 
 class SelectServers(QtGui.QDialog):

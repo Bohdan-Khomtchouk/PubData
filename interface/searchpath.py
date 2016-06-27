@@ -6,11 +6,10 @@
 
 # -------------------------------------------------------------------------------------------
 from PySide import QtCore, QtGui, QtNetwork
-
-from extras import general_style
 import sys
 import os
 from PyQt4.QtCore import pyqtSlot
+from extras.extras import general_style
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from database.Metafiles import Meta
 
@@ -129,7 +128,7 @@ class Sub_path(QtGui.QDialog):
         self.downloadButton = QtGui.QPushButton("Download")
         self.downloadButton2 = QtGui.QPushButton("Metadata")
         self.cdToParentButton = QtGui.QPushButton()
-        self.cdToParentButton.setIcon(QtGui.QIcon('../images/cdtoparent.png'))
+        self.cdToParentButton.setIcon(QtGui.QIcon('images/cdtoparent.png'))
         self.cdToParentButton.setEnabled(False)
 
         self.progressDialog = QtGui.QProgressDialog(self)

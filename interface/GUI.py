@@ -10,9 +10,9 @@
 
 import re
 from os import path as ospath
-from sys import path as syspath
+from sys import argv, exit, path as syspath
 from itertools import chain
-from extras import general_style
+from interface.extras.extras import general_style
 from PyQt4.QtCore import pyqtSlot
 from PySide import QtCore, QtGui, QtNetwork
 from nltk.corpus import wordnet
@@ -78,7 +78,7 @@ class ftpWindow(QtGui.QDialog):
         self.connectButton.setDefault(True)
 
         self.cdToParentButton = QtGui.QPushButton()
-        self.cdToParentButton.setIcon(QtGui.QIcon('../images/cdtoparent.png'))
+        self.cdToParentButton.setIcon(QtGui.QIcon('images/cdtoparent.png'))
         self.cdToParentButton.setEnabled(False)
 
         self.serverButton = QtGui.QPushButton('server list')
@@ -171,7 +171,7 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        conn = lite.connect('../PubData.db')
+        conn = lite.connect('PubData.db')
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM servernames")
         d = {k: v for _, k, v in cursor.fetchall()}
@@ -218,7 +218,7 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.wid = Edit_servers(self.server_dict, "../PubData.db")
+        self.wid = Edit_servers(self.server_dict, "PubData.db")
         self.wid.resize(350, 650)
         self.wid.setWindowTitle('Edit servers')
         self.wid.show()
@@ -399,9 +399,9 @@ class ftpWindow(QtGui.QDialog):
         item.setText(4, urlInfo.lastModified().toString('MMM dd yyyy'))
 
         if urlInfo.isDir():
-            icon = QtGui.QIcon('../images/dir.png')
+            icon = QtGui.QIcon('images/dir.png')
         else:
-            icon = QtGui.QIcon('../images/file.png')
+            icon = QtGui.QIcon('images/file.png')
         item.setIcon(0, icon)
 
         self.isDirectory[urlInfo.name()] = urlInfo.isDir()
@@ -539,7 +539,7 @@ class ftpWindow(QtGui.QDialog):
         total_find = {}
         match_path_number = 0
         try:
-            conn = lite.connect('../PubData.db')
+            conn = lite.connect('PubData.db')
             # conn.row_factory = lambda cursor, row: row[0]
             cursor = conn.cursor()
         except Exception as exp:
@@ -594,7 +594,7 @@ class ftpWindow(QtGui.QDialog):
         return lemmas
 
     def set_recommender(self, word, *syns):
-        conn = lite.connect('../PubData.db')
+        conn = lite.connect('PubData.db')
         cursor = conn.cursor()
         insert_query = u"""INSERT OR IGNORE INTO {} (word, rank) VALUES(?, ?);"""
         update_query = u"""UPDATE '{}' SET rank=rank+1 WHERE word='{}';"""
@@ -607,7 +607,7 @@ class ftpWindow(QtGui.QDialog):
         conn.commit()
 
     def get_wordnet_words(self, text):
-        conn = lite.connect('../PubData.db')
+        conn = lite.connect('PubData.db')
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM wordnet WHERE word LIKE '%{}%';".format(text))
         seen = set()
@@ -631,11 +631,10 @@ class ftpWindow(QtGui.QDialog):
         self.Select_s.setWindowTitle('Select server for search')
         self.Select_s.show()
 
-if __name__ == '__main__':
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    ftpWin_ = ftpWindow()
+
+def run():
+    app = QtGui.QApplication(argv)
     ftpWin = ftpWindow()
     ftpWin.resize(950, 600)
     ftpWin.show()
-    sys.exit(ftpWin.exec_())
+    exit(ftpWin.exec_())

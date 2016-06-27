@@ -4,7 +4,7 @@
 
 # -------------------------------------------------------------------------------------------
 from PySide import QtGui
-from extras import general_style
+from interface.extras.extras import general_style
 import sqlite3 as lite
 
 
@@ -44,12 +44,11 @@ class Searchdialog(QtGui.QDialog):
         return self.lineedit.text().strip()
 
     def get_recommended_words(self):
-        conn = lite.connect('../PubData.db')
+        conn = lite.connect('PubData.db')
         cursor = conn.cursor()
         cursor.execute("SELECT word FROM 'recommender_exact' ORDER BY rank DESC LIMIT 12")
         try:
             exact = zip(*cursor.fetchall())[0]
-            print exact
             cursor.execute("SELECT word FROM 'recommender_syns' ORDER BY rank DESC LIMIT 20")
             syns = zip(*cursor.fetchall())[0]
         except IndexError:

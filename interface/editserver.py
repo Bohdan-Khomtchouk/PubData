@@ -12,10 +12,10 @@
 ----------
 Let users update the servers optionally.
 """
-from extras import general_style
 from PyQt4.QtCore import pyqtSlot
 from PySide import QtCore, QtGui
 import sqlite3 as lite
+from interface.extras.extras import general_style
 
 
 class Edit_servers(QtGui.QDialog):
