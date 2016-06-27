@@ -46,13 +46,13 @@ def create_servernames_table(servernames):
     conn = lite.connect('PubData.db')
     curs = conn.cursor()
     table_name = "servernames"
-    curs.execute("""CREATE TABLE {} (id   INT   PRIMARY KEY NOT NULL,
+    curs.execute("""CREATE TABLE {} (id   INTEGER   PRIMARY KEY AUTOINCREMENT,
                                      name text  NOT NULL,
                                      url  text  NOT NULL);""".format(table_name))
 
-    for _id, (name, url) in enumerate(servernames.items(), 1):
-        conn.execute("""INSERT INTO {} (id, name, url)
-                        VALUES (?, ?, ?)""".format(table_name), (_id, name, url))
+    for name, url in servernames.items():
+        conn.execute("""INSERT INTO {} (name, url)
+                        VALUES (?, ?)""".format(table_name), (name, url))
     conn.commit()
 
 
