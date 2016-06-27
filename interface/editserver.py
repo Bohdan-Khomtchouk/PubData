@@ -15,11 +15,11 @@ Let users update the servers optionally.
 from extras import general_style
 from PyQt4.QtCore import pyqtSlot
 from PySide import QtCore, QtGui
-import json
+import sqlite3 as lite
 
 
 class Edit_servers(QtGui.QDialog):
-    def __init__(self, servers, parent=None):
+    def __init__(self, servers, db_path, parent=None):
         """
         .. py:attribute:: __init__(server)
            :param server: Server names and addresses
@@ -38,6 +38,8 @@ class Edit_servers(QtGui.QDialog):
         self.list_a.setHeaderLabels(['Server names'])
         self.dialog_box = QtGui.QInputDialog()
         self.servers = servers
+        self.db_path = db_path
+        self.cursor = self.cursorcreator()
 
         for i in self.servers:
             item = QtGui.QTreeWidgetItem()
@@ -63,6 +65,10 @@ class Edit_servers(QtGui.QDialog):
         self.setStyleSheet(general_style)
 
         self.list_a.itemDoubleClicked.connect(self.doubleClickedSlot)
+
+    def cursorcreator(self):
+        self.conn = lite.connect(self.db_path)
+        return self.conn.cursor()
 
     def itemadder(self, name):
         """
@@ -104,11 +110,13 @@ class Edit_servers(QtGui.QDialog):
             if ok:
                 del self.servers[current_name]
                 self.servers[name] = address
-                item_index = self.list_a.indexOftp_walker_insopLevelItem(item)
+                item_index = self.list_a.indexOfTopLevelItem(item)
                 self.list_a.takeTopLevelItem(item_index)
                 self.itemadder(name)
-                with open('SERVER_NAMES.json', 'w') as f:
-                    json.dump(self.servers, f, indent=4)
+                self.cursor.execute("UPDATE servernames SET name='{}', url='{}' WHERE name='{}'".format(name,
+                                                                                                        address,
+                                                                                                        current_name))
+                self.conn.commit()
 
 
     def removeSel(self):
@@ -131,7 +139,8 @@ class Edit_servers(QtGui.QDialog):
         for item in checked_items:
             item_index = self.list_a.indexOfTopLevelItem(item)
             self.list_a.takeTopLevelItem(item_index)
-
+            self.cursor.execute("DELETE FROM servernames WHERE name=?", (item.text(0),))
+            self.conn.commit()
 
     def addnew(self):
         """
@@ -151,5 +160,5 @@ class Edit_servers(QtGui.QDialog):
             if ok:
                 self.servers[name] = address
                 self.itemadder(name)
-                with open('data/SERVER_NAMES.json', 'w') as f:
-                    json.dump(self.servers, f, indent=4)
+                self.cursor.execute("INSERT INTO servernames (name, url) VALUES (?, ?)",(name, address))
+                self.conn.commit()
