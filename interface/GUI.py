@@ -22,9 +22,10 @@ from selectservers import SelectServers
 import sqlite3 as lite
 from updateservers import MainUpdate
 from ast import literal_eval
+from string import punctuation
 syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
 from recommender import recomdialog
-from string import punctuation
+
 
 class ftpWindow(QtGui.QDialog):
     """
@@ -217,7 +218,7 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.wid = Edit_servers(self.server_names)
+        self.wid = Edit_servers(self.server_dict, "../PubData.db")
         self.wid.resize(350, 650)
         self.wid.setWindowTitle('Edit servers')
         self.wid.show()
