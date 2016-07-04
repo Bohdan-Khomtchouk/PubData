@@ -78,7 +78,9 @@ class Path_results(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        self.wind = Sub_path(self.SERVER_NAMES[item.text(1)], item.text(0), item.text(1))
+        name = item.text(1)
+        print("selected server_name is : {} The address is {} ".format(name, self.SERVER_NAMES[name]))
+        self.wind = Sub_path(self.SERVER_NAMES[name], item.text(0), item.text(1))
         self.wind.resize(450, 650)
         self.wind.setWindowTitle('Sub-path')
         self.wind.show()
@@ -165,7 +167,7 @@ class Sub_path(QtGui.QDialog):
         .. todo::
         """
         if not self.ftp:
-            print 'create new FTP connection'
+            print('create new FTP connection')
             self.ftp = QtNetwork.QFtp(self)
 
         self.setCursor(QtCore.Qt.WaitCursor)
@@ -176,7 +178,6 @@ class Sub_path(QtGui.QDialog):
         self.fileList.clear()
         self.currentPath = ''
         self.isDirectory.clear()
-        print self.path
         url = QtCore.QUrl(self.root)
         if not url.isValid() or url.scheme().lower() != 'ftp':
             self.ftp.connectToHost(self.root, 21)
@@ -380,9 +381,7 @@ class Sub_path(QtGui.QDialog):
             self.outFile = None
             return
 
-        print self.fileList.currentItem().text(0)
         self.ftp.get(self.fileList.currentItem().text(0), self.outFile)
-
         self.progressDialog.setLabelText("Downloading %s..." % file_name)
         self.downloadButton.setEnabled(False)
         self.progressDialog.exec_()
