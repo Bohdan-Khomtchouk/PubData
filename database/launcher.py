@@ -1,31 +1,43 @@
-from multiprocessing import Process
+from multiprocessing import Pool
 from ftp_traverse import Run
-import os
+from datetime import datetime
+import json
+from collections import OrderedDict
+from os import path as ospath
 
+d = {"1000genomes/": "1000 Genomes Project",
+     "dbgap/": "dbGaP",
+     "entrez/": "Entrez",
+     "genbank/": "GenBank",
+     "geo/": "Gene Expression Omnibus",
+     "hapmap/": "HapMap",
+     "refseq/": "RefSeq",
+     "sra/": "Sequence Read Archive",
+     "epigenomics/": "Epigenomics Database"}
 
-d = {"geo/": "Gene Expression Omnibus",
-     "sra/": "Sequence Read Archive"}
+test = {"/dbgap/": "dbGaP"}
+# "National Center for Biotechnology Information": "ftp.ncbi.nlm.nih.gov"
 
+for root, name in test.items():
+    run = Run(name, "ftp.ncbi.nlm.nih.gov", root)
+    base, leadings = run.find_leading(root, thread_flag=False)
+    path, _ = base[0]
+    leadings = [ospath.join(path, i.strip('/')) for i in leadings]
+    print ("Root's leadings are: ", leadings)
 
-# "National Center for Biotechnology Information": "ftp.ncbi.nlm.nih.gov",
-address = "ftp.ncbi.nlm.nih.gov"
-
-run = Run("Gene Expression Omnibus", "ftp.ncbi.nlm.nih.gov", "geo/")
-
-(base, files), leadings = run.find_leading()
-
-parts = [leadings[i:i + 4] for i in range(0, len(d), 4)]
-
-for part in parts:
-    print part
-    for root in part:
-        processes = []
-        root = os.path.join(base, root.strip('/'))
-        print "Start processes ", root, "...\n\n"
-        run = Run("Gene Expression Omnibus", "ftp.ncbi.nlm.nih.gov", root)
-        p = Process(target=run.main_run, args=())
-        p.start()
-        processes.append(p)
-
-    for p in processes:
-        p.join()
+    try:
+        pool = Pool()
+        pool.map(run.main_run, leadings)
+    except Exception as exp:
+        print(exp)
+    else:
+        print ('***' * 5, datetime.now(), '***' * 5)
+        l = []
+        print ('creating list...')
+        while run.all_path.qsize() > 0:
+            l.append(run.all_path.get())
+        print ('creating dict...')
+        d = OrderedDict(base + l)
+        print ('writing to json...')
+        with open('{}.json'.format(name), 'w') as fp:
+            json.dump(d, fp, indent=4)

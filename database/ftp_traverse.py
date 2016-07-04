@@ -1,73 +1,60 @@
 from ftpwalker import ftp_walker
 import ftplib
-from Queue import Queue
+from multiprocessing import Manager
 from datetime import datetime
-from threading import Thread
-import json
+from multiprocessing.dummy import Pool as ThreadPool
 import socket
-
+from os import path as ospath
 
 class Run(object):
     def __init__(self, name, server_name, root):
-        self.all_path = Queue()
+        m = Manager()
+        self.all_path = m.Queue()
         self.server_name = server_name
         self.root = root
         self.name = name
 
-    def find_leading(self):
-        print "Find leading..."
+    def find_leading(self, top, thread_flag=True):
+        print ("Find leading...")
         length = 2
         conn = ftplib.FTP(self.server_name)
         conn.login()
-        fw = ftp_walker(conn, self.root)
-        for p, dirs, files in fw.Walk(self.root):
+        fw = ftp_walker(conn)
+        for p, dirs, files in fw.Walk(top):
             length = len(dirs)
-            base = (p, files)
+            base = [(p, files)]
             if length > 1:
                 p = '/'.join(p.split('/')[1:])
                 length = length
-                return base, [p + '/' + i for i in dirs]
+                return base, dirs
+            elif thread_flag:
+                return base, []
         conn.quit()
 
     def traverse(self, root='/'):
         try:
             connection = ftplib.FTP(self.server_name)
             connection.login()
-            connection.cwd(self.root)
+            connection.cwd(root)
         except Exception as exp:
-            print exp.__str__()
+            print (exp.__str__())
         else:
-            print "root is ", root
-            fw = ftp_walker(connection, self.root.split('/')[-1])
+            fw = ftp_walker(connection)
             for _path, _, files in fw.Walk(root):
                 self.all_path.put((_path, files))
-                print _path
             connection.quit()
 
-    def main_run(self):
-        print '---' * 5, datetime.now(), '{}'.format(self.root), '---' * 5
-        threads = []
+    def main_run(self, root):
+        print ('---' * 5, datetime.now(), '{}'.format(root), '---' * 5)
         try:
-            base, leading = self.find_leading()
-            # parts = [leading[i:i + 5] for i in range(0, len(leading), 5)]
-            # for part in parts:
-            for conn in leading:
-                thread = Thread(target=self.traverse, args=(conn.strip('/'),))
-                thread.start()
-                threads.append(thread)
-            for thread in threads:
-                    thread.join()
-
+            base, leadings = self.find_leading(root)
+            leadings = [ospath.join(root, i.strip('/')) for i in leadings]
+            if leadings:
+                pool = ThreadPool()
+                pool.map(self.traverse, leadings)
+                pool.close()
+                pool.join()
+            else:
+                self.all_path.put(base[0])
         except (ftplib.error_temp, ftplib.error_perm, socket.gaierror) as exp:
-            print exp
-        else:
-            print '***' * 5, datetime.now(), '***' * 5
-            l = []
-            print 'creating list...'
-            while self.all_path.qsize() > 0:
-                l.append(self.all_path.get())
-            print 'creating dict...'
-            d = dict(base + l)
-            print 'writing to json...'
-            with open('{}.json'.format(self.name), 'w') as fp:
-                json.dump(d, fp, indent=4, encoding='latin1')
+            print (exp)
