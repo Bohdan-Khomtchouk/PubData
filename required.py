@@ -31,14 +31,14 @@ server_names = {"PANTHER": "ftp.pantherdb.org",
                 "UCSC Genome Browser": "hgdownload.cse.ucsc.edu",
                 "PairsDB": "nic.funet.fi",
                 "Molecular INTeraction database": "mint.bio.uniroma2.it",
-                "Gene Expression Omnibus": "ftp.ncbi.nlm.nih.gov/geo",
-                "One Thousand Genomes Project": "ftp.ncbi.nlm.nih.gov/1000genomes",
-                "dbGaP": "ftp.ncbi.nlm.nih.gov/dbgap",
-                "GenBank": "ftp.ncbi.nlm.nih.gov/genbank",
-                "Epigenomics Database": "ftp.ncbi.nlm.nih.gov/epigenomics",
-                "Sequence Read Archive": "ftp.ncbi.nlm.nih.gov/sra",
-                "RefSeq": "ftp.ncbi.nlm.nih.gov/refseq",
-                "Entrez": "ftp.ncbi.nlm.nih.gov/entrez"}
+                "Gene Expression Omnibus": "ftp.ncbi.nlm.nih.gov",
+                "One Thousand Genomes Project": "ftp.ncbi.nlm.nih.gov",
+                "dbGaP": "ftp.ncbi.nlm.nih.gov",
+                "GenBank": "ftp.ncbi.nlm.nih.gov",
+                "Epigenomics Database": "ftp.ncbi.nlm.nih.gov",
+                "Sequence Read Archive": "ftp.ncbi.nlm.nih.gov",
+                "RefSeq": "ftp.ncbi.nlm.nih.gov",
+                "Entrez": "ftp.ncbi.nlm.nih.gov"}
 
 
 def create_servernames_table(servernames):
