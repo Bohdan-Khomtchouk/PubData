@@ -48,10 +48,10 @@ class Searchdialog(QtGui.QDialog):
         cursor = conn.cursor()
         cursor.execute("SELECT word FROM 'recommender_exact' ORDER BY rank DESC LIMIT 12")
         try:
-            exact = zip(*cursor.fetchall())[0]
+            exact = zip(*cursor.fetchall()).__next__()
             cursor.execute("SELECT word FROM 'recommender_syns' ORDER BY rank DESC LIMIT 20")
-            syns = zip(*cursor.fetchall())[0]
-        except IndexError:
+            syns = zip(*cursor.fetchall()).__next__()
+        except StopIteration:
             exact = syns = []
         text = """
                 <ul>

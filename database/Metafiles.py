@@ -13,7 +13,6 @@ class Meta(QtGui.QDialog):
         self.current_path = os.path.join(os.path.dirname(QtCore.QDir.currentPath()),
                                          'database/all_meta',
                                          root)
-        print self.current_path
         self.main_layout = QtGui.QVBoxLayout()
         self.setLayout(self.main_layout)
         self.model = QtGui.QFileSystemModel()
@@ -31,8 +30,7 @@ class Meta(QtGui.QDialog):
     @pyqtSlot(QtCore.QModelIndex)
     def on_treeView_clicked(self, index):
         indexItem = self.model.index(index.row(), 0, index.parent())
-
-        fileName = self.model.fileName(indexItem)
+        # fileName = self.model.fileName(indexItem)
         filePath = self.model.filePath(indexItem)
 
         QtGui.QDesktopServices.openUrl(QtCore.QUrl(filePath))

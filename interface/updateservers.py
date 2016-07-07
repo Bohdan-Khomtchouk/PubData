@@ -39,7 +39,7 @@ class Update(object):
                 else:
                     date_s = datetime.strftime(date_s, '%b-%d-%Y')
             except Exception as exp:
-                print exp
+                print(exp)
             else:
                 if date_s > self.last_update_time:
                     if ls_type.startswith('d'):
@@ -61,7 +61,7 @@ class Update(object):
             connection = ftplib.FTP(self.server_addr)
             connection.login()
         except Exception as exp:
-            print 'Connection failed for path : ', _path, exp.__str__()
+            print('Connection failed for path : ', _path, exp.__str__())
         else:
             for _path, _, files in self.Walk(connection, _path):
                 self.all_path[_path] = files
@@ -75,13 +75,13 @@ class MainUpdate(Update):
 
     def cal_new_dict(self):
         for i, j in SERVER_NAMES.items():
-            print '---' * 5, datetime.now(), '{}'.format(j), '---' * 5
+            print('---' * 5, datetime.now(), '{}'.format(j), '---' * 5)
             try:
                 self.Traverse()
             except (ftplib.error_temp, ftplib.error_perm, socket.gaierror) as exp:
-                print exp
+                print(exp)
             else:
-                print '***' * 5, datetime.now(), '***' * 5
+                print ('***' * 5, datetime.now(), '***' * 5)
                 if self.all_path:
                     with open('../database/json_files/{}.json'.format(i)) as f:
                         old_dict = json.load(f)

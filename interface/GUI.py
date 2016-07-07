@@ -16,11 +16,11 @@ from interface.extras.extras import general_style
 from PyQt4.QtCore import pyqtSlot
 from PySide import QtCore, QtGui, QtNetwork
 from nltk.corpus import wordnet
-from searchpath import Path_results
-from editserver import Edit_servers
-from selectservers import SelectServers
+from .searchpath.searchpath import Path_results
+from .editserver.editserver import Edit_servers
+from .selectservers.selectservers import SelectServers
 import sqlite3 as lite
-from updateservers import MainUpdate
+from .updateservers.updateservers import MainUpdate
 from ast import literal_eval
 from string import punctuation
 syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
@@ -59,6 +59,8 @@ class ftpWindow(QtGui.QDialog):
 
         self.select_s = SelectServers(self.server_names)
         self.select_s.ok_button.clicked.connect(self.put_get_servers)
+        self.select_u = SelectServers(self.server_names)
+        self.select_u.ok_button.clicked.connect(self.run_namual_update)
         self.dialog = recomdialog.Searchdialog()
         self.dialog.ok_button.clicked.connect(self.get_keyword)
 
@@ -187,7 +189,7 @@ class ftpWindow(QtGui.QDialog):
         item, ok = QtGui.QInputDialog.getItem(self,
                                               "Select a server name ",
                                               "Server names:",
-                                              self.server_names,
+                                              list(self.server_names),
                                               0,
                                               False)
         if ok and item:
@@ -202,14 +204,22 @@ class ftpWindow(QtGui.QDialog):
         .. todo::
         """
         self.statusLabel.setText("Start updating ...")
-        mu = MainUpdate()
+        mu = MainUpdate(self.server_dict)
         mu.update_all()
+        self.statusLabel.setText("Update finished successfully!")
+
+    @pyqtSlot(QtGui.QTreeWidget)
+    def run_namual_update(self):
+        selected_server_names = self.select_u.selected_server_names
+        self.statusLabel.setText("Start manual updating ...")
+        mu = MainUpdate(self.server_dict)
+        mu.update_manual(selected_server_names)
+        self.statusLabel.setText("Update finished successfully!")
 
     def update_servers_manual(self):
-        self.statusLabel.setText("Start updating ...")
-        selected_server_names = self.Select_s.selected_SERVER_NAMES
-        mu = MainUpdate(manual_list=selected_server_names)
-        mu.update_manual()
+        self.select_u.resize(350, 650)
+        self.select_u.setWindowTitle('Select server names for update')
+        self.select_u.show()
 
     def editservers(self):
         """
@@ -318,7 +328,7 @@ class ftpWindow(QtGui.QDialog):
             self.outFile = None
             return
 
-        print self.fileList.currentItem().text(0)
+        print(self.fileList.currentItem().text(0))
         self.ftp.get(self.fileList.currentItem().text(0), self.outFile)
 
         self.progressDialog.setLabelText("Downloading %s..." % file_name)
@@ -543,11 +553,11 @@ class ftpWindow(QtGui.QDialog):
             # conn.row_factory = lambda cursor, row: row[0]
             cursor = conn.cursor()
         except Exception as exp:
-            print exp
+            print(exp)
         else:
             for servername in server_names:
                     # conn.create_function("REGEXP", 2, self.cal_regex)
-                    t_name = '_'.join(map(unicode.lower, servername.split()))
+                    t_name = '_'.join(map(str.lower, servername.split()))
                     items = [i for j in zip(words, words) for i in j]
                     str_query = u"OR file_name like '%{}%' OR file_path like '%{}%' " * len(words)
                     str_query = str_query.format(*items)
@@ -558,7 +568,7 @@ class ftpWindow(QtGui.QDialog):
                         cursor.execute(query)
                         rows = {i[0] for i in cursor.fetchall()}
                     except Exception as exp:
-                        print "Error occurred in running the query.", exp
+                        print("Error occurred in running the query.", exp)
                     else:
                         total_find[servername] = rows
                         match_path_number += len(rows)
@@ -582,7 +592,6 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         """
         punc = set(punctuation)
-        print "cal_regex"
         if punc.intersection(text):
             all_text = re.split(r'\W', text)
             lemmas = self.get_wordnet_words(text).union([text] + all_text)
@@ -615,7 +624,7 @@ class ftpWindow(QtGui.QDialog):
             for _, w, syns in cursor.fetchall():
                 seen |= set(literal_eval(syns)) | {w}
         except Exception as exp:
-            print 'Exception: ', str(exp)
+            print ('Exception: ', str(exp))
             return set()
         else:
             return seen
