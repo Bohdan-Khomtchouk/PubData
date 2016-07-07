@@ -53,6 +53,9 @@ class Edit_servers(QtGui.QDialog):
         self.button_layout = QtGui.QVBoxLayout()
         self.button_group_box.setLayout(self.button_layout)
 
+        label = QtGui.QLabel("<font color='#009933' size=2>Double click on server names for edit</font>")
+        self.main_layout.addWidget(label)
+
         get_data_button = QtGui.QPushButton('Add new server')
         get_data_button.clicked.connect(self.addnew)
         self.button_layout.addWidget(get_data_button)
