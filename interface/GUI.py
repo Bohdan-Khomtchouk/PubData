@@ -597,7 +597,7 @@ class ftpWindow(QtGui.QDialog):
             lemmas = self.get_wordnet_words(text).union([text] + all_text)
         else:
             synonyms = wordnet.synsets(text)
-            lemmas = set(chain.from_iterable([word.lemma_names for word in synonyms]))
+            lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
             lemmas = self.get_wordnet_words(text).union(lemmas)
             self.statusLabel.setText("Search into selected databases. Please wait...")
         return lemmas
