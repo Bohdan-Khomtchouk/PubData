@@ -218,7 +218,7 @@ class ftpWindow(QtGui.QDialog):
 
     def update_servers_manual(self):
         self.select_u.resize(350, 650)
-        self.select_u.setWindowTitle('Select server names for update')
+        self.select_u.setWindowTitle('Select server names to update')
         self.select_u.show()
 
     def editservers(self):
@@ -512,7 +512,7 @@ class ftpWindow(QtGui.QDialog):
 
     def manual_search(self):
         self.select_s.resize(350, 650)
-        self.select_s.setWindowTitle('Select server names for search')
+        self.select_s.setWindowTitle('Select server names to search')
         self.select_s.show()
 
     def search_all(self):
@@ -637,7 +637,7 @@ class ftpWindow(QtGui.QDialog):
         .. todo::
         """
         self.Select_s.resize(350, 650)
-        self.Select_s.setWindowTitle('Select server for search')
+        self.Select_s.setWindowTitle('Select server to search')
         self.Select_s.show()
 
 
