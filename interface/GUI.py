@@ -12,6 +12,8 @@ import re
 from os import path as ospath
 from sys import argv, exit, path as syspath
 from itertools import chain
+from collections import deque, defaultdict
+from functools import partial
 from interface.extras.extras import general_style
 from PyQt4.QtCore import pyqtSlot
 from PySide import QtCore, QtGui, QtNetwork
@@ -541,6 +543,19 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
+        def run_query(sliced_words, t_name):
+            str_query = u" file_name like '%{}%' OR file_path like '%{}%' "
+            sliced_words = [words[i:i + 10] for i in range(0, len(words), 10)]
+            for w in sliced_words:
+                new_query = 'OR'.join([str_query.format(i, i) for i in w])
+                query = u"SELECT file_path FROM {} WHERE {};".format(t_name, new_query)
+                try:
+                    cursor.execute(query)
+                except:
+                    pass
+                else:
+                    yield {i[0] for i in cursor.fetchall()}
+
         message = QtCore.QT_TR_NOOP(
             "<p>You have an error in your connection.</p>"
             "<p>Please select one of the server names and connect to it.</p>")
@@ -555,24 +570,22 @@ class ftpWindow(QtGui.QDialog):
         except Exception as exp:
             print(exp)
         else:
+            self.dialog.setCursor(QtCore.Qt.WaitCursor)
             for servername in server_names:
                     # conn.create_function("REGEXP", 2, self.cal_regex)
                     t_name = '_'.join(map(str.lower, servername.split()))
-                    items = [i for j in zip(words, words) for i in j]
-                    str_query = u"OR file_name like '%{}%' OR file_path like '%{}%' " * len(words)
-                    str_query = str_query.format(*items)
                     try:
-                        query = u"""SELECT file_path FROM {} WHERE file_name like '%{}%'
-                                                            OR    file_path like '%{}%'
-                                                            {}""".format(t_name, keyword, keyword, str_query)
-                        cursor.execute(query)
-                        rows = {i[0] for i in cursor.fetchall()}
+                        d = defaultdict(partial(deque, maxlen=1))
+                        for i in chain.from_iterable(run_query(words, t_name)):
+                            d[i.lower()].append(i)
+                        rows = [j.pop() for j in d.values()]
                     except Exception as exp:
                         print("Error occurred in running the query.", exp)
                     else:
                         total_find[servername] = rows
                         match_path_number += len(rows)
-            if match_path_number:
+            if any(i for i in total_find.values()):
+                self.dialog.setCursor(QtCore.Qt.ArrowCursor)
                 self.wid = Path_results(self.server_dict, total_find, match_path_number)
                 self.wid.resize(350, 650)
                 self.wid.setWindowTitle('Search')
@@ -596,11 +609,11 @@ class ftpWindow(QtGui.QDialog):
             all_text = re.split(r'\W', text)
             lemmas = self.get_wordnet_words(text).union([text] + all_text)
         else:
-            synonyms = wordnet.synsets(text)
+            synonyms = wordnet.synsets(text.lower())
             lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
             lemmas = self.get_wordnet_words(text).union(lemmas)
             self.statusLabel.setText("Search into selected databases. Please wait...")
-        return lemmas
+        return list(lemmas)
 
     def set_recommender(self, word, *syns):
         conn = lite.connect('PubData.db')
@@ -618,7 +631,7 @@ class ftpWindow(QtGui.QDialog):
     def get_wordnet_words(self, text):
         conn = lite.connect('PubData.db')
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM wordnet WHERE word LIKE '%{}%';".format(text))
+        cursor.execute("SELECT * FROM wordnet WHERE word LIKE '%{}%' OR synonyms LIKE '%{}%' COLLATE NOCASE;".format(text, text))
         seen = set()
         try:
             for _, w, syns in cursor.fetchall():
