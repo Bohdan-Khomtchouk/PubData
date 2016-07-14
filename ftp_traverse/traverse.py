@@ -8,17 +8,17 @@ from os import path as ospath
 
 
 class Run(object):
-    def __init__(self, name, server_name, root):
+    def __init__(self, name, server_url, root):
         m = Manager()
         self.all_path = m.Queue()
-        self.server_name = server_name
+        self.server_url = server_url
         self.root = root
         self.name = name
 
     def find_leading(self, top, thread_flag=True):
         print ("Find leading...")
         length = 2
-        conn = ftplib.FTP(self.server_name)
+        conn = ftplib.FTP(self.server_url)
         conn.login()
         fw = ftp_walker(conn)
         for p, dirs, files in fw.Walk(top):
@@ -34,7 +34,7 @@ class Run(object):
 
     def traverse_branch(self, root='/'):
         try:
-            connection = ftplib.FTP(self.server_name)
+            connection = ftplib.FTP(self.server_url)
             connection.login()
             # connection.cwd(root)
         except Exception as exp:
