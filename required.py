@@ -96,10 +96,17 @@ def create_wordnet_table():
     with open("WordNet/corpus_new.json") as f:
         result = json.load(f)
 
+    with open("WordNet/corpus_new_dict.json") as f:
+        result2 = json.load(f)
+
     for word, synonyms in result.items():
         conn.execute("""INSERT INTO {} (word, synonyms)
                         VALUES (?, ?)""".format(table_name), (word, str(synonyms)))
     print ("File {} successfully gets imported".format("corpus.json"))
+    for word, synonyms in result2.items():
+        conn.execute("""INSERT INTO {} (word, synonyms)
+                        VALUES (?, ?)""".format(table_name), (word, str(synonyms)))
+    print ("File {} successfully gets imported".format("corpus_dict.json"))
     curs.execute("""CREATE INDEX alphabet on {} (word, synonyms);""".format(table_name))
     conn.commit()
 
