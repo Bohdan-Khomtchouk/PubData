@@ -63,7 +63,7 @@ class Mainparser():
         for words, text in word_text.items():
             pairs = sorted([(word, text.find(word)) for word in words], key=itemgetter(1)) + [('', None)]
             pairs = [(word, index) for word, index in pairs if index != -1]
-            all_slices = [(word, text[index + len(word):next_ind]) for (word, index), (_, next_ind) in zip(pairs, pairs[1:])]
+            all_slices = [(word, text[index + len(word):next_ind].replace('-\n', '').replace('\n', ' ')) for (word, index), (_, next_ind) in zip(pairs, pairs[1:])]
             yield all_slices
 
     def create_json(self):

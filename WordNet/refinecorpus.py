@@ -18,7 +18,7 @@ bio_words = {'cell', 'specie', 'blood', 'body', 'group', 'plant', 'water', 'syst
              'kidney', 'receptor', 'fungi', 'stimulus', 'tree', 'nitrogen', 'soil', 'stem', 'sugar', 'father',
              'cytoplasm', 'neuron', 'pattern', 'copy', 'evolution', 'reptil', 'gametes', 'transfer', 'ACID',
              'sensory', 'spore', 'salt', 'fiber', 'pollen', 'tract', 'cleavage', 'allele', 'rain', 'marine',
-             'fatty', 'weight', 'mutation', 'light', 'filament', 'disorder', 'habitat', 'signal'}
+             'fatty', 'weight', 'mutation', 'light', 'filament', 'disorder', 'habitat', 'signal', 'virus'}
 
 
 def refiner(words):
@@ -29,7 +29,7 @@ def refiner(words):
 
 bio_words = refiner(bio_words)
 
-with codecs.open('corpus.json', encoding="UTF-8") as f:
+with codecs.open('final_result_dict.json', encoding="UTF-8") as f:
     crp = json.load(f)
 
 with open('englishwords.txt') as f:
@@ -43,5 +43,5 @@ for key, value in crp.items():
     new[key] = list(value)
 
 
-with codecs.open('corpus_new.json', 'w', encoding='UTF-8') as f:
+with codecs.open('corpus_new_dict.json', 'w', encoding='UTF-8') as f:
     json.dump(new, f, indent=4)
