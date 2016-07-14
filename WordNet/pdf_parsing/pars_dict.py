@@ -7,7 +7,7 @@
 # -------------------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
 """
-Create a JSON file containing the encyclopedia words and relative descriptions. The result is not precisely the same as the PDF,
+Create a JSON file containing the words of Singleton P. Dictionary of DNA and genome technology and relative descriptions. The result is not precisely the same as the PDF,
 approximately 95% is correct (the desired content is correct, the rest is extra, e.g., table of contents, appendices, misc footnotes).
 
 """
