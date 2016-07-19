@@ -12,7 +12,7 @@ import re
 from os import path as ospath
 from sys import argv, exit, path as syspath
 from itertools import chain
-from collections import deque, defaultdict
+from collections import deque, defaultdict, OrderedDict
 from functools import partial
 from interface.extras.extras import general_style
 from PyQt4.QtCore import pyqtSlot
@@ -178,7 +178,7 @@ class ftpWindow(QtGui.QDialog):
         conn = lite.connect('PubData.db')
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM servernames")
-        d = {k: v for _, k, v in cursor.fetchall()}
+        d = OrderedDict([(k, v) for _, k, v in cursor.fetchall()])
         return d, d.keys()
 
     def select(self):
@@ -524,11 +524,17 @@ class ftpWindow(QtGui.QDialog):
     @pyqtSlot(QtGui.QLineEdit)
     def get_keyword(self):
         keyword = self.dialog.get_keyword()
-        if self.dialog.search_all:
-            self.search(self.server_names, keyword)
+        try:
+            conn = lite.connect('PubData.db')
+            cursor = conn.cursor()
+        except Exception as exp:
+            print(exp)
+            QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
         else:
-            self.search(self.selected_names, keyword)
-        self.statusLabel.setText("Search in servers...")
+            if self.dialog.search_all:
+                self.search(self.server_names, keyword, cursor)
+            else:
+                self.search(self.selected_names, keyword, cursor)
 
     def show_dialog(self, search_all=False):
         self.dialog.search_all = search_all
@@ -536,65 +542,55 @@ class ftpWindow(QtGui.QDialog):
         self.dialog.setWindowTitle('Search for keyword')
         self.dialog.show()
 
-    def search(self, server_names, keyword):
+    def search(self, server_names, keyword, cursor):
         """
         .. py:attribute:: search()
             :rtype: UNKNOWN
         .. note::
         .. todo::
         """
-        def run_query(sliced_words, t_name):
-            str_query = u" file_name like '%{}%' OR file_path like '%{}%' "
-            sliced_words = [words[i:i + 10] for i in range(0, len(words), 10)]
-            for w in sliced_words:
-                new_query = 'OR'.join([str_query.format(i, i) for i in w])
-                query = u"SELECT file_path FROM {} WHERE {};".format(t_name, new_query)
-                try:
-                    cursor.execute(query)
-                except:
-                    pass
-                else:
-                    yield {i[0] for i in cursor.fetchall()}
+        def run_query(words, t_name):
+            pattern = ' OR '.join(['"*{}*"'.format(i) for i in words])
+            query = u"""SELECT file_path FROM {} WHERE {} MATCH '{}';""".format(t_name, t_name, pattern.strip())
+            try:
+                cursor.execute(query)
+            except:
+                pass
+            else:
+                yield {i[0] for i in cursor.fetchall()}
 
         message = QtCore.QT_TR_NOOP(
             "<p>You have an error in your connection.</p>"
             "<p>Please select one of the server names and connect to it.</p>")
 
+        self.statusLabel.setText("Search into selected databases. Please wait...")
         words = self.get_lemmas(keyword)
         total_find = {}
         match_path_number = 0
-        try:
-            conn = lite.connect('PubData.db')
-            # conn.row_factory = lambda cursor, row: row[0]
-            cursor = conn.cursor()
-        except Exception as exp:
-            print(exp)
+        self.dialog.setCursor(QtCore.Qt.WaitCursor)
+        for servername in server_names:
+                # conn.create_function("REGEXP", 2, self.cal_regex)
+                t_name = '_'.join(map(str.lower, servername.split()))
+                try:
+                    rows = [k for sub in run_query(words, t_name) for k in sub]
+                except Exception as exp:
+                    print(exp)
+                    QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
+                else:
+                    total_find[servername] = rows
+                    match_path_number += len(rows)
+        if any(i for i in total_find.values()):
+            self.dialog.setCursor(QtCore.Qt.ArrowCursor)
+            self.wid = Path_results(self.server_dict, total_find, match_path_number)
+            self.wid.resize(350, 650)
+            self.wid.setWindowTitle('Search')
+            self.wid.show()
         else:
-            self.dialog.setCursor(QtCore.Qt.WaitCursor)
-            for servername in server_names:
-                    # conn.create_function("REGEXP", 2, self.cal_regex)
-                    t_name = '_'.join(map(str.lower, servername.split()))
-                    try:
-                        d = defaultdict(partial(deque, maxlen=1))
-                        for i in chain.from_iterable(run_query(words, t_name)):
-                            d[i.lower()].append(i)
-                        rows = [j.pop() for j in d.values()]
-                    except Exception as exp:
-                        print("Error occurred in running the query.", exp)
-                    else:
-                        total_find[servername] = rows
-                        match_path_number += len(rows)
-            if any(i for i in total_find.values()):
-                self.dialog.setCursor(QtCore.Qt.ArrowCursor)
-                self.wid = Path_results(self.server_dict, total_find, match_path_number)
-                self.wid.resize(350, 650)
-                self.wid.setWindowTitle('Search')
-                self.wid.show()
-            else:
-                message = """<p>No results.<p>Please try with another pattern.</p>"""
-                QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
+            self.dialog.setCursor(QtCore.Qt.ArrowCursor)
+            message = """<p>No results.<p>Please try with another pattern.</p>"""
+            QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
 
-            self.set_recommender(keyword, *words)
+        self.set_recommender(keyword, *words)
 
     def get_lemmas(self, text):
         """
@@ -612,7 +608,6 @@ class ftpWindow(QtGui.QDialog):
             synonyms = wordnet.synsets(text.lower())
             lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
             lemmas = self.get_wordnet_words(text).union(lemmas)
-            self.statusLabel.setText("Search into selected databases. Please wait...")
         return list(lemmas)
 
     def set_recommender(self, word, *syns):
@@ -620,12 +615,19 @@ class ftpWindow(QtGui.QDialog):
         cursor = conn.cursor()
         insert_query = u"""INSERT OR IGNORE INTO {} (word, rank) VALUES(?, ?);"""
         update_query = u"""UPDATE '{}' SET rank=rank+1 WHERE word='{}';"""
-
-        cursor.execute(insert_query.format('recommender_exact'), (word, 0))
-        cursor.execute(update_query.format('recommender_exact', word))
+        try:
+            cursor.execute(insert_query.format('recommender_exact'), (word, 0))
+            cursor.execute(update_query.format('recommender_exact', word))
+        except Exception as exp:
+            print(exp)
+            QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
         for syn in syns:
-            cursor.execute(insert_query.format('recommender_syns'), (syn, 0))
-            cursor.execute(update_query.format('recommender_syns', syn))
+            try:
+                cursor.execute(insert_query.format('recommender_syns'), (syn, 0))
+                cursor.execute(update_query.format('recommender_syns', syn))
+            except Exception as exp:
+                print(exp)
+                QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
         conn.commit()
 
     def get_wordnet_words(self, text):
