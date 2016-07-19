@@ -64,9 +64,9 @@ def database_creator():
         for file_name in files:
             table_name = file_name.split('.')[0].replace(' ', '_')
             if table_name:
-                query = """CREATE TABLE {} (id   INTEGER   PRIMARY KEY AUTOINCREMENT,
-                                            file_path text     NOT NULL,
-                                            file_name text     NOT NULL);""".format(table_name)
+                query = """CREATE VIRTUAL TABLE {} USING fts3(id  INTEGER  PRIMARY KEY AUTOINCREMENT,
+                                                              file_path  text  NOT NULL,
+                                                              file_name  text  NOT NULL);""".format(table_name)
                 curs.execute(query)
                 try:
                     with open(os.path.join(path_, file_name)) as f:
@@ -80,7 +80,7 @@ def database_creator():
                                             VALUES (?, ?)""".format(table_name), (path_add, name))
                     print ("File {} successfully gets imported".format(file_name))
 
-        curs.execute("""CREATE INDEX {}_index on {} (file_path, file_name);""".format(table_name, table_name))
+        # curs.execute("""CREATE INDEX {}_index on {} (file_path, file_name);""".format(table_name, table_name))
         conn.commit()
 
 
@@ -89,9 +89,9 @@ def create_wordnet_table():
     curs = conn.cursor()
     table_name = "WordNet"
 
-    query = """CREATE TABLE {} (id       INTEGER         PRIMARY KEY AUTOINCREMENT,
-                                word     text            NOT NULL,
-                                synonyms text            NOT NULL);""".format(table_name)
+    query = """CREATE VIRTUAL TABLE {} USING fts3(id  INTEGER  PRIMARY KEY AUTOINCREMENT,
+                                                  word  text  NOT NULL,
+                                                  synonyms text  NOT NULL);""".format(table_name)
     curs.execute(query)
     with open("WordNet/corpus_new.json") as f:
         result = json.load(f)
@@ -107,7 +107,7 @@ def create_wordnet_table():
         conn.execute("""INSERT INTO {} (word, synonyms)
                         VALUES (?, ?)""".format(table_name), (word, str(synonyms)))
     print ("File {} successfully gets imported".format("corpus_dict.json"))
-    curs.execute("""CREATE INDEX alphabet on {} (word, synonyms);""".format(table_name))
+    # curs.execute("""CREATE INDEX alphabet on {} (word, synonyms);""".format(table_name))
     conn.commit()
 
 
