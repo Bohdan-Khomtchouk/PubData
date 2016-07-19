@@ -2,6 +2,7 @@ import json
 from nltk.stem import WordNetLemmatizer
 from string import punctuation
 import codecs
+import re
 
 
 bio_words = {'cell', 'specie', 'blood', 'body', 'group', 'plant', 'water', 'system', 'protein', 'membrane',
@@ -22,14 +23,14 @@ bio_words = {'cell', 'specie', 'blood', 'body', 'group', 'plant', 'water', 'syst
 
 
 def refiner(words):
-    words = [w.strip(punctuation) for w in words]
+    words = [w.strip(punctuation) for w in words if w not in {'e.g.', 'i.e.'}]
     wnl = WordNetLemmatizer()
     return [w[0].lower() + w[1:] if w.capitalize() == w else w for w in map(wnl.lemmatize, words)]
 
 
 bio_words = refiner(bio_words)
 
-with codecs.open('final_result_dict.json', encoding="UTF-8") as f:
+with codecs.open('corpus.json', encoding="UTF-8") as f:
     crp = json.load(f)
 
 with open('englishwords.txt') as f:
@@ -37,11 +38,26 @@ with open('englishwords.txt') as f:
 
 new = {}
 for key, value in crp.items():
-    refined = set(refiner(value))
-    preserved = refined.intersection(bio_words)
-    value = refined.difference(words).union(preserved)
-    new[key] = list(value)
+    try:
+        key = re.sub(r'[^\s\w/().-]|\(.\)', '', re.sub(u'\u2013', '-', key), re.U)
+    finally:
+        try:
+            m = re.search(r'([^()]+)(?:\(([^)]+)\))?(.*)', key)
+            k, opt, rest = m.groups()
+        except Exception as exp:
+            print(exp)
+        else:
+            refined = set(refiner(value))
+            preserved = refined.intersection(bio_words)
+            value = list(refined.difference(words).union(preserved))
+            if opt:
+                opt = opt.replace('syn.', '')
+                if '(' in rest:
+                    rest = ' '.join(re.findall(r'\(([^)]+)\)', rest))
+                new[k + ' ' + rest] = value
+                new[opt + ' ' + rest] = value
+            else:
+                new[k] = value
 
-
-with codecs.open('corpus_new_dict.json', 'w', encoding='UTF-8') as f:
+with codecs.open('corpus_new.json', 'w', encoding='UTF-8') as f:
     json.dump(new, f, indent=4)
