@@ -1,5 +1,17 @@
 {
-    "": [], 
+    "xylem": [
+        "cell", 
+        "plant", 
+        "fiber", 
+        "PHLOEM", 
+        "water", 
+        "tissue", 
+        "growth", 
+        "vessel", 
+        "nutrient", 
+        "root", 
+        "ondary"
+    ], 
     "picket-fence porphyrin": [
         "group", 
         "oxygen", 
@@ -51,6 +63,7 @@
         "system", 
         "environment", 
         "domness", 
+        "condi", 
         "ings"
     ], 
     "soret band": [
@@ -74,15 +87,8 @@
         "metal", 
         "IMAGING"
     ], 
-    "Croll, James": [
-        "result", 
-        "croll", 
-        "ellis", 
-        "cargill", 
-        "knowl", 
-        "elgrin", 
-        "perthshire", 
-        "whitefield"
+    "NiFe-hydrogenases": [
+        "iron"
     ], 
     "sea squirt": [
         "body", 
@@ -230,6 +236,7 @@
         "reac", 
         "tary", 
         "atom", 
+        "tion", 
         "concentration"
     ], 
     "osmoconformer": [], 
@@ -280,28 +287,11 @@
         "tissue", 
         "photosystem"
     ], 
-    "ABO blood groups": [], 
+    "induction": [
+        "cell"
+    ], 
     "solution": [
         "ion"
-    ], 
-    "Celsius, Anders": [
-        "family", 
-        "uppsala", 
-        "father", 
-        "cel", 
-        "tions", 
-        "thers", 
-        "ences", 
-        "earth", 
-        "magnus", 
-        "grandfa", 
-        "observa", 
-        "sius", 
-        "vations", 
-        "lsingland", 
-        "tude", 
-        "ther", 
-        "magni"
     ], 
     "vector": [
         "body", 
@@ -327,6 +317,7 @@
         "acid"
     ], 
     "adenovirus": [
+        "virus", 
         "respiratory", 
         "disease"
     ], 
@@ -370,29 +361,6 @@
         "body", 
         "hormone"
     ], 
-    "Houssay, Bernardo Alberto": [
-        "result", 
-        "laffont", 
-        "metabolism", 
-        "hormone", 
-        "bernardo", 
-        "sugar", 
-        "rister", 
-        "clara", 
-        "colegio", 
-        "physiology", 
-        "houssay", 
-        "aires", 
-        "alberto", 
-        "medicine", 
-        "nico", 
-        "tions", 
-        "complet", 
-        "M.D", 
-        "mak", 
-        "father", 
-        "coun"
-    ], 
     "rusts": [
         "urediniomycetes", 
         "food", 
@@ -414,6 +382,9 @@
     ], 
     "topless tree": [
         "ANALOG"
+    ], 
+    "Romaas sign": [
+        "gland"
     ], 
     "fossil": [
         "plant", 
@@ -444,14 +415,15 @@
         "body", 
         "nutrient"
     ], 
-    "niche": [ 
+    "niche": [
+        "tion", 
         "spe", 
         "habitat", 
         "specie"
     ], 
     "agarose gel electrophoresis": [], 
-    "[NiFeSe]-hydrogenases": [
-        "selenocysteine"
+    "lithosphere": [
+        "earth"
     ], 
     "haplozoans": [], 
     "vitiligo": [
@@ -493,31 +465,26 @@
     "epigenesis": [
         "enzyme"
     ], 
-    "rickettsia": [
-        "refor", 
-        "tsutsugamushi", 
-        "animal", 
-        "mals", 
-        "disease", 
-        "coxiella", 
-        "bartonell", 
-        "human", 
-        "vanuatu", 
-        "queensland", 
-        "mushi", 
-        "bacteria"
+    "hapto": [
+        "CENTRAL", 
+        "PtCl", 
+        "LIGAND", 
+        "cyclopentadienyl", 
+        "metal", 
+        "system", 
+        "amminedichloro", 
+        "atom", 
+        "iron", 
+        "ATOM", 
+        "COORDINATING", 
+        "COORDINATION", 
+        "hapto"
     ], 
     "ultraviolet light": [
         "light", 
         "disease"
     ], 
-    "sinoatrial (SA) node": [
-        "NODE"
-    ], 
-    "basal body temperature (BBT)": [
-        "body", 
-        "weight"
-    ], 
+    "mutagen": [], 
     "Trombiculidae": [], 
     "biotransformation": [
         "organism", 
@@ -527,6 +494,10 @@
         "BIOCONVERSION"
     ], 
     "cross-pollination": [], 
+    "Schuffners dots": [
+        "cell", 
+        "cytoplasm"
+    ], 
     "intron": [
         "gene", 
         "leaf", 
@@ -556,36 +527,41 @@
         "bond"
     ], 
     "interferon": [
-        "sys", 
         "cell", 
         "cytokine", 
+        "cytes", 
+        "sys", 
         "immune", 
+        "virus", 
         "group", 
-        "protein", 
-        "cytes"
+        "protein"
     ], 
     "balanced polymorphism": [], 
-    "Hess, Walter Rudolf": [
-        "aargau", 
-        "stimu", 
-        "rudolf", 
-        "frauenfeld", 
-        "lating", 
-        "bonn", 
-        "medicine", 
-        "hess", 
-        "ophthalmolo", 
-        "physiology", 
-        "blood"
-    ], 
     "threatened species": [
         "ENDANGERED", 
         "plant", 
-        "compound", 
         "structure-activity", 
+        "compound", 
+        "tion", 
         "SPECIES"
     ], 
     "phenotypic plasticity": [], 
+    "Hench Philip Showalter": [
+        "bixler", 
+        "KENDALL", 
+        "head", 
+        "U.S", 
+        "gland", 
+        "pittsburgh", 
+        "clara", 
+        "showalter", 
+        "disease", 
+        "versity", 
+        "hench", 
+        "medicine", 
+        "B.A", 
+        "easton"
+    ], 
     "modern synthesis": [
         "lution", 
         "neo-Darwinism", 
@@ -631,6 +607,17 @@
         "SKELETON", 
         "bone"
     ], 
+    "Wallaces line": [
+        "sulawesi", 
+        "aus", 
+        "group", 
+        "animal", 
+        "wallace", 
+        "tralian", 
+        "lombok", 
+        "moluccas", 
+        "south"
+    ], 
     "leaf primordia": [], 
     "innate behavior": [
         "sys"
@@ -651,11 +638,6 @@
         "plant", 
         "tree", 
         "CONIFER"
-    ], 
-    "Joly, John": [
-        "earth", 
-        "calculat", 
-        "salt"
     ], 
     "eutrophic lake": [
         "OLIGOTROPHIC", 
@@ -751,10 +733,12 @@
         "dihydro", 
         "COFACTOR"
     ], 
-    "centromere": [
+    "cytokinesis": [
         "cell", 
-        "fiber", 
-        "chromosome"
+        "tissue", 
+        "nucleus", 
+        "parent", 
+        "kidney"
     ], 
     "relapsing fever": [
         "bacteria", 
@@ -779,9 +763,28 @@
         "egg", 
         "mauritius", 
         "animal", 
+        "tion", 
         "importa", 
         "indi", 
         "bird"
+    ], 
+    "Warburg Otto Heinrich": [
+        "metabolism", 
+        "chemistry", 
+        "fischer", 
+        "heidelberg", 
+        "baden", 
+        "Berlin-Dahlem", 
+        "cell", 
+        "medicine", 
+        "physiology", 
+        "wilhelm", 
+        "freiburg", 
+        "warburg", 
+        "insti", 
+        "planck", 
+        "heinrich", 
+        "emil"
     ], 
     "chelation": [
         "CENTRAL", 
@@ -872,9 +875,9 @@
         "marily", 
         "rain", 
         "water", 
-        "carbon", 
         "nitrogen", 
         "dioxide", 
+        "carbon", 
         "man-made", 
         "acid", 
         "tion"
@@ -892,6 +895,15 @@
     "character displacement": [
         "environment", 
         "specie"
+    ], 
+    "Wagner-Jauregg Julius": [
+        "schotten", 
+        "graz", 
+        "rologist", 
+        "salt", 
+        "ner", 
+        "johann", 
+        "disease"
     ], 
     "kinetochore": [
         "chromosome", 
@@ -928,17 +940,14 @@
         "structure"
     ], 
     "stasipatric speciation": [], 
-    "Schuffner\u2019s dots": [
-        "cell", 
-        "cytoplasm"
-    ], 
     "reciprocal altruism": [], 
     "tropical rain forest": [
-        "carbon", 
-        "skin", 
-        "rain", 
         "matitis", 
-        "dioxide"
+        "dioxide", 
+        "carbon", 
+        "tion", 
+        "skin", 
+        "rain"
     ], 
     "blastomere": [
         "cell", 
@@ -1016,16 +1025,6 @@
     ], 
     "arthritis": [
         "body"
-    ], 
-    "Pavlov, Ivan Petrovich": [
-        "pisarev", 
-        "petrovich", 
-        "ryazan", 
-        "ivan", 
-        "lage", 
-        "dmitrievich", 
-        "sechenov", 
-        "father"
     ], 
     "signal transductions pathway": [
         "cell", 
@@ -1108,6 +1107,7 @@
         "three-dimensional", 
         "SEQUENCE", 
         "state-of-the-art", 
+        "virus", 
         "BASE", 
         "fly-through", 
         "herita", 
@@ -1131,6 +1131,9 @@
         "bilateria", 
         "body", 
         "animal"
+    ], 
+    "sinoatrial   node": [
+        "NODE"
     ], 
     "cell-cycle phases": [
         "cell", 
@@ -1294,6 +1297,12 @@
         "somes"
     ], 
     "hyperparasitoid": [], 
+    "Wrights/Trypsin stain": [
+        "quinicrine", 
+        "tions", 
+        "duplica", 
+        "chromosome"
+    ], 
     "ligand": [
         "atom", 
         "hormone", 
@@ -1342,6 +1351,7 @@
         "absorption", 
         "mullis", 
         "tifying", 
+        "tion", 
         "PARAMAGNETIC", 
         "blood"
     ], 
@@ -1384,6 +1394,13 @@
     "Crenarchaeota": [
         "extremophiles"
     ], 
+    "Ross Ronald": [
+        "cell", 
+        "medicine", 
+        "mologist", 
+        "almora", 
+        "southamp"
+    ], 
     "sulfa drugs": [
         "medicine", 
         "physiology"
@@ -1392,6 +1409,15 @@
         "tions", 
         "specie", 
         "animal"
+    ], 
+    "Mllerian mimicry": [], 
+    "Cori Carl Ferdinand": [
+        "trieste", 
+        "gradu", 
+        "ferdinand", 
+        "medicine", 
+        "marine", 
+        "cori"
     ], 
     "chromatography": [
         "chemical", 
@@ -1458,16 +1484,32 @@
         "talline", 
         "synthesis"
     ], 
+    "Whipple George Hoyt": [
+        "whipple", 
+        "hoyt", 
+        "hopkins", 
+        "medicine", 
+        "andover", 
+        "phillips", 
+        "ashland", 
+        "ashley", 
+        "B.A", 
+        "M.D"
+    ], 
     "honeybee": [
         "acciden", 
         "linate", 
         "tinent"
     ], 
-    "anion": [
-        "ion", 
-        "charge", 
+    "free radical": [
+        "body", 
+        "oxidation", 
         "molecule", 
-        "atom"
+        "electron", 
+        "chemical", 
+        "enzyme", 
+        "metabolism", 
+        "by-product"
     ], 
     "oxygen": [
         "ence", 
@@ -1485,6 +1527,7 @@
         "CLUSTER", 
         "ENZYME", 
         "complex", 
+        "tion", 
         "oxidation-reduction"
     ], 
     "Mesozoic era": [
@@ -1565,12 +1608,26 @@
         "tissue", 
         "chemore"
     ], 
-    "double fertilization": [
-        "sperm", 
-        "cell", 
+    "nullisomy": [
         "plant", 
-        "nucleus", 
-        "embryo"
+        "craniosynostosis", 
+        "food", 
+        "stem", 
+        "homolo", 
+        "anation", 
+        "human", 
+        "pair", 
+        "chromosome", 
+        "specie", 
+        "organ", 
+        "source", 
+        "dant", 
+        "tree", 
+        "insect", 
+        "aberra", 
+        "mammal", 
+        "tion", 
+        "root"
     ], 
     "intermolecular charge transfer": [], 
     "morphogen": [
@@ -1581,22 +1638,21 @@
         "molecule", 
         "protein"
     ], 
-    "zygote": [
-        "embryo", 
-        "gamete", 
-        "flower", 
-        "parent", 
-        "spore", 
+    "pocosin": [
+        "united"
+    ], 
+    "diploid cell": [
         "cell", 
-        "sperm", 
-        "copy", 
+        "parent", 
         "chromosome"
     ], 
     "polyribosome": [
         "molecule"
     ], 
     "heterokaryotic": [], 
-    "Ebola virus": [], 
+    "Ebola virus": [
+        "virus"
+    ], 
     "endocrine system": [
         "body", 
         "hormone", 
@@ -1646,8 +1702,8 @@
     "haplostele": [], 
     "heteromorphic": [
         "metamor", 
-        "plant", 
-        "insect"
+        "insect", 
+        "plant"
     ], 
     "perception": [
         "stimulus", 
@@ -1707,7 +1763,12 @@
         "totype", 
         "ANALOG"
     ], 
-    "pisatin": [], 
+    "trophoblast": [
+        "cytiotrophoblasts", 
+        "cell", 
+        "human", 
+        "embryo"
+    ], 
     "oviduct": [
         "organ", 
         "terone", 
@@ -1727,10 +1788,6 @@
     ], 
     "brain ventricles": [
         "nect"
-    ], 
-    "luteinizing hormone (LH)": [
-        "hormone", 
-        "GnRH"
     ], 
     "Mallophagorida": [
         "head"
@@ -1833,29 +1890,6 @@
     "calorie": [
         "food", 
         "water"
-    ], 
-    "Murphy, William Parry": [
-        "matics", 
-        "stoughton", 
-        "bethyl", 
-        "AIHA", 
-        "pattern", 
-        "father", 
-        "thebes", 
-        "llerian", 
-        "brain", 
-        "karnak", 
-        "skin", 
-        "ankhefenmut", 
-        "B.A", 
-        "mayer", 
-        "insti", 
-        "torates"
-    ], 
-    "Kocher, Theodor Emil": [
-        "kocher", 
-        "theodor", 
-        "versity"
     ], 
     "epiglottis": [
         "food", 
@@ -1973,17 +2007,20 @@
         "leaf", 
         "stem"
     ], 
+    "termites ": [], 
     "monotreme": [], 
+    "rRNA ": [], 
     "matter": [
         "substance", 
         "plasma"
     ], 
-    "[4Fe-4S]": [
-        "CLUSTER", 
-        "FERREDOXIN", 
-        "protein", 
-        "HIPIP", 
-        "oxida"
+    "plasmid": [
+        "cell", 
+        "GENETIC", 
+        "transfer", 
+        "gene", 
+        "bacteria", 
+        "structure"
     ], 
     "protandrous hermaphroditism": [
         "plant", 
@@ -1991,12 +2028,6 @@
         "human", 
         "organ", 
         "gastrotriches"
-    ], 
-    "Wright\u2019s/Trypsin stain": [
-        "quinicrine", 
-        "tions", 
-        "duplica", 
-        "chromosome"
     ], 
     "memory cell": [], 
     "pollination": [
@@ -2068,21 +2099,6 @@
         "concentration", 
         "TRANSPORT"
     ], 
-    "Bovet, Daniels": [
-        "babut", 
-        "meplyramine", 
-        "muscle", 
-        "gogy", 
-        "compara", 
-        "bovet", 
-        "neuch", 
-        "istituto", 
-        "therapeu", 
-        "superiore", 
-        "bond", 
-        "chemistry", 
-        "pyrilamine"
-    ], 
     "meristem": [
         "plant", 
         "group", 
@@ -2103,6 +2119,7 @@
         "growth", 
         "human", 
         "mammal", 
+        "tion", 
         "concentration"
     ], 
     "guttation": [
@@ -2185,6 +2202,7 @@
         "copy", 
         "father"
     ], 
+    "indole-3-acetic acid  ": [], 
     "chigger": [
         "family"
     ], 
@@ -2301,6 +2319,11 @@
         "plant", 
         "isade"
     ], 
+    "ticks": [
+        "specie", 
+        "family", 
+        "disease"
+    ], 
     "gravitropism": [
         "cell", 
         "organism", 
@@ -2330,9 +2353,6 @@
         "CARNIVORE", 
         "plant", 
         "organ"
-    ], 
-    "[NiFe]-hydrogenases": [
-        "iron"
     ], 
     "eudismic ratio": [
         "cell", 
@@ -2392,6 +2412,17 @@
         "ALGAE", 
         "specie"
     ], 
+    "Bordet Jules": [
+        "cell", 
+        "gium", 
+        "teur", 
+        "soignies", 
+        "jules", 
+        "blood", 
+        "medicine", 
+        "bordet", 
+        "bacteria"
+    ], 
     "Urodela": [
         "water", 
         "influ", 
@@ -2411,19 +2442,20 @@
     ], 
     "ion channel": [
         "DOMAIN", 
-        "calcium", 
-        "stimulus", 
-        "signal", 
         "molecule", 
-        "charge", 
-        "cell", 
         "ion", 
-        "PUMP", 
         "receptor", 
         "result", 
-        "membrane", 
         "protein", 
-        "structure"
+        "structure", 
+        "stimulus", 
+        "signal", 
+        "charge", 
+        "cell", 
+        "calcium", 
+        "PUMP", 
+        "membrane", 
+        "tion"
     ], 
     "hematology": [
         "compound", 
@@ -2446,6 +2478,17 @@
     "endomembrane system": [
         "endomembrane", 
         "system"
+    ], 
+    "Einthoven Willem": [
+        "willem", 
+        "heynsius", 
+        "einthoven", 
+        "family", 
+        "vogel", 
+        "leiden", 
+        "semarang", 
+        "physiology", 
+        "father"
     ], 
     "medicinal chemistry": [
         "RELATIONSHIPS", 
@@ -2495,10 +2538,6 @@
         "growth", 
         "blood"
     ], 
-    "Chagas\u2019 disease": [
-        "cecilio", 
-        "roma"
-    ], 
     "microscope": [
         "light"
     ], 
@@ -2533,6 +2572,7 @@
         "bacteria", 
         "STABILITY", 
         "enzyme", 
+        "tion", 
         "organism"
     ], 
     "freshwater": [
@@ -2593,15 +2633,16 @@
         "SUBSTRATES"
     ], 
     "ferrochelatase": [
+        "iron", 
+        "PROTOPORPHYRIN", 
+        "enzyme", 
+        "HEME", 
         "CLUSTER", 
         "ENZYME", 
         "inser", 
-        "iron", 
         "IRON", 
         "SULFUR", 
-        "PROTOPORPHYRIN", 
-        "enzyme", 
-        "HEME"
+        "tion"
     ], 
     "hydrocarbon": [
         "hydrogen", 
@@ -2615,6 +2656,13 @@
         "COENZYME", 
         "PROSTHETIC"
     ], 
+    "Allens Rule": [
+        "allele", 
+        "gene", 
+        "animal", 
+        "chromosome", 
+        "blood"
+    ], 
     "endotherm": [], 
     "oncogene": [
         "cell", 
@@ -2625,7 +2673,8 @@
     ], 
     "Cephalocarida": [], 
     "microvillus": [
-        "cell"
+        "cell", 
+        "tion"
     ], 
     "charge number": [
         "CENTRAL", 
@@ -2654,8 +2703,12 @@
         "spe", 
         "chromosome"
     ], 
-    "lithosphere": [
-        "earth"
+    "signal peptide": [
+        "cell", 
+        "protein", 
+        "acid", 
+        "sequence", 
+        "amino"
     ], 
     "luminescent": [
         "light", 
@@ -2707,6 +2760,7 @@
         "tissue", 
         "root"
     ], 
+    "megapascal  ": [], 
     "transition-state analog": [
         "ENZYME", 
         "compound"
@@ -2726,42 +2780,32 @@
     "lymphocyte": [
         "body", 
         "cell", 
+        "virus", 
         "blood", 
         "immune", 
         "system", 
         "bacteria"
     ], 
-    "Lipmann, Fritz Albert": [
-        "phosphate", 
-        "leopold", 
-        "amino", 
-        "carlsberg", 
-        "poughkeepsie", 
-        "MEYERHOF", 
-        "converting", 
-        "sugar", 
-        "insti", 
+    "Heymans Corneille Jean-Franois": [
+        "jozefs", 
+        "heymans", 
+        "knokke", 
+        "corneille", 
+        "father", 
+        "lievens", 
+        "therapeu", 
+        "rapie", 
+        "toxi", 
         "physiology", 
-        "structure", 
-        "chemistry", 
-        "reaction", 
-        "substance", 
-        "group", 
-        "oxygen", 
-        "lipmann", 
-        "gertrud", 
-        "M.D", 
-        "koenigsberg", 
-        "rockefeller", 
-        "metabolism", 
-        "Ph.D", 
-        "wilhelm", 
-        "acid", 
-        "lachmanski", 
+        "nationales", 
+        "pharmacodynamie", 
+        "discov", 
+        "cology", 
         "medicine", 
-        "meyerhof", 
-        "muscle", 
-        "heidelberg"
+        "ghent", 
+        "head", 
+        "metabolism", 
+        "blood"
     ], 
     "vitamin": [
         "heidsraad", 
@@ -2821,10 +2865,11 @@
         "ENZYME"
     ], 
     "linkage": [
-        "separa", 
         "cell", 
-        "gene", 
         "pair", 
+        "separa", 
+        "tion", 
+        "gene", 
         "chromosome"
     ], 
     "inflorescence": [
@@ -2847,9 +2892,10 @@
         "paleoclimate", 
         "caithness", 
         "ogist", 
-        "earth", 
         "andrews", 
         "geologi", 
+        "earth", 
+        "tion", 
         "milankovitch", 
         "evolu", 
         "structure"
@@ -2922,6 +2968,22 @@
         "sickle-cell", 
         "disease", 
         "population"
+    ], 
+    "Theorell Axel Hugo Theodor": [
+        "theodor", 
+        "chemistry", 
+        "weight", 
+        "uppsala", 
+        "physi", 
+        "armida", 
+        "chemical", 
+        "blood", 
+        "theorell", 
+        "medicine", 
+        "thure", 
+        "M.D", 
+        "porary", 
+        "karolinska"
     ], 
     "Mycobacterium tuberculosis": [
         "body", 
@@ -3054,6 +3116,16 @@
         "cleptoparasite", 
         "food"
     ], 
+    "Gullstrand Allvar": [
+        "mologist", 
+        "mathilda", 
+        "uppsala", 
+        "landskrona", 
+        "allvar", 
+        "pehr", 
+        "gullstrand", 
+        "korsell"
+    ], 
     "bioavailability": [
         "food", 
         "organism", 
@@ -3066,17 +3138,10 @@
         "light-reaction", 
         "compound"
     ], 
-    "M\u00fcller, Paul Hermann": [
-        "plant", 
-        "substance", 
-        "olten", 
-        "basel", 
-        "hermann", 
-        "Ph.D", 
-        "dreyfus", 
-        "geigy", 
-        "solothurn", 
-        "ondary"
+    "porins": [
+        "cell", 
+        "protein", 
+        "membrane"
     ], 
     "allele": [
         "gene", 
@@ -3107,6 +3172,13 @@
         "hormone", 
         "disorder", 
         "ADHD"
+    ], 
+    "Fahrenheit Daniel Gabriel": [
+        "environment", 
+        "fahren", 
+        "heit", 
+        "oxygen", 
+        "bacteria"
     ], 
     "phosphorylation": [
         "transfer", 
@@ -3188,6 +3260,7 @@
     "tissue": [
         "cell", 
         "recog", 
+        "virus", 
         "tissue", 
         "tobamovirus", 
         "disease"
@@ -3207,6 +3280,7 @@
         "blood", 
         "respira", 
         "vessel", 
+        "tion", 
         "lindbergh", 
         "kidney"
     ], 
@@ -3219,6 +3293,7 @@
         "mov", 
         "darvel", 
         "sity", 
+        "virus", 
         "lochfield", 
         "growth", 
         "blood", 
@@ -3238,9 +3313,6 @@
         "hormone", 
         "kidney", 
         "calcium"
-    ], 
-    "mutagen": [
-        "i.e"
     ], 
     "replication fork": [
         "strand"
@@ -3295,6 +3367,18 @@
         "viduals"
     ], 
     "stabilizing selection": [], 
+    "Hopkins Frederick Gowland": [
+        "medicine", 
+        "iology", 
+        "eastbourne", 
+        "acid", 
+        "hopkins", 
+        "bishopsgate", 
+        "stevenson", 
+        "tant", 
+        "emmanuel", 
+        "amino"
+    ], 
     "collagenoblast": [], 
     "axillary bud": [
         "leaf", 
@@ -3334,6 +3418,22 @@
         "hoyt", 
         "physiology"
     ], 
+    "PGA ": [
+        "plant", 
+        "acid", 
+        "PGAL", 
+        "phosphoglyceralde", 
+        "CALVIN", 
+        "DRUG", 
+        "NADPH", 
+        "COMPUTER", 
+        "DESIGN", 
+        "compound", 
+        "CADD", 
+        "synthesis", 
+        "ASSISTED", 
+        "CYCLE"
+    ], 
     "gastrula": [
         "EMBRYO", 
         "embryo", 
@@ -3361,6 +3461,7 @@
         "tree", 
         "one-third", 
         "rain", 
+        "tion", 
         "south"
     ], 
     "heterocyst": [
@@ -3388,17 +3489,6 @@
         "synthesis"
     ], 
     "species diversity": [], 
-    "Wallace\u2019s line": [
-        "sulawesi", 
-        "aus", 
-        "group", 
-        "animal", 
-        "wallace", 
-        "tralian", 
-        "lombok", 
-        "moluccas", 
-        "south"
-    ], 
     "pollen allergy": [
         "pollen", 
         "reaction"
@@ -3412,13 +3502,20 @@
         "bond"
     ], 
     "heterozygote": [
+        "cell", 
         "lutionary", 
         "allele", 
         "parent", 
         "evo", 
-        "cell", 
         "erozygote", 
         "organism"
+    ], 
+    "Hooke Robert": [
+        "M.A", 
+        "boyle", 
+        "wilkins", 
+        "soci", 
+        "hooke"
     ], 
     "rigor mortis": [
         "body", 
@@ -3441,7 +3538,6 @@
         "AQUATION", 
         "entity"
     ], 
-    "Isoptera (termites)": [], 
     "paedomorphosis": [
         "progenesis", 
         "juven", 
@@ -3578,13 +3674,6 @@
         "protein", 
         "tetrahydrofolate"
     ], 
-    "Br\u00f8nsted acid": [
-        "chemical", 
-        "specie", 
-        "hydron", 
-        "ACID", 
-        "entity"
-    ], 
     "character": [
         "TAXONOMY"
     ], 
@@ -3594,6 +3683,7 @@
         "system", 
         "cell", 
         "immune", 
+        "virus", 
         "tissue", 
         "growth", 
         "mutation", 
@@ -3631,21 +3721,6 @@
         "plasma", 
         "fluid", 
         "blood"
-    ], 
-    "Meyerhof, Otto Fritz": [
-        "hannover", 
-        "strassburg", 
-        "oxygen", 
-        "wilhelms", 
-        "bettina", 
-        "medicine", 
-        "ogist", 
-        "heidel", 
-        "freiburg", 
-        "meyerhof", 
-        "acid", 
-        "metabolism", 
-        "kidney"
     ], 
     "scrotum": [
         "body", 
@@ -3708,22 +3783,8 @@
         "cell", 
         "plant"
     ], 
-    "Roma\u00f1a\u2019s sign": [
-        "gland"
-    ], 
-    "insect stings": [
-        "nerve", 
-        "hormone", 
-        "reaction", 
-        "food", 
-        "drug", 
-        "heart", 
-        "gland", 
-        "blood", 
-        "skin", 
-        "vessel", 
-        "muscle"
-    ], 
+    "spin adduct": [], 
+    "ferns ": [], 
     "Korarchaeota": [
         "group", 
         "ATP", 
@@ -3842,6 +3903,11 @@
         "root", 
         "stem"
     ], 
+    "countercurrent exchange": [
+        "vessel", 
+        "fluid", 
+        "blood"
+    ], 
     "sphenoid sinus": [], 
     "exotoxin": [
         "cell", 
@@ -3875,9 +3941,10 @@
     ], 
     "quantitative character": [
         "envi", 
-        "gene", 
         "weight", 
         "ronment", 
+        "tion", 
+        "gene", 
         "population"
     ], 
     "syphilis": [
@@ -3905,6 +3972,37 @@
     "absolute refractory period": [
         "cell", 
         "nerve"
+    ], 
+    "Koch Robert": [
+        "clausthal", 
+        "wollstein", 
+        "animal", 
+        "posen", 
+        "langenhagen", 
+        "spore", 
+        "bacteriolo", 
+        "gesundheitsamt", 
+        "consid", 
+        "koch", 
+        "groundbreaking", 
+        "mak", 
+        "M.D", 
+        "organ", 
+        "result", 
+        "bacte", 
+        "fraats", 
+        "four-room", 
+        "tists", 
+        "blood", 
+        "father", 
+        "disease", 
+        "bacteria", 
+        "henle", 
+        "ttingen", 
+        "medicine", 
+        "rackwitz", 
+        "organism", 
+        "harz"
     ], 
     "Pangaea": [
         "body", 
@@ -3961,6 +4059,7 @@
         "DISPRO", 
         "protein"
     ], 
+    "predisposition genetic": [], 
     "Rieske iron-sulfur protein": [
         "respiratory", 
         "LIGAND", 
@@ -3979,37 +4078,19 @@
         "molecule", 
         "atom"
     ], 
-    "Golgi, Camillo": [
-        "nerve", 
-        "instituto", 
-        "neu", 
-        "corteno", 
-        "ator", 
-        "abbiategrasso", 
-        "matteo", 
-        "system", 
-        "vaccinogeno", 
-        "cell", 
-        "graduat", 
-        "sieroterapico", 
-        "bizzozero", 
-        "structure", 
-        "medicine", 
-        "camillo", 
-        "golgi", 
-        "pital", 
-        "brescia", 
-        "hos"
+    "inter-": [
+        "specie"
     ], 
-    "Muller, Hermann Joseph": [
-        "hermann", 
-        "Ph.D", 
-        "USSR", 
-        "amherst", 
-        "animal", 
-        "tionship", 
-        "guggenheim", 
-        "rela"
+    "Laveran Charles-Louis-Alphonse": [
+        "de-Gr", 
+        "laveran", 
+        "strasbourg", 
+        "baube", 
+        "nerve", 
+        "eran", 
+        "odore", 
+        "father", 
+        "disease"
     ], 
     "amphipathic molecule": [
         "choles", 
@@ -4035,18 +4116,6 @@
     "ribs": [
         "heart", 
         "lung"
-    ], 
-    "Richet, Charles-Robert": [
-        "profes", 
-        "animal", 
-        "richet", 
-        "sorbonne", 
-        "blood", 
-        "human", 
-        "medicine", 
-        "renouard", 
-        "M.D", 
-        "physiology"
     ], 
     "DNA polymerase": [
         "enzyme", 
@@ -4105,6 +4174,23 @@
     "bats": [
         "food"
     ], 
+    "2Fe-2S": [
+        "conven", 
+        "LIGAND", 
+        "CLUSTER", 
+        "oxidation", 
+        "FERREDOXIN", 
+        "RIESKE", 
+        "chemical", 
+        "desig", 
+        "charge", 
+        "iron", 
+        "IRON", 
+        "atom", 
+        "PROTEIN", 
+        "tion", 
+        "protein"
+    ], 
     "coitus": [
         "insect", 
         "group", 
@@ -4155,6 +4241,21 @@
         "carbon", 
         "stem"
     ], 
+    "Meyerhof Otto Fritz": [
+        "hannover", 
+        "strassburg", 
+        "oxygen", 
+        "wilhelms", 
+        "bettina", 
+        "medicine", 
+        "ogist", 
+        "heidel", 
+        "freiburg", 
+        "meyerhof", 
+        "acid", 
+        "metabolism", 
+        "kidney"
+    ], 
     "gene cloning": [
         "sequence", 
         "disease", 
@@ -4191,6 +4292,14 @@
         "DRUG", 
         "molecule"
     ], 
+    "4Fe-4S": [
+        "CLUSTER", 
+        "HIPIP", 
+        "oxida", 
+        "FERREDOXIN", 
+        "tion", 
+        "protein"
+    ], 
     "nitrate reductase": [
         "METALLOENZYME"
     ], 
@@ -4208,14 +4317,19 @@
     "hominoids": [
         "human"
     ], 
+    "basal body temperature  ": [
+        "body", 
+        "weight"
+    ], 
     "heat": [
         "radiation"
     ], 
     "K-selection": [
-        "environment", 
         "SELECTION", 
-        "human", 
         "pattern", 
+        "environment", 
+        "human", 
+        "tion", 
         "reproduc", 
         "population"
     ], 
@@ -4341,21 +4455,21 @@
         "laurasia", 
         "supercontinent"
     ], 
-    "coenocytic": [ 
+    "coenocytic": [
+        "cytoplasm", 
         "oomycota", 
         "nucleus", 
-        "chytridiomycota", 
-        "cytoplasm"
+        "chytridiomycota"
     ], 
     "cytogenetic map": [
         "light", 
         "chromosome"
     ], 
-    "recombinant DNA": [
+    "heterozygous": [
         "cell", 
-        "source", 
+        "allele", 
         "gene", 
-        "DNA"
+        "gamete"
     ], 
     "isomers": [
         "sequence", 
@@ -4373,17 +4487,6 @@
         "stem"
     ], 
     "plectostele": [], 
-    "Laveran, Charles-Louis-Alphonse": [
-        "de-Gr", 
-        "laveran", 
-        "strasbourg", 
-        "baube", 
-        "nerve", 
-        "eran", 
-        "odore", 
-        "father", 
-        "disease"
-    ], 
     "allergic contact dermatitis": [
         "reaction", 
         "substance", 
@@ -4419,36 +4522,19 @@
         "tissue"
     ], 
     "hemophilia": [
-        "BLOOD", 
         "trol", 
         "blood", 
-        "disorder", 
         "disease", 
+        "BLOOD", 
+        "tion", 
+        "disorder", 
         "FVIII", 
         "VIII"
     ], 
-    "antibiotics": [
-        "filament", 
-        "cillins", 
-        "howard", 
-        "blood", 
-        "bacteria", 
-        "tissue", 
-        "DRUG", 
-        "FLEMING", 
-        "cell", 
-        "medicine", 
-        "resis", 
-        "flower", 
-        "FLOREY", 
-        "tance", 
-        "florey", 
-        "protein", 
-        "acid", 
-        "amino", 
-        "physiology", 
-        "peni", 
-        "ALEXANDER"
+    "Joly John": [
+        "earth", 
+        "calculat", 
+        "salt"
     ], 
     "cohesion": [
         "substance", 
@@ -4466,19 +4552,6 @@
         "ACID", 
         "enzyme"
     ], 
-    "xylem": [
-        "cell", 
-        "plant", 
-        "fiber", 
-        "PHLOEM", 
-        "water", 
-        "tissue", 
-        "growth", 
-        "vessel", 
-        "nutrient", 
-        "root", 
-        "ondary"
-    ], 
     "conservation biology": [
         "biodiversity"
     ], 
@@ -4490,11 +4563,11 @@
         "BACTERIA", 
         "bacteria"
     ], 
-    "dalton": [ 
+    "dalton": [
+        "molecule", 
         "kilodaltons", 
         "tein", 
-        "weight", 
-        "molecule"
+        "weight"
     ], 
     "primer": [
         "deoxyribonucleotides"
@@ -4502,6 +4575,7 @@
     "humoral immunity": [
         "body", 
         "reaction", 
+        "virus", 
         "blood", 
         "immune", 
         "plasma", 
@@ -4527,6 +4601,11 @@
         "source", 
         "body", 
         "water"
+    ], 
+    "LH ": [
+        "tion", 
+        "hormone", 
+        "GnRH"
     ], 
     "parenchyma": [
         "cell", 
@@ -4620,11 +4699,12 @@
         "carbon"
     ], 
     "transposon": [
-        "gene", 
-        "sequence", 
-        "orienta", 
         "copy", 
+        "sequence", 
         "molecule", 
+        "orienta", 
+        "tion", 
+        "gene", 
         "strand"
     ], 
     "satellite cell": [
@@ -4658,27 +4738,17 @@
         "RECEPTOR", 
         "cavi"
     ], 
+    "Nicolle Charles-Jules-Henry": [
+        "body", 
+        "nicolle", 
+        "M.D", 
+        "Charles-Jules-Henry", 
+        "disease"
+    ], 
     "evaporative cooling": [
         "body", 
         "water", 
         "skin"
-    ], 
-    "M\u00f6ssbauer effect": [
-        "ssbauer", 
-        "ion", 
-        "doptera", 
-        "absorption", 
-        "radiation", 
-        "metal", 
-        "oxidation", 
-        "insect", 
-        "lepi", 
-        "iron", 
-        "atom", 
-        "nucleus", 
-        "COORDINATION", 
-        "istry", 
-        "HYPERFINE"
     ], 
     "anisotropy": [
         "substance", 
@@ -4764,6 +4834,7 @@
         "clathrin", 
         "membrane", 
         "molecule", 
+        "virus", 
         "tissue", 
         "RECEPTOR", 
         "result", 
@@ -4871,8 +4942,8 @@
         "tissue", 
         "RECEPTOR", 
         "DRUG", 
-        "receptor", 
         "determi", 
+        "receptor", 
         "ANTAGONIST", 
         "population"
     ], 
@@ -4957,19 +5028,6 @@
         "HPLC", 
         "structure"
     ], 
-    "Adrian, Edgar Douglas": [
-        "physi", 
-        "system", 
-        "foulerton", 
-        "brain", 
-        "adrian", 
-        "medicine", 
-        "M.D", 
-        "physiology"
-    ], 
-    "inter-": [
-        "specie"
-    ], 
     "rhodopsin": [
         "chemical", 
         "cell", 
@@ -4987,6 +5045,7 @@
         "specie"
     ], 
     "molecular graphics": [
+        "tion", 
         "molecule", 
         "manipula"
     ], 
@@ -5065,12 +5124,25 @@
         "BASE", 
         "HARD"
     ], 
+    "ribosomal RNA  ": [], 
     "Sertoli cell": [
         "cell", 
         "blood"
     ], 
-    "phylum": [
-        "TAXON"
+    "Bovet Daniels": [
+        "babut", 
+        "meplyramine", 
+        "muscle", 
+        "gogy", 
+        "compara", 
+        "bovet", 
+        "neuch", 
+        "istituto", 
+        "therapeu", 
+        "superiore", 
+        "bond", 
+        "chemistry", 
+        "pyrilamine"
     ], 
     "cold-blooded organism": [
         "environment", 
@@ -5080,6 +5152,10 @@
         "DERIVED", 
         "alli", 
         "ENDOTHELIUM"
+    ], 
+    "parathyroid hormone  ": [
+        "calcium", 
+        "blood"
     ], 
     "myoglobin": [
         "protein", 
@@ -5168,6 +5244,7 @@
         "cell", 
         "chemical", 
         "organ", 
+        "tion", 
         "structure"
     ], 
     "assimilation": [
@@ -5359,7 +5436,21 @@
         "nucleus", 
         "structure"
     ], 
-    "predisposition, genetic": [], 
+    "prophage": [
+        "plant", 
+        "group", 
+        "cytoplasm", 
+        "prokaryotic", 
+        "virus", 
+        "fungi", 
+        "golgi", 
+        "cell", 
+        "eukaryotic", 
+        "animal", 
+        "membrane", 
+        "bacteria", 
+        "chromosome"
+    ], 
     "multiheme": [
         "protein", 
         "group", 
@@ -5456,6 +5547,7 @@
         "south"
     ], 
     "allopatric speciation": [
+        "tion", 
         "population"
     ], 
     "genomic library": [
@@ -5474,6 +5566,7 @@
     ], 
     "clone": [
         "cell", 
+        "virus", 
         "SEQUENCE", 
         "organism", 
         "immuno", 
@@ -5533,10 +5626,14 @@
         "HOMEOTHERMIC"
     ], 
     "spin probe": [], 
-    "sign stimulus": [
-        "stimulus", 
-        "envi", 
-        "ronmental"
+    "Pfeiffers rule": [
+        "virus", 
+        "POTENCY", 
+        "RATIO", 
+        "EUDISMIC", 
+        "EUTOMER", 
+        "BACTERIA", 
+        "bacteria"
     ], 
     "nuclearity": [
         "BRIDGING", 
@@ -5559,6 +5656,7 @@
     ], 
     "T cell": [
         "cell", 
+        "virus", 
         "tissue", 
         "blood"
     ], 
@@ -5616,14 +5714,8 @@
         "brain", 
         "neuron"
     ], 
-    "tricarboxylic acid (TCA) cycle": [
-        "jutland", 
-        "krogh", 
-        "schack", 
-        "viggo", 
-        "grenaa", 
-        "steenberg", 
-        "drechmann"
+    "NiFeSe-hydrogenases": [
+        "selenocysteine"
     ], 
     "exine": [
         "pollen", 
@@ -5641,7 +5733,6 @@
         "LAGGING", 
         "merase"
     ], 
-    "M\u00fcllerian mimicry": [], 
     "parasitoid": [
         "body", 
         "perilampidae", 
@@ -5680,11 +5771,11 @@
         "COFACTOR"
     ], 
     "visible light": [
-        "trum", 
-        "human", 
         "light", 
         "ENERGY", 
-        "radiation"
+        "radiation", 
+        "trum", 
+        "human"
     ], 
     "suspension": [
         "suspensivores", 
@@ -5723,25 +5814,6 @@
         "tract", 
         "CENTROMERE", 
         "chromosome"
-    ], 
-    "[2Fe-2S]": [
-        "conven", 
-        "LIGAND", 
-        "CLUSTER", 
-        "oxidation", 
-        "FERREDOXIN", 
-        "RIESKE", 
-        "chemical", 
-        "desig", 
-        "charge", 
-        "iron", 
-        "IRON", 
-        "atom", 
-        "PROTEIN", 
-        "protein"
-    ], 
-    "fixed action pattern (FAP)": [
-        "species-to-species"
     ], 
     "thermometers": [
         "body", 
@@ -5811,31 +5883,21 @@
         "signal", 
         "high-frequency"
     ], 
-    "Krebs cycle": [
-        "NADH", 
-        "molecule", 
-        "isocitrate", 
-        "water", 
-        "electron", 
-        "ATP", 
-        "compound", 
-        "carbon", 
-        "acid", 
-        "physiology", 
-        "sug", 
-        "reaction", 
-        "substance", 
-        "oxygen", 
-        "kornberg", 
-        "chemical", 
-        "dioxide", 
-        "medicine"
+    "SA  node": [
+        "NODE"
     ], 
     "food web": [], 
     "metabolite": [
         "METABOLISM"
     ], 
     "inversion": [], 
+    "N-acetyl glucosamine  ": [
+        "cell", 
+        "acid", 
+        "bacteria", 
+        "structure", 
+        "amino"
+    ], 
     "troponin": [
         "muscle", 
         "molecule", 
@@ -5848,6 +5910,12 @@
     "euchromatin": [
         "chromosome", 
         "rochromatin"
+    ], 
+    "TMV ": [
+        "pattern", 
+        "plant", 
+        "mosaiclike", 
+        "leaf"
     ], 
     "thymus": [
         "body", 
@@ -5866,12 +5934,18 @@
         "flower", 
         "leaf"
     ], 
-    "endorphin": [
-        "body", 
-        "brain", 
-        "hormone", 
-        "drug", 
-        "opiod"
+    "sieve-tube member": [
+        "food", 
+        "cell", 
+        "plant", 
+        "mones"
+    ], 
+    "Brnsted base": [
+        "chemical", 
+        "BASE", 
+        "specie", 
+        "hydron", 
+        "entity"
     ], 
     "distomer": [
         "DEOXYRIBONUCLEIC", 
@@ -5900,12 +5974,12 @@
     "polar covalent bond": [
         "oxygen", 
         "organism", 
-        "atom", 
         "molecule", 
         "charge", 
         "water", 
         "electron", 
         "nucleus", 
+        "atom", 
         "electronega", 
         "tivity", 
         "hydrogen", 
@@ -5929,15 +6003,11 @@
         "bacteria"
     ], 
     "plesiomorphic character": [], 
-    "Wegener, Alfred Lothar": [
-        "wegener", 
-        "kurt", 
-        "wegen", 
-        "south", 
-        "torate"
-    ], 
-    "Bowman\u2019s capsule": [
-        "kidney"
+    "R plasmid": [
+        "cell", 
+        "VECTOR", 
+        "CLONING", 
+        "bacteria"
     ], 
     "atrioventricular valve": [
         "body", 
@@ -5958,6 +6028,7 @@
     "drug disposition": [
         "excre", 
         "absorption", 
+        "tion", 
         "organism", 
         "METABOLISM", 
         "DRUG"
@@ -6035,6 +6106,14 @@
         "organism", 
         "result"
     ], 
+    "Minot George Richards": [
+        "Sc.D", 
+        "medicine", 
+        "richards", 
+        "B.A", 
+        "thorndike", 
+        "M.D"
+    ], 
     "dermal tissue system": [
         "cell", 
         "plant", 
@@ -6048,6 +6127,9 @@
         "pair", 
         "phosphate", 
         "organism"
+    ], 
+    "long-day plant": [
+        "plant"
     ], 
     "coelomate": [
         "arthropoda", 
@@ -6101,6 +6183,34 @@
         "NUCLEOTIDES", 
         "SEQUENCE"
     ], 
+    "Spemann Hans": [
+        "father", 
+        "Ph.D", 
+        "spemann", 
+        "stuttgart", 
+        "Freiburg-im-Breisgau", 
+        "wilhelm", 
+        "rzburg", 
+        "rostock", 
+        "Berlin-Dahlem", 
+        "insti", 
+        "heidelberg"
+    ], 
+    "Sutherland Earl W. Jr.": [
+        "monophos", 
+        "monophosphate", 
+        "versity", 
+        "burlingame", 
+        "sutherland", 
+        "phate", 
+        "vanderbilt", 
+        "derbilt", 
+        "B.S", 
+        "medicine", 
+        "washburn", 
+        "M.D", 
+        "physiology"
+    ], 
     "marine": [
         "environment", 
         "body", 
@@ -6116,6 +6226,13 @@
         "nerve", 
         "muscle", 
         "system"
+    ], 
+    "erythrocyte ": [
+        "cell", 
+        "body", 
+        "vessel", 
+        "blood", 
+        "microvilli"
     ], 
     "phototropism": [
         "source", 
@@ -6215,6 +6332,12 @@
         "light", 
         "molecule"
     ], 
+    "kcal ": [
+        "water", 
+        "interna", 
+        "system", 
+        "weight"
+    ], 
     "lamella": [
         "cell", 
         "plant", 
@@ -6283,10 +6406,11 @@
         "population"
     ], 
     "plastid": [
-        "proplastids", 
         "cell", 
         "plant", 
         "undiffer", 
+        "proplastids", 
+        "tion", 
         "moplast"
     ], 
     "fibrinogen": [
@@ -6297,6 +6421,29 @@
         "oxygen", 
         "protein", 
         "plasma"
+    ], 
+    "antibiotics": [
+        "filament", 
+        "cillins", 
+        "howard", 
+        "blood", 
+        "bacteria", 
+        "tissue", 
+        "DRUG", 
+        "FLEMING", 
+        "cell", 
+        "medicine", 
+        "resis", 
+        "flower", 
+        "FLOREY", 
+        "tance", 
+        "florey", 
+        "protein", 
+        "acid", 
+        "amino", 
+        "physiology", 
+        "peni", 
+        "ALEXANDER"
     ], 
     "microfungi": [
         "plant", 
@@ -6343,9 +6490,6 @@
         "animal", 
         "membrane"
     ], 
-    "terminal deletion": [
-        "chromosome"
-    ], 
     "stem cell": [
         "cell", 
         "STEM", 
@@ -6355,6 +6499,12 @@
         "PLURIPOTENT", 
         "stem", 
         "bone"
+    ], 
+    "coelacanth": [
+        "menadoensis", 
+        "south", 
+        "specie", 
+        "family"
     ], 
     "scanning electron microscope": [
         "ENDOR", 
@@ -6389,15 +6539,6 @@
     "Darwinian fitness": [
         "gene"
     ], 
-    "Banting, Frederick Grant": [
-        "versity", 
-        "cambrai", 
-        "MACLEOD", 
-        "medicine", 
-        "alliston", 
-        "M.B", 
-        "M.D"
-    ], 
     "population": [
         "group", 
         "specie", 
@@ -6413,18 +6554,6 @@
         "tissue"
     ], 
     "opsonization": [], 
-    "Forssmann\u2019s procedure": [
-        "heart", 
-        "medicine", 
-        "disease", 
-        "FORSSMANN", 
-        "werner", 
-        "lung", 
-        "human", 
-        "dickinson", 
-        "richards", 
-        "physiology"
-    ], 
     "Metazoa": [
         "organism"
     ], 
@@ -6543,7 +6672,7 @@
     "cryptic coloration": [
         "RESIDUE", 
         "CENTRAL", 
-        "d-orbitals", 
+        "SUSCEPTIBILITY", 
         "MAGNETIC", 
         "atom", 
         "stem", 
@@ -6553,7 +6682,7 @@
         "ACID", 
         "COORDINATION", 
         "amino", 
-        "SUSCEPTIBILITY", 
+        "d-orbitals", 
         "MIMICRY", 
         "leaf", 
         "LIGAND", 
@@ -6562,9 +6691,11 @@
         "charge", 
         "acid", 
         "interac", 
+        "tion", 
         "organism", 
         "AMINO"
     ], 
+    "Huxley T. H.": [], 
     "birth defects": [
         "cell", 
         "microdeletion", 
@@ -6574,26 +6705,28 @@
         "chromosome", 
         "mosome", 
         "accu", 
+        "tion", 
         "disorder", 
         "myelopro", 
         "identifica"
     ], 
     "hornworts": [
         "plant", 
-        "group", 
         "habitat", 
+        "soil", 
+        "gland", 
+        "tissue", 
+        "human", 
+        "structure", 
+        "population", 
+        "group", 
         "adap", 
         "anthocerophyta", 
         "disease", 
         "cell", 
-        "gland", 
-        "tissue", 
-        "filament", 
-        "human", 
-        "soil", 
+        "tion", 
         "tations", 
-        "structure", 
-        "population"
+        "filament"
     ], 
     "hyperfine": [
         "result", 
@@ -6645,7 +6778,43 @@
         "chromosome", 
         "telomere"
     ], 
+    "Szent-Gyrgyi Albert von": [
+        "groningen", 
+        "lenhoss", 
+        "josefine", 
+        "szeged", 
+        "HOPKINS", 
+        "leiden", 
+        "Szent-Gy", 
+        "father", 
+        "rockefeller", 
+        "rgyi", 
+        "nicolaus", 
+        "ences", 
+        "chemistry", 
+        "physiology"
+    ], 
     "morula": [], 
+    "Sherrington Charles Scott": [
+        "medicine", 
+        "nerve", 
+        "islington", 
+        "fiber", 
+        "brain", 
+        "ADRIAN", 
+        "father", 
+        "one-third", 
+        "brookes", 
+        "system", 
+        "ipswich", 
+        "physiology", 
+        "physiolo", 
+        "proprio", 
+        "sherrington", 
+        "muscle", 
+        "ception", 
+        "norton"
+    ], 
     "Human Genome Project": [
         "U.S", 
         "ject", 
@@ -6708,13 +6877,13 @@
         "root"
     ], 
     "duplication": [
+        "gene", 
         "mutation", 
+        "tion", 
         "copy", 
         "duplica", 
-        "chromosome", 
-        "gene"
+        "chromosome"
     ], 
-    "Wilson\u2019s disease": [], 
     "index fossils": [], 
     "phytochelatin": [
         "group", 
@@ -6739,7 +6908,6 @@
     "femur": [
         "bone"
     ], 
-    "Pteridophyta (ferns)": [], 
     "DNA ligase": [
         "replicat", 
         "enzyme", 
@@ -6879,7 +7047,7 @@
         "structure", 
         "amino"
     ], 
-    "source habitat": [ 
+    "source habitat": [
         "habitat", 
         "SINK", 
         "HABITAT"
@@ -6889,6 +7057,9 @@
         "trypanoso", 
         "disease", 
         "human"
+    ], 
+    "Bowmans capsule": [
+        "kidney"
     ], 
     "mechanical isolation": [
         "ferent", 
@@ -6917,11 +7088,12 @@
         "trypanosomes", 
         "bird"
     ], 
-    "sieve-tube member": [
-        "food", 
-        "cell", 
-        "plant", 
-        "mones"
+    "endorphin": [
+        "body", 
+        "brain", 
+        "hormone", 
+        "drug", 
+        "opiod"
     ], 
     "insight learning": [], 
     "hibernation": [
@@ -7084,21 +7256,6 @@
         "earth", 
         "miogeocline"
     ], 
-    "Sutherland, Earl W., Jr.": [
-        "monophos", 
-        "monophosphate", 
-        "versity", 
-        "burlingame", 
-        "sutherland", 
-        "phate", 
-        "vanderbilt", 
-        "derbilt", 
-        "B.S", 
-        "medicine", 
-        "washburn", 
-        "M.D", 
-        "physiology"
-    ], 
     "dysentery": [
         "cell", 
         "complex", 
@@ -7131,9 +7288,10 @@
     "vaccines": [
         "oth", 
         "immune", 
+        "virus", 
         "growth", 
-        "pattern", 
         "medicine", 
+        "pattern", 
         "disease"
     ], 
     "myelin sheath": [], 
@@ -7214,9 +7372,8 @@
         "membrane", 
         "protein"
     ], 
-    "lysogenic cycle": [], 
-    "B\u00e1r\u00e1ny, Robert": [
-        "losis"
+    "lysogenic cycle": [
+        "virus"
     ], 
     "lignin": [
         "cell", 
@@ -7287,6 +7444,7 @@
         "spore", 
         "cell", 
         "gametophytes", 
+        "tion", 
         "ALGAE", 
         "chromosome"
     ], 
@@ -7330,31 +7488,15 @@
     "microcrystalline tests": [
         "teichmann"
     ], 
-    "cancer": [
-        "body", 
-        "spiroptera", 
-        "medicine", 
-        "electron", 
-        "growth", 
-        "human", 
-        "allgemeinen", 
-        "ACID", 
-        "physiology", 
-        "chromosome", 
-        "platin", 
-        "oncogene", 
-        "CISPLATIN", 
-        "pathologie", 
-        "overexpression", 
-        "cyto", 
-        "cell", 
-        "drug", 
-        "NUCLEIC", 
-        "fibiger", 
-        "animal", 
-        "anatomie", 
-        "disorder", 
-        "mutation"
+    "Raumur scale": [
+        "water", 
+        "mometers", 
+        "tribution", 
+        "tury", 
+        "aumur", 
+        "communi", 
+        "insect", 
+        "ther"
     ], 
     "binuclear": [
         "IUPAC", 
@@ -7374,12 +7516,6 @@
     ], 
     "hydrocarbon solvent": [], 
     "facultative halophyte": [], 
-    "configuration": [
-        "entity", 
-        "atom", 
-        "CONFORMATION", 
-        "STEREOISOMER"
-    ], 
     "pericycle": [
         "cell", 
         "plant", 
@@ -7387,52 +7523,22 @@
         "root"
     ], 
     "wobble": [
+        "posi", 
         "tRNA", 
-        "bond", 
+        "tion", 
         "hydrogen", 
-        "posi"
+        "bond"
     ], 
     "monophyletic": [
         "group", 
         "organism"
     ], 
-    "superhyperfine": [
-        "spin-resonance", 
-        "PARAMAGNETIC", 
-        "molecule", 
-        "frequency-domain", 
-        "NUCLEAR", 
-        "MAGNETIC", 
-        "ESEEM", 
-        "metal", 
-        "electron", 
-        "ECHO", 
-        "ELECTRON", 
-        "nucleus", 
-        "result", 
-        "SPECTROSCOPY", 
-        "transfer", 
-        "RESONANCE", 
-        "protein", 
-        "SPIN", 
-        "ation", 
-        "electron-transfer"
-    ], 
     "Robertsonian translocation": [
         "chromosome"
     ], 
-    "Morgan, Thomas Hunt": [
-        "physiology", 
-        "bryn", 
-        "kerckhoff", 
-        "B.S", 
-        "newell", 
-        "charlton", 
-        "Ph.D", 
-        "lexington", 
-        "mawr", 
-        "tionships", 
-        "rela"
+    "reflex": [
+        "stimulus", 
+        "complex"
     ], 
     "ecological succession": [
         "environment", 
@@ -7522,6 +7628,7 @@
         "mammal", 
         "muscle"
     ], 
+    "MPa ": [], 
     "quinicrine": [
         "group", 
         "torbjorn", 
@@ -7670,10 +7777,14 @@
         "structure", 
         "COFACTOR"
     ], 
-    "helium": [
-        "electron", 
-        "atom", 
-        "ELEMENT"
+    "tricarboxylic acid   cycle": [
+        "jutland", 
+        "krogh", 
+        "schack", 
+        "viggo", 
+        "grenaa", 
+        "steenberg", 
+        "drechmann"
     ], 
     "ubiquitin": [], 
     "glycolysis": [
@@ -7693,6 +7804,7 @@
         "ATP", 
         "compound", 
         "carbon", 
+        "tion", 
         "CYCLE", 
         "conver", 
         "by-product"
@@ -7707,6 +7819,7 @@
     "lava": [], 
     "chigoe flea": [], 
     "epoch": [], 
+    "Fritts Harold Clark": [], 
     "extrinsic asthma": [], 
     "relative refractory period": [
         "stimulus", 
@@ -7784,6 +7897,19 @@
         "SPECIES", 
         "specie"
     ], 
+    "molarity": [
+        "body", 
+        "environment", 
+        "MOLARITY", 
+        "atom", 
+        "fluid", 
+        "water", 
+        "substance", 
+        "ity", 
+        "carbon", 
+        "concentration", 
+        "salt"
+    ], 
     "peptide bond": [
         "reaction", 
         "group", 
@@ -7826,11 +7952,6 @@
     "testcross": [
         "hormone", 
         "organ"
-    ], 
-    "Menkes\u2019 disease": [
-        "absorption", 
-        "disorder", 
-        "copper"
     ], 
     "typhus": [
         "ganism", 
@@ -7908,37 +8029,6 @@
         "structure", 
         "system"
     ], 
-    "Koch, Robert": [
-        "clausthal", 
-        "wollstein", 
-        "animal", 
-        "posen", 
-        "langenhagen", 
-        "spore", 
-        "bacteriolo", 
-        "gesundheitsamt", 
-        "consid", 
-        "koch", 
-        "groundbreaking", 
-        "mak", 
-        "M.D", 
-        "organ", 
-        "result", 
-        "bacte", 
-        "fraats", 
-        "four-room", 
-        "tists", 
-        "blood", 
-        "father", 
-        "disease", 
-        "bacteria", 
-        "henle", 
-        "ttingen", 
-        "medicine", 
-        "rackwitz", 
-        "organism", 
-        "harz"
-    ], 
     "asthma": [
         "pollen", 
         "cell", 
@@ -7951,6 +8041,33 @@
         "tissue", 
         "membrane"
     ], 
+    "cancer": [
+        "body", 
+        "spiroptera", 
+        "medicine", 
+        "electron", 
+        "growth", 
+        "human", 
+        "allgemeinen", 
+        "ACID", 
+        "physiology", 
+        "chromosome", 
+        "platin", 
+        "oncogene", 
+        "CISPLATIN", 
+        "pathologie", 
+        "overexpression", 
+        "cyto", 
+        "cell", 
+        "drug", 
+        "NUCLEIC", 
+        "fibiger", 
+        "animal", 
+        "anatomie", 
+        "tion", 
+        "disorder", 
+        "mutation"
+    ], 
     "angiotensin": [
         "body", 
         "hormone", 
@@ -7961,12 +8078,26 @@
         "group"
     ], 
     "cellular respiration": [], 
+    "Hess Walter Rudolf": [
+        "aargau", 
+        "stimu", 
+        "rudolf", 
+        "frauenfeld", 
+        "lating", 
+        "bonn", 
+        "medicine", 
+        "hess", 
+        "ophthalmolo", 
+        "physiology", 
+        "blood"
+    ], 
     "C-term": [
         "body", 
         "c-term", 
         "IMAGING", 
         "CHROMOPHORE", 
         "popula", 
+        "tion", 
         "visualiza", 
         "molecule", 
         "zeeman"
@@ -7994,27 +8125,6 @@
         "food", 
         "LATENTIATION"
     ], 
-    "Reichstein, Tadeus": [
-        "reichstein", 
-        "tadeus", 
-        "family", 
-        "basel", 
-        "hochschule", 
-        "substance", 
-        "eidgen", 
-        "jena", 
-        "clawek", 
-        "oberrealschule", 
-        "ssische", 
-        "isidor", 
-        "E.T.H", 
-        "versity", 
-        "technische", 
-        "brockmann", 
-        "wlo", 
-        "chemistry", 
-        "gastava"
-    ], 
     "secondary growth": [
         "growth", 
         "root", 
@@ -8022,11 +8132,12 @@
         "tissue", 
         "stem"
     ], 
-    "heterozygous": [
+    "recombinant DNA": [
         "cell", 
-        "allele", 
+        "source", 
+        "virus", 
         "gene", 
-        "gamete"
+        "DNA"
     ], 
     "inhibition": [
         "reaction", 
@@ -8041,44 +8152,14 @@
         "tissue", 
         "stem"
     ], 
-    "free radical": [
-        "body", 
-        "oxidation", 
+    "anion": [
+        "ion", 
+        "charge", 
         "molecule", 
-        "electron", 
-        "chemical", 
-        "enzyme", 
-        "metabolism", 
-        "by-product"
-    ], 
-    "R\u00e9aumur scale": [
-        "water", 
-        "mometers", 
-        "tribution", 
-        "tury", 
-        "aumur", 
-        "communi", 
-        "insect", 
-        "ther"
+        "atom"
     ], 
     "gold drugs": [
         "COORDINATION"
-    ], 
-    "Theorell, Axel Hugo Theodor": [
-        "theodor", 
-        "chemistry", 
-        "weight", 
-        "uppsala", 
-        "physi", 
-        "armida", 
-        "chemical", 
-        "blood", 
-        "theorell", 
-        "medicine", 
-        "thure", 
-        "M.D", 
-        "porary", 
-        "karolinska"
     ], 
     "ground meristem": [], 
     "hyperpolarization": [
@@ -8090,7 +8171,7 @@
         "population"
     ], 
     "light microscope": [], 
-    "incest": [ 
+    "incest": [
         "parent"
     ], 
     "caudal": [
@@ -8117,6 +8198,29 @@
         "analyti", 
         "population"
     ], 
+    "Houssay Bernardo Alberto": [
+        "result", 
+        "laffont", 
+        "metabolism", 
+        "hormone", 
+        "bernardo", 
+        "sugar", 
+        "rister", 
+        "clara", 
+        "colegio", 
+        "physiology", 
+        "houssay", 
+        "aires", 
+        "alberto", 
+        "medicine", 
+        "nico", 
+        "tions", 
+        "complet", 
+        "M.D", 
+        "mak", 
+        "father", 
+        "coun"
+    ], 
     "revision": [
         "group", 
         "specie", 
@@ -8142,6 +8246,7 @@
         "organism", 
         "mutation"
     ], 
+    "IAA ": [], 
     "biocatalyst": [
         "ENZYME"
     ], 
@@ -8168,11 +8273,11 @@
         "IL-12", 
         "system", 
         "IL-10", 
-        "group", 
         "chemical", 
         "glycopro", 
         "IgE", 
         "interleukin-6", 
+        "group", 
         "protein", 
         "synthesis", 
         "kidney", 
@@ -8228,9 +8333,10 @@
     "complement fixation": [
         "reaction", 
         "comple", 
-        "protein", 
+        "blood", 
         "centrates", 
-        "blood"
+        "protein", 
+        "virus"
     ], 
     "radiometric dating": [
         "u-238", 
@@ -8262,15 +8368,15 @@
         "entity"
     ], 
     "decomposers": [
+        "insect", 
         "environment", 
         "plant", 
-        "enzyme", 
         "group", 
         "molecule", 
         "mals", 
         "fungi", 
         "chemical", 
-        "insect", 
+        "enzyme", 
         "compound", 
         "organism", 
         "bacteria"
@@ -8295,19 +8401,9 @@
         "flower", 
         "group"
     ], 
-    "Eijkman, Christiaan": [
-        "christiaan", 
-        "gelderland", 
-        "zaandam", 
-        "father", 
-        "torium", 
-        "batavia", 
-        "eijkman", 
-        "geneeskundig", 
-        "labora", 
-        "johan", 
-        "alida", 
-        "nijkerk"
+    "geographic range": [
+        "specie", 
+        "population"
     ], 
     "chlorin": [
         "chemistry", 
@@ -8328,9 +8424,6 @@
         "ker", 
         "protein", 
         "amino"
-    ], 
-    "plankton": [
-        "plant"
     ], 
     "organic chemistry": [
         "oxygen", 
@@ -8371,13 +8464,14 @@
     ], 
     "orbicule": [
         "united", 
-        "stant", 
-        "disease", 
-        "andersoni", 
-        "specie", 
+        "RICKETTSIA", 
         "STABLE", 
+        "tion", 
+        "disease", 
+        "specie", 
         "COORDINATION", 
-        "RICKETTSIA"
+        "andersoni", 
+        "stant"
     ], 
     "hypothalamus": [
         "cell", 
@@ -8404,23 +8498,6 @@
         "plant", 
         "organism"
     ], 
-    "Chain, Ernst Boris": [
-        "boris", 
-        "ernst", 
-        "Friedrich-Wilhelm", 
-        "chemistry", 
-        "charit", 
-        "luisen"
-    ], 
-    "Ehrlich, Paul": [
-        "wroclaw", 
-        "weigert", 
-        "ogist", 
-        "breslau", 
-        "ehrlich", 
-        "ismar", 
-        "karl"
-    ], 
     "dikaryotic": [
         "cell", 
         "spore", 
@@ -8430,9 +8507,15 @@
     "viable population": [
         "population"
     ], 
-    "geographic range": [
-        "specie", 
-        "population"
+    "Croll James": [
+        "result", 
+        "croll", 
+        "ellis", 
+        "cargill", 
+        "knowl", 
+        "elgrin", 
+        "perthshire", 
+        "whitefield"
     ], 
     "hyperglycemia": [
         "body", 
@@ -8466,10 +8549,11 @@
         "movement"
     ], 
     "bottleneck effect": [
+        "specie", 
         "popula", 
-        "population", 
+        "tion", 
         "disease", 
-        "specie"
+        "population"
     ], 
     "gravid": [
         "insect", 
@@ -8531,6 +8615,7 @@
         "result", 
         "popu", 
         "pattern", 
+        "tion", 
         "MIMICRY", 
         "dispropor", 
         "COMPROPORTIONATION", 
@@ -8573,13 +8658,6 @@
         "YOLK"
     ], 
     "metastable": [], 
-    "Dam, Henrik": [
-        "febru", 
-        "peterson", 
-        "henrik", 
-        "emil", 
-        "emilie"
-    ], 
     "temperature scales": [
         "perature", 
         "water"
@@ -8639,29 +8717,12 @@
         "transfer", 
         "ature"
     ], 
-    "nullisomy": [
+    "double fertilization": [
+        "sperm", 
+        "cell", 
         "plant", 
-        "craniosynostosis", 
-        "food", 
-        "stem", 
-        "homolo", 
-        "anation", 
-        "human", 
-        "pair", 
-        "chromosome", 
-        "specie", 
-        "organ", 
-        "source", 
-        "dant", 
-        "tree", 
-        "insect", 
-        "aberra", 
-        "mammal", 
-        "root"
-    ], 
-    "reflex": [
-        "stimulus", 
-        "complex"
+        "nucleus", 
+        "embryo"
     ], 
     "lysozyme": [
         "bacte", 
@@ -8734,14 +8795,6 @@
         "body", 
         "CANCER"
     ], 
-    "Pfeiffer\u2019s rule": [
-        "POTENCY", 
-        "RATIO", 
-        "EUDISMIC", 
-        "EUTOMER", 
-        "BACTERIA", 
-        "bacteria"
-    ], 
     "lichen": [
         "grayi", 
         "subtenuis", 
@@ -8785,12 +8838,13 @@
         "holothuroidea"
     ], 
     "melatonin": [
-        "cell", 
+        "body", 
         "dysfunc", 
         "organ", 
-        "gland", 
-        "body", 
         "system", 
+        "cell", 
+        "gland", 
+        "tion", 
         "n-acetyl-5-methoxy-tryptamine"
     ], 
     "siroheme": [
@@ -8801,6 +8855,7 @@
         "HEME", 
         "NITRITE", 
         "ENZYME", 
+        "tion", 
         "SULFITE"
     ], 
     "Lewis adduct": [
@@ -8845,8 +8900,7 @@
     ], 
     "pneumatophor": [
         "root", 
-        "structure", 
-        "e.g"
+        "structure"
     ], 
     "molybdopterin": [
         "reaction", 
@@ -8890,17 +8944,6 @@
         "plant", 
         "algae"
     ], 
-    "Mechnikov, Ilya Ilyich": [
-        "mechnikov", 
-        "ilya", 
-        "ilyich", 
-        "ogist", 
-        "ttingen", 
-        "heligoland", 
-        "marine", 
-        "giessen", 
-        "kharkoff"
-    ], 
     "root cap": [
         "root", 
         "structure"
@@ -8932,6 +8975,39 @@
         "eign", 
         "vessel", 
         "blood"
+    ], 
+    "Erlanger Joseph": [
+        "nerve", 
+        "fiber", 
+        "ampli", 
+        "drates", 
+        "erlanger", 
+        "system", 
+        "piratory", 
+        "nucleus", 
+        "adult", 
+        "human", 
+        "vessel", 
+        "protein", 
+        "M.D", 
+        "physiology", 
+        "metabolism", 
+        "hopkins", 
+        "B.S", 
+        "pattern", 
+        "cathode-ray", 
+        "blood", 
+        "nerve-action", 
+        "cell", 
+        "versity", 
+        "enzyme", 
+        "carbohy", 
+        "entist", 
+        "medicine", 
+        "chemistry", 
+        "epitope", 
+        "bone", 
+        "BLOOD"
     ], 
     "homosporous": [
         "spore", 
@@ -8967,6 +9043,8 @@
         "GROUP", 
         "PROS"
     ], 
+    "hypogynous ovary": [], 
+    "Wilsons disease": [], 
     "nagana": [
         "disease"
     ], 
@@ -9072,12 +9150,32 @@
     ], 
     "systemic": [
         "body", 
-        "mecha", 
         "plant", 
+        "fungi", 
+        "mecha", 
+        "virus", 
         "tissue", 
+        "tion", 
         "organism", 
-        "bacteria", 
-        "fungi"
+        "bacteria"
+    ], 
+    "Mssbauer effect": [
+        "oxidation", 
+        "metal", 
+        "ion", 
+        "insect", 
+        "lepi", 
+        "atom", 
+        "COORDINATION", 
+        "istry", 
+        "HYPERFINE", 
+        "ssbauer", 
+        "doptera", 
+        "absorption", 
+        "radiation", 
+        "iron", 
+        "nucleus", 
+        "tion"
     ], 
     "tumor suppressor gene": [
         "cell", 
@@ -9091,44 +9189,32 @@
         "bone"
     ], 
     "tubulus renalis colligens": [], 
-    "Erlanger, Joseph": [
-        "nerve", 
-        "fiber", 
-        "ampli", 
-        "drates", 
-        "erlanger", 
-        "system", 
-        "piratory", 
-        "nucleus", 
-        "adult", 
+    "rickettsia": [
+        "refor", 
+        "tsutsugamushi", 
+        "animal", 
+        "mals", 
+        "disease", 
+        "coxiella", 
+        "bartonell", 
         "human", 
-        "vessel", 
-        "protein", 
-        "M.D", 
-        "physiology", 
-        "metabolism", 
-        "hopkins", 
-        "B.S", 
-        "pattern", 
-        "cathode-ray", 
-        "blood", 
-        "nerve-action", 
-        "cell", 
-        "versity", 
-        "enzyme", 
-        "carbohy", 
-        "entist", 
-        "medicine", 
-        "chemistry", 
-        "epitope", 
-        "bone", 
-        "BLOOD"
+        "vanuatu", 
+        "queensland", 
+        "mushi", 
+        "bacteria"
     ], 
     "halophyte": [
         "soil", 
         "plant", 
         "salt", 
         "ginica"
+    ], 
+    "BBT ": [
+        "body", 
+        "weight"
+    ], 
+    "Mendel Gregor": [
+        "johann"
     ], 
     "action potential": [
         "nerve", 
@@ -9142,6 +9228,7 @@
         "bird"
     ], 
     "leaf veins": [
+        "tion", 
         "tissue", 
         "paral"
     ], 
@@ -9153,12 +9240,10 @@
         "OXIDATION", 
         "NUMBER"
     ], 
-    "cytokinesis": [
+    "centromere": [
         "cell", 
-        "tissue", 
-        "nucleus", 
-        "parent", 
-        "kidney"
+        "fiber", 
+        "chromosome"
     ], 
     "endogenous": [
         "endoge", 
@@ -9203,6 +9288,10 @@
     "bryophytes": [
         "nosperms"
     ], 
+    "parathyroidism": [
+        "calcium", 
+        "blood"
+    ], 
     "frameshift mutation": [
         "pair", 
         "mutation", 
@@ -9218,6 +9307,14 @@
         "PORPHYRIN"
     ], 
     "drupe": [], 
+    "ATP ": [
+        "chemiosmosis", 
+        "electron", 
+        "membrane", 
+        "protein", 
+        "brane", 
+        "plasma"
+    ], 
     "capillary": [
         "medicine", 
         "krogh", 
@@ -9256,8 +9353,16 @@
         "cell", 
         "nerve"
     ], 
-    "pocosin": [
-        "united"
+    "zygote": [
+        "embryo", 
+        "gamete", 
+        "flower", 
+        "parent", 
+        "spore", 
+        "cell", 
+        "sperm", 
+        "copy", 
+        "chromosome"
     ], 
     "interstitial deletion": [], 
     "allergic rhinitis": [
@@ -9272,6 +9377,7 @@
         "tree"
     ], 
     "density-independent factor": [
+        "tion", 
         "population", 
         "pollu", 
         "specie"
@@ -9297,24 +9403,6 @@
         "receptor", 
         "muscle", 
         "INTRINSIC"
-    ], 
-    "Einthoven, Willem": [
-        "willem", 
-        "heynsius", 
-        "einthoven", 
-        "family", 
-        "vogel", 
-        "leiden", 
-        "semarang", 
-        "physiology", 
-        "father"
-    ], 
-    "Br\u00f8nsted base": [
-        "chemical", 
-        "BASE", 
-        "specie", 
-        "hydron", 
-        "entity"
     ], 
     "vestibular system": [
         "body", 
@@ -9369,21 +9457,24 @@
         "disease", 
         "animal"
     ], 
-    "Down\u2019s syndrome": [
-        "body", 
-        "heart", 
-        "parent", 
-        "organ", 
-        "brain", 
-        "mosome", 
-        "chro", 
-        "disorder", 
-        "chromosome"
-    ], 
-    "ticks": [
-        "specie", 
+    "Celsius Anders": [
         "family", 
-        "disease"
+        "uppsala", 
+        "father", 
+        "cel", 
+        "tions", 
+        "thers", 
+        "ences", 
+        "earth", 
+        "magnus", 
+        "grandfa", 
+        "observa", 
+        "sius", 
+        "vations", 
+        "lsingland", 
+        "tude", 
+        "ther", 
+        "magni"
     ], 
     "Saturniidae": [
         "tuskes", 
@@ -9460,11 +9551,12 @@
         "SPOROPHYTE"
     ], 
     "dioxygenase": [
-        "INSER", 
         "ENZYME", 
-        "SUBSTRATE", 
+        "INSER", 
         "oxygen", 
-        "atom"
+        "atom", 
+        "SUBSTRATE", 
+        "TION"
     ], 
     "malaria": [
         "result", 
@@ -9577,26 +9669,25 @@
         "DRIFT", 
         "population"
     ], 
-    "hapto": [
-        "CENTRAL", 
-        "PtCl", 
-        "LIGAND", 
-        "cyclopentadienyl", 
-        "metal", 
-        "system", 
-        "amminedichloro", 
-        "atom", 
-        "iron", 
-        "ATOM", 
-        "COORDINATING", 
-        "COORDINATION", 
-        "hapto"
+    "insect stings": [
+        "nerve", 
+        "hormone", 
+        "reaction", 
+        "food", 
+        "drug", 
+        "heart", 
+        "gland", 
+        "blood", 
+        "skin", 
+        "vessel", 
+        "muscle"
     ], 
     "autacoid": [
-        "cell", 
         "HORMONE", 
+        "cell", 
         "substance", 
         "membrane", 
+        "tion", 
         "plasma", 
         "specializa"
     ], 
@@ -9604,15 +9695,16 @@
         "plant", 
         "ener", 
         "weight", 
-        "dioxide", 
-        "radiation", 
         "EFFECT", 
-        "sugar", 
         "earth", 
         "GREENHOUSE", 
         "DIOXIDE", 
         "CARBON", 
         "carbon", 
+        "radiation", 
+        "sugar", 
+        "dioxide", 
+        "tion", 
         "assimila", 
         "organism", 
         "result"
@@ -9694,24 +9786,6 @@
         "copy", 
         "chromosome"
     ], 
-    "Carrel, Alexis": [
-        "lyons", 
-        "Carrel-Dakin", 
-        "organ", 
-        "embroidress", 
-        "ricard", 
-        "dakin", 
-        "fluid", 
-        "alexis", 
-        "medicine", 
-        "Ph.D", 
-        "tissue", 
-        "blood", 
-        "nique", 
-        "vessel", 
-        "rocke", 
-        "physiology"
-    ], 
     "DNA methylation": [], 
     "hemolysis": [
         "disease", 
@@ -9737,14 +9811,6 @@
         "medicine", 
         "protein", 
         "physiology"
-    ], 
-    "Cori, Carl Ferdinand": [
-        "trieste", 
-        "gradu", 
-        "ferdinand", 
-        "medicine", 
-        "marine", 
-        "cori"
     ], 
     "eye": [
         "raman", 
@@ -9783,19 +9849,6 @@
     "Digenea": [
         "dige", 
         "mansoni"
-    ], 
-    "Doisy, Edward Adelbert": [
-        "U.S", 
-        "doisy", 
-        "adelbert", 
-        "M.S", 
-        "versity", 
-        "Ph.D", 
-        "medicine", 
-        "perez", 
-        "B.A", 
-        "istry", 
-        "hume"
     ], 
     "sporopollenin": [
         "biopolymer"
@@ -9888,19 +9941,6 @@
     ], 
     "Lyme disease": [], 
     "beringia": [], 
-    "Spemann, Hans": [
-        "father", 
-        "Ph.D", 
-        "spemann", 
-        "stuttgart", 
-        "Freiburg-im-Breisgau", 
-        "wilhelm", 
-        "rzburg", 
-        "rostock", 
-        "Berlin-Dahlem", 
-        "insti", 
-        "heidelberg"
-    ], 
     "eusocial": [
         "insect", 
         "system"
@@ -9913,7 +9953,7 @@
         "ments", 
         "result", 
         "nition", 
-        "capillary", 
+        "capil", 
         "acid"
     ], 
     "photosystem": [
@@ -9984,6 +10024,14 @@
         "tree", 
         "ALGAE"
     ], 
+    "Picks disease": [
+        "heart", 
+        "tissue", 
+        "organ", 
+        "membrane", 
+        "medicine", 
+        "tions"
+    ], 
     "isoenzymes": [
         "charge", 
         "system", 
@@ -10004,6 +10052,7 @@
         "body", 
         "water", 
         "pair", 
+        "condi", 
         "tions"
     ], 
     "hilum": [
@@ -10061,17 +10110,8 @@
     ], 
     "lytic cycle": [
         "cell", 
+        "virus", 
         "membrane"
-    ], 
-    "monocotyledons (monocots)": [
-        "plant", 
-        "flower", 
-        "leaf", 
-        "stem", 
-        "group", 
-        "MONOCOT", 
-        "root", 
-        "structure"
     ], 
     "Caucasian": [], 
     "cyclin-dependent kinase": [
@@ -10154,20 +10194,18 @@
         "substance", 
         "growth", 
         "receptor", 
+        "tion", 
         "organism"
     ], 
-    "molarity": [
-        "body", 
-        "environment", 
-        "MOLARITY", 
-        "atom", 
-        "fluid", 
-        "water", 
-        "substance", 
-        "ity", 
-        "carbon", 
-        "concentration", 
-        "salt"
+    "Theiler Max": [
+        "sachusetts", 
+        "theiler", 
+        "ogist", 
+        "medicine", 
+        "hamstown", 
+        "rockefeller", 
+        "south", 
+        "jegge"
     ], 
     "ubiquitous": [
         "enzyme", 
@@ -10223,8 +10261,9 @@
         "blood"
     ], 
     "perichondrium": [
-        "electron", 
+        "tion", 
         "growth", 
+        "electron", 
         "bone"
     ], 
     "entatic state": [
@@ -10241,11 +10280,16 @@
         "plant", 
         "result"
     ], 
-    "coelacanth": [
-        "menadoensis", 
-        "south", 
-        "specie", 
-        "family"
+    "Downs syndrome": [
+        "body", 
+        "heart", 
+        "parent", 
+        "organ", 
+        "brain", 
+        "mosome", 
+        "chro", 
+        "disorder", 
+        "chromosome"
     ], 
     "ribozyme": [
         "RNA", 
@@ -10276,6 +10320,7 @@
         "animal"
     ], 
     "taxonomy": [
+        "tion", 
         "organism", 
         "identifica"
     ], 
@@ -10291,6 +10336,7 @@
         "angiospermae", 
         "pair", 
         "classifica", 
+        "tion", 
         "root", 
         "structure"
     ], 
@@ -10335,10 +10381,11 @@
     "Cycloidea": [], 
     "hard drug": [
         "water", 
-        "accumula", 
         "tissue", 
-        "DRUG", 
-        "compound"
+        "compound", 
+        "tion", 
+        "accumula", 
+        "DRUG"
     ], 
     "plasma osmolarity": [
         "osmoreceptor", 
@@ -10491,25 +10538,10 @@
         "vessel", 
         "blood"
     ], 
-    "iron-sulfur cluster": [
-        "BRIDGING", 
-        "LIGAND", 
-        "oxidation", 
-        "exclud", 
-        "CLUSTER", 
-        "charge", 
-        "iron", 
-        "IRON", 
-        "atom", 
-        "SULFUR", 
-        "PROTEIN"
-    ], 
     "endoskeleton": [
         "SKELETON"
     ], 
-    "Cnidaria": [
-        "i.e"
-    ], 
+    "Cnidaria": [], 
     "parasympathetic division": [
         "heart", 
         "growth", 
@@ -10530,21 +10562,9 @@
         "reaction", 
         "ENZYME"
     ], 
-    "triiodothyronine (T3)": [], 
     "white pulp": [
         "immune", 
         "system"
-    ], 
-    "Bordet, Jules": [
-        "cell", 
-        "gium", 
-        "teur", 
-        "soignies", 
-        "jules", 
-        "blood", 
-        "medicine", 
-        "bordet", 
-        "bacteria"
     ], 
     "bioconjugate": [
         "water", 
@@ -10580,10 +10600,12 @@
         "group", 
         "brouncker", 
         "huyghens", 
+        "lon", 
         "father", 
         "cell", 
         "ments", 
         "bone", 
+        "tion", 
         "chemistry", 
         "organism", 
         "bird", 
@@ -10608,10 +10630,15 @@
         "phosphate", 
         "fatty"
     ], 
-    "diploid cell": [
-        "cell", 
-        "parent", 
-        "chromosome"
+    "Pavlov Ivan Petrovich": [
+        "pisarev", 
+        "petrovich", 
+        "ryazan", 
+        "ivan", 
+        "lage", 
+        "dmitrievich", 
+        "sechenov", 
+        "father"
     ], 
     "lysis": [
         "cell", 
@@ -10629,20 +10656,21 @@
         "body", 
         "tures", 
         "marston", 
-        "FLOREY", 
         "result", 
         "human", 
-        "otics", 
+        "FLOREY", 
         "nize", 
+        "otics", 
         "concentration", 
         "ernst", 
-        "physiology", 
+        "tion", 
         "structure", 
         "adelaide", 
         "CHAIN", 
         "howard", 
         "light", 
         "signal", 
+        "physiology", 
         "medicine", 
         "rocke", 
         "florey", 
@@ -10731,8 +10759,7 @@
     "apomixis": [
         "dryopteris", 
         "plant", 
-        "group", 
-        "i.e"
+        "group"
     ], 
     "inert": [
         "LABILE", 
@@ -10773,6 +10800,13 @@
         "spe", 
         "cific"
     ], 
+    "red blood cell  ": [
+        "cell", 
+        "body", 
+        "vessel", 
+        "blood", 
+        "microvilli"
+    ], 
     "sedimentary rock": [
         "body", 
         "water", 
@@ -10794,10 +10828,10 @@
         "acid", 
         "substance", 
         "calcium", 
-        "NSTED", 
+        "LEWIS", 
         "electron", 
         "chemi", 
-        "LEWIS", 
+        "NSTED", 
         "salt", 
         "bond"
     ], 
@@ -10829,11 +10863,21 @@
         "BONE", 
         "IMAGING"
     ], 
+    "computed tomography  ": [
+        "egyptologists", 
+        "body", 
+        "human", 
+        "wagle", 
+        "AIHA", 
+        "x-ray", 
+        "thebes"
+    ], 
     "myofibril": [
         "filament"
     ], 
     "schistosomiasis": [
         "medicine", 
+        "virus", 
         "ROBBINS", 
         "physiology", 
         "disease"
@@ -10879,8 +10923,12 @@
         "accumu", 
         "kidney"
     ], 
-    "long-day plant": [
-        "plant"
+    "Dam Henrik": [
+        "febru", 
+        "peterson", 
+        "henrik", 
+        "emil", 
+        "emilie"
     ], 
     "probability": [
         "lihood"
@@ -10892,8 +10940,9 @@
         "ELECTRON", 
         "SPECTROSCOPY", 
         "RESONANCE", 
-        "concentration", 
-        "PARAMAGNETIC"
+        "tion", 
+        "PARAMAGNETIC", 
+        "concentration"
     ], 
     "anaphase": [], 
     "Neanderthal": [
@@ -10918,9 +10967,6 @@
         "PROTEIN", 
         "ACID", 
         "COORDINATION"
-    ], 
-    "winterbottom\u2019s sign": [
-        "cervi"
     ], 
     "ligand field": [
         "FIELD", 
@@ -10967,26 +11013,14 @@
         "fluid", 
         "movement"
     ], 
-    "Loewi, Otto": [
-        "tter", 
-        "graz", 
-        "profes", 
-        "hofmeister", 
-        "organ", 
-        "strassburg", 
-        "Marburg-an-der-Lahn", 
-        "cell", 
-        "neuron", 
-        "noorden", 
-        "chemical", 
-        "united", 
-        "macologist", 
-        "medicine", 
-        "humanis", 
-        "willst", 
-        "nerve", 
-        "loewi", 
-        "meyer"
+    "Enders John Franklin": [
+        "ameri", 
+        "ogist", 
+        "human", 
+        "whitmore", 
+        "tion", 
+        "goulden", 
+        "ostrom"
     ], 
     "queenright": [], 
     "prokaryote": [
@@ -11032,6 +11066,7 @@
         "cell", 
         "embryo", 
         "electron", 
+        "tion", 
         "plant", 
         "moru"
     ], 
@@ -11055,6 +11090,18 @@
         "mammal", 
         "GEOLOGIC", 
         "TIME"
+    ], 
+    "polymorphism": [
+        "POLYMORPHISM", 
+        "plant", 
+        "notypes", 
+        "sequence", 
+        "system", 
+        "cell", 
+        "polyphenism", 
+        "allele", 
+        "gene", 
+        "population"
     ], 
     "age structure": [
         "growth", 
@@ -11112,14 +11159,15 @@
     ], 
     "translation": [
         "informa", 
-        "mRNA", 
+        "sponding", 
         "SEQUENCE", 
         "RIBOSOME", 
         "GENETIC", 
         "CODE", 
-        "sponding", 
-        "protein", 
+        "mRNA", 
+        "tion", 
         "acid", 
+        "protein", 
         "amino"
     ], 
     "diffusion": [
@@ -11193,6 +11241,7 @@
     "donor atom symbol": [
         "polydentate", 
         "conven", 
+        "tion", 
         "LIGAND", 
         "atom", 
         "gerhard", 
@@ -11247,6 +11296,10 @@
         "filament", 
         "tributors"
     ], 
+    "Chagas disease": [
+        "cecilio", 
+        "roma"
+    ], 
     "CADD": [
         "DRUG", 
         "compound"
@@ -11271,6 +11324,9 @@
         "organism", 
         "METABOLISM", 
         "DRUG"
+    ], 
+    "fixed action pattern  ": [
+        "species-to-species"
     ], 
     "nucleosome": [], 
     "address-message concept": [
@@ -11337,10 +11393,16 @@
         "synthetases", 
         "bond"
     ], 
-    "heterosexual": [ 
+    "heterosexual": [
         "HOMOSEXUAL"
     ], 
-    "hypogynous ovary": [], 
+    "Wegener Alfred Lothar": [
+        "wegener", 
+        "kurt", 
+        "wegen", 
+        "south", 
+        "torate"
+    ], 
     "analogy": [
         "nerve", 
         "simi", 
@@ -11393,6 +11455,7 @@
         "specie", 
         "habitat", 
         "STABLE", 
+        "tion", 
         "migra", 
         "population"
     ], 
@@ -11425,6 +11488,7 @@
         "abdomi", 
         "collabo", 
         "entity", 
+        "virus", 
         "drug", 
         "human", 
         "tract", 
@@ -11462,19 +11526,22 @@
         "south", 
         "nisms"
     ], 
-    "Landsteiner, Karl": [
-        "medicine", 
-        "wilhelminaspital", 
-        "landsteiner", 
-        "hess", 
-        "leopold", 
-        "karl"
-    ], 
+    "dictyostele": [], 
     "biogeographic boundary": [
         "holarc", 
         "aethiopi", 
         "palearctic", 
         "oceana"
+    ], 
+    "monocotyledons  ": [
+        "plant", 
+        "flower", 
+        "leaf", 
+        "stem", 
+        "group", 
+        "MONOCOT", 
+        "root", 
+        "structure"
     ], 
     "functional group": [
         "chemical", 
@@ -11491,27 +11558,28 @@
     ], 
     "mineral": [
         "chemical", 
+        "tion", 
         "composi"
     ], 
-    "Sherrington, Charles Scott": [
-        "medicine", 
-        "nerve", 
-        "islington", 
-        "fiber", 
-        "brain", 
-        "ADRIAN", 
-        "father", 
-        "one-third", 
-        "brookes", 
-        "system", 
-        "ipswich", 
+    "Cournand Andr-Frdric": [
+        "margu", 
+        "inson", 
+        "iopathology", 
+        "richards", 
+        "RICHARDS", 
+        "M.D", 
         "physiology", 
-        "physiolo", 
-        "proprio", 
-        "sherrington", 
-        "muscle", 
-        "ception", 
-        "norton"
+        "condorcet", 
+        "chemistry", 
+        "facult", 
+        "lettres", 
+        "sorbonne", 
+        "jules", 
+        "cournand", 
+        "ences", 
+        "residen", 
+        "pitaux", 
+        "andr"
     ], 
     "stereochemical": [
         "molecule"
@@ -11525,6 +11593,7 @@
         "disease", 
         "brates", 
         "result", 
+        "tion", 
         "population"
     ], 
     "mineralocorticoid": [
@@ -11534,6 +11603,15 @@
         "tree", 
         "bird", 
         "south"
+    ], 
+    "Banting Frederick Grant": [
+        "versity", 
+        "cambrai", 
+        "MACLEOD", 
+        "medicine", 
+        "alliston", 
+        "M.B", 
+        "M.D"
     ], 
     "organism": [
         "entity"
@@ -11552,6 +11630,15 @@
         "neuron", 
         "muscle", 
         "nections"
+    ], 
+    "Bksy Georg von": [
+        "Ph.D", 
+        "weight", 
+        "edu", 
+        "georg", 
+        "system", 
+        "paula", 
+        "long-distance"
     ], 
     "valence shell": [
         "reaction", 
@@ -11584,24 +11671,29 @@
         "DRUG"
     ], 
     "cell": [
-        "gluten-sensi", 
-        "food", 
-        "cytoplasm", 
-        "diagno", 
-        "nucleus", 
-        "adult", 
-        "pair", 
-        "protein", 
-        "M.D", 
-        "hooke", 
-        "reaction", 
-        "disease", 
+        "body", 
+        "cytokine", 
+        "tainty", 
+        "molecule", 
+        "cept", 
+        "sys", 
+        "mus-dependent", 
+        "receptor", 
+        "blood", 
+        "phokines", 
+        "lympho", 
+        "suppres", 
+        "tence", 
+        "HIV", 
+        "cyto", 
         "cell", 
+        "system", 
+        "lymphokine", 
         "immune", 
-        "ments", 
-        "animal", 
-        "membrane", 
-        "experi"
+        "t-cell", 
+        "exis", 
+        "complex", 
+        "bone"
     ], 
     "primordial germ cells": [
         "sperm", 
@@ -11656,50 +11748,62 @@
         "synthesis"
     ], 
     "enzyme": [
-        "enzyme", 
-        "iron", 
         "compound", 
-        "food", 
-        "molecule", 
-        "synthetases", 
-        "superiore", 
         "CHIRALITY", 
-        "regiospecificity", 
-        "reac", 
+        "system", 
         "TRANSFERASE", 
-        "COENZYME", 
-        "LYASE", 
         "CATALYST", 
         "RACEMIC", 
-        "OXIDOREDUC", 
         "NUCLEOTIDE", 
-        "physiology", 
         "HYDROLASE", 
-        "fessor", 
-        "reaction", 
+        "chemical", 
         "tiospecificity", 
-        "respiratory", 
         "group", 
-        "system", 
-        "electron", 
         "ISOMERASE", 
-        "organism", 
         "radiation", 
         "TASE", 
-        "warburg", 
         "cell", 
         "oxidation", 
-        "ENZYME", 
+        "enzyme", 
         "LIGASE", 
-        "chemical", 
         "ENANTIOMER", 
         "istituto", 
-        "substance", 
         "metabolism", 
-        "SUBSTRATES"
+        "SUBSTRATES", 
+        "food", 
+        "synthetases", 
+        "molecule", 
+        "regiospecificity", 
+        "reac", 
+        "COENZYME", 
+        "LYASE", 
+        "superiore", 
+        "OXIDOREDUC", 
+        "physiology", 
+        "fessor", 
+        "reaction", 
+        "respiratory", 
+        "substance", 
+        "electron", 
+        "warburg", 
+        "ENZYME", 
+        "iron", 
+        "tion", 
+        "organism"
     ], 
     "cistron": [
         "gene"
+    ], 
+    "Mechnikov Ilya Ilyich": [
+        "mechnikov", 
+        "ilya", 
+        "ilyich", 
+        "ogist", 
+        "ttingen", 
+        "heligoland", 
+        "marine", 
+        "giessen", 
+        "kharkoff"
     ], 
     "phosphatase": [
         "dinuclear", 
@@ -11737,7 +11841,6 @@
         "ture", 
         "filament"
     ], 
-    "Huxley, T. H.": [], 
     "dissociation constant": [], 
     "proteasome": [
         "cell", 
@@ -11882,18 +11985,9 @@
         "stomo", 
         "human", 
         "acteristics", 
+        "tion", 
         "structure", 
         "adult"
-    ], 
-    "Weller, Thomas Huckle": [
-        "M.S", 
-        "medi", 
-        "tissue", 
-        "disease", 
-        "ENDERS", 
-        "medicine", 
-        "B.A", 
-        "M.D"
     ], 
     "mechanoreceptor": [
         "stimulus", 
@@ -11912,6 +12006,7 @@
         "durch", 
         "behandlung", 
         "psychiatrie", 
+        "tion", 
         "lehrbuch", 
         "certifica"
     ], 
@@ -11943,6 +12038,7 @@
         "golgi", 
         "dedi", 
         "tissue", 
+        "tion", 
         "structure"
     ], 
     "deoxyribose": [
@@ -11960,17 +12056,26 @@
         "system", 
         "FIRST"
     ], 
-    "Whipple, George Hoyt": [
-        "whipple", 
-        "hoyt", 
-        "hopkins", 
+    "Loewi Otto": [
+        "tter", 
+        "graz", 
+        "profes", 
+        "hofmeister", 
+        "organ", 
+        "strassburg", 
+        "Marburg-an-der-Lahn", 
+        "cell", 
+        "neuron", 
+        "noorden", 
+        "chemical", 
+        "united", 
+        "macologist", 
         "medicine", 
-        "andover", 
-        "phillips", 
-        "ashland", 
-        "ashley", 
-        "B.A", 
-        "M.D"
+        "humanis", 
+        "willst", 
+        "nerve", 
+        "loewi", 
+        "meyer"
     ], 
     "ligating": [
         "LIGAND"
@@ -12011,15 +12116,6 @@
         "carbon", 
         "PORPHYRIN"
     ], 
-    "Wagner-Jauregg, Julius": [
-        "schotten", 
-        "graz", 
-        "rologist", 
-        "salt", 
-        "ner", 
-        "johann", 
-        "disease"
-    ], 
     "double helix": [
         "strand", 
         "specie", 
@@ -12042,18 +12138,42 @@
         "skin"
     ], 
     "corphin": [], 
+    "Carrel Alexis": [
+        "lyons", 
+        "Carrel-Dakin", 
+        "organ", 
+        "embroidress", 
+        "ricard", 
+        "dakin", 
+        "fluid", 
+        "alexis", 
+        "medicine", 
+        "Ph.D", 
+        "tissue", 
+        "blood", 
+        "nique", 
+        "vessel", 
+        "rocke", 
+        "physiology"
+    ], 
     "voltage-gated channel": [
         "cell", 
         "ion", 
         "membrane"
     ], 
-    "adenosine triphosphate (ATP)": [
-        "chemiosmosis", 
-        "electron", 
-        "membrane", 
-        "protein", 
-        "brane", 
-        "plasma"
+    "DDT": [
+        "food", 
+        "insect", 
+        "U.S", 
+        "hermann", 
+        "medicine", 
+        "physiology", 
+        "disease"
+    ], 
+    "Kocher Theodor Emil": [
+        "kocher", 
+        "theodor", 
+        "versity"
     ], 
     "holoenzyme": [
         "metal", 
@@ -12096,7 +12216,29 @@
         "soil", 
         "molecule"
     ], 
-    "megapascal (MPa)": [], 
+    "superhyperfine": [
+        "frequency-domain", 
+        "NUCLEAR", 
+        "MAGNETIC", 
+        "molecule", 
+        "ECHO", 
+        "ELECTRON", 
+        "nucleus", 
+        "result", 
+        "RESONANCE", 
+        "protein", 
+        "SPIN", 
+        "spin-resonance", 
+        "transfer", 
+        "ESEEM", 
+        "metal", 
+        "electron", 
+        "SPECTROSCOPY", 
+        "tion", 
+        "PARAMAGNETIC", 
+        "ation", 
+        "electron-transfer"
+    ], 
     "tracheal system": [
         "cell", 
         "body", 
@@ -12183,35 +12325,6 @@
         "animal", 
         "blood"
     ], 
-    "Koch\u2019s postulates": [
-        "head", 
-        "tions", 
-        "koch", 
-        "clara", 
-        "bacteria", 
-        "disease", 
-        "sperm", 
-        "tissue", 
-        "nucleus", 
-        "KOCH", 
-        "jeppe", 
-        "protein", 
-        "leonhard", 
-        "karl", 
-        "contribu", 
-        "strassburg", 
-        "tury", 
-        "albrecht", 
-        "ROBERT", 
-        "kossel", 
-        "physiology", 
-        "cell", 
-        "animal", 
-        "medicine", 
-        "rostock", 
-        "chemistry", 
-        "organism"
-    ], 
     "esophagus": [
         "ELECTRON", 
         "PARA", 
@@ -12222,8 +12335,18 @@
         "electron"
     ], 
     "mixed valency": [], 
-    "Mendel, Gregor": [
-        "johann"
+    "Forssmanns procedure": [
+        "heart", 
+        "medicine", 
+        "disease", 
+        "FORSSMANN", 
+        "werner", 
+        "lung", 
+        "human", 
+        "dickinson", 
+        "richards", 
+        "tion", 
+        "physiology"
     ], 
     "polar molecule": [
         "water", 
@@ -12264,12 +12387,24 @@
         "PARAMAGNETIC"
     ], 
     "capsid": [
+        "virus", 
         "plant", 
         "protein", 
         "specie"
     ], 
     "territory": [
         "food"
+    ], 
+    "Weller Thomas Huckle": [
+        "M.S", 
+        "medi", 
+        "tissue", 
+        "disease", 
+        "virus", 
+        "ENDERS", 
+        "medicine", 
+        "B.A", 
+        "M.D"
     ], 
     "NDA": [
         "appli", 
@@ -12395,7 +12530,8 @@
         "cell", 
         "atom", 
         "OLIGONUCLEOTIDE", 
-        "membrane"
+        "membrane", 
+        "tion"
     ], 
     "deuterostome": [
         "body", 
@@ -12479,6 +12615,14 @@
         "body", 
         "gland"
     ], 
+    "Landsteiner Karl": [
+        "medicine", 
+        "wilhelminaspital", 
+        "landsteiner", 
+        "hess", 
+        "leopold", 
+        "karl"
+    ], 
     "prosthetic group": [], 
     "Osteichthyes": [], 
     "inner cell mass": [
@@ -12498,6 +12642,27 @@
         "gene", 
         "mutation", 
         "sequence"
+    ], 
+    "Reichstein Tadeus": [
+        "reichstein", 
+        "tadeus", 
+        "family", 
+        "basel", 
+        "hochschule", 
+        "substance", 
+        "eidgen", 
+        "jena", 
+        "clawek", 
+        "oberrealschule", 
+        "ssische", 
+        "isidor", 
+        "E.T.H", 
+        "versity", 
+        "technische", 
+        "brockmann", 
+        "wlo", 
+        "chemistry", 
+        "gastava"
     ], 
     "scientific method": [
         "result"
@@ -12527,25 +12692,26 @@
         "ture", 
         "protein"
     ], 
-    "biocontrol": [ 
+    "biocontrol": [
         "specie", 
         "population"
     ], 
     "radionuclide": [
         "pollen", 
         "head", 
+        "family", 
+        "plant", 
+        "stem", 
+        "leaf", 
+        "specie", 
         "flower", 
         "group", 
         "radionuclides", 
-        "family", 
         "radiation", 
-        "plant", 
-        "stem", 
         "source", 
         "IMAGING", 
-        "leaf", 
-        "METABOLISM", 
-        "specie"
+        "tion", 
+        "METABOLISM"
     ], 
     "syn": [
         "plant", 
@@ -12620,6 +12786,7 @@
         "iron", 
         "IRON", 
         "SULFUR", 
+        "tion", 
         "tase", 
         "PARAMAGNETIC"
     ], 
@@ -12655,6 +12822,7 @@
     "sliding filament model": [
         "myofilaments", 
         "muscle", 
+        "tion", 
         "filament"
     ], 
     "isogamy": [
@@ -12670,31 +12838,8 @@
         "megan", 
         "morag"
     ], 
-    "Szent-Gy\u00f6rgyi, Albert von": [
-        "groningen", 
-        "lenhoss", 
-        "josefine", 
-        "szeged", 
-        "HOPKINS", 
-        "leiden", 
-        "Szent-Gy", 
-        "father", 
-        "rockefeller", 
-        "rgyi", 
-        "nicolaus", 
-        "ences", 
-        "chemistry", 
-        "physiology"
-    ], 
     "pollen": [
         "plant"
-    ], 
-    "Allen\u2019s Rule": [
-        "allele", 
-        "gene", 
-        "animal", 
-        "chromosome", 
-        "blood"
     ], 
     "cyclic electron flow": [
         "reaction", 
@@ -12708,8 +12853,7 @@
     ], 
     "catkin": [
         "flower", 
-        "group", 
-        "e.g"
+        "group"
     ], 
     "adrenodoxin": [
         "NADPH", 
@@ -12762,7 +12906,8 @@
         "united", 
         "skin", 
         "earth", 
-        "radia"
+        "radia", 
+        "tion"
     ], 
     "serology": [
         "body", 
@@ -12805,7 +12950,18 @@
         "membrane", 
         "plasma"
     ], 
-    "ribosomal RNA (rRNA)": [], 
+    "TCA  cycle": [
+        "jutland", 
+        "krogh", 
+        "schack", 
+        "viggo", 
+        "grenaa", 
+        "steenberg", 
+        "drechmann"
+    ], 
+    "winterbottoms sign": [
+        "cervi"
+    ], 
     "cerebral cortex": [
         "body", 
         "nerve", 
@@ -12830,6 +12986,7 @@
         "cavity", 
         "tions", 
         "FERTILIZA", 
+        "concentration", 
         "CELL", 
         "calcium", 
         "tissue", 
@@ -12838,8 +12995,8 @@
         "func", 
         "mammal", 
         "FETUS", 
-        "BLASTOCOEL", 
-        "concentration"
+        "TION", 
+        "BLASTOCOEL"
     ], 
     "homozygous": [
         "gene", 
@@ -12863,7 +13020,11 @@
         "earth", 
         "specie"
     ], 
-    "indole-3-acetic acid (IAA)": [], 
+    "phylogeny": [
+        "group", 
+        "organism", 
+        "tree"
+    ], 
     "conidium": [
         "spore"
     ], 
@@ -12889,6 +13050,7 @@
         "plant"
     ], 
     "temperate virus": [
+        "virus", 
         "substance"
     ], 
     "dominant behavior": [
@@ -12896,6 +13058,7 @@
         "group"
     ], 
     "retrovirus": [
+        "virus", 
         "ducing", 
         "enzyme", 
         "REVERSE", 
@@ -12904,6 +13067,9 @@
         "onko", 
         "retrovirus", 
         "REverse"
+    ], 
+    "phylum": [
+        "TAXON"
     ], 
     "dominant allele": [
         "pheno", 
@@ -13057,13 +13223,6 @@
         "inflores", 
         "cence"
     ], 
-    "N-acetyl glucosamine (NAG)": [
-        "cell", 
-        "acid", 
-        "bacteria", 
-        "structure", 
-        "amino"
-    ], 
     "Chrysolina quadrigemina": [
         "united", 
         "leaf", 
@@ -13120,6 +13279,16 @@
         "organism", 
         "protein"
     ], 
+    "Adrian Edgar Douglas": [
+        "physi", 
+        "system", 
+        "foulerton", 
+        "brain", 
+        "adrian", 
+        "medicine", 
+        "M.D", 
+        "physiology"
+    ], 
     "gene amplification": [
         "cell", 
         "gene", 
@@ -13128,11 +13297,12 @@
         "molecule", 
         "nals", 
         "result", 
+        "tion", 
         "copy", 
         "organism", 
         "produc"
     ], 
-    "relative fitness": [ 
+    "relative fitness": [
         "population"
     ], 
     "oxidation number": [
@@ -13190,6 +13360,7 @@
         "chemical", 
         "catskills", 
         "animal", 
+        "tion", 
         "egg", 
         "anita", 
         "leaf"
@@ -13210,6 +13381,7 @@
         "organism"
     ], 
     "blepharoplast": [
+        "tion", 
         "kinetosomes", 
         "structure", 
         "posi"
@@ -13227,21 +13399,23 @@
         "blood", 
         "chea", 
         "carbon", 
-        "capillary"
+        "capil"
     ], 
     "mitosis": [
         "cell", 
+        "ent", 
         "parent"
     ], 
     "insecticide": [
-        "insect", 
         "plant", 
+        "insect", 
         "animal", 
         "specie"
     ], 
     "allometry": [
         "growth"
     ], 
+    "Isoptera  ": [], 
     "opsonin": [
         "double-resonance", 
         "group", 
@@ -13253,8 +13427,10 @@
         "organism"
     ], 
     "yellow fever": [
+        "virus", 
         "theiler", 
         "family", 
+        "lon", 
         "disease", 
         "mosquito-borne", 
         "flaviviridae", 
@@ -13271,27 +13447,10 @@
         "chromosome", 
         "synthesis"
     ], 
-    "dictyostele": [], 
     "denitrification": [], 
     "epididymus": [], 
-    "computed tomography (CT)": [
-        "egyptologists", 
-        "body", 
-        "human", 
-        "wagle", 
-        "AIHA", 
-        "x-ray", 
-        "thebes"
-    ], 
-    "Theiler, Max": [
-        "sachusetts", 
-        "theiler", 
-        "ogist", 
-        "medicine", 
-        "hamstown", 
-        "rockefeller", 
-        "south", 
-        "jegge"
+    "terminal deletion": [
+        "chromosome"
     ], 
     "relative configuration": [
         "CONFIGURATION", 
@@ -13326,6 +13485,11 @@
         "molecule", 
         "bacteria", 
         "movement"
+    ], 
+    "luteinizing hormone  ": [
+        "tion", 
+        "hormone", 
+        "GnRH"
     ], 
     "Malpighian tubule": [
         "substance", 
@@ -13372,6 +13536,7 @@
         "physiology", 
         "sachusetts", 
         "lying-in", 
+        "virus", 
         "WELLER", 
         "growth", 
         "medicine", 
@@ -13426,6 +13591,7 @@
         "animal", 
         "ferent", 
         "earth", 
+        "tion", 
         "canism"
     ], 
     "laccase": [
@@ -13463,6 +13629,7 @@
     ], 
     "episome": [
         "cell", 
+        "virus", 
         "cer"
     ], 
     "Cimicidae": [
@@ -13488,6 +13655,20 @@
         "creutzfeldt", 
         "disease", 
         "encephalopa"
+    ], 
+    "Eijkman Christiaan": [
+        "christiaan", 
+        "gelderland", 
+        "zaandam", 
+        "father", 
+        "torium", 
+        "batavia", 
+        "eijkman", 
+        "geneeskundig", 
+        "labora", 
+        "johan", 
+        "alida", 
+        "nijkerk"
     ], 
     "dikaryon": [
         "cell", 
@@ -13590,6 +13771,21 @@
         "chromosome", 
         "population"
     ], 
+    "NAG ": [
+        "cell", 
+        "acid", 
+        "bacteria", 
+        "structure", 
+        "amino"
+    ], 
+    "Chain Ernst Boris": [
+        "boris", 
+        "ernst", 
+        "Friedrich-Wilhelm", 
+        "chemistry", 
+        "charit", 
+        "luisen"
+    ], 
     "natural selection": [
         "ence", 
         "EVOLUTION", 
@@ -13647,15 +13843,6 @@
         "protein", 
         "codendron"
     ], 
-    "B\u00e9k\u00e9sy, Georg von": [
-        "Ph.D", 
-        "weight", 
-        "edu", 
-        "georg", 
-        "system", 
-        "paula", 
-        "long-distance"
-    ], 
     "aneuploidy": [
         "somy", 
         "sponta", 
@@ -13671,6 +13858,7 @@
         "brain", 
         "blood", 
         "vessel", 
+        "tion", 
         "muscle", 
         "movement"
     ], 
@@ -13697,6 +13885,9 @@
         "vessel", 
         "membrane"
     ], 
+    "Brny Robert": [
+        "losis"
+    ], 
     "RNA processing": [
         "mRNAs", 
         "reaction", 
@@ -13704,6 +13895,7 @@
         "intron", 
         "cell", 
         "mRNA", 
+        "tion", 
         "synthesis"
     ], 
     "dual-action drug": [
@@ -13726,7 +13918,6 @@
         "acid", 
         "iron"
     ], 
-    "Robbins, Frederick Chapman": [], 
     "ecological efficiency": [
         "transfer", 
         "efficien"
@@ -13790,6 +13981,24 @@
     "sphincter": [
         "muscle"
     ], 
+    "Murphy William Parry": [
+        "matics", 
+        "stoughton", 
+        "bethyl", 
+        "AIHA", 
+        "pattern", 
+        "father", 
+        "thebes", 
+        "llerian", 
+        "brain", 
+        "karnak", 
+        "skin", 
+        "ankhefenmut", 
+        "B.A", 
+        "mayer", 
+        "insti", 
+        "torates"
+    ], 
     "obligate aerobe": [
         "organism", 
         "oxygen", 
@@ -13815,22 +14024,6 @@
         "half-life", 
         "parent", 
         "atom"
-    ], 
-    "phosphoglyceric acid (PGA)": [
-        "plant", 
-        "acid", 
-        "PGAL", 
-        "phosphoglyceralde", 
-        "CALVIN", 
-        "DRUG", 
-        "NADPH", 
-        "COMPUTER", 
-        "DESIGN", 
-        "compound", 
-        "CADD", 
-        "synthesis", 
-        "ASSISTED", 
-        "CYCLE"
     ], 
     "exocrine gland": [
         "plant", 
@@ -13899,6 +14092,10 @@
         "molecule", 
         "group"
     ], 
+    "ecological niche": [
+        "environment", 
+        "organism"
+    ], 
     "immunogold": [
         "cell", 
         "electron", 
@@ -13961,53 +14158,6 @@
         "atom"
     ], 
     "chiasma": [], 
-    "Arrhenius, Svante August": [
-        "thunberg", 
-        "family", 
-        "transforma", 
-        "ostwald", 
-        "tions", 
-        "ost", 
-        "arrhenius", 
-        "dissocia", 
-        "result", 
-        "concentration", 
-        "kohlrausch", 
-        "arrhe", 
-        "uppsala", 
-        "absorption", 
-        "father", 
-        "versity", 
-        "charge", 
-        "wilhelm", 
-        "vik", 
-        "rudbeck", 
-        "gustav", 
-        "wijk", 
-        "hoff", 
-        "molecule", 
-        "graz", 
-        "dioxide", 
-        "Russian-German", 
-        "ion", 
-        "boltzmann", 
-        "trum", 
-        "hogskola", 
-        "atom", 
-        "carbon", 
-        "wurzburg", 
-        "copy", 
-        "istry", 
-        "water", 
-        "christina", 
-        "substance", 
-        "erick", 
-        "B.S", 
-        "edlund", 
-        "friedrich", 
-        "chemistry", 
-        "svante"
-    ], 
     "artery": [], 
     "subunit": [
         "ferent", 
@@ -14016,7 +14166,6 @@
     "dismutation": [
         "DISPROPORTIONATION"
     ], 
-    "Fritts, Harold Clark": [], 
     "allopolyploid": [
         "plant", 
         "allote", 
@@ -14148,10 +14297,14 @@
         "concentration", 
         "hydrogen"
     ], 
-    "countercurrent exchange": [
-        "vessel", 
-        "fluid", 
-        "blood"
+    "CT ": [
+        "egyptologists", 
+        "body", 
+        "human", 
+        "wagle", 
+        "AIHA", 
+        "x-ray", 
+        "thebes"
     ], 
     "symbiotic mutualism": [
         "algae", 
@@ -14199,6 +14352,7 @@
         "disease", 
         "nondisease", 
         "cell", 
+        "virus", 
         "substance", 
         "protein", 
         "bacteria"
@@ -14257,6 +14411,7 @@
         "cology", 
         "medicine", 
         "botkin", 
+        "tion", 
         "seraphima", 
         "nerve", 
         "physiology", 
@@ -14309,6 +14464,10 @@
         "muscle", 
         "tive", 
         "tract"
+    ], 
+    "radicle": [
+        "plant", 
+        "root"
     ], 
     "insulin": [
         "reimer", 
@@ -14385,6 +14544,7 @@
         "lung", 
         "tract"
     ], 
+    "T3 ": [], 
     "wild type": [
         "population", 
         "organism", 
@@ -14396,12 +14556,6 @@
         "EOSINOPHIL", 
         "blood", 
         "disease"
-    ], 
-    "kilocalorie (kcal)": [
-        "water", 
-        "interna", 
-        "system", 
-        "weight"
     ], 
     "graded potential": [
         "stimulus", 
@@ -14437,6 +14591,7 @@
         "brain", 
         "lung", 
         "mification", 
+        "tion", 
         "herodotus", 
         "natrum", 
         "bone"
@@ -14470,6 +14625,7 @@
     ], 
     "irruption": [
         "popula", 
+        "tion", 
         "bird", 
         "specie"
     ], 
@@ -14561,9 +14717,15 @@
         "SPIN", 
         "LABEL"
     ], 
-    "ecological niche": [
-        "environment", 
-        "organism"
+    "monocots ": [
+        "plant", 
+        "flower", 
+        "leaf", 
+        "stem", 
+        "group", 
+        "MONOCOT", 
+        "root", 
+        "structure"
     ], 
     "sibling species": [
         "tinguish"
@@ -14598,17 +14760,18 @@
     ], 
     "concanavalin A": [
         "reaction", 
-        "molecu", 
-        "cell", 
         "tants", 
+        "cell", 
+        "molecu", 
         "molecule", 
         "entity", 
         "water", 
         "calcium", 
         "blood", 
-        "protein", 
+        "tion", 
         "acid", 
-        "hydrogen"
+        "hydrogen", 
+        "protein"
     ], 
     "inhibitor": [
         "reaction", 
@@ -14645,24 +14808,23 @@
         "COORDINATION", 
         "PORPHYRIN"
     ], 
-    "prophage": [
-        "plant", 
-        "group", 
-        "cytoplasm", 
-        "prokaryotic", 
-        "fungi", 
-        "golgi", 
-        "cell", 
-        "eukaryotic", 
-        "animal", 
-        "membrane", 
-        "bacteria", 
-        "chromosome"
-    ], 
     "operant conditioning": [
         "food", 
         "burrhus", 
         "friederich"
+    ], 
+    "Doisy Edward Adelbert": [
+        "U.S", 
+        "doisy", 
+        "adelbert", 
+        "M.S", 
+        "versity", 
+        "Ph.D", 
+        "medicine", 
+        "perez", 
+        "B.A", 
+        "istry", 
+        "hume"
     ], 
     "detrivore": [
         "nutrient", 
@@ -14728,14 +14890,6 @@
         "ALPHA", 
         "CYTOCHROME"
     ], 
-    "Enders, John Franklin": [
-        "ameri", 
-        "ogist", 
-        "human", 
-        "whitmore", 
-        "goulden", 
-        "ostrom"
-    ], 
     "serum": [
         "substance", 
         "CYTOPLASM", 
@@ -14744,17 +14898,19 @@
         "cell", 
         "gland", 
         "nucleus", 
-        "blood"
+        "blood", 
+        "tion"
     ], 
     "prognosis": [
         "disease"
     ], 
     "mumps": [
-        "viru", 
         "embryo", 
+        "virus", 
+        "skin", 
+        "viru", 
         "lence", 
-        "disease", 
-        "skin"
+        "disease"
     ], 
     "peroxisome": [
         "synthesis", 
@@ -14814,8 +14970,19 @@
         "conse"
     ], 
     "viremia": [], 
-    "induction": [
-        "cell"
+    "Turners syndrome": [
+        "EXTENDED", 
+        "group", 
+        "chromosome", 
+        "structure", 
+        "ABSORPTION", 
+        "organism", 
+        "STRUCTURE", 
+        "absorption", 
+        "XANES", 
+        "FINE", 
+        "bird", 
+        "x-ray"
     ], 
     "element": [
         "substance", 
@@ -14843,16 +15010,29 @@
     ], 
     "Mastigophora": [], 
     "proto-oncogene": [], 
+    "Robbins Frederick Chapman": [], 
     "facultative anaerobe": [
+        "tion", 
         "fermenta", 
         "oxygen"
     ], 
     "phagocytosis": [
-        "cell", 
-        "e.g"
+        "cell"
     ], 
     "missense mutation": [], 
     "Canadian shield": [], 
+    "Mller Paul Hermann": [
+        "plant", 
+        "substance", 
+        "olten", 
+        "basel", 
+        "hermann", 
+        "Ph.D", 
+        "dreyfus", 
+        "geigy", 
+        "solothurn", 
+        "ondary"
+    ], 
     "sperm": [
         "SEMEN", 
         "head", 
@@ -14865,14 +15045,6 @@
         "chromosome"
     ], 
     "anticoagulant": [], 
-    "Pick\u2019s disease": [
-        "heart", 
-        "tissue", 
-        "organ", 
-        "membrane", 
-        "medicine", 
-        "tions"
-    ], 
     "bone imaging": [
         "radionuclides", 
         "radiation", 
@@ -14984,6 +15156,7 @@
         "membrane"
     ], 
     "red pulp": [], 
+    "hayfever ": [], 
     "flea": [
         "insect", 
         "group", 
@@ -15048,17 +15221,9 @@
     "hookworms": [
         "family"
     ], 
-    "Hopkins, Frederick Gowland": [
-        "medicine", 
-        "iology", 
-        "eastbourne", 
-        "acid", 
-        "hopkins", 
-        "bishopsgate", 
-        "stevenson", 
-        "tant", 
-        "emmanuel", 
-        "amino"
+    "Urochordata": [
+        "vaceans", 
+        "cephalochordata"
     ], 
     "myelin": [
         "nerve", 
@@ -15071,21 +15236,32 @@
         "protein", 
         "langerhans"
     ], 
+    "phosphoglyceric acid  ": [
+        "plant", 
+        "acid", 
+        "PGAL", 
+        "phosphoglyceralde", 
+        "CALVIN", 
+        "DRUG", 
+        "NADPH", 
+        "COMPUTER", 
+        "DESIGN", 
+        "compound", 
+        "CADD", 
+        "synthesis", 
+        "ASSISTED", 
+        "CYCLE"
+    ], 
     "phloem": [
         "leaf", 
         "plant", 
         "tissue", 
         "root"
     ], 
-    "phylogeny": [
-        "group", 
-        "organism", 
-        "tree"
-    ], 
     "society": [
-        "insect", 
-        "organism", 
         "plant", 
+        "organism", 
+        "insect", 
         "system"
     ], 
     "hybrid vigor": [
@@ -15120,26 +15296,6 @@
         "muscle", 
         "bone"
     ], 
-    "Cournand, Andr\u00e9-Fr\u00e9d\u00e9ric": [
-        "margu", 
-        "inson", 
-        "iopathology", 
-        "richards", 
-        "RICHARDS", 
-        "M.D", 
-        "physiology", 
-        "condorcet", 
-        "chemistry", 
-        "facult", 
-        "lettres", 
-        "sorbonne", 
-        "jules", 
-        "cournand", 
-        "ences", 
-        "residen", 
-        "pitaux", 
-        "andr"
-    ], 
     "carpal tunnel": [
         "nerve"
     ], 
@@ -15157,13 +15313,7 @@
     "exobiology": [
         "earth"
     ], 
-    "red blood cell (erythrocyte)": [
-        "cell", 
-        "body", 
-        "vessel", 
-        "blood", 
-        "microvilli"
-    ], 
+    "ABO blood groups": [], 
     "deciduous forest": [
         "midlati", 
         "tude", 
@@ -15198,6 +15348,7 @@
         "electron", 
         "substance", 
         "compound", 
+        "tion", 
         "chemistry", 
         "structure", 
         "bond"
@@ -15244,14 +15395,6 @@
         "acid", 
         "amino"
     ], 
-    "plasmid": [
-        "cell", 
-        "GENETIC", 
-        "transfer", 
-        "gene", 
-        "bacteria", 
-        "structure"
-    ], 
     "electrogenic pump": [
         "ion", 
         "charge", 
@@ -15269,6 +15412,7 @@
         "PRIMARY", 
         "cell", 
         "IMMUNE", 
+        "virus", 
         "IgM", 
         "ANTIBODY", 
         "RESPONSE", 
@@ -15297,11 +15441,6 @@
     "thorium-lead dating": [
         "half-life"
     ], 
-    "[Fe]-hydrogenases": [
-        "SULFUR", 
-        "IRON", 
-        "CLUSTER"
-    ], 
     "denticity": [
         "acid", 
         "CENTRAL", 
@@ -15324,7 +15463,8 @@
         "LIGAND"
     ], 
     "biosphere": [
-        "earth"
+        "earth", 
+        "tion"
     ], 
     "heterogamy": [
         "sperm", 
@@ -15356,6 +15496,12 @@
         "sius", 
         "water", 
         "substance"
+    ], 
+    "tobacco mosaic virus  ": [
+        "pattern", 
+        "plant", 
+        "mosaiclike", 
+        "leaf"
     ], 
     "bronchiole": [
         "vessel", 
@@ -15401,14 +15547,10 @@
         "body", 
         "respi", 
         "heart", 
+        "tion", 
         "organism"
     ], 
-    "trophoblast": [
-        "cytiotrophoblasts", 
-        "cell", 
-        "human", 
-        "embryo"
-    ], 
+    "pisatin": [], 
     "collecting duct": [
         "papil", 
         "lary", 
@@ -15484,30 +15626,19 @@
     "phytoalexin": [
         "plant", 
         "growth", 
-        "substance", 
         "fungi", 
-        "e.g"
+        "substance"
+    ], 
+    "sign stimulus": [
+        "stimulus", 
+        "envi", 
+        "ronmental"
     ], 
     "tertiary consumer": [
         "food", 
         "sumer"
     ], 
-    "Gullstrand, Allvar": [
-        "mologist", 
-        "mathilda", 
-        "uppsala", 
-        "landskrona", 
-        "allvar", 
-        "pehr", 
-        "gullstrand", 
-        "korsell"
-    ], 
     "alopecia": [], 
-    "Leonardo da Vinci": [
-        "caterina", 
-        "piero", 
-        "anchiano"
-    ], 
     "carbonic anhydrase": [
         "water", 
         "ENZYME", 
@@ -15580,6 +15711,18 @@
         "oxygen", 
         "tract"
     ], 
+    "Richet Charles-Robert": [
+        "profes", 
+        "animal", 
+        "richet", 
+        "sorbonne", 
+        "blood", 
+        "human", 
+        "medicine", 
+        "renouard", 
+        "M.D", 
+        "physiology"
+    ], 
     "sympathetic division": [
         "body", 
         "neuron", 
@@ -15594,9 +15737,10 @@
     "calcitonin": [
         "hormone", 
         "iodothyronine", 
-        "gland", 
         "calcium", 
+        "gland", 
         "blood", 
+        "tion", 
         "metabolism", 
         "bone", 
         "synthesis"
@@ -15609,13 +15753,14 @@
     "fermentation": [
         "substance", 
         "tation", 
+        "produc", 
         "bacteria", 
         "enzyme", 
         "fermentors", 
         "dioxide", 
         "carbon", 
-        "intes", 
-        "produc"
+        "tion", 
+        "intes"
     ], 
     "mange": [
         "disorder", 
@@ -15878,13 +16023,6 @@
         "root", 
         "bone"
     ], 
-    "Ross, Ronald": [
-        "cell", 
-        "medicine", 
-        "mologist", 
-        "almora", 
-        "southamp"
-    ], 
     "hypha": [
         "struc", 
         "body", 
@@ -15900,6 +16038,7 @@
     "cloning vector": [
         "plas", 
         "cell", 
+        "virus", 
         "organism"
     ], 
     "stereoisomerism": [
@@ -15920,10 +16059,7 @@
         "disease"
     ], 
     "longevity": [], 
-    "parathyroidism": [
-        "calcium", 
-        "blood"
-    ], 
+    "Pteridophyta  ": [], 
     "Gram staining": [
         "cell", 
         "group", 
@@ -15972,13 +16108,6 @@
     "reciprocal translocation": [
         "chromosome"
     ], 
-    "signal peptide": [
-        "cell", 
-        "protein", 
-        "acid", 
-        "sequence", 
-        "amino"
-    ], 
     "spliceosome": [
         "snRNA", 
         "mRNA", 
@@ -16010,20 +16139,41 @@
         "SULFUR", 
         "diphosphates"
     ], 
-    "Minot, George Richards": [
-        "Sc.D", 
-        "medicine", 
-        "richards", 
-        "B.A", 
-        "thorndike", 
-        "M.D"
-    ], 
     "tapeworms": [], 
     "luna moth": [
         "saturniidae", 
         "plant", 
         "pipevine", 
         "syringin"
+    ], 
+    "Kochs postulates": [
+        "head", 
+        "tions", 
+        "koch", 
+        "clara", 
+        "bacteria", 
+        "disease", 
+        "sperm", 
+        "tissue", 
+        "nucleus", 
+        "KOCH", 
+        "jeppe", 
+        "protein", 
+        "leonhard", 
+        "karl", 
+        "contribu", 
+        "strassburg", 
+        "tury", 
+        "albrecht", 
+        "ROBERT", 
+        "kossel", 
+        "physiology", 
+        "cell", 
+        "animal", 
+        "medicine", 
+        "rostock", 
+        "chemistry", 
+        "organism"
     ], 
     "Bombycidae": [
         "family", 
@@ -16038,6 +16188,7 @@
         "growth", 
         "adult", 
         "human", 
+        "tion", 
         "organism", 
         "huxley"
     ], 
@@ -16098,10 +16249,11 @@
         "AMINO"
     ], 
     "fragmentation": [
-        "organism", 
         "plant", 
-        "reproduc", 
-        "parent"
+        "parent", 
+        "organism", 
+        "tion", 
+        "reproduc"
     ], 
     "joint": [
         "bone"
@@ -16169,9 +16321,9 @@
     ], 
     "quasisocial": [], 
     "insectivorous": [
-        "insect", 
+        "plant", 
         "CARNIVORE", 
-        "plant"
+        "insect"
     ], 
     "antiferromagnetic": [], 
     "cleavage": [
@@ -16183,7 +16335,7 @@
         "organism", 
         "cleav"
     ], 
-    "cladogenesis": [ 
+    "cladogenesis": [
         "evolution", 
         "specie", 
         "parent"
@@ -16196,6 +16348,7 @@
     "hydrogenase": [
         "ENZYME", 
         "hydrogenases", 
+        "tion", 
         "DOREDUCTASE"
     ], 
     "rate-controlling step": [
@@ -16210,6 +16363,7 @@
         "charge", 
         "fiber", 
         "result", 
+        "tion", 
         "produc", 
         "aumur"
     ], 
@@ -16263,7 +16417,6 @@
         "algae"
     ], 
     "dinuclear": [
-        "FINE", 
         "weight", 
         "structure", 
         "molecule", 
@@ -16275,22 +16428,31 @@
         "free-induc", 
         "protein", 
         "NOESY", 
-        "SPIN", 
-        "cDNA", 
+        "FINE", 
+        "COSY", 
         "cell", 
         "HYPER", 
         "nuclearity", 
         "system", 
-        "PLING", 
+        "SPIN", 
         "ation", 
-        "ments", 
+        "RT/PCR", 
         "chemical", 
         "microarray", 
-        "RT/PCR", 
+        "ments", 
         "acid", 
-        "COSY", 
+        "cDNA", 
+        "PLING", 
+        "tion", 
         "gene", 
         "operat"
+    ], 
+    "photoperiodism": [
+        "plant", 
+        "long-day", 
+        "flower", 
+        "PHOTOPERIODISM", 
+        "nias"
     ], 
     "homogamy": [], 
     "endothermic": [
@@ -16356,12 +16518,33 @@
         "acid", 
         "strand"
     ], 
+    "PTH ": [
+        "calcium", 
+        "blood"
+    ], 
     "trans": [
         "body", 
         "acid", 
         "fatty", 
         "bone", 
         "bond"
+    ], 
+    "exon": [
+        "body", 
+        "SKELETON", 
+        "exons", 
+        "SEQUENCE", 
+        "sensory", 
+        "insect", 
+        "tissue", 
+        "EUKARYOTES", 
+        "protein", 
+        "INTRON", 
+        "sequence", 
+        "environment", 
+        "animal", 
+        "tion", 
+        "GENE"
     ], 
     "frontal sinus": [
         "illary"
@@ -16379,7 +16562,9 @@
     "thalamus": [
         "brain"
     ], 
-    "M-FISH": [], 
+    "M-FISH": [
+        "tion"
+    ], 
     "chlorenchyma": [
         "cell", 
         "plant", 
@@ -16431,14 +16616,11 @@
         "structure", 
         "bond"
     ], 
-    "DDT": [
-        "food", 
-        "insect", 
-        "U.S", 
-        "hermann", 
-        "medicine", 
-        "physiology", 
-        "disease"
+    "configuration": [
+        "entity", 
+        "atom", 
+        "CONFORMATION", 
+        "STEREOISOMER"
     ], 
     "gametangium": [
         "organ"
@@ -16483,20 +16665,8 @@
     "Cyanophyta": [
         "algae"
     ], 
-    "Waksman, Selman Abraham": [
-        "selman", 
-        "U.S", 
-        "B.S", 
-        "soil", 
-        "M.S", 
-        "rutgers", 
-        "waksman", 
-        "cali", 
-        "Ph.D", 
-        "fradia", 
-        "fornia", 
-        "agricul", 
-        "priluka"
+    "plankton": [
+        "plant"
     ], 
     "haloperoxidase": [
         "ENZYME", 
@@ -16566,12 +16736,16 @@
         "stem"
     ], 
     "lytic virus": [
-        "cell"
+        "cell", 
+        "virus"
     ], 
     "prefrontal leucotomy": [], 
     "enteric nervous system": [
         "system", 
         "organ"
+    ], 
+    "FAP ": [
+        "species-to-species"
     ], 
     "homeosis": [
         "body", 
@@ -16616,10 +16790,11 @@
     "monoclonal": [], 
     "primary productivity": [
         "plant", 
+        "tion", 
         "pri", 
         "produc"
     ], 
-    "homosexual": [ 
+    "homosexual": [
         "HETEROSEXUAL"
     ], 
     "ostracoderm": [
@@ -16628,9 +16803,47 @@
         "amphiaspids", 
         "agnathan"
     ], 
+    "kilocalorie  ": [
+        "water", 
+        "interna", 
+        "system", 
+        "weight"
+    ], 
     "cordilleran": [
         "system", 
         "south"
+    ], 
+    "Lipmann Fritz Albert": [
+        "phosphate", 
+        "leopold", 
+        "amino", 
+        "carlsberg", 
+        "poughkeepsie", 
+        "MEYERHOF", 
+        "converting", 
+        "sugar", 
+        "insti", 
+        "physiology", 
+        "structure", 
+        "chemistry", 
+        "reaction", 
+        "substance", 
+        "group", 
+        "oxygen", 
+        "lipmann", 
+        "gertrud", 
+        "M.D", 
+        "koenigsberg", 
+        "rockefeller", 
+        "metabolism", 
+        "Ph.D", 
+        "wilhelm", 
+        "acid", 
+        "lachmanski", 
+        "medicine", 
+        "meyerhof", 
+        "muscle", 
+        "heidelberg"
     ], 
     "procambium": [
         "tissue"
@@ -16674,26 +16887,10 @@
     "assimilative": [
         "ASSIMILATION"
     ], 
-    "Heymans, Corneille Jean-Fran\u00e7ois": [
-        "jozefs", 
-        "heymans", 
-        "knokke", 
-        "corneille", 
-        "father", 
-        "lievens", 
-        "therapeu", 
-        "rapie", 
-        "toxi", 
-        "physiology", 
-        "nationales", 
-        "pharmacodynamie", 
-        "discov", 
-        "cology", 
-        "medicine", 
-        "ghent", 
-        "head", 
-        "metabolism", 
-        "blood"
+    "Fe-hydrogenases": [
+        "SULFUR", 
+        "IRON", 
+        "CLUSTER"
     ], 
     "hypotension": [
         "brain", 
@@ -16701,7 +16898,7 @@
         "organ", 
         "heart"
     ], 
-    "irregular": [ 
+    "irregular": [
         "flower"
     ], 
     "neural tube": [
@@ -16740,6 +16937,13 @@
         "father", 
         "electron", 
         "blood"
+    ], 
+    "Brnsted acid": [
+        "chemical", 
+        "specie", 
+        "hydron", 
+        "ACID", 
+        "entity"
     ], 
     "lepirudin": [], 
     "pheromone": [
@@ -16795,13 +16999,6 @@
         "acid", 
         "amino"
     ], 
-    "Fahrenheit, Daniel Gabriel": [
-        "environment", 
-        "oxygen", 
-        "fahren", 
-        "heit", 
-        "bacteria"
-    ], 
     "bivalirudin": [], 
     "neuron": [
         "body", 
@@ -16825,6 +17022,15 @@
         "movement"
     ], 
     "ovarian cycle": [], 
+    "Ehrlich Paul": [
+        "wroclaw", 
+        "weigert", 
+        "ogist", 
+        "breslau", 
+        "ehrlich", 
+        "ismar", 
+        "karl"
+    ], 
     "transferase": [
         "ENZYME", 
         "SUBSTRATE", 
@@ -16864,6 +17070,7 @@
         "cytoplasm", 
         "MESSENGER", 
         "mRNA", 
+        "TION", 
         "protein", 
         "synthesis"
     ], 
@@ -16889,25 +17096,12 @@
         "bacteria"
     ], 
     "anticodon": [], 
-    "Warburg, Otto Heinrich": [
-        "metabolism", 
-        "chemistry", 
-        "fischer", 
-        "heidelberg", 
-        "baden", 
-        "Berlin-Dahlem", 
-        "cell", 
-        "medicine", 
-        "physiology", 
-        "wilhelm", 
-        "freiburg", 
-        "warburg", 
-        "insti", 
-        "planck", 
-        "heinrich", 
-        "emil"
-    ], 
     "sclereid": [], 
+    "helium": [
+        "electron", 
+        "atom", 
+        "ELEMENT"
+    ], 
     "neoteny": [
         "PAEDOGENESIS", 
         "adult"
@@ -16950,17 +17144,18 @@
     ], 
     "forensic serology": [], 
     "Polyctenidae": [], 
-    "polymorphism": [
-        "POLYMORPHISM", 
-        "plant", 
-        "notypes", 
-        "sequence", 
-        "system", 
-        "cell", 
-        "polyphenism", 
-        "allele", 
-        "gene", 
-        "population"
+    "Morgan Thomas Hunt": [
+        "physiology", 
+        "bryn", 
+        "kerckhoff", 
+        "B.S", 
+        "newell", 
+        "charlton", 
+        "Ph.D", 
+        "lexington", 
+        "mawr", 
+        "tionships", 
+        "rela"
     ], 
     "oligochaete": [
         "body", 
@@ -17011,21 +17206,25 @@
         "fibiger", 
         "bacteria"
     ], 
-    "exon": [
-        "body", 
-        "environment", 
-        "SKELETON", 
-        "exons", 
-        "SEQUENCE", 
-        "animal", 
-        "INTRON", 
-        "sequence", 
-        "sensory", 
-        "insect", 
-        "tissue", 
-        "EUKARYOTES", 
-        "protein", 
-        "GENE"
+    "Krebs cycle": [
+        "NADH", 
+        "molecule", 
+        "isocitrate", 
+        "water", 
+        "electron", 
+        "ATP", 
+        "compound", 
+        "carbon", 
+        "acid", 
+        "physiology", 
+        "sug", 
+        "reaction", 
+        "substance", 
+        "oxygen", 
+        "kornberg", 
+        "chemical", 
+        "dioxide", 
+        "medicine"
     ], 
     "muscle": [
         "contrac", 
@@ -17037,6 +17236,7 @@
         "protein", 
         "united", 
         "charge", 
+        "physiology", 
         "cell", 
         "enzyme", 
         "archibald", 
@@ -17049,7 +17249,7 @@
         "fiber", 
         "membrane", 
         "ion", 
-        "physiology", 
+        "ROUGH", 
         "asso", 
         "obser", 
         "tissue", 
@@ -17060,7 +17260,7 @@
         "DEPOLARIZATION", 
         "acid", 
         "MEYERHOF", 
-        "ROUGH", 
+        "tion", 
         "muscle"
     ], 
     "hill topping": [], 
@@ -17069,20 +17269,6 @@
         "body", 
         "gene", 
         "chromosome"
-    ], 
-    "Finsen, Niels Ryberg": [
-        "herlufsholm", 
-        "finsen", 
-        "family", 
-        "hannes", 
-        "hagen", 
-        "faroe", 
-        "steingrim", 
-        "niels", 
-        "thorshavn", 
-        "medicine", 
-        "johanne", 
-        "ryberg"
     ], 
     "nuclear pores": [
         "cell", 
@@ -17127,6 +17313,7 @@
         "atom", 
         "ATOM", 
         "group", 
+        "tion", 
         "entity"
     ], 
     "cleistogamous": [
@@ -17163,11 +17350,67 @@
         "filament", 
         "movement"
     ], 
+    "Arrhenius Svante August": [
+        "thunberg", 
+        "family", 
+        "transforma", 
+        "ostwald", 
+        "tions", 
+        "ost", 
+        "arrhenius", 
+        "dissocia", 
+        "result", 
+        "concentration", 
+        "kohlrausch", 
+        "arrhe", 
+        "uppsala", 
+        "absorption", 
+        "father", 
+        "versity", 
+        "charge", 
+        "wilhelm", 
+        "vik", 
+        "rudbeck", 
+        "gustav", 
+        "wijk", 
+        "hoff", 
+        "molecule", 
+        "graz", 
+        "dioxide", 
+        "Russian-German", 
+        "ion", 
+        "boltzmann", 
+        "trum", 
+        "hogskola", 
+        "atom", 
+        "carbon", 
+        "wurzburg", 
+        "copy", 
+        "istry", 
+        "water", 
+        "christina", 
+        "substance", 
+        "erick", 
+        "B.S", 
+        "edlund", 
+        "friedrich", 
+        "tion", 
+        "chemistry", 
+        "svante"
+    ], 
     "acetyl CoA": [
         "group", 
         "compound", 
         "dria", 
         "mitochon"
+    ], 
+    "adenosine triphosphate  ": [
+        "chemiosmosis", 
+        "electron", 
+        "membrane", 
+        "protein", 
+        "brane", 
+        "plasma"
     ], 
     "myiasis": [
         "united", 
@@ -17187,9 +17430,7 @@
         "human", 
         "animal"
     ], 
-    "segmentation": [
-        "e.g"
-    ], 
+    "segmentation": [], 
     "mosses": [
         "hepatophyta"
     ], 
@@ -17202,6 +17443,7 @@
     ], 
     "endoderm": [
         "cell", 
+        "tion", 
         "tissue", 
         "organ"
     ], 
@@ -17300,6 +17542,7 @@
     ], 
     "spiny anteater": [], 
     "prophylaxis": [
+        "tion", 
         "disease", 
         "drug"
     ], 
@@ -17440,6 +17683,28 @@
         "root", 
         "bacteria"
     ], 
+    "Golgi Camillo": [
+        "nerve", 
+        "instituto", 
+        "neu", 
+        "corteno", 
+        "ator", 
+        "abbiategrasso", 
+        "matteo", 
+        "system", 
+        "vaccinogeno", 
+        "cell", 
+        "graduat", 
+        "sieroterapico", 
+        "bizzozero", 
+        "structure", 
+        "medicine", 
+        "camillo", 
+        "golgi", 
+        "pital", 
+        "brescia", 
+        "hos"
+    ], 
     "lead generation": [
         "compound"
     ], 
@@ -17452,11 +17717,12 @@
         "CONSTANT", 
         "agaricales", 
         "spore", 
-        "compound", 
+        "strand", 
         "tions", 
         "substitu", 
         "FUNGI", 
         "aphyllophorales", 
+        "compound", 
         "pair", 
         "artifi", 
         "acid", 
@@ -17469,7 +17735,7 @@
         "basid", 
         "MUTATION", 
         "bloomington", 
-        "strand", 
+        "tion", 
         "gene", 
         "organism", 
         "mutation"
@@ -17479,13 +17745,6 @@
         "muscle", 
         "COORDINATION", 
         "disease"
-    ], 
-    "gene expression": [
-        "cell", 
-        "mRNA", 
-        "protein", 
-        "gene", 
-        "organism"
     ], 
     "gigantism": [
         "body", 
@@ -17499,6 +17758,27 @@
         "ferent", 
         "DWARFISM", 
         "population"
+    ], 
+    "gene expression": [
+        "cell", 
+        "mRNA", 
+        "protein", 
+        "gene", 
+        "organism"
+    ], 
+    "Finsen Niels Ryberg": [
+        "herlufsholm", 
+        "finsen", 
+        "family", 
+        "hannes", 
+        "hagen", 
+        "faroe", 
+        "steingrim", 
+        "niels", 
+        "thorshavn", 
+        "medicine", 
+        "johanne", 
+        "ryberg"
     ], 
     "lipid": [
         "body", 
@@ -17525,6 +17805,7 @@
         "DICHROISM", 
         "ENDOCYTOSIS"
     ], 
+    "seasonal allergic rhinitis  ": [], 
     "pharmacophore": [
         "dihydroimidazoles", 
         "group", 
@@ -17545,9 +17826,10 @@
     ], 
     "auxotroph": [
         "specie", 
-        "molecule", 
-        "acid", 
         "organism", 
+        "molecule", 
+        "tion", 
+        "acid", 
         "salt", 
         "addi", 
         "amino"
@@ -17562,9 +17844,15 @@
     "species richness": [
         "specie"
     ], 
-    "radicle": [
-        "plant", 
-        "root"
+    "Muller Hermann Joseph": [
+        "hermann", 
+        "Ph.D", 
+        "USSR", 
+        "amherst", 
+        "animal", 
+        "tionship", 
+        "guggenheim", 
+        "rela"
     ], 
     "induced resistance": [], 
     "instinct": [
@@ -17627,7 +17915,6 @@
         "structure", 
         "golgi"
     ], 
-    "spin adduct": [], 
     "carrier": [
         "gene", 
         "parent"
@@ -17651,26 +17938,18 @@
         "south", 
         "thebes"
     ], 
-    "Nicolle, Charles-Jules-Henry": [
-        "body", 
-        "nicolle", 
-        "M.D", 
-        "Charles-Jules-Henry", 
-        "disease"
-    ], 
-    "Turner\u2019s syndrome": [
-        "EXTENDED", 
-        "group", 
-        "chromosome", 
-        "structure", 
-        "ABSORPTION", 
-        "organism", 
-        "STRUCTURE", 
-        "absorption", 
-        "XANES", 
-        "FINE", 
-        "bird", 
-        "x-ray"
+    "iron-sulfur cluster": [
+        "BRIDGING", 
+        "LIGAND", 
+        "oxidation", 
+        "exclud", 
+        "CLUSTER", 
+        "charge", 
+        "iron", 
+        "IRON", 
+        "atom", 
+        "SULFUR", 
+        "PROTEIN"
     ], 
     "amino acid": [
         "reaction", 
@@ -17703,6 +17982,7 @@
         "structure"
     ], 
     "hyperendemic": [
+        "virus", 
         "group", 
         "human", 
         "organism", 
@@ -17767,6 +18047,7 @@
         "origina", 
         "hybridiza", 
         "SPECIATION", 
+        "tion", 
         "population", 
         "chromosome", 
         "result"
@@ -17789,10 +18070,6 @@
         "plasma", 
         "PINOCYTOSIS"
     ], 
-    "Urochordata": [
-        "vaceans", 
-        "cephalochordata"
-    ], 
     "carrier-linked prodrug": [
         "cleavage", 
         "substance", 
@@ -17800,31 +18077,6 @@
         "bone", 
         "prodrug", 
         "DRUG"
-    ], 
-    "cell)": [
-        "body", 
-        "cytokine", 
-        "tainty", 
-        "molecule", 
-        "cept", 
-        "sys", 
-        "mus-dependent", 
-        "receptor", 
-        "blood", 
-        "phokines", 
-        "lympho", 
-        "suppres", 
-        "tence", 
-        "HIV", 
-        "cyto", 
-        "cell", 
-        "system", 
-        "lymphokine", 
-        "immune", 
-        "t-cell", 
-        "exis", 
-        "complex", 
-        "bone"
     ], 
     "gene flow": [
         "group", 
@@ -17839,11 +18091,10 @@
         "plasma", 
         "membrane"
     ], 
-    "R plasmid": [
-        "cell", 
-        "VECTOR", 
-        "CLONING", 
-        "bacteria"
+    "Leonardo da Vinci": [
+        "caterina", 
+        "piero", 
+        "anchiano"
     ], 
     "cytotrophoblast": [
         "cell", 
@@ -17879,7 +18130,6 @@
         "structure", 
         "compound"
     ], 
-    "seasonal allergic rhinitis (hayfever)": [], 
     "anation": [
         "water", 
         "entity", 
@@ -17895,21 +18145,15 @@
         "specie"
     ], 
     "desirudin": [], 
-    "tobacco mosaic virus (TMV)": [
-        "pattern", 
-        "plant", 
-        "mosaiclike", 
-        "leaf"
-    ], 
     "nuclear envelope": [
         "nucleus", 
         "structure", 
         "membrane"
     ], 
-    "electromagnetic spectrum": [ 
-        "atom", 
+    "electromagnetic spectrum": [
+        "light", 
         "radiation", 
-        "light"
+        "atom"
     ], 
     "ecosystem": [
         "system"
@@ -17917,15 +18161,24 @@
     "De-nol": [
         "salt"
     ], 
-    "photoperiodism": [
-        "plant", 
-        "long-day", 
-        "flower", 
-        "PHOTOPERIODISM", 
-        "nias"
-    ], 
+    "triiodothyronine  ": [], 
     "morphometrics": [
         "specie"
+    ], 
+    "Waksman Selman Abraham": [
+        "selman", 
+        "U.S", 
+        "B.S", 
+        "soil", 
+        "M.S", 
+        "rutgers", 
+        "waksman", 
+        "cali", 
+        "Ph.D", 
+        "fradia", 
+        "fornia", 
+        "agricul", 
+        "priluka"
     ], 
     "menstruation": [
         "source", 
@@ -17952,13 +18205,6 @@
         "acid", 
         "membrane"
     ], 
-    "Hooke, Robert": [
-        "M.A", 
-        "boyle", 
-        "wilkins", 
-        "soci", 
-        "hooke"
-    ], 
     "peptidomimetic": [
         "nonpep", 
         "compound", 
@@ -17967,11 +18213,12 @@
     ], 
     "retina": [
         "cell", 
-        "brain", 
         "photoreceptors", 
-        "vessel", 
         "sensory", 
-        "blood"
+        "brain", 
+        "blood", 
+        "vessel", 
+        "tion"
     ], 
     "exogenous": [
         "metalloprotein", 
@@ -18067,22 +18314,6 @@
         "family", 
         "result"
     ], 
-    "Hench, Philip Showalter": [
-        "bixler", 
-        "KENDALL", 
-        "head", 
-        "U.S", 
-        "gland", 
-        "pittsburgh", 
-        "clara", 
-        "showalter", 
-        "disease", 
-        "versity", 
-        "hench", 
-        "medicine", 
-        "B.A", 
-        "easton"
-    ], 
     "cytochrome-c oxidase": [
         "copper", 
         "plant", 
@@ -18170,10 +18401,6 @@
         "human", 
         "chromosome"
     ], 
-    "parathyroid hormone (PTH)": [
-        "calcium", 
-        "blood"
-    ], 
     "vein": [
         "heart", 
         "BLOOD"
@@ -18207,7 +18434,12 @@
         "head", 
         "partment"
     ], 
-    "Lamarckism": [ 
+    "Menkes disease": [
+        "absorption", 
+        "disorder", 
+        "copper"
+    ], 
+    "Lamarckism": [
         "baptiste", 
         "lamarck"
     ], 
@@ -18257,11 +18489,6 @@
         "bond", 
         "hydrogen", 
         "atom"
-    ], 
-    "porins": [
-        "cell", 
-        "protein", 
-        "membrane"
     ], 
     "chelation therapy": [
         "copper", 
