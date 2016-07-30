@@ -1,5 +1,5 @@
 import os
-from PySide import QtCore, QtGui
+from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import pyqtSlot
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

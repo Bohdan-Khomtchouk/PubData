@@ -13,7 +13,7 @@
 Let users update the servers optionally.
 """
 from PyQt4.QtCore import pyqtSlot
-from PySide import QtCore, QtGui
+from PyQt4 import QtCore, QtGui
 import sqlite3 as lite
 from interface.extras.extras import general_style
 
@@ -130,15 +130,15 @@ class Edit_servers(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        checked_items = set()
+        checked_items = []
         list_items = self.list_a.invisibleRootItem()
         child_count = list_items.childCount()
         if not list_items:
             return
         for i in range(child_count):
             item = list_items.child(i)
-            if item.checkState(0) == QtCore.Qt.CheckState.Checked:
-                checked_items.add(item)
+            if item.checkState(0):
+                checked_items.append(item)
         for item in checked_items:
             item_index = self.list_a.indexOfTopLevelItem(item)
             self.list_a.takeTopLevelItem(item_index)

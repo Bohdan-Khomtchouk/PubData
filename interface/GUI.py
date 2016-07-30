@@ -16,7 +16,7 @@ from collections import deque, defaultdict, OrderedDict
 from functools import partial
 from interface.extras.extras import general_style
 from PyQt4.QtCore import pyqtSlot
-from PySide import QtCore, QtGui, QtNetwork
+from PyQt4 import QtCore, QtGui, QtNetwork
 from nltk.corpus import wordnet
 from .searchpath.searchpath import Path_results
 from .editserver.editserver import Edit_servers

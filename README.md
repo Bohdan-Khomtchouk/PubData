@@ -8,7 +8,7 @@ PubData is a genomics search engine and file retrieval system for all bioinforma
 
 Future plans include adding web server support for PubData, and contributions from the open source community are welcome.
 
-PubData is designed as a graphical user interface (GUI) software program written in the Python programming language and PySide (Python binding of the cross-platform GUI toolkit Qt).  PubData can remotely search, access, view, and retrieve files from the deeply nested directory trees of any major bioinformatics database via a local computer network.  
+PubData is designed as a graphical user interface (GUI) software program written in the Python programming language and PyQt4 (Python binding of the cross-platform GUI toolkit Qt).  PubData can remotely search, access, view, and retrieve files from the deeply nested directory trees of any major bioinformatics database via a local computer network.  
 
 By assembling all major bioinformatics databases under the roof of one software program, PubData allows the user to avoid the unnecessary hassle and non-standardized complexities inherent to accessing databases one-by-one using an Internet browser.  More importantly, it allows a user to query multiple databases simultaneously for user-specified keywords (e.g., `human`, `cancer`, `transcriptome`).  As such, PubData allows researchers to search, access, view, and download files from the FTP servers of any major bioinformatics database directly from one centralized location.  By using only a GUI, PubData allows the user to simultaneously surf multiple bioinformatics FTP servers directly from the comfort of their local computer.
 
@@ -30,7 +30,7 @@ You should have received a copy of the GNU General Public License along with thi
 
 ### Linux:
 * Make sure you have Python 2.7 installed.
-* Python libraries needed: PySide, PyQt
+* Python libraries needed: PyQt4, PyQt
 * Git clone PubData directory.
 * Navigate to /interface directory.
 * Run “python GUI.py”.

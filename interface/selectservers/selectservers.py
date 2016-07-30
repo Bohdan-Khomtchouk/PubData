@@ -7,7 +7,7 @@
 # -------------------------------------------------------------------------------------------
 
 from extras.extras import general_style
-from PySide import QtCore, QtGui
+from PyQt4 import QtCore, QtGui
 
 
 class SelectServers(QtGui.QDialog):
@@ -71,14 +71,14 @@ class SelectServers(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        checked_items = set()
+        checked_items = []
         list_items = self.list_a.invisibleRootItem()
         child_count = list_items.childCount()
         if not list_items:
             return
         for i in range(child_count):
             item = list_items.child(i)
-            if item.checkState(0) == QtCore.Qt.CheckState.Checked:
-                checked_items.add(item)
+            if item.checkState(0):
+                checked_items.append(item)
         self.selected_server_names = [i.text(0) for i in checked_items]
         self.close()

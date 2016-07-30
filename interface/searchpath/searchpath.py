@@ -5,7 +5,7 @@
 # This file is part of PubData.
 
 # -------------------------------------------------------------------------------------------
-from PySide import QtCore, QtGui, QtNetwork
+from PyQt4 import QtCore, QtGui, QtNetwork
 import sys
 import os
 from PyQt4.QtCore import pyqtSlot

@@ -3,7 +3,7 @@
 # This file is part of PubData.
 
 # -------------------------------------------------------------------------------------------
-from PySide import QtGui
+from PyQt4 import QtGui
 from interface.extras.extras import general_style
 import sqlite3 as lite
 
