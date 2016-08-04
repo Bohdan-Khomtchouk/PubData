@@ -8,15 +8,18 @@
 
 from ftp_traverse import main_walker
 
+
 class MainUpdate:
     def __init__(self, servers):
         self.servers = servers
 
     def update_all(self):
-        wkr = main_walker.main_walker(servers=self.servers)
-        wkr.walker()
+        # wkr = main_walker.main_walker(servers=self.servers)
+        # wkr.walker()
+        pass
 
     def update_manual(self, manual_servers):
-        servers = {k: v for k, v in self.servers.items() if k in manual_servers}
-        wkr = main_walker.main_walker(servers=servers)
-        wkr.walker()
+        # servers = {k: v for k, v in self.servers.items() if k in manual_servers}
+        # wkr = main_walker.main_walker(servers=servers)
+        # wkr.walker()
+        pass

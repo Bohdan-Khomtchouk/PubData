@@ -21,7 +21,7 @@ from .searchpath.searchpath import Path_results
 from .editserver.editserver import Edit_servers
 from .selectservers.selectservers import SelectServers
 import sqlite3 as lite
-# from .updateservers.updateservers import MainUpdate
+from .updateservers.updateservers import MainUpdate
 from ast import literal_eval
 from string import punctuation
 syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
@@ -61,7 +61,7 @@ class ftpWindow(QtGui.QDialog):
         self.select_s = SelectServers(self.server_names)
         self.select_s.ok_button.clicked.connect(self.put_get_servers)
         self.select_u = SelectServers(self.server_names)
-        # self.select_u.ok_button.clicked.connect(self.run_namual_update)
+        self.select_u.ok_button.clicked.connect(self.run_namual_update)
         self.dialog = recomdialog.Searchdialog()
         self.dialog.ok_button.clicked.connect(self.get_keyword)
 
@@ -95,7 +95,7 @@ class ftpWindow(QtGui.QDialog):
         self.dialog_box = QtGui.QInputDialog()
 
         self.EditserverButton = QtGui.QPushButton("Edit servers")
-        # self.UpdateserverButton = QtGui.QPushButton("Update custom servers")
+        self.UpdateserverButton = QtGui.QPushButton("Update custom servers")
 
         button_box = QtGui.QDialogButtonBox()
         button_box.addButton(self.downloadButton,
@@ -138,8 +138,8 @@ class ftpWindow(QtGui.QDialog):
         self.exit_action.setStatusTip('Exit application')
         self.fileMenu2 = QtGui.QMenu("&Action", self)
         self.edit_servers_action = self.fileMenu2.addAction("Edit servers")
-        # self.update_all_action = self.fileMenu2.addAction("Update all")
-        # self.update_manual_action = self.fileMenu2.addAction("Update manual")
+        self.update_all_action = self.fileMenu2.addAction("Update all")
+        self.update_manual_action = self.fileMenu2.addAction("Update manual")
 
         self.fileMenu3 = QtGui.QMenu("&Search", self)
         self.manual_search_action = self.fileMenu3.addAction("Manual search")
@@ -158,8 +158,8 @@ class ftpWindow(QtGui.QDialog):
         self.exit_action.triggered.connect(self.close)
 
         self.edit_servers_action.triggered.connect(self.editservers)
-        # self.update_all_action.triggered.connect(self.update_servers_all)
-        # self.update_manual_action.triggered.connect(self.update_servers_manual)
+        self.update_all_action.triggered.connect(self.update_servers_all)
+        self.update_manual_action.triggered.connect(self.update_servers_manual)
 
         self.manual_search_action.triggered.connect(self.manual_search)
         self.search_all_action.triggered.connect(self.search_all)
@@ -196,7 +196,7 @@ class ftpWindow(QtGui.QDialog):
         if ok and item:
             self.ftpServerLabel.setText(self.server_dict[item])
             self.servername = item
-    """
+
     def update_servers_all(self):
         '''
         .. py:attribute:: update_servers_all()
@@ -221,7 +221,7 @@ class ftpWindow(QtGui.QDialog):
         self.select_u.resize(350, 650)
         self.select_u.setWindowTitle('Select server names to update')
         self.select_u.show()
-    """
+
     def editservers(self):
         """
         .. py:attribute:: editservers()
