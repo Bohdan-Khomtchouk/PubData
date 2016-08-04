@@ -57,7 +57,14 @@ class Path_results(QtGui.QDialog):
         self.list_a.setHeaderLabels(['Matched paths', 'Server name'])
         self.dialog_box = QtGui.QInputDialog()
         for s_name, all_path in self.total_find.items():
-            for p in all_path:
+            exacat, related = all_path
+            for p in exacat:
+                item = QtGui.QTreeWidgetItem()
+                item.setText(0, p)
+                item.setTextColor(0, QtGui.QColor("#248f24"))
+                item.setText(1, s_name)
+                self.list_a.addTopLevelItem(item)
+            for p in related:
                 item = QtGui.QTreeWidgetItem()
                 item.setText(0, p)
                 item.setText(1, s_name)

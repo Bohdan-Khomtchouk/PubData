@@ -12,8 +12,7 @@ import re
 from os import path as ospath
 from sys import argv, exit, path as syspath
 from itertools import chain
-from collections import deque, defaultdict, OrderedDict
-from functools import partial
+from collections import OrderedDict
 from interface.extras.extras import general_style
 from PyQt4.QtCore import pyqtSlot
 from PyQt4 import QtCore, QtGui, QtNetwork
@@ -549,15 +548,23 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         """
-        def run_query(words, t_name):
+        def run_query(word, words, t_name):
             pattern = ' OR '.join(['"*{}*"'.format(i) for i in words])
-            query = u"""SELECT file_path FROM {} WHERE {} MATCH '{}';""".format(t_name, t_name, pattern.strip())
+            query = u"""SELECT file_path FROM {} WHERE {} MATCH '{}';"""
+            related_query = query.format(t_name, t_name, pattern.strip())
             try:
-                cursor.execute(query)
+                cursor.execute(related_query)
             except:
-                pass
+                related = set()
             else:
-                yield {i[0] for i in cursor.fetchall()}
+                related = {i[0] for i in cursor.fetchall()}
+            try:
+                cursor.execute(query.format(t_name, t_name, word))
+            except:
+                return set(), related
+            else:
+                exact = {i[0] for i in cursor.fetchall()}
+                return exact, related
 
         message = QtCore.QT_TR_NOOP(
             "<p>You have an error in your connection.</p>"
@@ -572,13 +579,15 @@ class ftpWindow(QtGui.QDialog):
                 # conn.create_function("REGEXP", 2, self.cal_regex)
                 t_name = '_'.join(map(str.lower, servername.split()))
                 try:
-                    rows = [k for sub in run_query(words, t_name) for k in sub]
+                    exact, related = run_query(keyword, words, t_name)
                 except Exception as exp:
                     print(exp)
-                    QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
+                    message = "There is a problem in running the queries."
+                    QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
+                    break
                 else:
-                    total_find[servername] = rows
-                    match_path_number += len(rows)
+                    total_find[servername] = exact, related
+                    match_path_number += len(exact.union(related))
         if any(i for i in total_find.values()):
             self.dialog.setCursor(QtCore.Qt.ArrowCursor)
             self.wid = Path_results(self.server_dict, total_find, match_path_number)
@@ -592,22 +601,22 @@ class ftpWindow(QtGui.QDialog):
 
         self.set_recommender(keyword, *words)
 
-    def get_lemmas(self, text):
+    def get_lemmas(self, word):
         """
         .. py:attribute:: cal_regex()
-           :param text:
-           :type text:
+           :param word:
+           :type word:
             :rtype: UNKNOWN
         .. note::
         """
         punc = set(punctuation)
-        if punc.intersection(text):
-            all_text = re.split(r'\W', text)
-            lemmas = self.get_wordnet_words(text).union([text] + all_text)
+        if punc.intersection(word):
+            all_words = re.split(r'\W', word)
+            lemmas = self.get_wordnet_words(word).union([i for i in all_words if len(i) > 2])
         else:
-            synonyms = wordnet.synsets(text.lower())
-            lemmas = set(chain.from_iterable([word.lemma_names() for word in synonyms]))
-            lemmas = self.get_wordnet_words(text).union(lemmas)
+            synonyms = wordnet.synsets(word.lower())
+            lemmas = set(chain.from_iterable([w.lemma_names() for w in synonyms]))
+            lemmas = self.get_wordnet_words(word).union(lemmas)
         return list(lemmas)
 
     def set_recommender(self, word, *syns):
