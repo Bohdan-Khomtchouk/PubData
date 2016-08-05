@@ -639,7 +639,7 @@ class ftpWindow(QtGui.QDialog):
                 QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
         conn.commit()
         reload(recomdialog)
-        self.dialog = recomdialog.Searchdialog()
+        self.dialog = recomdialog.Searchdialog(self.dialog.search_all)
         self.dialog.ok_button.clicked.connect(self.get_keyword)
         self.show_dialog(self.dialog.search_all)
 
