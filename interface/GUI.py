@@ -365,7 +365,6 @@ class ftpWindow(QtGui.QDialog):
                     "ftp",
                     """Unable to connect to the ftp server at %s. Please
                     check that the host name is correct.""" % self.ftpServerLabel.text())
-                self.connectOrDisconnect()
                 return
 
             self.statusLabel.setText("Logged onto %s." % self.ftpServerLabel.text())
