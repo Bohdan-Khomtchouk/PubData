@@ -9,6 +9,7 @@
 
 
 import re
+from importlib import reload
 from os import path as ospath
 from sys import argv, exit, path as syspath
 from itertools import chain
@@ -590,6 +591,7 @@ class ftpWindow(QtGui.QDialog):
                     match_path_number += len(exact.union(related))
         if any(i for i in total_find.values()):
             self.dialog.setCursor(QtCore.Qt.ArrowCursor)
+            self.set_recommender(keyword, *words)
             self.wid = Path_results(self.server_dict, total_find, match_path_number)
             self.wid.resize(350, 650)
             self.wid.setWindowTitle('Search')
@@ -599,7 +601,6 @@ class ftpWindow(QtGui.QDialog):
             message = """<p>No results.<p>Please try with another pattern.</p>"""
             QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
 
-        self.set_recommender(keyword, *words)
 
     def get_lemmas(self, word):
         """
@@ -638,6 +639,10 @@ class ftpWindow(QtGui.QDialog):
                 print(exp)
                 QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
         conn.commit()
+        reload(recomdialog)
+        self.dialog = recomdialog.Searchdialog()
+        self.dialog.ok_button.clicked.connect(self.get_keyword)
+        self.show_dialog(self.dialog.search_all)
 
     def get_wordnet_words(self, text):
         conn = lite.connect('PubData.db')
