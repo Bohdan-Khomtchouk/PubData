@@ -71,8 +71,8 @@ def database_creator():
                 try:
                     with open(os.path.join(path_, file_name)) as f:
                         result = json.load(f)
-                except:
-                    print ("File {} gtes escaped!".format(file_name))
+                except Exception as exp:
+                    print ("File {} gtes escaped! {}".format(file_name, exp))
                 else:
                     for path_add, file_names_ in result.items():
                         for name in file_names_:
