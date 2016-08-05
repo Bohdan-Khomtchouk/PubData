@@ -24,7 +24,7 @@
         "chromosome", 
         "amino", 
         "copy", 
-        "specie", 
+        "species", 
         "tRNAs", 
         "tRNA", 
         "virol", 
@@ -80,7 +80,7 @@
         "synthesis", 
         "cell-surface", 
         "organism", 
-        "specie"
+        "species"
     ], 
     "neoplasia": [
         "cell", 
@@ -652,7 +652,7 @@
     ], 
     "microbial genomes ": [
         "source", 
-        "specie", 
+        "species", 
         "sequence"
     ], 
     "rereplication": [], 
@@ -1141,7 +1141,7 @@
     "CTV": [
         "flavivirus", 
         "MELANOMA", 
-        "specie", 
+        "species", 
         "orbivirus", 
         "disease", 
         "culicoides"
@@ -1788,7 +1788,7 @@
         "sugar", 
         "MRSA", 
         "ACCUPROBE", 
-        "specie", 
+        "species", 
         "MLST", 
         "salt", 
         "organism", 
@@ -1853,7 +1853,7 @@
         "respiratory", 
         "QUORUM", 
         "animal", 
-        "specie", 
+        "species", 
         "aeruginosa", 
         "CYSTIC", 
         "SENSING", 
@@ -2104,7 +2104,7 @@
         "IMMUNOPRECIP", 
         "CHROMATIN", 
         "bacteria", 
-        "specie", 
+        "species", 
         "cell", 
         "PLASMID", 
         "animal", 
@@ -2286,7 +2286,7 @@
         "acid", 
         "protein", 
         "BIOLUMINESCENCE", 
-        "specie", 
+        "species", 
         "transcriptomes", 
         "e5745", 
         "bacteria", 
@@ -2376,7 +2376,7 @@
         "acremonium", 
         "cylindrocarpon", 
         "protein", 
-        "specie", 
+        "species", 
         "fungi", 
         "synthesis"
     ], 
@@ -3874,7 +3874,7 @@
     "retroviruses": [], 
     "chloromycetin ": [
         "broad-spectrum", 
-        "specie", 
+        "species", 
         "aeruginosa", 
         "fungi", 
         "acetyltransferase", 
@@ -4156,7 +4156,7 @@
         "d423", 
         "ssRNA", 
         "population", 
-        "specie", 
+        "species", 
         "H2N2", 
         "H1N1", 
         "H9N2", 
@@ -4414,7 +4414,7 @@
     "In-F": [], 
     "polycomb-grones": [
         "gene", 
-        "specie", 
+        "species", 
         "cyclin", 
         "GENES", 
         "cell", 
@@ -4501,7 +4501,7 @@
     "acid-fast bacilli": [
         "ziehl", 
         "respiratory", 
-        "specie", 
+        "species", 
         "neelsen", 
         "acid", 
         "bacteria"
@@ -4729,7 +4729,7 @@
         "blood", 
         "GMMS", 
         "population", 
-        "specie"
+        "species"
     ], 
     "mle loci VNTR analysis": [
         "MLVA"
@@ -5242,7 +5242,7 @@
         "mRNA", 
         "acid", 
         "amino", 
-        "specie", 
+        "species", 
         "WOBBLE", 
         "signal", 
         "CODON", 
@@ -5300,7 +5300,7 @@
         "nucleus", 
         "macronuclei", 
         "MACRONUCLEUS", 
-        "specie"
+        "species"
     ], 
     "selenoproteome": [
         "SECIS", 
@@ -5451,7 +5451,7 @@
         "e4598", 
         "PROBE", 
         "trnL", 
-        "specie", 
+        "species", 
         "PLoS", 
         "evolution", 
         "GENOTYPING", 
@@ -5515,7 +5515,7 @@
         "carlsbad", 
         "AUBERGINE", 
         "CHROMOSOMES", 
-        "specie", 
+        "species", 
         "COPIA", 
         "GENES", 
         "system", 
@@ -5743,7 +5743,7 @@
         "acid", 
         "CPDs", 
         "DIMER", 
-        "specie", 
+        "species", 
         "error-prone", 
         "cell", 
         "ASEPTIC", 
@@ -5834,7 +5834,7 @@
         "spore", 
         "PPICZ", 
         "pichia", 
-        "specie", 
+        "species", 
         "glycosylation", 
         "LACTAMASES", 
         "VECTOR", 
@@ -5978,7 +5978,7 @@
         "protein"
     ], 
     "Sprinae": [
-        "specie", 
+        "species", 
         "family", 
         "cytoplasm", 
         "human", 
@@ -6043,7 +6043,7 @@
     "coliphage": [
         "bacteria", 
         "escherichia", 
-        "specie"
+        "species"
     ], 
     "polyribosome": [
         "POLYSOME"
@@ -6171,7 +6171,7 @@
         "nucleus", 
         "macronuclei", 
         "MACRONUCLEUS", 
-        "specie"
+        "species"
     ], 
     "epitope tagging": [
         "CHROMATIN", 
@@ -7674,7 +7674,7 @@
     ], 
     "aflatoxins": [
         "aflatoxins", 
-        "specie", 
+        "species", 
         "microbiol", 
         "bifuran", 
         "molecule", 
@@ -7790,7 +7790,7 @@
         "BLUNT", 
         "strand", 
         "group", 
-        "specie", 
+        "species", 
         "REs", 
         "ISOSCHIZOMER", 
         "ENDED", 
@@ -7916,7 +7916,7 @@
     ], 
     "f genetics ": [
         "gamete", 
-        "specie", 
+        "species", 
         "a-factor", 
         "cell", 
         "MATa", 
@@ -7943,7 +7943,7 @@
         "MRSA", 
         "STAPHYLOCOCCUS", 
         "gene", 
-        "specie", 
+        "species", 
         "lukF", 
         "human", 
         "protein", 
@@ -8108,7 +8108,7 @@
         "DOWN", 
         "SYNDROME", 
         "chromosome", 
-        "specie"
+        "species"
     ], 
     "sticky RICE": [], 
     "Lentivirinae": [
@@ -8149,7 +8149,7 @@
     "Campbell-type integration": [
         "q.v", 
         "respiratory", 
-        "specie", 
+        "species", 
         "animal", 
         "RECOMBINATION", 
         "disease", 
@@ -8193,7 +8193,7 @@
         "acid", 
         "CPDs", 
         "DIMER", 
-        "specie", 
+        "species", 
         "error-prone", 
         "cell", 
         "ASEPTIC", 
@@ -8373,7 +8373,7 @@
         "SORTASE", 
         "polyD", 
         "insect", 
-        "specie", 
+        "species", 
         "SYSTEM", 
         "bacmid", 
         "Bac-to-Bac", 
@@ -8393,7 +8393,7 @@
         "drug", 
         "INTERCALATING", 
         "phenoxazone", 
-        "specie", 
+        "species", 
         "AGENT"
     ], 
     "DNA-only transposon": [
@@ -8703,7 +8703,7 @@
         "cDNA"
     ], 
     "HvrBase": [
-        "specie", 
+        "species", 
         "sequence", 
         "HvrBase", 
         "mtDNA", 
@@ -8913,7 +8913,7 @@
         "pyrococcus", 
         "system", 
         "carlsbad", 
-        "specie"
+        "species"
     ], 
     "haploinsiency": [
         "SMAD4", 
@@ -8942,7 +8942,7 @@
     ], 
     "broad-range primer  ": [
         "rRNA", 
-        "specie", 
+        "species", 
         "sequence", 
         "substance", 
         "broad-range", 
@@ -9247,7 +9247,7 @@
     "or scFV ": [
         "q.v", 
         "gene", 
-        "specie", 
+        "species", 
         "CHAIN", 
         "FRAGMENT", 
         "schizosaccharomyces", 
@@ -9270,7 +9270,7 @@
     "pBlipt": [], 
     "reconstr transposable element ": [
         "platessa", 
-        "specie", 
+        "species", 
         "TRANSPOS", 
         "transfer", 
         "ABLE", 
@@ -9372,7 +9372,7 @@
         "ctxB", 
         "parvovirus", 
         "EMBO", 
-        "specie", 
+        "species", 
         "cell", 
         "ctxA", 
         "protein", 
@@ -9404,7 +9404,7 @@
     ], 
     "microbiol. ": [
         "acid", 
-        "specie", 
+        "species", 
         "sequence"
     ], 
     "PCR": [], 
@@ -9519,7 +9519,7 @@
         "amino", 
         "bacteria", 
         "fluorophore", 
-        "specie", 
+        "species", 
         "self-reporting", 
         "broad-range", 
         "REPORTING", 
@@ -10028,7 +10028,7 @@
         "enzyme", 
         "REAP", 
         "bacteria", 
-        "specie"
+        "species"
     ], 
     "blite screening": [
         "WHITE", 
@@ -10237,7 +10237,7 @@
         "reaction", 
         "templateindependent", 
         "ASSAY", 
-        "specie", 
+        "species", 
         "POLYMERASE", 
         "DEPENDENT", 
         "CAPFINDER", 
@@ -10426,7 +10426,7 @@
     ], 
     "indof gene expression ": [
         "family", 
-        "specie", 
+        "species", 
         "salmon-ella", 
         "enterobacteriaceae", 
         "MacConkey", 
@@ -10526,7 +10526,7 @@
     ], 
     "MacConkeys agar": [
         "MEDIUM", 
-        "specie", 
+        "species", 
         "family", 
         "enterobacteriaceae", 
         "bacteria", 
@@ -10555,7 +10555,7 @@
     "spp": [
         "SpPol4", 
         "quercus", 
-        "specie", 
+        "species", 
         "FAMILY"
     ], 
     "microbiota": [
@@ -10746,7 +10746,7 @@
         "biolabs", 
         "e4949", 
         "acid", 
-        "specie"
+        "species"
     ], 
     "TnYLB-1 transposon": [
         "MARINER", 
@@ -11048,7 +11048,7 @@
     ], 
     "sp": [
         "quercus", 
-        "specie"
+        "species"
     ], 
     "provirus": [
         "LYSOGENY", 
@@ -11204,7 +11204,7 @@
     "genetic imprinting ": [
         "CONTROL", 
         "human", 
-        "specie", 
+        "species", 
         "parent", 
         "sequence", 
         "animal", 
@@ -11585,7 +11585,7 @@
         "SPLICING", 
         "trypanosomatids", 
         "ANTIGENIC", 
-        "specie", 
+        "species", 
         "trypanosomes", 
         "OPERON", 
         "organism", 
@@ -11664,7 +11664,7 @@
     ], 
     "phylotype  ": [
         "acid", 
-        "specie", 
+        "species", 
         "sequence"
     ], 
     "small silencing RNAs": [
@@ -11717,7 +11717,7 @@
     "ed": [
         "HETEROPLOID", 
         "cell", 
-        "specie", 
+        "species", 
         "cell/organism", 
         "copy", 
         "organism", 
@@ -11760,7 +11760,7 @@
     "REP seq ": [
         "genomics", 
         "copy", 
-        "specie", 
+        "species", 
         "typhimurium", 
         "PALINDROMIC", 
         "SEQUENCE", 
@@ -12066,7 +12066,7 @@
     ], 
     "b cell sampling": [
         "ASSAY", 
-        "specie", 
+        "species", 
         "sequence", 
         "animal", 
         "buchnera", 
@@ -12243,7 +12243,7 @@
     "AMTDT": [
         "reaction", 
         "rRNA", 
-        "specie", 
+        "species", 
         "microbiol", 
         "food", 
         "AMTDT", 
@@ -12263,7 +12263,7 @@
     ], 
     "fimbria  ": [
         "q.v", 
-        "specie", 
+        "species", 
         "PLoS", 
         "pathog", 
         "e1000422", 
@@ -12836,7 +12836,7 @@
         "campylobacter", 
         "reaction", 
         "PRIMER", 
-        "specie", 
+        "species", 
         "microbiol", 
         "virol", 
         "jejuni", 
@@ -12852,7 +12852,7 @@
     "macrons  ": [
         "loxodes", 
         "karyomeres", 
-        "specie", 
+        "species", 
         "cell", 
         "orthomere", 
         "macronuclei", 
@@ -13103,7 +13103,7 @@
     ], 
     "chromatin insr": [
         "CONTROL", 
-        "specie", 
+        "species", 
         "sequence", 
         "pattern", 
         "insulator-binding", 
@@ -13131,7 +13131,7 @@
         "cell", 
         "gene", 
         "organism", 
-        "specie"
+        "species"
     ], 
     "of inherited disorders ": [
         "DOWN", 
@@ -13209,7 +13209,7 @@
     ], 
     "TIGR microbial database  ": [
         "source", 
-        "specie", 
+        "species", 
         "sequence"
     ], 
     "LB broth": [
@@ -13247,7 +13247,7 @@
     "Dynabeads": [
         "mRNAs", 
         "deoxythymidine", 
-        "specie", 
+        "species", 
         "oligo", 
         "molecule", 
         "blood", 
@@ -13414,7 +13414,7 @@
         "gene", 
         "high-resolution", 
         "structure", 
-        "specie"
+        "species"
     ], 
     "H": [], 
     "Sindbis virus": [
@@ -13497,7 +13497,7 @@
         "structure", 
         "absorption/emission", 
         "BODIPY", 
-        "specie", 
+        "species", 
         "disease", 
         "lyme", 
         "enzyme", 
@@ -13600,7 +13600,7 @@
         "EPITOPE", 
         "LENTIVIRAL", 
         "PESC", 
-        "specie", 
+        "species", 
         "trypanosomes", 
         "AAVS", 
         "CENTROMERE", 
@@ -14067,7 +14067,7 @@
     ], 
     "chloramphenicol  ": [
         "broad-spectrum", 
-        "specie", 
+        "species", 
         "aeruginosa", 
         "fungi", 
         "acetyltransferase", 
@@ -14545,7 +14545,7 @@
         "MRSA", 
         "STAPHYLOCOCCUS", 
         "gene", 
-        "specie", 
+        "species", 
         "lukF", 
         "human", 
         "protein", 
@@ -14618,7 +14618,7 @@
     "yeasts": [
         "non-fermentative", 
         "canadensis", 
-        "specie", 
+        "species", 
         "organism", 
         "schizosaccharomyces", 
         "methylotrophy", 
@@ -15130,7 +15130,7 @@
         "growth", 
         "FILAMENTOUS", 
         "PHAGES", 
-        "specie"
+        "species"
     ], 
     "methyl-CpG-binding domain": [
         "ISLAND", 
@@ -15142,7 +15142,7 @@
         "PLoS", 
         "IAN-PCR", 
         "metagenomic", 
-        "specie", 
+        "species", 
         "sequence", 
         "MEGAN", 
         "BioTechniques", 
@@ -15203,7 +15203,7 @@
         "synthesis", 
         "cell-surface", 
         "organism", 
-        "specie"
+        "species"
     ], 
     "CytoTrap": [], 
     "Edwards syndrome  ": [], 
@@ -15327,7 +15327,7 @@
         "EXCISION", 
         "hMUTYH", 
         "e5766", 
-        "specie", 
+        "species", 
         "oxygen", 
         "glycosylase", 
         "GC-to-TA", 
@@ -15370,7 +15370,7 @@
     ], 
     "myxophage": [
         "myxobacterales", 
-        "specie", 
+        "species", 
         "bacteria"
     ], 
     "Dam methylation": [
@@ -15619,7 +15619,7 @@
     ], 
     "menadione  ": [
         "cell", 
-        "specie", 
+        "species", 
         "oxygen"
     ], 
     "antibiotic resistance testing": [], 
@@ -15743,7 +15743,7 @@
         "ANTIBODY"
     ], 
     "V factor": [
-        "specie", 
+        "species", 
         "cell", 
         "growth", 
         "blood", 
@@ -15963,7 +15963,7 @@
         "LANTIBIOTIC", 
         "gene", 
         "rRNA", 
-        "specie", 
+        "species", 
         "bacteriocins", 
         "sequence", 
         "archaea", 
@@ -16083,7 +16083,7 @@
         "group", 
         "MUTASYNTHESIS", 
         "anti-tumor", 
-        "specie"
+        "species"
     ], 
     "monosomic": [
         "morbillivirus", 
@@ -16125,7 +16125,7 @@
         "BLUNT", 
         "strand", 
         "group", 
-        "specie", 
+        "species", 
         "REs", 
         "ISOSCHIZOMER", 
         "ENDED", 
@@ -16597,7 +16597,7 @@
         "pathog", 
         "RNases", 
         "gene", 
-        "specie", 
+        "species", 
         "RNA", 
         "disease", 
         "DNase", 
@@ -16650,7 +16650,7 @@
         "copy", 
         "escherichia", 
         "structure", 
-        "specie", 
+        "species", 
         "sequence", 
         "bacteria", 
         "prerRNA", 
@@ -16663,7 +16663,7 @@
     "isoschizomer": [
         "RESTRICTION", 
         "isoschizomer", 
-        "specie", 
+        "species", 
         "sequence", 
         "ENDONUCLEASE", 
         "isoschizomers", 
@@ -16715,7 +16715,7 @@
     "scFv  ": [
         "q.v", 
         "gene", 
-        "specie", 
+        "species", 
         "CHAIN", 
         "FRAGMENT", 
         "schizosaccharomyces", 
@@ -16808,7 +16808,7 @@
         "deoxythymidine", 
         "oligo", 
         "monophosphate", 
-        "specie", 
+        "species", 
         "RNA", 
         "molecule", 
         "oligonucleotides", 
@@ -17065,7 +17065,7 @@
         "LAMBDA"
     ], 
     "IS900": [
-        "specie", 
+        "species", 
         "INSERTION", 
         "SEQUENCE"
     ], 
@@ -17363,7 +17363,7 @@
         "population", 
         "genomics", 
         "group", 
-        "specie", 
+        "species", 
         "popstats", 
         "FORENSIC", 
         "MITOMAP", 
@@ -17379,7 +17379,7 @@
         "ribonucleoproteins"
     ], 
     "broad-spectrtibiotic": [
-        "specie", 
+        "species", 
         "bacteria"
     ], 
     "ICM": [
@@ -17594,7 +17594,7 @@
         "population", 
         "genomics", 
         "group", 
-        "specie", 
+        "species", 
         "popstats", 
         "FORENSIC", 
         "MITOMAP", 
@@ -17656,7 +17656,7 @@
         "membrane", 
         "sequence", 
         "SOUTHERN", 
-        "specie", 
+        "species", 
         "BLOTTING"
     ], 
     "SAGE": [
@@ -17672,7 +17672,7 @@
         "deoxythymidine", 
         "oligo", 
         "monophosphate", 
-        "specie", 
+        "species", 
         "RNA", 
         "molecule", 
         "oligonucleotides", 
@@ -17949,7 +17949,7 @@
         "EMSA"
     ], 
     "cyanobacteria  ": [
-        "specie", 
+        "species", 
         "antisense", 
         "RNAs", 
         "algae", 
@@ -18039,7 +18039,7 @@
     "intracytoplasmic sperm injection": [], 
     "methylotrophic fungi": [
         "pastoris", 
-        "specie", 
+        "species", 
         "pichia", 
         "fungi", 
         "source", 
@@ -18143,7 +18143,7 @@
         "xanthus", 
         "copy", 
         "ssDNA", 
-        "specie", 
+        "species", 
         "intron", 
         "retrovirus", 
         "bacteria", 
@@ -18289,7 +18289,7 @@
         "FEMALE", 
         "bacteria", 
         "chromosome", 
-        "specie"
+        "species"
     ], 
     "steel factor ": [], 
     "FPRL1": [
@@ -18833,7 +18833,7 @@
         "AMINOGLYCOSIDE", 
         "ISONIAZID", 
         "ANTIBIOTIC", 
-        "specie", 
+        "species", 
         "oryzae", 
         "PROBE", 
         "disease", 
@@ -19079,7 +19079,7 @@
         "CCCV", 
         "VIROID", 
         "disease", 
-        "specie"
+        "species"
     ], 
     "in gene transfer ": [
         "DELIVERY", 
@@ -19135,7 +19135,7 @@
     ], 
     "Cockayne syndrome": [
         "PIGMENTOSUM", 
-        "specie", 
+        "species", 
         "oxygen", 
         "proteasome", 
         "radiation", 
@@ -19415,7 +19415,7 @@
         "family", 
         "tree", 
         "nopaline", 
-        "specie", 
+        "species", 
         "agrobacteria", 
         "PLASMID", 
         "nitrogen", 
@@ -19482,7 +19482,7 @@
     "yeast": [
         "YEASTS", 
         "organism", 
-        "specie", 
+        "species", 
         "SACCHAROMYCES"
     ], 
     "BVs ": [
@@ -19562,7 +19562,7 @@
         "CSRE", 
         "cerevisiae", 
         "structure", 
-        "specie", 
+        "species", 
         "URA3", 
         "MATING", 
         "HYBRID", 
@@ -19724,7 +19724,7 @@
         "cell", 
         "REPEATS", 
         "TRANSPOSABLE", 
-        "specie", 
+        "species", 
         "TTAA", 
         "signal", 
         "trichoplusia", 
@@ -20477,7 +20477,7 @@
     ], 
     "integron": [
         "family", 
-        "specie", 
+        "species", 
         "PLoS", 
         "transposon", 
         "organism", 
@@ -20631,7 +20631,7 @@
         "protein", 
         "AMPICILLIN", 
         "bacteria", 
-        "specie", 
+        "species", 
         "grampositive", 
         "PBPs", 
         "bLACTAM", 
@@ -20659,7 +20659,7 @@
     ], 
     "bacteriol. ": [
         "q.v", 
-        "specie", 
+        "species", 
         "PLoS", 
         "pathog", 
         "e1000422", 
@@ -21239,7 +21239,7 @@
         "molecule", 
         "dsDNA", 
         "EUKARYOTE", 
-        "specie", 
+        "species", 
         "growth", 
         "copy", 
         "ARCHAEA", 
@@ -21361,7 +21361,7 @@
     ], 
     "permeaplast": [
         "cell", 
-        "specie", 
+        "species", 
         "TRANSFORMATION", 
         "LYSOZYME", 
         "EDTA", 
@@ -21479,7 +21479,7 @@
         "EXCISION", 
         "FAMILY", 
         "POLYMERASES", 
-        "specie", 
+        "species", 
         "PolX", 
         "BASE", 
         "HOMOLOGOUS", 
@@ -21759,7 +21759,7 @@
     "SINE": [
         "LINE", 
         "SINEs", 
-        "specie", 
+        "species", 
         "SEQUENCES"
     ], 
     "adj. ": [], 
@@ -21948,7 +21948,7 @@
         "synthesis", 
         "HAEMOPHILUS", 
         "growth", 
-        "specie", 
+        "species", 
         "FACTOR"
     ], 
     "probe labeling": [
@@ -22091,7 +22091,7 @@
         "e4224", 
         "BINARY", 
         "monophosphate", 
-        "specie", 
+        "species", 
         "microbiol", 
         "CROWN", 
         "SYSTEM", 
@@ -22437,7 +22437,7 @@
         "pair", 
         "DYES", 
         "membrane", 
-        "specie"
+        "species"
     ], 
     "solid-phase PCR  ": [
         "acid", 
@@ -22648,7 +22648,7 @@
         "bacteria", 
         "posfai", 
         "RESTRICTION", 
-        "specie", 
+        "species", 
         "archaeans", 
         "NotI", 
         "REBASE", 
@@ -23025,7 +23025,7 @@
         "population", 
         "SSCP", 
         "ASSAY", 
-        "specie", 
+        "species", 
         "microbiol", 
         "PROBE", 
         "ANALYSIS", 
@@ -23118,7 +23118,7 @@
         "cell", 
         "gene", 
         "organism", 
-        "specie"
+        "species"
     ], 
     "lambdoid phages": [], 
     "1-ethyl-3-  carbodiimide": [], 
@@ -23336,7 +23336,7 @@
         "AGROINFILTRATION", 
         "metabolism", 
         "fumigatus", 
-        "specie"
+        "species"
     ], 
     "donor F": [], 
     "in bacteria ": [
@@ -23613,7 +23613,7 @@
     ], 
     "plasmid profiling": [
         "human", 
-        "specie", 
+        "species", 
         "apicomplexa", 
         "d543", 
         "malariae", 
@@ -23909,7 +23909,7 @@
     ], 
     "adtem cell": [
         "CELL", 
-        "specie", 
+        "species", 
         "aegypti", 
         "NUMTS", 
         "population", 
@@ -23918,7 +23918,7 @@
     "cytoplasmic polyadenylation": [
         "mRNAs", 
         "embryo", 
-        "specie", 
+        "species", 
         "synthesis", 
         "xenopus", 
         "polyadenylation", 
@@ -24248,7 +24248,7 @@
     ], 
     "base excision repair": [
         "REPAIR", 
-        "specie", 
+        "species", 
         "FAMILY", 
         "glycosylase", 
         "MISMATCH", 
@@ -24586,7 +24586,7 @@
         "blood"
     ], 
     "bleen algae ": [
-        "specie", 
+        "species", 
         "antisense", 
         "RNAs", 
         "algae", 
@@ -24924,7 +24924,7 @@
     ], 
     "mating type  ": [
         "gamete", 
-        "specie", 
+        "species", 
         "a-factor", 
         "cell", 
         "MATa", 
@@ -24954,7 +24954,7 @@
     ], 
     "2-methyl-14-naphthoqe ": [
         "cell", 
-        "specie", 
+        "species", 
         "oxygen"
     ], 
     "expressed seq tag": [], 
@@ -24999,7 +24999,7 @@
         "mutation", 
         "gene", 
         "BIEDL", 
-        "specie"
+        "species"
     ], 
     "-shift genotyping  ": [
         "GENOTYPING"
@@ -25382,7 +25382,7 @@
         "BEIJING", 
         "SPOLIGOTYPING", 
         "ASSAY", 
-        "specie", 
+        "species", 
         "TESTING", 
         "system", 
         "complex", 
@@ -25563,7 +25563,7 @@
     "total RNA": [
         "cell", 
         "rRNA", 
-        "specie", 
+        "species", 
         "mRNA"
     ], 
     "EST ": [
@@ -25590,7 +25590,7 @@
         "tularensis", 
         "escherichia", 
         "HimarFT", 
-        "specie", 
+        "species", 
         "monocytogenes", 
         "microbiol", 
         "maribavir", 
@@ -26205,7 +26205,7 @@
         "mRNA", 
         "sequence", 
         "MONOMERIC", 
-        "specie", 
+        "species", 
         "rerio", 
         "GREEN", 
         "miRNA", 
@@ -26274,7 +26274,7 @@
     ], 
     "xenotransplantation": [
         "tissue", 
-        "specie", 
+        "species", 
         "organ"
     ], 
     "lete adhesion deficiency": [
@@ -26507,7 +26507,7 @@
         "BACULOVIRIDAE", 
         "SNPV", 
         "autographa", 
-        "specie", 
+        "species", 
         "AcMNPV", 
         "mori", 
         "MNPV", 
@@ -26535,11 +26535,11 @@
         "FEMALE", 
         "bacteria", 
         "chromosome", 
-        "specie"
+        "species"
     ], 
     "rsal primer ": [
         "rRNA", 
-        "specie", 
+        "species", 
         "sequence", 
         "substance", 
         "broad-range", 
@@ -26953,7 +26953,7 @@
         "cell", 
         "streptidine", 
         "group", 
-        "specie", 
+        "species", 
         "g418", 
         "grampositive", 
         "enzyme", 
@@ -28130,7 +28130,7 @@
         "OPEN", 
         "ORFeome", 
         "genomics", 
-        "specie", 
+        "species", 
         "FRAME", 
         "SYSTEM", 
         "SPECIFIC", 
@@ -28563,7 +28563,7 @@
     ], 
     "salicylate  ": [
         "family", 
-        "specie", 
+        "species", 
         "salmon-ella", 
         "enterobacteriaceae", 
         "MacConkey", 
@@ -28951,7 +28951,7 @@
         "INTERACTIONS"
     ], 
     "strain  ": [
-        "specie", 
+        "species", 
         "TYPING"
     ], 
     "genetic footprinting": [
@@ -29112,7 +29112,7 @@
         "BACULOVIRIDAE", 
         "SNPV", 
         "autographa", 
-        "specie", 
+        "species", 
         "AcMNPV", 
         "mori", 
         "MNPV", 
@@ -29405,7 +29405,7 @@
         "DEOXYRIBOZYME"
     ], 
     "sin": [
-        "specie", 
+        "species", 
         "family", 
         "METHYLATION", 
         "apoptosis", 
@@ -29437,7 +29437,7 @@
     ], 
     "orthologones": [
         "gene", 
-        "specie"
+        "species"
     ], 
     "morembryol.": [
         "cell", 
@@ -29715,7 +29715,7 @@
     ], 
     "lantibiotic": [
         "lantibiotic", 
-        "specie", 
+        "species", 
         "BACTERIOCINS", 
         "lantibiotics", 
         "lactococcus", 
@@ -30117,7 +30117,7 @@
         "BglI", 
         "genomics", 
         "boydii", 
-        "specie", 
+        "species", 
         "microbiol", 
         "monocytogenes", 
         "ribotype", 
@@ -30170,7 +30170,7 @@
         "protein", 
         "SIRNA", 
         "ago2", 
-        "specie", 
+        "species", 
         "ago1", 
         "INTERFERENCE", 
         "cell", 
@@ -31065,7 +31065,7 @@
         "growth", 
         "protein", 
         "bacteria", 
-        "specie", 
+        "species", 
         "PLoS", 
         "sulfolobus", 
         "TOPOISOMERASE", 
@@ -31225,7 +31225,7 @@
         "respiratory", 
         "QUORUM", 
         "animal", 
-        "specie", 
+        "species", 
         "aeruginosa", 
         "CYSTIC", 
         "SENSING", 
@@ -32015,7 +32015,7 @@
         "bacteria", 
         "posfai", 
         "RESTRICTION", 
-        "specie", 
+        "species", 
         "archaeans", 
         "NotI", 
         "REBASE", 
@@ -32886,7 +32886,7 @@
         "CCCV", 
         "VIROID", 
         "disease", 
-        "specie"
+        "species"
     ], 
     "chemokine coreceptor antagonists  ": [
         "coreceptor", 
@@ -33138,7 +33138,7 @@
         "virol", 
         "dsDNA", 
         "DNA", 
-        "specie", 
+        "species", 
         "PLoS", 
         "YEAST", 
         "cerevisiae", 
@@ -33212,7 +33212,7 @@
         "IMMUNOPRECIP", 
         "CHROMATIN", 
         "bacteria", 
-        "specie", 
+        "species", 
         "cell", 
         "PLASMID", 
         "animal", 
@@ -33253,7 +33253,7 @@
         "GENE"
     ], 
     "haemophilia": [
-        "specie", 
+        "species", 
         "HEMOPHILIA", 
         "haemophilus", 
         "membrane", 
@@ -34042,7 +34042,7 @@
         "MUTAGENESIS", 
         "fungi", 
         "hyphomycetes", 
-        "specie"
+        "species"
     ], 
     "CTnERL": [
         "TRANSPOSITION", 
@@ -34126,7 +34126,7 @@
     ], 
     "virulon": [
         "cell", 
-        "specie", 
+        "species", 
         "yersinia", 
         "cytoplasm", 
         "protein", 
@@ -34453,7 +34453,7 @@
         "synthesis", 
         "cell", 
         "FINOP", 
-        "specie", 
+        "species", 
         "conjugants", 
         "transfer", 
         "oriT", 
@@ -34641,7 +34641,7 @@
         "enterocolitica", 
         "pattern", 
         "system", 
-        "specie", 
+        "species", 
         "STRAINS", 
         "yersinia", 
         "bacteria", 
@@ -34793,7 +34793,7 @@
         "ARCHAEA", 
         "pyrococcus", 
         "DIMER", 
-        "specie", 
+        "species", 
         "EXCISION", 
         "TERMINAL", 
         "furiosus", 
@@ -35016,7 +35016,7 @@
         "flavivirus", 
         "arenavirus", 
         "group", 
-        "specie", 
+        "species", 
         "microbiol", 
         "INTERFERENCE", 
         "disease", 
@@ -35350,7 +35350,7 @@
         "pneumoniae", 
         "burgdorferi", 
         "avium", 
-        "specie", 
+        "species", 
         "HPAG1", 
         "growth", 
         "whipplei", 

@@ -5,7 +5,7 @@ import codecs
 import re
 
 
-bio_words = {'cell', 'specie', 'blood', 'body', 'group', 'plant', 'water', 'system', 'protein', 'membrane',
+bio_words = {'cell', 'species', 'blood', 'body', 'group', 'plant', 'water', 'system', 'protein', 'membrane',
              'acid', 'organism', 'structure', 'growth', 'tion', 'molecule', 'chromosome', 'food', 'disease',
              'gene', 'tissue', 'medicine', 'amino', 'population', 'atom', 'animals', 'reaction', 'enzyme',
              'carbon', 'physiology', 'heart', 'substance', 'nerve', 'bacteria', 'electron', 'hydrogen',

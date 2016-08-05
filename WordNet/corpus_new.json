@@ -135,7 +135,7 @@
     ], 
     "species selection": [
         "evolution", 
-        "specie"
+        "species"
     ], 
     "lactoferrin": [
         "struc", 
@@ -247,7 +247,7 @@
         "WHIPPLE", 
         "ence", 
         "hoyt", 
-        "specie", 
+        "species", 
         "HEMOGLOBIN", 
         "MURPHY", 
         "body", 
@@ -308,7 +308,7 @@
         "body", 
         "heart", 
         "high-density", 
-        "specie", 
+        "species", 
         "disease", 
         "cell", 
         "membrane", 
@@ -369,7 +369,7 @@
     ], 
     "Aves": [
         "body", 
-        "specie", 
+        "species", 
         "metabolism", 
         "family", 
         "bird"
@@ -388,7 +388,7 @@
     ], 
     "fossil": [
         "plant", 
-        "specie", 
+        "species", 
         "organ", 
         "marine", 
         "ucts", 
@@ -419,7 +419,7 @@
         "tion", 
         "spe", 
         "habitat", 
-        "specie"
+        "species"
     ], 
     "agarose gel electrophoresis": [], 
     "lithosphere": [
@@ -573,7 +573,7 @@
         "pattern", 
         "evolution", 
         "complex", 
-        "specie", 
+        "species", 
         "transfer"
     ], 
     "nonsense mutation": [
@@ -674,7 +674,7 @@
     ], 
     "marsupial": [
         "mammal", 
-        "specie"
+        "species"
     ], 
     "cerebellum": [
         "trols"
@@ -742,7 +742,7 @@
     ], 
     "relapsing fever": [
         "bacteria", 
-        "specie", 
+        "species", 
         "recurrentis", 
         "human", 
         "disease"
@@ -755,7 +755,7 @@
         "precambri", 
         "agnathans", 
         "source", 
-        "specie"
+        "species"
     ], 
     "dodo": [
         "family", 
@@ -865,7 +865,7 @@
         "spin-echo"
     ], 
     "climax": [
-        "specie", 
+        "species", 
         "stituent", 
         "population"
     ], 
@@ -894,7 +894,7 @@
     ], 
     "character displacement": [
         "environment", 
-        "specie"
+        "species"
     ], 
     "Wagner-Jauregg Julius": [
         "schotten", 
@@ -1221,7 +1221,7 @@
     "Crustacea": [
         "body", 
         "head", 
-        "specie", 
+        "species", 
         "compound", 
         "pair", 
         "pedia"
@@ -1407,7 +1407,7 @@
     ], 
     "conspecific": [
         "tions", 
-        "specie", 
+        "species", 
         "animal"
     ], 
     "Mllerian mimicry": [], 
@@ -1435,12 +1435,12 @@
     ], 
     "physical map": [
         "gene", 
-        "specie", 
+        "species", 
         "chromosome"
     ], 
     "isolating mechanism": [
         "teristics", 
-        "specie", 
+        "species", 
         "population"
     ], 
     "entomology": [
@@ -1463,7 +1463,7 @@
         "protein", 
         "environment", 
         "leaf", 
-        "specie", 
+        "species", 
         "organ", 
         "cell", 
         "enzyme", 
@@ -1618,7 +1618,7 @@
         "human", 
         "pair", 
         "chromosome", 
-        "specie", 
+        "species", 
         "organ", 
         "source", 
         "dant", 
@@ -1730,7 +1730,7 @@
         "iridaceae", 
         "flower", 
         "leaf", 
-        "specie", 
+        "species", 
         "root", 
         "economi", 
         "immune", 
@@ -1741,7 +1741,7 @@
         "commu", 
         "nities", 
         "suc", 
-        "specie", 
+        "species", 
         "habitat"
     ], 
     "thigmotropism": [
@@ -1776,7 +1776,7 @@
     ], 
     "lampreys": [
         "body", 
-        "specie", 
+        "species", 
         "agnathan", 
         "marine", 
         "engers", 
@@ -1802,7 +1802,7 @@
     "Insecta": [
         "body", 
         "head", 
-        "specie", 
+        "species", 
         "habitat", 
         "animal", 
         "pair", 
@@ -1816,7 +1816,7 @@
         "organ", 
         "spore", 
         "fungi", 
-        "specie", 
+        "species", 
         "organism", 
         "mycobac"
     ], 
@@ -1857,7 +1857,7 @@
         "angulifera", 
         "by-product", 
         "substance", 
-        "specie", 
+        "species", 
         "citheronia", 
         "kidney", 
         "tree", 
@@ -1970,7 +1970,7 @@
     "osmolarity": [], 
     "chondrichthyes": [
         "body", 
-        "specie", 
+        "species", 
         "skele"
     ], 
     "ascospore": [
@@ -2034,7 +2034,7 @@
         "pollen", 
         "fect", 
         "flower", 
-        "specie", 
+        "species", 
         "POLLINATION", 
         "plant", 
         "cell", 
@@ -2158,7 +2158,7 @@
         "acoelomates", 
         "monogeneans", 
         "marine", 
-        "specie", 
+        "species", 
         "organ", 
         "cavity", 
         "cestoidea", 
@@ -2263,7 +2263,7 @@
         "ELECTRODE"
     ], 
     "beta sheet": [
-        "specie", 
+        "species", 
         "structure"
     ], 
     "thallus": [
@@ -2281,7 +2281,7 @@
         "structure", 
         "photobiont", 
         "trentepohlia", 
-        "specie", 
+        "species", 
         "entific", 
         "cators", 
         "organism", 
@@ -2320,7 +2320,7 @@
         "isade"
     ], 
     "ticks": [
-        "specie", 
+        "species", 
         "family", 
         "disease"
     ], 
@@ -2332,7 +2332,7 @@
     ], 
     "queen": [
         "insect", 
-        "specie", 
+        "species", 
         "semiso"
     ], 
     "New York tiger moth": [
@@ -2388,7 +2388,7 @@
         "anti-human", 
         "reaction", 
         "substance", 
-        "specie", 
+        "species", 
         "antibod", 
         "transfer", 
         "obser", 
@@ -2410,7 +2410,7 @@
         "body", 
         "SEXUAL", 
         "ALGAE", 
-        "specie"
+        "species"
     ], 
     "Bordet Jules": [
         "cell", 
@@ -2428,7 +2428,7 @@
         "influ", 
         "habitat", 
         "vation", 
-        "specie", 
+        "species", 
         "evolu", 
         "brates", 
         "manders", 
@@ -2567,7 +2567,7 @@
         "strand", 
         "cell", 
         "copy", 
-        "specie", 
+        "species", 
         "organ", 
         "bacteria", 
         "STABILITY", 
@@ -2593,7 +2593,7 @@
     ], 
     "Demospongiae": [
         "sclerospongiae", 
-        "specie"
+        "species"
     ], 
     "palisade parenchyma": [
         "epider", 
@@ -2691,12 +2691,12 @@
         "MIXED", 
         "group", 
         "COORDINATION", 
-        "specie"
+        "species"
     ], 
     "imperfect fungi": [], 
     "autopolyploid": [
         "tetraploids", 
-        "specie", 
+        "species", 
         "parent", 
         "ciation", 
         "POLYPLOIDY", 
@@ -2751,7 +2751,7 @@
         "gastropoda", 
         "flower", 
         "snRNP", 
-        "specie", 
+        "species", 
         "gagates"
     ], 
     "protoderm": [
@@ -2945,7 +2945,7 @@
     "microevolution": [
         "MACROEVOLUTION", 
         "evolution", 
-        "specie", 
+        "species", 
         "cyto", 
         "cell", 
         "microfilament", 
@@ -2959,7 +2959,7 @@
         "tepui", 
         "south", 
         "plant", 
-        "specie", 
+        "species", 
         "suriname"
     ], 
     "Euryarchaeota": [], 
@@ -3164,7 +3164,7 @@
     ], 
     "macroevolution": [
         "evolution", 
-        "specie"
+        "species"
     ], 
     "hyperactive": [
         "body", 
@@ -3347,7 +3347,7 @@
     ], 
     "parasitism": [
         "organism", 
-        "specie"
+        "species"
     ], 
     "phenotype": [
         "organism", 
@@ -3451,12 +3451,12 @@
     ], 
     "coevolution": [
         "evolution", 
-        "specie"
+        "species"
     ], 
     "temperate rain forest": [
         "plant", 
         "united", 
-        "specie", 
+        "species", 
         "fluctua", 
         "tree", 
         "one-third", 
@@ -3805,7 +3805,7 @@
         "molecule"
     ], 
     "type species": [
-        "specie"
+        "species"
     ], 
     "seminiferous tubules": [
         "sperm", 
@@ -3829,7 +3829,7 @@
         "bacteria", 
         "structure", 
         "group", 
-        "specie", 
+        "species", 
         "neo-Darwinism", 
         "system", 
         "ecdysozoa", 
@@ -4079,7 +4079,7 @@
         "atom"
     ], 
     "inter-": [
-        "specie"
+        "species"
     ], 
     "Laveran Charles-Louis-Alphonse": [
         "de-Gr", 
@@ -4769,7 +4769,7 @@
     "logistic growth": [
         "ulation", 
         "palen", 
-        "specie", 
+        "species", 
         "pattern", 
         "growth", 
         "califor", 
@@ -4868,7 +4868,7 @@
         "flower"
     ], 
     "wheat stem rust": [
-        "specie"
+        "species"
     ], 
     "continental drift": [
         "marburg", 
@@ -4903,7 +4903,7 @@
         "rela", 
         "hydrogen", 
         "STRUCTURE", 
-        "specie"
+        "species"
     ], 
     "electron-transport chain": [
         "accep", 
@@ -4962,7 +4962,7 @@
     "incomplete metamorphosis": [], 
     "tarantula": [
         "concentration", 
-        "specie", 
+        "species", 
         "south"
     ], 
     "organ of Corti": [
@@ -4974,7 +4974,7 @@
     ], 
     "era": [
         "ELECTRON", 
-        "specie", 
+        "species", 
         "SPECTROSCOPY", 
         "TIME", 
         "RESONANCE", 
@@ -5042,7 +5042,7 @@
         "earth", 
         "disease", 
         "human", 
-        "specie"
+        "species"
     ], 
     "molecular graphics": [
         "tion", 
@@ -5231,7 +5231,7 @@
     "motor neuron": [], 
     "pluripotent stem cell": [], 
     "tautonym": [
-        "specie"
+        "species"
     ], 
     "neurophysiology": [
         "plant", 
@@ -5562,7 +5562,7 @@
     ], 
     "ostracods": [
         "pair", 
-        "specie"
+        "species"
     ], 
     "clone": [
         "cell", 
@@ -5683,7 +5683,7 @@
         "POSTZYGOTIC", 
         "habi", 
         "BARRIER", 
-        "specie"
+        "species"
     ], 
     "xerophytes": [
         "water", 
@@ -5943,7 +5943,7 @@
     "Brnsted base": [
         "chemical", 
         "BASE", 
-        "specie", 
+        "species", 
         "hydron", 
         "entity"
     ], 
@@ -6385,7 +6385,7 @@
         "cell"
     ], 
     "endemic species": [
-        "specie"
+        "species"
     ], 
     "rod cell": [
         "CELL", 
@@ -6394,7 +6394,7 @@
     ], 
     "genotype": [
         "group", 
-        "specie", 
+        "species", 
         "family", 
         "TAXON", 
         "geno", 
@@ -6450,7 +6450,7 @@
         "united", 
         "microfungi", 
         "spore", 
-        "specie"
+        "species"
     ], 
     "precipitin test": [], 
     "ampullary organ": [
@@ -6481,7 +6481,7 @@
         "stimulus", 
         "signal", 
         "munication", 
-        "specie"
+        "species"
     ], 
     "carotenoids": [
         "carbon", 
@@ -6503,7 +6503,7 @@
     "coelacanth": [
         "menadoensis", 
         "south", 
-        "specie", 
+        "species", 
         "family"
     ], 
     "scanning electron microscope": [
@@ -6541,7 +6541,7 @@
     ], 
     "population": [
         "group", 
-        "specie", 
+        "species", 
         "population"
     ], 
     "dehiscent": [], 
@@ -6559,7 +6559,7 @@
     ], 
     "evolutionary species concept": [
         "evolu", 
-        "specie", 
+        "species", 
         "tionary"
     ], 
     "chytrid": [
@@ -6733,7 +6733,7 @@
         "g-factor", 
         "electron", 
         "nucleus", 
-        "specie", 
+        "species", 
         "ANISOTROPY", 
         "bohr"
     ], 
@@ -6932,7 +6932,7 @@
     "homology": [
         "homologues", 
         "bond", 
-        "specie", 
+        "species", 
         "organ", 
         "organism", 
         "tree", 
@@ -7022,7 +7022,7 @@
     "Anapsida": [
         "head", 
         "group", 
-        "specie", 
+        "species", 
         "family", 
         "marine", 
         "skin", 
@@ -7063,7 +7063,7 @@
     ], 
     "mechanical isolation": [
         "ferent", 
-        "specie", 
+        "species", 
         "organ"
     ], 
     "recombinant": [], 
@@ -7136,7 +7136,7 @@
         "karolinska", 
         "insect", 
         "water", 
-        "specie", 
+        "species", 
         "organ", 
         "signal", 
         "australasiae", 
@@ -7193,7 +7193,7 @@
         "receptor", 
         "compound", 
         "reaction", 
-        "specie", 
+        "species", 
         "ion", 
         "light", 
         "signal", 
@@ -7249,7 +7249,7 @@
     "Spermatophyta": [
         "pair", 
         "plant", 
-        "specie", 
+        "species", 
         "algae"
     ], 
     "geosynclines": [
@@ -7272,7 +7272,7 @@
     ], 
     "genetic engineering": [
         "plant", 
-        "specie", 
+        "species", 
         "Tay-Sachs", 
         "disease", 
         "cell", 
@@ -7388,7 +7388,7 @@
         "ening", 
         "INDUSTRIAL", 
         "betularia", 
-        "specie", 
+        "species", 
         "skin", 
         "tree", 
         "MELANISM"
@@ -7439,7 +7439,7 @@
         "gamete", 
         "plant", 
         "group", 
-        "specie", 
+        "species", 
         "parent", 
         "spore", 
         "cell", 
@@ -7544,7 +7544,7 @@
         "environment", 
         "plant", 
         "group", 
-        "specie", 
+        "species", 
         "sequence", 
         "evolution"
     ], 
@@ -7579,7 +7579,7 @@
     "self-pollination": [], 
     "anagenesis": [
         "evolution", 
-        "specie", 
+        "species", 
         "pattern", 
         "tissue", 
         "medicine", 
@@ -7702,7 +7702,7 @@
         "lupinus", 
         "system", 
         "animal", 
-        "specie"
+        "species"
     ], 
     "cluster": [
         "heart", 
@@ -7814,7 +7814,7 @@
         "mammal", 
         "insect", 
         "brane", 
-        "specie"
+        "species"
     ], 
     "lava": [], 
     "chigoe flea": [], 
@@ -7895,7 +7895,7 @@
     "extinct species": [
         "ENDANGERED", 
         "SPECIES", 
-        "specie"
+        "species"
     ], 
     "molarity": [
         "body", 
@@ -7991,7 +7991,7 @@
         "REDOX", 
         "OXIDATION", 
         "OXIDOREDUCTASE", 
-        "specie", 
+        "species", 
         "trons"
     ], 
     "Neuroptera": [
@@ -8022,7 +8022,7 @@
     ], 
     "Animalia": [
         "linnaeus", 
-        "specie", 
+        "species", 
         "family", 
         "organism", 
         "TAXON", 
@@ -8032,7 +8032,7 @@
     "asthma": [
         "pollen", 
         "cell", 
-        "specie", 
+        "species", 
         "microvilli", 
         "microfibrils", 
         "cytoplasm", 
@@ -8223,7 +8223,7 @@
     ], 
     "revision": [
         "group", 
-        "specie", 
+        "species", 
         "result"
     ], 
     "heterotrophic organisms": [
@@ -8258,7 +8258,7 @@
     ], 
     "keystone predator": [
         "organism", 
-        "specie", 
+        "species", 
         "system"
     ], 
     "interleukin": [
@@ -8312,7 +8312,7 @@
         "gene"
     ], 
     "convergent evolution": [
-        "specie"
+        "species"
     ], 
     "incomplete flower": [
         "STAMEN", 
@@ -8402,7 +8402,7 @@
         "group"
     ], 
     "geographic range": [
-        "specie", 
+        "species", 
         "population"
     ], 
     "chlorin": [
@@ -8468,7 +8468,7 @@
         "STABLE", 
         "tion", 
         "disease", 
-        "specie", 
+        "species", 
         "COORDINATION", 
         "andersoni", 
         "stant"
@@ -8549,7 +8549,7 @@
         "movement"
     ], 
     "bottleneck effect": [
-        "specie", 
+        "species", 
         "popula", 
         "tion", 
         "disease", 
@@ -8572,7 +8572,7 @@
         "cephalochordata", 
         "graptolites", 
         "structure", 
-        "specie", 
+        "species", 
         "group", 
         "urochordata", 
         "organ", 
@@ -8589,7 +8589,7 @@
     "Karner blue butterfly": [
         "parent", 
         "evolution", 
-        "specie", 
+        "species", 
         "FOUNDER", 
         "EFFECT", 
         "environment", 
@@ -8619,7 +8619,7 @@
         "MIMICRY", 
         "dispropor", 
         "COMPROPORTIONATION", 
-        "specie"
+        "species"
     ], 
     "recessive allele": [
         "copy", 
@@ -8774,7 +8774,7 @@
     ], 
     "Batesian mimicry": [], 
     "resource partitioning": [
-        "specie", 
+        "species", 
         "arate"
     ], 
     "organogenesis": [
@@ -8808,7 +8808,7 @@
         "structure", 
         "photobiont", 
         "leaf", 
-        "specie", 
+        "species", 
         "organism", 
         "tree", 
         "fungi", 
@@ -8877,7 +8877,7 @@
         "pattern", 
         "1,5", 
         "OXYGENASE", 
-        "specie", 
+        "species", 
         "rubisco", 
         "LASE"
     ], 
@@ -8895,7 +8895,7 @@
         "drug"
     ], 
     "hybrid": [
-        "specie", 
+        "species", 
         "parent"
     ], 
     "pneumatophor": [
@@ -9380,7 +9380,7 @@
         "tion", 
         "population", 
         "pollu", 
-        "specie"
+        "species"
     ], 
     "tendril": [
         "plant", 
@@ -9439,11 +9439,11 @@
     ], 
     "subspecies": [
         "karner", 
-        "specie"
+        "species"
     ], 
     "Arachnida": [
         "araneae", 
-        "specie", 
+        "species", 
         "family", 
         "pair", 
         "human", 
@@ -9490,7 +9490,7 @@
         "oehlke", 
         "syringin", 
         "promethea", 
-        "specie", 
+        "species", 
         "father", 
         "oleaceae", 
         "enor", 
@@ -9595,7 +9595,7 @@
     ], 
     "amniotes": [
         "embryo", 
-        "specie", 
+        "species", 
         "food", 
         "zoan", 
         "water", 
@@ -9605,7 +9605,7 @@
     ], 
     "homologous structures": [
         "group", 
-        "specie", 
+        "species", 
         "animal", 
         "compound", 
         "gener", 
@@ -9663,7 +9663,7 @@
     ], 
     "genetic drift": [
         "GENETIC", 
-        "specie", 
+        "species", 
         "allele", 
         "gene", 
         "DRIFT", 
@@ -9873,7 +9873,7 @@
     ], 
     "ladybug": [
         "nents", 
-        "specie", 
+        "species", 
         "habitat", 
         "insect", 
         "disease", 
@@ -9883,7 +9883,7 @@
     ], 
     "neutral variation": [], 
     "sexual selection": [
-        "specie", 
+        "species", 
         "gation", 
         "propa", 
         "ondary"
@@ -9927,7 +9927,7 @@
     ], 
     "primate": [
         "group", 
-        "specie", 
+        "species", 
         "human"
     ], 
     "lipoprotein": [
@@ -9988,7 +9988,7 @@
     ], 
     "cladogram": [
         "plant", 
-        "specie", 
+        "species", 
         "animal", 
         "stimulus", 
         "tree", 
@@ -10018,7 +10018,7 @@
     "isidia": [
         "water", 
         "medicine", 
-        "specie", 
+        "species", 
         "habitat", 
         "food", 
         "tree", 
@@ -10168,7 +10168,7 @@
         "habitat", 
         "cryptobiosis", 
         "oxygen", 
-        "specie"
+        "species"
     ], 
     "loop of Henle": [
         "henle", 
@@ -10272,7 +10272,7 @@
         "atom"
     ], 
     "monoculture": [
-        "specie"
+        "species"
     ], 
     "turgor pressure": [
         "cell", 
@@ -10297,7 +10297,7 @@
         "carboxylase/oxygenase"
     ], 
     "bugs": [
-        "specie", 
+        "species", 
         "family"
     ], 
     "hydathodes": [
@@ -10329,7 +10329,7 @@
         "plant", 
         "flower", 
         "leaf", 
-        "specie", 
+        "species", 
         "food", 
         "anthophyta", 
         "system", 
@@ -10448,14 +10448,14 @@
         "bond", 
         "chemistry", 
         "COORDINATION", 
-        "specie"
+        "species"
     ], 
     "light and dark bands": [
         "chromosome"
     ], 
     "predator": [
         "result", 
-        "specie", 
+        "species", 
         "animal", 
         "population", 
         "chromosome", 
@@ -10570,7 +10570,7 @@
         "water", 
         "cell", 
         "group", 
-        "specie", 
+        "species", 
         "acid", 
         "system"
     ], 
@@ -10683,7 +10683,7 @@
         "sperm", 
         "body", 
         "leaf", 
-        "specie", 
+        "species", 
         "egg"
     ], 
     "solvation": [], 
@@ -10886,7 +10886,7 @@
         "lemuroidea", 
         "tree", 
         "comoro", 
-        "specie"
+        "species"
     ], 
     "extraembryonic membranes": [
         "embryo", 
@@ -10996,7 +10996,7 @@
     "earthworms": [
         "virginiensis", 
         "lumbricidae", 
-        "specie", 
+        "species", 
         "family", 
         "polychaetes", 
         "fanworms", 
@@ -11261,7 +11261,7 @@
     ], 
     "recognition species concept": [
         "system", 
-        "specie", 
+        "species", 
         "population"
     ], 
     "Schiff bases": [
@@ -11282,7 +11282,7 @@
     "cyanobacteria": [
         "water", 
         "plant", 
-        "specie", 
+        "species", 
         "food", 
         "soil", 
         "cell", 
@@ -11332,7 +11332,7 @@
     "address-message concept": [
         "reaction", 
         "flower", 
-        "specie", 
+        "species", 
         "molecule", 
         "water", 
         "phosphate", 
@@ -11408,7 +11408,7 @@
         "simi", 
         "evolution", 
         "structure", 
-        "specie"
+        "species"
     ], 
     "kinetic energy": [
         "body", 
@@ -11420,7 +11420,7 @@
     "vicariance": [
         "group", 
         "organism", 
-        "specie"
+        "species"
     ], 
     "gill": [
         "filament", 
@@ -11452,7 +11452,7 @@
     "coterie": [], 
     "metapopulation": [
         "group", 
-        "specie", 
+        "species", 
         "habitat", 
         "STABLE", 
         "tion", 
@@ -11829,7 +11829,7 @@
         "structure", 
         "thophyll", 
         "water", 
-        "specie", 
+        "species", 
         "environment", 
         "dinophyceae", 
         "coccoliths", 
@@ -11865,7 +11865,7 @@
     ], 
     "gel diffusion method": [], 
     "mutualism": [
-        "specie", 
+        "species", 
         "efit"
     ], 
     "Jurassic period": [
@@ -11959,7 +11959,7 @@
         "kidney"
     ], 
     "Malacostraca": [
-        "specie"
+        "species"
     ], 
     "enzyme repression": [
         "result", 
@@ -11978,7 +11978,7 @@
     "vertebrates": [
         "nerve", 
         "sawblades", 
-        "specie", 
+        "species", 
         "hemichordates", 
         "evolu", 
         "verte", 
@@ -12118,7 +12118,7 @@
     ], 
     "double helix": [
         "strand", 
-        "specie", 
+        "species", 
         "prodrug", 
         "molecule", 
         "sugar", 
@@ -12185,7 +12185,7 @@
         "atri"
     ], 
     "carrying capacity": [
-        "specie", 
+        "species", 
         "habitat", 
         "population"
     ], 
@@ -12249,7 +12249,7 @@
     "amoeba": [
         "blia", 
         "cryptosporidiosis", 
-        "specie", 
+        "species", 
         "food", 
         "giar", 
         "disease", 
@@ -12390,7 +12390,7 @@
         "virus", 
         "plant", 
         "protein", 
-        "specie"
+        "species"
     ], 
     "territory": [
         "food"
@@ -12412,7 +12412,7 @@
     ], 
     "placental mammal": [
         "embryo", 
-        "specie", 
+        "species", 
         "oxygen", 
         "nutrient", 
         "mammal", 
@@ -12421,7 +12421,7 @@
     ], 
     "biodiversity": [
         "quencies", 
-        "specie", 
+        "species", 
         "fre", 
         "gene", 
         "organism", 
@@ -12557,7 +12557,7 @@
         "allele", 
         "father", 
         "bird", 
-        "specie"
+        "species"
     ], 
     "lupus vulgaris": [
         "result", 
@@ -12693,7 +12693,7 @@
         "protein"
     ], 
     "biocontrol": [
-        "specie", 
+        "species", 
         "population"
     ], 
     "radionuclide": [
@@ -12703,7 +12703,7 @@
         "plant", 
         "stem", 
         "leaf", 
-        "specie", 
+        "species", 
         "flower", 
         "group", 
         "radionuclides", 
@@ -12974,7 +12974,7 @@
         "cell"
     ], 
     "hybridization": [
-        "specie", 
+        "species", 
         "strand"
     ], 
     "blastocyst": [
@@ -13018,7 +13018,7 @@
     ], 
     "Cambrian explosion": [
         "earth", 
-        "specie"
+        "species"
     ], 
     "phylogeny": [
         "group", 
@@ -13226,7 +13226,7 @@
     "Chrysolina quadrigemina": [
         "united", 
         "leaf", 
-        "specie", 
+        "species", 
         "trol", 
         "1920s", 
         "disease", 
@@ -13255,7 +13255,7 @@
         "absorption", 
         "mophore", 
         "chemistry", 
-        "specie", 
+        "species", 
         "CHROMOPHORE"
     ], 
     "zoned reserve system": [
@@ -13330,7 +13330,7 @@
     ], 
     "hybrid zone": [
         "gene", 
-        "specie", 
+        "species", 
         "population"
     ], 
     "glaucoma": [
@@ -13353,7 +13353,7 @@
         "westchester", 
         "population", 
         "promethea", 
-        "specie", 
+        "species", 
         "tree", 
         "habitat", 
         "protec", 
@@ -13410,7 +13410,7 @@
         "plant", 
         "insect", 
         "animal", 
-        "specie"
+        "species"
     ], 
     "allometry": [
         "growth"
@@ -13459,7 +13459,7 @@
     "trichocyst": [
         "trilobita", 
         "group", 
-        "specie", 
+        "species", 
         "family", 
         "cili", 
         "dinoflaggelates", 
@@ -13517,7 +13517,7 @@
         "thalus", 
         "bacteria", 
         "chromosome", 
-        "specie", 
+        "species", 
         "root", 
         "tree", 
         "actinomycetales", 
@@ -13583,7 +13583,7 @@
     "adaptive radiation": [
         "plant", 
         "ronmental", 
-        "specie", 
+        "species", 
         "parent", 
         "radiation", 
         "ances", 
@@ -13620,7 +13620,7 @@
     "Siphonaptera": [
         "nents", 
         "conti", 
-        "specie", 
+        "species", 
         "disease"
     ], 
     "founder effect": [
@@ -13679,7 +13679,7 @@
         "gamete", 
         "plant", 
         "flower", 
-        "specie", 
+        "species", 
         "human", 
         "organism", 
         "MONOECIOUS"
@@ -13763,7 +13763,7 @@
     ], 
     "genome": [
         "body", 
-        "specie", 
+        "species", 
         "organ", 
         "cell", 
         "gene", 
@@ -13799,7 +13799,7 @@
         "insect", 
         "population", 
         "bacteria", 
-        "specie"
+        "species"
     ], 
     "electroluminescence": [], 
     "steroid hormone": [
@@ -14120,7 +14120,7 @@
     ], 
     "Sarcopterygii": [
         "group", 
-        "specie", 
+        "species", 
         "bone"
     ], 
     "oceanic zone": [
@@ -14140,7 +14140,7 @@
     "vestigial organ": [
         "body", 
         "embryo", 
-        "specie", 
+        "species", 
         "organ", 
         "bone", 
         "adult"
@@ -14170,7 +14170,7 @@
         "plant", 
         "allote", 
         "nucleus", 
-        "specie", 
+        "species", 
         "chromosome", 
         "pair", 
         "somes"
@@ -14418,7 +14418,7 @@
         "tak"
     ], 
     "vagility": [
-        "specie"
+        "species"
     ], 
     "synapse": [
         "NEURON", 
@@ -14445,7 +14445,7 @@
         "MIMICRY", 
         "indi", 
         "chromosome", 
-        "specie"
+        "species"
     ], 
     "klinotaxis": [
         "stimulus", 
@@ -14607,11 +14607,11 @@
         "body", 
         "embryo", 
         "organism", 
-        "specie", 
+        "species", 
         "adult"
     ], 
     "synonyms": [
-        "specie"
+        "species"
     ], 
     "Diptera": [
         "polli", 
@@ -14627,7 +14627,7 @@
         "popula", 
         "tion", 
         "bird", 
-        "specie"
+        "species"
     ], 
     "neritic zone": [
         "water", 
@@ -14832,7 +14832,7 @@
     ], 
     "Reptilia": [
         "body", 
-        "specie", 
+        "species", 
         "family", 
         "typi", 
         "kimodo", 
@@ -14860,7 +14860,7 @@
     "cardiotech": [
         "heart", 
         "IMAGING", 
-        "specie"
+        "species"
     ], 
     "syndrome": [
         "group", 
@@ -14930,7 +14930,7 @@
         "peach-potato", 
         "organism", 
         "plete", 
-        "specie"
+        "species"
     ], 
     "reductive speciation": [], 
     "estrone": [], 
@@ -15142,7 +15142,7 @@
         "leaf"
     ], 
     "type specimen": [
-        "specie"
+        "species"
     ], 
     "hemochromatosis": [
         "tissue", 
@@ -15164,7 +15164,7 @@
     ], 
     "cage": [
         "molecule", 
-        "specie"
+        "species"
     ], 
     "EPR imaging": [], 
     "open circulatory system": [], 
@@ -15172,7 +15172,7 @@
         "oxidation", 
         "reaction", 
         "chemical", 
-        "specie"
+        "species"
     ], 
     "chronic": [
         "disease"
@@ -15184,7 +15184,7 @@
     ], 
     "invertebrates": [
         "insect", 
-        "specie", 
+        "species", 
         "animal"
     ], 
     "cocoon": [
@@ -15201,7 +15201,7 @@
         "population", 
         "photoperiods", 
         "leaf", 
-        "specie", 
+        "species", 
         "organ", 
         "spinnerettes", 
         "pattern", 
@@ -15477,7 +15477,7 @@
         "ronments", 
         "light", 
         "envi", 
-        "specie"
+        "species"
     ], 
     "embryo": [
         "plant", 
@@ -15529,7 +15529,7 @@
     ], 
     "DNA probe": [
         "substance", 
-        "specie", 
+        "species", 
         "sequence", 
         "PROBE", 
         "NUCLEIC", 
@@ -15685,7 +15685,7 @@
         "insect", 
         "teristics", 
         "evolution", 
-        "specie"
+        "species"
     ], 
     "book lungs": [
         "respiratory", 
@@ -15764,7 +15764,7 @@
     ], 
     "mange": [
         "disorder", 
-        "specie"
+        "species"
     ], 
     "archaezoa": [
         "synthesis", 
@@ -15779,7 +15779,7 @@
         "nucleus", 
         "protein", 
         "gene", 
-        "specie"
+        "species"
     ], 
     "determinate growth": [
         "plant", 
@@ -15832,7 +15832,7 @@
         "head", 
         "flower", 
         "leaf", 
-        "specie", 
+        "species", 
         "family", 
         "plant", 
         "stem", 
@@ -15882,7 +15882,7 @@
         "leaf", 
         "algae", 
         "kidney", 
-        "specie", 
+        "species", 
         "cell", 
         "group", 
         "protoctista", 
@@ -15960,7 +15960,7 @@
         "adirondacks", 
         "open-weave", 
         "promethea", 
-        "specie", 
+        "species", 
         "egg", 
         "tree-of-heaven", 
         "united", 
@@ -16044,7 +16044,7 @@
     "stereoisomerism": [
         "insect", 
         "isoptera", 
-        "specie", 
+        "species", 
         "diastereomers", 
         "bacteria", 
         "somes"
@@ -16275,7 +16275,7 @@
         "compound"
     ], 
     "evolution": [
-        "specie", 
+        "species", 
         "sequence", 
         "earth", 
         "population", 
@@ -16285,7 +16285,7 @@
     "substrate": [
         "reaction", 
         "group", 
-        "specie", 
+        "species", 
         "entity", 
         "chemical", 
         "source", 
@@ -16329,7 +16329,7 @@
     "cleavage": [
         "embryo", 
         "cell", 
-        "specie", 
+        "species", 
         "cleavage", 
         "pattern", 
         "organism", 
@@ -16337,7 +16337,7 @@
     ], 
     "cladogenesis": [
         "evolution", 
-        "specie", 
+        "species", 
         "parent"
     ], 
     "propagules": [], 
@@ -16396,7 +16396,7 @@
         "plant", 
         "U.S", 
         "leaf", 
-        "specie", 
+        "species", 
         "drates", 
         "system", 
         "stem", 
@@ -16462,7 +16462,7 @@
     ], 
     "postzygotic barrier": [
         "PREZYGOTIC", 
-        "specie", 
+        "species", 
         "BARRIER", 
         "adult"
     ], 
@@ -16507,7 +16507,7 @@
     ], 
     "nucleation": [
         "substance", 
-        "specie", 
+        "species", 
         "sequence", 
         "molecule", 
         "ion", 
@@ -16729,7 +16729,7 @@
     ], 
     "sister species": [
         "MUTAGENESIS", 
-        "specie"
+        "species"
     ], 
     "lenticle": [
         "plant", 
@@ -16782,7 +16782,7 @@
     "density-dependent factor": [
         "population", 
         "disease", 
-        "specie"
+        "species"
     ], 
     "brachyptery": [
         "body"
@@ -16940,7 +16940,7 @@
     ], 
     "Brnsted acid": [
         "chemical", 
-        "specie", 
+        "species", 
         "hydron", 
         "ACID", 
         "entity"
@@ -16950,7 +16950,7 @@
         "chemical", 
         "sens", 
         "organism", 
-        "specie", 
+        "species", 
         "bers"
     ], 
     "anaphylaxis": [
@@ -17414,7 +17414,7 @@
     ], 
     "myiasis": [
         "united", 
-        "specie"
+        "species"
     ], 
     "scrub typhus": [], 
     "solvolysis": [
@@ -17548,7 +17548,7 @@
     ], 
     "aquation": [
         "group", 
-        "specie", 
+        "species", 
         "molecule", 
         "rain", 
         "water", 
@@ -17597,7 +17597,7 @@
         "protein", 
         "nents", 
         "united", 
-        "specie", 
+        "species", 
         "leopold", 
         "cell", 
         "conti", 
@@ -17648,7 +17648,7 @@
     "extirpated species": [
         "cell", 
         "growth", 
-        "specie", 
+        "species", 
         "proteoglycans", 
         "tissue", 
         "teins"
@@ -17825,7 +17825,7 @@
         "blood"
     ], 
     "auxotroph": [
-        "specie", 
+        "species", 
         "organism", 
         "molecule", 
         "tion", 
@@ -17842,7 +17842,7 @@
         "atom"
     ], 
     "species richness": [
-        "specie"
+        "species"
     ], 
     "Muller Hermann Joseph": [
         "hermann", 
@@ -18033,12 +18033,12 @@
     "female": [
         "mammal", 
         "egg", 
-        "specie", 
+        "species", 
         "chromosome"
     ], 
     "speciation": [
         "distribu", 
-        "specie", 
+        "species", 
         "compound", 
         "tion/intergradation", 
         "inver", 
@@ -18142,7 +18142,7 @@
     "self-incompatibility": [
         "pollen", 
         "plant", 
-        "specie"
+        "species"
     ], 
     "desirudin": [], 
     "nuclear envelope": [
@@ -18163,7 +18163,7 @@
     ], 
     "triiodothyronine  ": [], 
     "morphometrics": [
-        "specie"
+        "species"
     ], 
     "Waksman Selman Abraham": [
         "selman", 
@@ -18372,7 +18372,7 @@
     "complete flower": [
         "plant", 
         "flower", 
-        "specie", 
+        "species", 
         "STAMENS", 
         "family", 
         "tree", 
@@ -18383,7 +18383,7 @@
     ], 
     "species": [
         "group", 
-        "specie", 
+        "species", 
         "family", 
         "fea", 
         "BIOAVAILABILITY", 
@@ -18422,7 +18422,7 @@
         "food", 
         "insect", 
         "oviposi", 
-        "specie"
+        "species"
     ], 
     "short-day plant": [
         "plant", 
@@ -18463,7 +18463,7 @@
     ], 
     "Glossinidae": [
         "head", 
-        "specie"
+        "species"
     ], 
     "phosphate group": [
         "cell", 
