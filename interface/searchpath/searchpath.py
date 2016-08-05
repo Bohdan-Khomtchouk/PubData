@@ -48,7 +48,8 @@ class Path_results(QtGui.QDialog):
         self.total_find = total_find
         self.SERVER_NAMES = server_names
         self.h_layout = QtGui.QHBoxLayout()
-        self.countLabel = QtGui.QLabel("{} Results founded!".format(self.path_number))
+        label = "<font color='#009933' size=2>Green paths are the exact matches!</font>"
+        self.countLabel = QtGui.QLabel("{} Results founded! ({})".format(self.path_number, label))
         top_layout = QtGui.QVBoxLayout()
         top_layout.addWidget(self.countLabel)
         self.main_layout.addLayout(top_layout)
