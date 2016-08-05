@@ -237,7 +237,7 @@ class Sub_path(QtGui.QDialog):
                     "ftp",
                     "Unable to connect to the ftp server at %s. Please "
                     "check that the host name is correct." % self.ftpServerLabel.text())
-                self.connectOrDisconnect()
+                self.close()
                 return
 
             # self.statusLabel.setText("Logged onto %s." % self.ftpServerLabel.text())
@@ -267,9 +267,9 @@ class Sub_path(QtGui.QDialog):
         item.setText(4, urlInfo.lastModified().toString('MMM dd yyyy'))
 
         if urlInfo.isDir():
-            icon = QtGui.QIcon('../images/dir.png')
+            icon = QtGui.QIcon('images/dir.png')
         else:
-            icon = QtGui.QIcon('../images/file.png')
+            icon = QtGui.QIcon('images/file.png')
         item.setIcon(0, icon)
 
         self.isDirectory[urlInfo.name()] = urlInfo.isDir()
