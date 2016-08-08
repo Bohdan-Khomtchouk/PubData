@@ -14,7 +14,7 @@ import json
 server_names = {"PANTHER": "ftp.pantherdb.org",
                 "miRBase": "mirbase.org",
                 "Ensembl Genome Browser": "ftp.ensembl.org",
-                "Rat Genome Database": "rgd.mcw.edu",
+                "Rat Genome Database": "ftp.rgd.mcw.edu",
                 "Genomicus": "ftp.biologie.ens.fr",
                 "Human Microbiome Project": "public-ftp.hmpdacc.org",
                 "Protein Information Resource": "ftp.pir.georgetown.edu",
