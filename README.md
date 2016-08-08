@@ -1,4 +1,4 @@
-![pubdatalogo](https://cloud.githubusercontent.com/assets/9893806/16898720/bb487dba-4bb3-11e6-866a-a879942403e3.png)
+![pubdatalogo](https://cloud.githubusercontent.com/assets/9893806/17467742/83dcfbba-5cef-11e6-9da0-0adf825b3ddd.png)
 
 # PubData
 
