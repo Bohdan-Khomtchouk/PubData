@@ -534,6 +534,9 @@ class ftpWindow(QtGui.QDialog):
                 self.search(self.server_names, keyword, cursor)
             else:
                 self.search(self.selected_names, keyword, cursor)
+            reload(recomdialog)
+            self.dialog = recomdialog.Searchdialog(self.dialog.search_all)
+            self.dialog.ok_button.clicked.connect(self.get_keyword)
 
     def show_dialog(self, search_all=False):
         self.dialog.search_all = search_all
@@ -557,13 +560,13 @@ class ftpWindow(QtGui.QDialog):
             except:
                 related = set()
             else:
-                related = {i[0] for i in cursor.fetchall()}
+                related = set(next(zip(*cursor), []))
             try:
                 cursor.execute(query.format(t_name, t_name, word))
             except:
                 return set(), related
             else:
-                exact = {i[0] for i in cursor.fetchall()}
+                exact = set(next(zip(*cursor), []))
                 return exact, related
 
         message = QtCore.QT_TR_NOOP(
@@ -599,7 +602,6 @@ class ftpWindow(QtGui.QDialog):
             self.dialog.setCursor(QtCore.Qt.ArrowCursor)
             message = """<p>No results.<p>Please try with another pattern.</p>"""
             QtGui.QMessageBox.information(self, "QMessageBox.information()", message)
-
 
     def get_lemmas(self, word):
         """
@@ -638,10 +640,10 @@ class ftpWindow(QtGui.QDialog):
                 print(exp)
                 QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
         conn.commit()
-        reload(recomdialog)
-        self.dialog = recomdialog.Searchdialog(self.dialog.search_all)
-        self.dialog.ok_button.clicked.connect(self.get_keyword)
-        self.show_dialog(self.dialog.search_all)
+        # reload(recomdialog)
+        # self.dialog = recomdialog.Searchdialog(self.dialog.search_all)
+        # self.dialog.ok_button.clicked.connect(self.get_keyword)
+        # self.show_dialog(self.dialog.search_all)
 
     def get_wordnet_words(self, text):
         conn = lite.connect('PubData.db')
