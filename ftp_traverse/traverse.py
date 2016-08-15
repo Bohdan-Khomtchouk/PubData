@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+# Copyright (C) 2015-2016 Bohdan Khomtchouk and Kasra A. Vand
+# This file is part of PubData.
+
+# -------------------------------------------------------------------------------------------
+
 from .ftpwalker import ftp_walker
 import ftplib
 from multiprocessing import Manager

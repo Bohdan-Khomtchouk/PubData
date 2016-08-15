@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+# Copyright (C) 2015-2016 Bohdan Khomtchouk and Kasra A. Vand
+# This file is part of PubData.
+
+# -------------------------------------------------------------------------------------------
+
 from multiprocessing import Pool
 from .traverse import Run
 from datetime import datetime
@@ -5,7 +12,6 @@ import json
 from collections import OrderedDict
 from os import path as ospath
 import sqlite3 as lite
-
 
 
 class main_walker:
