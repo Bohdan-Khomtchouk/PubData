@@ -6,7 +6,7 @@
 
 PubData is a search engine and file retrieval system for all bioinformatics databases worldwide.  PubData searches biomedical FTP data in a user-friendly fashion similar to how PubMed searches biomedical literature.  PubData is hosted as a standalone GUI software program, while PubMed is hosted as an online web server.  PubData is built on novel network programming and natural language processing algorithms that can patch into the FTP servers of any user-specified bioinformatics database, query its contents, and retrieve files for download.
 
-Future plans include adding web server support for PubData, and contributions from the open source community are welcome.
+Future plans include adding web server support for PubData, and contributions from the open source community are welcome.  Refer to the PubData paper for more info: http://dx.doi.org/10.1101/069575
 
 PubData is designed as a graphical user interface (GUI) software program written in the Python programming language and PyQt4 (Python binding of the cross-platform GUI toolkit Qt).  PubData can remotely search, access, view, and retrieve files from the deeply nested directory trees of any major bioinformatics database via a local computer network.  
 
@@ -14,7 +14,7 @@ By assembling all major bioinformatics databases under the roof of one software 
 
 PubData is an ongoing bioinformatics software project financially supported by the United States Department of Defense (DoD) through the National Defense Science and Engineering Graduate Fellowship (NDSEG) Program. This research was conducted with Government support under and awarded by DoD, Army Research Office (ARO), National Defense Science and Engineering Graduate (NDSEG) Fellowship, 32 CFR 168a.
 
-Please cite: "Khomtchouk et al.: 'PubData: search engine for bioinformatics databases worldwide', 2016 (in preparation)" within any source that makes use of any methods inspired by PubData.
+Please cite: "Khomtchouk et al.: 'PubData: search engine for bioinformatics databases worldwide', 2016: http://dx.doi.org/10.1101/069575" within any source that makes use of any methods inspired by PubData.
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
