@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2015-2016 Bohdan Khomtchouk and Kasra A. Vand
+# This file is part of PubData.
+
+# -------------------------------------------------------------------------------------------
+
 import numpy as np
 from itertools import chain
 from functools import wraps

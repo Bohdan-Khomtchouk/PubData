@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2015-2016 Bohdan Khomtchouk and Kasra A. Vand
+# This file is part of PubData.
+
+# -------------------------------------------------------------------------------------------
+
+
 from nltk import word_tokenize, sent_tokenize, pos_tag
 from string import punctuation
 import json
