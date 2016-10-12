@@ -23,11 +23,11 @@ def refine_data(main_dict):
         b = len(regex1.findall(w)) > 2
         c = not(len(regex2.findall(w)) > 2)
         d = 2 < len(w) < 20
-        return a and b and c and d
+        return all([a, b, c, d])
 
     result = {k: [regex3.search(w).group(1) for w in v if check_word(w)]
               for k, v in main_dict.items() if v}
-    result = {k: [w for w in v if check_word(w)] for k, v in result.items() if v}
+    result = {k: [w.replace('ﬁ', 'fi').replace('ﬂ', 'fl') for w in v if check_word(w)] for k, v in result.items() if v}
     return {str(k): v for k, v in result.items() if v}
 
 
@@ -43,8 +43,8 @@ def create_jsons():
                 if value:
                     total[k] = list(value)
 
-    with open("{}.json".format(file_name.split('.')[0]), 'w') as f:
-        json.dump(refine_data(total), f, indent=4)
+        with open("{}.json".format(file_name.split('.')[0]), 'w') as f:
+            json.dump(refine_data(total), f, indent=4)
 
 
 create_jsons()
