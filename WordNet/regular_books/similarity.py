@@ -13,7 +13,6 @@ from itertools import permutations
 from os import path as ospath
 import json
 import glob
-import re
 
 
 class Initializer:
@@ -36,7 +35,7 @@ class Initializer:
         return all_words
 
     def get_sentences(self):
-        return list(map(str, self.main_dict))
+        return list(self.main_dict)
 
     def create_WSM(self):
         """
@@ -61,6 +60,65 @@ class Initializer:
 
 
 class FindSimilarity(Initializer):
+    def __new__(cls, *args, **kwargs):
+        def cache_matrix(f):
+            cache_WSM = {}
+            cache_SSM = {}
+            if f.__name__ == "WSM":
+                cache = cache_WSM
+            else:
+                cache = cache_SSM
+
+            @wraps(f)
+            def wrapped(n):
+                try:
+                    result = cache[n]
+                except KeyError:
+                    result = cache[n] = f(n)
+                return result
+            return wrapped
+
+        def cache_weight(f):
+            cache = {}
+
+            @wraps(f)
+            def wrapped(**kwargs):
+                key = tuple(kwargs.values())
+                try:
+                    result = cache[key]
+                except KeyError:
+                    result = cache[key] = f(**kwargs)
+                return result
+            return wrapped
+
+        def cache_general(f):
+            cache = {}
+
+            @wraps(f)
+            def wrapped(*args):
+                try:
+                    result = cache[args]
+                except KeyError:
+                    result = cache[args] = f(*args)
+                return result
+            return wrapped
+
+        obj = object.__new__(cls)
+        general_attrs = ("affinity_WS",
+                         "affinity_SW",
+                         "similarity_W",
+                         "similarity_S",
+                         "sentence_include_word")
+        for name in general_attrs:
+            setattr(obj, name, cache_general(getattr(obj, name)))
+        for name in ("WSM", "SSM"):
+            setattr(obj, name, cache_matrix(getattr(obj, name)))
+        setattr(obj, "weight", cache_weight(getattr(obj, "weight")))
+        cache_general.cache = {}
+        cache_matrix.cache = {}
+        cache_weight.cache = {}
+        return obj
+
     def __init__(self, *args, **kwargs):
         super(FindSimilarity, self).__init__(*args, **kwargs)
         try:
@@ -71,94 +129,44 @@ class FindSimilarity(Initializer):
         self.latest_SSM = self.create_SSM()
         self.name = ospath.basename(kwargs["name"]).split('.')[0]
 
-    def cache_matrix(f):
-        cache_WSM = {}
-        cache_SSM = {}
-        if f.__name__ == "WSM":
-            cache = cache_WSM
-        else:
-            cache = cache_SSM
+    def affinity_WS(self, W, S):
+        return max(self.latest_WSM[W][self.w_w_i[wi]] for wi in self.main_dict[S])
 
-        @wraps(f)
-        def wrapped(self, *args):
-            try:
-                result = cache[args]
-            except KeyError:
-                result = cache[args] = f(self, *args)
-            return result
-        return wrapped
+    def affinity_SW(self, S, W):
+        return max(self.latest_SSM[S][self.s_w_i[sj]] for sj in self.sentence_include_word(W))
 
-    def cache_weight(f):
-        cache = {}
-
-        @wraps(f)
-        def wrapped(self, **kwargs):
-            key = tuple(kwargs.values())
-            try:
-                result = cache[key]
-            except KeyError:
-                result = cache[key] = f(self, **kwargs)
-            return result
-        return wrapped
-
-    def cache_general(f):
-        cache = {}
-
-        @wraps(f)
-        def wrapped(self, *args):
-            try:
-                result = cache[args]
-            except KeyError:
-                result = cache[args] = f(self, *args)
-            return result
-        return wrapped
-
-    @cache_general
-    def affinity_WS(self, W, S, n):
-        return max(self.WSM(n)[W][self.w_w_i[wi]] for wi in self.main_dict[S])
-
-    @cache_general
-    def affinity_SW(self, S, W, n):
-        return max(self.SSM(n)[S][self.s_w_i[sj]] for sj in self.sentence_include_word(W))
-
-    @cache_general
-    def similarity_W(self, W1, W2, n):
-        return sum(self.weight(s=s, w=W1) * self.affinity_SW(s, W2, n - 1)
+    def similarity_W(self, W1, W2):
+        return sum(self.weight(s=s, w=W1) * self.affinity_SW(s, W2)
                    for s in self.sentence_include_word(W1))
 
-    @cache_general
-    def similarity_S(self, S1, S2, n):
-        return sum(self.weight(w=w, s=S1) * self.affinity_WS(w, S2, n - 1) for w in self.main_dict[S1])
+    def similarity_S(self, S1, S2):
+        return sum(self.weight(w=w, s=S1) * self.affinity_WS(w, S2) for w in self.main_dict[S1])
 
-    @cache_general
     def sentence_include_word(self, word):
-        return {str(sent) for sent, words in self.main_dict.items() if word in words}
+        return frozenset(sent for sent, words in self.main_dict.items() if word in words)
 
     def update_WSM(self, n):
         print("update_WSM")
         for w in self.all_words:
             for index in range(self.all_words.size):
-                self.latest_WSM[w][index] = self.similarity_W(w, self.all_words[index], n)
+                self.latest_WSM[w][index] = self.similarity_W(w, self.all_words[index])
 
     def update_SSM(self, n):
         print("update_SSM")
         for s in self.all_sent:
             for index in range(len(self.all_sent)):
-                self.latest_SSM[s][index] = self.similarity_S(s, self.all_sent[index], n)
+                self.latest_SSM[s][index] = self.similarity_S(s, self.all_sent[index])
 
-    @cache_matrix
     def WSM(self, n):
         if n > 0:
             self.update_WSM(n)
         return self.latest_WSM
 
-    @cache_matrix
     def SSM(self, n):
         if n > 0:
             self.update_SSM(n)
         return self.latest_SSM
 
-    @cache_weight
     def weight(self, **kwargs):
         W, S = kwargs['s'], kwargs['s']
         counter = Counter(self.all_words)
@@ -169,13 +177,17 @@ class FindSimilarity(Initializer):
 
     def iteration(self):
         for i in range(1, self.iteration_number + 1):
-            for s1, s2 in permutations(self.all_sent, 2):
-                self.similarity_S(s1, s2, i)
-            print("Finished similarity_S, iteration {}".format(i))
-
+            if i > 1:
+                self.update_WSM(i)
+                self.update_SSM(i)
+            # Update SSM
             for w1, w2 in permutations(self.all_words, 2):
-                self.similarity_W(w1, w2, i)
+                self.similarity_W(w1, w2)
             print("Finished similarity_W, iteration {}".format(i))
+            # Update WSM
+            for s1, s2 in permutations(self.all_sent, 2):
+                self.similarity_S(s1, s2)
+            print("Finished similarity_S, iteration {}".format(i))
         self.save_matrixs()
 
     def save_matrixs(self):
@@ -183,39 +195,14 @@ class FindSimilarity(Initializer):
         np.savetxt("WSM_{}.txt".format(self.name), self.latest_WSM)
 
 
-class Loader:
-    def __init__(self):
-        pass
-
-    def load_data(self):
+if __name__ == "__main__":
+    def load_data():
         file_names = glob.glob("files/*.json")
-        # result = {}
         for name in file_names:
             with open(name) as f:
                 yield name, json.load(f)
-        # return result
 
-    def refine_data(self, main_dict):
-        regex1 = re.compile(r'[a-zA-Z]', re.U)
-        regex2 = re.compile(r'[^a-zA-Z]', re.U)
-        regex3 = re.compile(r'[^\w]*(\w+)[^\w]*$', re.U)
-
-        def check_word(w):
-            a = not bool({"*", "+", "/", ","}.intersection(w))
-            b = len(regex1.findall(w)) > 2
-            c = not(len(regex2.findall(w)) > 2)
-            d = 2 < len(w) < 20
-            return a and b and c and d
-
-        result = {k: [regex3.search(w).group(1) for w in v if check_word(w)]
-                  for k, v in list(main_dict.items())[:1000] if v}
-        result = {k: [w for w in v if check_word(w)] for k, v in result.items() if v}
-        return {k: v for k, v in result.items() if v}
-
-if __name__ == "__main__":
-    loader = Loader()
-    all_dicts = [(name, loader.refine_data(d)) for name, d in loader.load_data()]
-    for name, d in all_dicts:
+    for name, d in load_data():
         FS = FindSimilarity(2, main_dict=d, name=name)
-        print("All words {}".format(len(FS.all_words)))
+        print("All words {}".format(len(FS.all_words))),
         FS.iteration()
