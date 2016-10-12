@@ -129,18 +129,18 @@ class FindSimilarity(Initializer):
         self.latest_SSM = self.create_SSM()
         self.name = ospath.basename(kwargs["name"]).split('.')[0]
 
-    def affinity_WS(self, W, S):
-        return max(self.latest_WSM[W][self.w_w_i[wi]] for wi in self.main_dict[S])
+    def affinity_WS(self, W, S, n):
+        return max(self.WSM(n)[W][self.w_w_i[wi]] for wi in self.main_dict[S])
 
-    def affinity_SW(self, S, W):
-        return max(self.latest_SSM[S][self.s_w_i[sj]] for sj in self.sentence_include_word(W))
+    def affinity_SW(self, S, W, n):
+        return max(self.SSM(n)[S][self.s_w_i[sj]] for sj in self.sentence_include_word(W))
 
-    def similarity_W(self, W1, W2):
-        return sum(self.weight(s=s, w=W1) * self.affinity_SW(s, W2)
+    def similarity_W(self, W1, W2, n):
+        return sum(self.weight(s=s, w=W1) * self.affinity_SW(s, W2, n - 1)
                    for s in self.sentence_include_word(W1))
 
-    def similarity_S(self, S1, S2):
-        return sum(self.weight(w=w, s=S1) * self.affinity_WS(w, S2) for w in self.main_dict[S1])
+    def similarity_S(self, S1, S2, n):
+        return sum(self.weight(w=w, s=S1) * self.affinity_WS(w, S2, n - 1) for w in self.main_dict[S1])
 
     def sentence_include_word(self, word):
         return frozenset(sent for sent, words in self.main_dict.items() if word in words)
@@ -149,13 +149,13 @@ class FindSimilarity(Initializer):
         print("update_WSM")
         for w in self.all_words:
             for index in range(self.all_words.size):
-                self.latest_WSM[w][index] = self.similarity_W(w, self.all_words[index])
+                self.latest_WSM[w][index] = self.similarity_W(w, self.all_words[index], n)
 
     def update_SSM(self, n):
         print("update_SSM")
         for s in self.all_sent:
             for index in range(len(self.all_sent)):
-                self.latest_SSM[s][index] = self.similarity_S(s, self.all_sent[index])
+                self.latest_SSM[s][index] = self.similarity_S(s, self.all_sent[index], n)
 
     def WSM(self, n):
         if n > 0:
@@ -177,32 +177,33 @@ class FindSimilarity(Initializer):
 
     def iteration(self):
         for i in range(1, self.iteration_number + 1):
-            if i > 1:
-                self.update_WSM(i)
-                self.update_SSM(i)
             # Update SSM
             for w1, w2 in permutations(self.all_words, 2):
-                self.similarity_W(w1, w2)
+                self.similarity_W(w1, w2, i)
             print("Finished similarity_W, iteration {}".format(i))
             # Update WSM
             for s1, s2 in permutations(self.all_sent, 2):
-                self.similarity_S(s1, s2)
+                self.similarity_S(s1, s2, i)
             print("Finished similarity_S, iteration {}".format(i))
         self.save_matrixs()
 
     def save_matrixs(self):
-        np.savetxt("SSM_{}.txt".format(self.name), self.latest_SSM)
-        np.savetxt("WSM_{}.txt".format(self.name), self.latest_WSM)
+        np.save("SSM_{}.txt".format(self.name),
+                self.latest_SSM)
+        np.save("WSM_{}.txt".format(self.name),
+                self.latest_WSM)
 
 
 if __name__ == "__main__":
     def load_data():
         file_names = glob.glob("files/*.json")
-        for name in file_names:
+        for name in file_names[::-1]:
             with open(name) as f:
+                print(name)
                 yield name, json.load(f)
 
     for name, d in load_data():
-        FS = FindSimilarity(2, main_dict=d, name=name)
+        d = dict(list(d.items())[:100])
+        FS = FindSimilarity(4, main_dict=d, name=name)
         print("All words {}".format(len(FS.all_words))),
         FS.iteration()
