@@ -203,7 +203,6 @@ if __name__ == "__main__":
                 yield name, json.load(f)
 
     for name, d in load_data():
-        d = dict(list(d.items()))
         FS = FindSimilarity(4, main_dict=d, name=name)
         print("All words {}".format(len(FS.all_words))),
         FS.iteration()
