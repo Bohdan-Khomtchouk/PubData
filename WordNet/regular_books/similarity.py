@@ -197,13 +197,13 @@ class FindSimilarity(Initializer):
 if __name__ == "__main__":
     def load_data():
         file_names = glob.glob("files/*.json")
-        for name in file_names[::-1]:
+        for name in file_names:
             with open(name) as f:
                 print(name)
                 yield name, json.load(f)
 
     for name, d in load_data():
-        d = dict(list(d.items())[:100])
+        d = dict(list(d.items()))
         FS = FindSimilarity(4, main_dict=d, name=name)
         print("All words {}".format(len(FS.all_words))),
         FS.iteration()
