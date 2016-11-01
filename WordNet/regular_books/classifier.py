@@ -10,4 +10,4 @@ def load_files():
             yield {"name": name, "WSM": WSM}
 
 for result in load_files():
-    print(result['WSM'].dtype)
+    WSM = result['WSM']
