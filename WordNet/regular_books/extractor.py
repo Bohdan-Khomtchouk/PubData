@@ -27,7 +27,7 @@ def refine_data(main_dict):
 
     result = {k: [regex3.search(w).group(1) for w in v if check_word(w)]
               for k, v in main_dict.items() if v}
-    result = {k: [w.replace('ﬁ', 'fi').replace('ﬂ', 'fl') for w in v if check_word(w)] for k, v in result.items() if v}
+    result = {k: [w.replace('ﬁ', 'fi').replace('ﬂ', 'fl').replace('ϫ', 'j') for w in v if check_word(w)] for k, v in result.items() if v}
     return {str(k): v for k, v in result.items() if v}
 
 
