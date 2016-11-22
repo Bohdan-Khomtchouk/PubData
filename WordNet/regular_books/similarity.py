@@ -7,13 +7,16 @@
 
 import numpy as np
 from itertools import chain
-from functools import wraps
-from collections import Counter, defaultdict
+from functools import wraps  # lru_cache
+from collections import Counter
 from itertools import permutations
 from os import path as ospath
 from operator import itemgetter
 import json
 import glob
+# import gc
+
+# gc.disable()
 
 
 class Initializer:
@@ -43,6 +46,10 @@ class Initializer:
 
 class FindSimilarity(Initializer):
     def __new__(cls, *args, **kwargs):
+        """
+        Defining the cache functions in __new__ method to be refreshed
+        after each instantiation.
+        """
         def cache_matrix(f):
             cache_WSM = {}
             cache_SSM = {}
@@ -89,8 +96,7 @@ class FindSimilarity(Initializer):
         general_attrs = ("affinity_WS",
                          "affinity_SW",
                          "similarity_W",
-                         "similarity_S",
-                         "sentence_include_word")
+                         "similarity_S",)
         for name in general_attrs:
             setattr(obj, name, cache_general(getattr(obj, name)))
         for name in ("WSM", "SSM"):
@@ -109,13 +115,14 @@ class FindSimilarity(Initializer):
             raise Exception("Please provide an iteration number!")
         self.name = ospath.basename(kwargs["name"]).split('.')[0]
         # Word and the indices of its sentences.
+        self.s_include_word = {w: self.sentence_include_word(w) for w in self.all_words}
         self.sentence_with_indices = self.create_sentence_with_indices()
         # Sentences and the indices of their words
         self.word_with_indices = self.create_words_with_indices()
         self.latest_WSM = self.create_WSM()
         self.latest_SSM = self.create_SSM()
         self.counter = Counter(self.all_words)
-        self.sum5 = sum(j for _, j in self.counter.most_common(5))
+        self.sum5 = sum(j for _, j in self.counter.most_common(5)) 
         print("Finish initialization...!")
 
     def create_words_with_indices(self):
@@ -132,7 +139,7 @@ class FindSimilarity(Initializer):
         s_w_i = {s: i for i, s in enumerate(self.all_sent)}
         total = {}
         for w in self.all_words:
-            sentences = self.sentence_include_word(w)
+            sentences = self.s_include_word[w]
             if len(sentences) > 1:
                 total[w] = list(itemgetter(*sentences)(s_w_i))
             elif sentences:
@@ -159,13 +166,19 @@ class FindSimilarity(Initializer):
 
     def similarity_W(self, W1, W2, n):
         return sum(self.weight(s=s, w=W1) * self.affinity_SW(s, W2, n - 1)
-                   for s in self.sentence_include_word(W1))
+                   for s in self.s_include_word[W1])
 
     def similarity_S(self, S1, S2, n):
         return sum(self.weight(w=w, s=S1) * self.affinity_WS(w, S2, n - 1) for w in self.main_dict[S1])
 
     def sentence_include_word(self, word):
         return {sent for sent, words in self.main_dict.items() if word in words}
+
+    def weight(self, **kwargs):
+        W, S = kwargs['w'], kwargs['s']
+        word_factor = max(0, 1 - self.counter[W] / self.sum5)
+        other_words_factor = sum(max(0, 1 - self.counter[w] / self.sum5) for w in self.main_dict[S])
+        return word_factor / other_words_factor
 
     def update_WSM(self, n):
         print("update_WSM")
@@ -192,12 +205,6 @@ class FindSimilarity(Initializer):
         if n > 0:
             self.update_SSM(n)
         return self.latest_SSM
-
-    def weight(self, **kwargs):
-        W, S = kwargs['s'], kwargs['s']
-        word_factor = max(0, 1 - self.counter[W] / self.sum5)
-        other_words_factor = sum(max(0, 1 - self.counter[w] / self.sum5) for w in self.main_dict[S])
-        return word_factor / other_words_factor
 
     def iteration(self):
         for i in range(1, self.iteration_number + 1):
@@ -226,7 +233,8 @@ if __name__ == "__main__":
                 print(name)
                 yield name, json.load(f)
 
-    for name, d in load_data():
+    ld = load_data()
+    for name, d in ld:
         FS = FindSimilarity(4, main_dict=d, name=name)
         print("All words {}".format(len(FS.all_words))),
         FS.iteration()
