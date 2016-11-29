@@ -1,27 +1,20 @@
-# -*- coding: utf-8 -*-
-
-# Copyright (C) 2015-2016 Bohdan Khomtchouk and Kasra A. Vand
-# This file is part of PubData.
-
-# -------------------------------------------------------------------------------------------
-
 import numpy as np
 from itertools import chain
 from functools import wraps  # lru_cache
 from collections import Counter
-from itertools import permutations
+from itertools import combinations, tee  # permutations
 from os import path as ospath
 from operator import itemgetter
 import json
 import glob
-# import gc
-
-# gc.disable()
+from general import similarity_S, similarity_W
+from datetime import datetime
+from sys import intern
 
 
 class Initializer:
     def __init__(self, *args, **kwargs):
-        self.main_dict = {i: set(j) for i, j in kwargs["main_dict"].items() if j}
+        self.main_dict = {intern(i): set(j) for i, j in kwargs['main_dict'].items() if j}
         self.all_words = self.create_words()
         self.all_sent = self.get_sentences()
 
@@ -50,6 +43,7 @@ class FindSimilarity(Initializer):
         Defining the cache functions in __new__ method to be refreshed
         after each instantiation.
         """
+        '''
         def cache_matrix(f):
             cache_WSM = {}
             cache_SSM = {}
@@ -79,7 +73,7 @@ class FindSimilarity(Initializer):
                     result = cache[key] = f(**kwargs)
                 return result
             return wrapped
-
+        '''
         def cache_general(f):
             cache = {}
 
@@ -93,18 +87,16 @@ class FindSimilarity(Initializer):
             return wrapped
 
         obj = object.__new__(cls)
-        general_attrs = ("affinity_WS",
-                         "affinity_SW",
+        general_attrs = (#"affinity_WS",
+                         #"affinity_SW",
                          "similarity_W",
                          "similarity_S",)
         for name in general_attrs:
             setattr(obj, name, cache_general(getattr(obj, name)))
-        for name in ("WSM", "SSM"):
-            setattr(obj, name, cache_matrix(getattr(obj, name)))
-        setattr(obj, "weight", cache_weight(getattr(obj, "weight")))
+        # setattr(obj, "weight", cache_weight(getattr(obj, "weight")))
         cache_general.cache = {}
-        cache_matrix.cache = {}
-        cache_weight.cache = {}
+        # cache_matrix.cache = {}
+        # cache_weight.cache = {}
         return obj
 
     def __init__(self, *args, **kwargs):
@@ -157,19 +149,21 @@ class FindSimilarity(Initializer):
         np.fill_diagonal(wsm_view, 1)
         return wsm
 
-    def affinity_WS(self, W, S, n):
+    def affinity_WS(self, W, S):
         # return max(self.WSM(n)[W][self.w_w_i[w]] for w in self.main_dict[S])
-        return self.WSM(n)[W][self.word_with_indices[S]].max()
+        return self.latest_WSM[W][self.word_with_indices[S]].max()
 
-    def affinity_SW(self, S, W, n):
-        return self.SSM(n)[S][self.sentence_with_indices[W]].max()
+    def affinity_SW(self, S, W):
+        return self.latest_SSM[S][self.sentence_with_indices[W]].max()
 
-    def similarity_W(self, W1, W2, n):
-        return sum(self.weight(s=s, w=W1) * self.affinity_SW(s, W2, n - 1)
-                   for s in self.s_include_word[W1])
+    def similarity_W(self, W1, W2, i):
+        return similarity_W(self, W1, W2)
+        # return sum(self.weight(s=s, w=W1) * self.affinity_SW(s, W2)
+        #           for s in self.s_include_word[W1])
 
-    def similarity_S(self, S1, S2, n):
-        return sum(self.weight(w=w, s=S1) * self.affinity_WS(w, S2, n - 1) for w in self.main_dict[S1])
+    def similarity_S(self, S1, S2, i):
+        return similarity_S(self, S1, S2)
+        # return sum(self.weight(w=w, s=S1) * self.affinity_WS(w, S2) for w in self.main_dict[S1])
 
     def sentence_include_word(self, word):
         return {sent for sent, words in self.main_dict.items() if word in words}
@@ -180,42 +174,31 @@ class FindSimilarity(Initializer):
         other_words_factor = sum(max(0, 1 - self.counter[w] / self.sum5) for w in self.main_dict[S])
         return word_factor / other_words_factor
 
-    def update_WSM(self, n):
-        print("update_WSM")
-        new = [tuple(self.similarity_W(w, self.all_words[index], n)
-                     for index in range(self.all_words.size))
-               for w in self.all_words]
-
-        self.latest_WSM[:] = new
-
-    def update_SSM(self, n):
-        print("update_SSM")
-        new = [tuple(self.similarity_S(s, self.all_sent[index], n)
-                     for index in range(self.all_sent.size))
-               for s in self.all_sent]
-
-        self.latest_SSM[:] = new
-
-    def WSM(self, n):
-        if n > 0:
-            self.update_WSM(n)
-        return self.latest_WSM
-
-    def SSM(self, n):
-        if n > 0:
-            self.update_SSM(n)
-        return self.latest_SSM
-
     def iteration(self):
-        for i in range(1, self.iteration_number + 1):
+        sent_comb = combinations(map(str, self.all_sent), 2)
+        word_comb = combinations(map(str, self.all_words), 2)
+        sent_comb = iter(tee(sent_comb, 4))
+        word_comb = iter(tee(word_comb, 4))
+        w_size = self.all_words.size
+        s_size = self.all_sent.size
+        ind_lower_s = np.tril_indices(s_size, -1)
+        ind_uper_s = np.triu_indices(s_size, 1)
+        ind_lower_w = np.tril_indices(w_size, -1)
+        ind_uper_w = np.triu_indices(w_size, 1)
+        latest_SSM_view = self.latest_SSM.view(np.float16).reshape(s_size, -1)
+        latest_WSM_view = self.latest_WSM.view(np.float16).reshape(w_size, -1)
+        for i in range(self.iteration_number):
             # Update SSM
-            for w1, w2 in permutations(self.all_words, 2):
-                self.similarity_W(w1, w2, i)
-            print("Finished similarity_W, iteration {}".format(i))
+            new_arr = np.array([self.similarity_S(s1, s2, i) for s1, s2 in next(sent_comb)])
+            latest_SSM_view[ind_uper_s] = new_arr
+            latest_SSM_view[ind_lower_s] = new_arr
+            print("Finished similarity_S, iteration {}".format(i + 1))
             # Update WSM
-            for s1, s2 in permutations(self.all_sent, 2):
-                self.similarity_S(s1, s2, i)
-            print("Finished similarity_S, iteration {}".format(i))
+            new_arr = np.array([self.similarity_W(w1, w2, i) for w1, w2 in next(word_comb)])
+            latest_WSM_view[ind_uper_w] = new_arr
+            latest_WSM_view[ind_lower_w] = new_arr
+            print("Finished similarity_W, iteration {}".format(i + 1))
+
         self.save_matrixs()
 
     def save_matrixs(self):
@@ -234,7 +217,13 @@ if __name__ == "__main__":
                 yield name, json.load(f)
 
     ld = load_data()
+    next(ld)
+    t = datetime.now()
     for name, d in ld:
+        d = dict(list(d.items())[:400])
         FS = FindSimilarity(4, main_dict=d, name=name)
         print("All words {}".format(len(FS.all_words))),
         FS.iteration()
+    print("******************")
+    print("* {} *".format(datetime.now() - t))
+    print("******************")
