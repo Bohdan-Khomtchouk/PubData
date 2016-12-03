@@ -159,16 +159,18 @@ cdef void iteration(name):
     cdef tuple ind_uper_s = np.triu_indices(s_size, 1)
     cdef tuple ind_lower_w = np.tril_indices(w_size, -1)
     cdef tuple ind_uper_w = np.triu_indices(w_size, 1)
+    cdef np.ndarray latest_SSM_view = latest_SSM.view(np.float16).reshape(s_size, -1)
+    cdef np.ndarray latest_WSM_view = latest_WSM.view(np.float16).reshape(w_size, -1)
     for i in range(iteration_number):
         # Update SSM
         new_arr = np.array([similarity_S(s1, s2) for s1, s2 in next(sent_comb)]).astype(np.float16)
-        latest_SSM[ind_uper_s] = new_arr
-        latest_SSM[ind_lower_s] = new_arr
+        latest_SSM_view[ind_uper_s] = new_arr
+        latest_SSM_view[ind_lower_s] = new_arr
         print("Finished similarity_S, iteration {}".format(i + 1))
         # Update WSM
         new_arr = np.array([similarity_W(w1, w2) for w1, w2 in next(word_comb)]).astype(np.float16)
-        latest_WSM[ind_uper_w] = new_arr
-        latest_WSM[ind_lower_w] = new_arr
+        latest_WSM_view[ind_uper_w] = new_arr
+        latest_WSM_view[ind_lower_w] = new_arr
         print("Finished similarity_W, iteration {}".format(i + 1))
 
     save_matrixs(name)
