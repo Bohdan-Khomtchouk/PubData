@@ -83,7 +83,7 @@ cdef void run():
         with open(name) as f:
             print(name)
             d = json.load(f)
-            d = dict(list(d.items())[:500])
+            # d = dict(list(d.items())[:500])
         all_words, all_sent, main_dict = initial(d)
         print("All words {}".format(len(all_words)))
         latest_WSM = create_WSM()
