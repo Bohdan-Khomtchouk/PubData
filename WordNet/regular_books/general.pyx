@@ -99,7 +99,7 @@ cdef void run():
         with open(name) as f:
             print(name)
             d = json.load(f)
-            d = dict(list(d.items())[:3000])
+            d = dict(list(d.items())[:1000])
         all_words, all_sent, main_dict = initial(d)
         print("All words {}".format(len(all_words)))
         w_w_i = {w: i for i, w in enumerate(all_words)}
@@ -163,7 +163,7 @@ cdef float affinity_SW(str S, str W, np.float32_t[:, :] latest_SSM):
             result = max_val
         return result
 
-cdef float similarity_W(str W1, str W2, latest_SSM, float summ=0,
+cdef float similarity_W(str W1, str W2, np.float32_t[:, :] latest_SSM, float summ=0,
                         float weight_val=0, float aff=0,):
     cdef set siw = s_include_word[W1]
     for s in siw:
@@ -172,7 +172,7 @@ cdef float similarity_W(str W1, str W2, latest_SSM, float summ=0,
         summ = summ + weight_val * aff
     return summ
 
-cdef float similarity_S(str S1, str S2, latest_WSM, float summ=0,
+cdef float similarity_S(str S1, str S2, np.float32_t[:, :] latest_WSM, float summ=0,
                         float weight_val=0, float aff=0):
     cdef set words = main_dict[S1]
     for w in words:
