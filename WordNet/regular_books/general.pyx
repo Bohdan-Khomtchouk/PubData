@@ -26,9 +26,6 @@ cdef dict s_w_i
 cdef np.ndarray latest_SSM_numpy
 cdef np.ndarray latest_WSM_numpy
 cdef dict all_weights = {}
-cdef float summ
-cdef float weight_val
-cdef float aff
 
 cdef tuple initial(main_dict):
     main_dict = {i: set(j) for i, j in main_dict.items() if j}
@@ -99,7 +96,7 @@ cdef void run():
         with open(name) as f:
             print(name)
             d = json.load(f)
-            d = dict(list(d.items())[:1000])
+            d = dict(list(d.items())[:3000])
         all_words, all_sent, main_dict = initial(d)
         print("All words {}".format(len(all_words)))
         w_w_i = {w: i for i, w in enumerate(all_words)}
@@ -145,7 +142,7 @@ cdef float affinity_WS(str W, str S, np.float32_t[:, :] latest_WSM):
     cdef float result = 0
     cdef float max_val
     cdef tuple wwi = word_with_indices[S]
-    cdef int wwiw = w_w_i[W]
+    cdef int i, wwiw = w_w_i[W]
     for i in wwi:
         max_val = latest_WSM[wwiw, i]
         if max_val > result:
@@ -156,25 +153,25 @@ cdef float affinity_SW(str S, str W, np.float32_t[:, :] latest_SSM):
     cdef float result = 0
     cdef float max_val
     cdef tuple swi = sentence_with_indices[W]
-    cdef int swis = s_w_i[S]
+    cdef int i, swis = s_w_i[S]
     for i in swi:
         max_val = latest_SSM[swis, i]
         if max_val > result:
             result = max_val
         return result
 
-cdef float similarity_W(str W1, str W2, np.float32_t[:, :] latest_SSM, float summ=0,
-                        float weight_val=0, float aff=0,):
+cdef float similarity_W(str W1, str W2, np.float32_t[:, :] latest_SSM):
     cdef set siw = s_include_word[W1]
+    cdef float aff, summ = 0, weight_vali
     for s in siw:
         aff = affinity_SW(s, W2, latest_SSM)
         weight_val = all_weights[(s, W1)]
         summ = summ + weight_val * aff
     return summ
 
-cdef float similarity_S(str S1, str S2, np.float32_t[:, :] latest_WSM, float summ=0,
-                        float weight_val=0, float aff=0):
+cdef float similarity_S(str S1, str S2, np.float32_t[:, :] latest_WSM):
     cdef set words = main_dict[S1]
+    cdef float aff, summ = 0, weight_vali
     for w in words:
         weight_val = all_weights[(S1, w)]
         aff = affinity_WS(w, S2, latest_WSM)
