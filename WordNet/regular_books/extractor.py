@@ -47,9 +47,17 @@ def refine_data(main_dict):
 
 
 def create_jsons():
+    result = {}
     for file_name in glob.glob("files/*.txt"):
         with open(file_name) as f:
-            result = {hash(sent): word_tokenize(sent) for sent in sent_tokenize(f.read())}
+            content = f.read()
+            paragraphs = filter(bool, {p.strip() for p in re.split(r'\n+', content)})
+            for p in paragraphs:
+                if not p.startswith('Figure'):
+                    sentences = sent_tokenize(p)
+                    if len(sentences) > 2:
+                        for sent in sentences:
+                            result.update({hash(sent): word_tokenize(sent)})
 
         total = {}
         for k, v in result.items():
