@@ -1,685 +1,3 @@
-From Genes to
-Genomes
-
-From Genes to
-Genomes
-Concepts and Applications of DNA Technology
-
-Jeremy W Dale and Malcolm von Schantz
-University of Surrey, UK
-
-Copyright # 2002 by John Wiley & Sons Ltd,
-Baffins Lane, Chichester,
-West Sussex PO19 IUD, England
-National 01243 779777
-International (44) 1243 779777
-e-mail (for orders and customer service enquiries):
-cs-books@wiley.co.uk
-Visit our Home Page on http://www.wileyeurope.com
-or http://www.wiley.com
-All rights reserved. No part of this publication may be reproduced, stored in a retrieval
-system, or transmitted, in any form or by any means, electronic, mechanical, photocopying,
-recording, scanning or otherwise, except under the terms of the Copyright, Designs and
-Patents Act 1988 or under the terms of a licence issued by the Copyright Licensing Agency,
-90 Tottenham Court Road, London, UK W1P 9 HE, without the permission in writing of
-the publisher.
-Other Wiley Editorial Offices
-John Wiley & Sons, Inc., 605 Third Avenue,
-New York, NY 10158-0012, USA
-Wiley-VCH Verlag GmbH, Pappelallee 3,
-D-69469 Weinheim, Germany
-John Wiley & Sons (Australia) Ltd, 33 Park Road, Milton,
-Queensland 4064, Australia
-John Wiley & Sons (Asia) Pte Ltd, 2 Clementi Loop #02-01,
-Jin Xing Distripark, Singapore 0512
-John Wiley & Sons (Canada) Ltd, 22 Worcester Road,
-Rexdale, Ontario M9W 1L1, Canada
-
-British Library Cataloguing in Publication Data
-A catalogue record for this book is available from the British Library
-ISBN 0-471 49782 7 (Hardback)
-0-471 49783 5 (Paperback)
-Typeset in 10.5/13 pt Times by Kolam Information Services Pvt. Ltd, Pondicherry, India
-Printed and bound in Italy by Conti Tipocolor SpA
-This book is printed on acid-free paper responsibly manufactured from sustainable
-forestry, in which at least two trees are planted for each one used for paper production.
-
-Contents
-Preface
-
-xi
-
-1
-
-Introduction
-
-1
-
-2
-
-Basic Molecular Biology
-
-2.1 Nucleic Acid Structure
-2.1.1 The DNA backbone
-2.1.2 The base pairs
-2.1.3 RNA structure
-2.1.4 Nucleic acid synthesis
-2.1.5 Coiling and supercoiling
-2.2 Gene Structure and Organization
-2.2.1 Operons
-2.2.2 Exons and introns
-2.3 Information Flow: Gene Expression
-2.3.1 Transcription
-2.3.2 Translation
-
-5
-
-5
-5
-7
-10
-11
-12
-14
-14
-15
-16
-16
-19
-
-3
-
-How to Clone a Gene
-
-21
-
-4
-
-Purification and Separation of Nucleic Acids
-
-31
-
-3.1
-3.2
-3.3
-3.4
-3.5
-
-What is Cloning?
-Overview of the Procedures
-Gene Libraries
-Hybridization
-Polymerase Chain Reaction
-
-4.1 Extraction and Purification of Nucleic Acids
-4.1.1 Breaking up cells and tissues
-4.1.2 Enzyme treatment
-4.1.3 Phenol±chloroform extraction
-4.1.4 Alcohol precipitation
-4.1.5 Gradient centrifugation
-4.1.6 Alkaline denaturation
-4.1.7 Column purification
-4.2 Detection and Quantitation of Nucleic Acids
-
-21
-22
-25
-26
-28
-31
-31
-32
-32
-33
-34
-34
-35
-36
-
-vi
-
-CONTENTS
-
-4.3 Gel Electrophoresis
-4.3.1 Analytical gel electrophoresis
-4.3.2 Preparative gel electrophoresis
-
-36
-37
-39
-
-Cutting and Joining DNA
-
-41
-
-6
-
-Vectors
-
-65
-
-7
-
-Genomic and cDNA Libraries
-
-99
-
-5
-
-5.1 Restriction Endonucleases
-5.1.1 Specificity
-5.1.2 Sticky and blunt ends
-5.1.3 Isoschizomers
-5.1.4 Processing restriction fragments
-5.2 Ligation
-5.2.1 Optimizing ligation conditions
-5.3 Alkaline Phosphate
-5.4 Double Digests
-5.5 Modification of Restriction Fragment Ends
-5.5.1 Trimming and filling
-5.5.2 Linkers and adapters
-5.5.3 Homopolymer tailing
-5.6 Other Ways of Joining DNA Molecules
-5.6.1 TA cloning of PCR products
-5.6.2 DNA topoisomerase
-5.7 Summary
-6.1 Plasmid Vectors
-6.1.1 Properties of plasmid vectors
-6.1.2 Transformation
-6.2 Vectors Based on the Lambda Bacteriophage
-6.2.1 Lambda biology
-6.2.2 In vitro packaging
-6.2.3 Insertion vectors
-6.2.4 Replacement vectors
-6.3 Cosmids
-6.4 M13 Vectors
-6.5 Expression Vectors
-6.6 Vectors for Cloning and Expression in Eukaryotic Cells
-6.6.1 Yeasts
-6.6.2 Mammalian cells
-6.7 Supervectors: YACs and BACs
-6.8 Summary
-7.1 Genomic Libraries
-7.1.1 Partial digests
-7.1.2 Choice of vectors
-7.1.3 Construction and evaluation of a genomic library
-
-41
-42
-45
-47
-48
-49
-51
-53
-54
-55
-56
-57
-58
-60
-60
-61
-63
-65
-65
-71
-73
-73
-78
-79
-80
-83
-84
-86
-90
-90
-92
-96
-97
-
-99
-101
-103
-106
-
-CONTENTS
-
-7.2
-7.3
-
-Growing and Storing Libraries
-cDNA Libraries
-7.3.1 Isolation of mRNA
-7.3.2 cDNA synthesis
-7.3.3 Bacterial cDNA
-7.4 Random, Arrayed and Ordered Libraries
-
-8
-
-Finding the Right Clone
-
-8.1
-
-8.2
-8.3
-8.4
-8.5
-
-9
-
-Polymerase Chain Reaction (PCR)
-
-9.1
-9.2
-9.3
-9.4
-9.5
-9.6
-9.7
-
-10
-
-Screening Libraries with Gene Probes
-8.1.1 Hybridization
-8.1.2 Labelling probes
-8.1.3 Steps in a hybridization experiment
-8.1.4 Screening procedure
-8.1.5 Probe selection
-Screening Expression Libraries with Antibodies
-Rescreening
-Subcloning
-Characterization of Plasmid Clones
-8.5.1 Restriction digests and agarose gel electrophoresis
-8.5.2 Southern blots
-8.5.3 PCR and sequence analysis
-The PCR Reaction
-PCR in Practice
-9.2.1 Optimization of the PCR reaction
-9.2.2 Analysis of PCR products
-Cloning PCR Products
-Long-range PCR
-Reverse-transcription PCR
-Rapid Amplification of cDNA Ends (RACE)
-Applications of PCR
-9.7.1 PCR cloning strategies
-9.7.2 Analysis of recombinant clones and rare events
-9.7.3 Diagnostic applications
-
-DNA Sequencing
-
-10.1
-10.2
-10.3
-10.4
-10.5
-
-Principles of DNA Sequencing
-Automated Sequencing
-Extending the Sequence
-Shotgun Sequencing: Contig Assembly
-Genome Sequencing
-10.5.1 Overview
-10.5.2 Strategies
-10.5.3 Repetitive elements and gaps
-
-vii
-109
-110
-111
-112
-116
-116
-
-121
-
-121
-121
-125
-126
-127
-129
-132
-135
-136
-137
-138
-139
-140
-
-143
-
-144
-148
-149
-149
-151
-152
-153
-154
-157
-157
-159
-159
-
-161
-
-161
-165
-166
-167
-169
-169
-172
-173
-
-viii
-11
-
-12
-
-13
-
-CONTENTS
-
-Analysis of Sequence Data
-
-177
-
-Analysis of Genetic Variation
-
-209
-
-11.1 Analysis and Annotation
-11.1.1 Open reading frames
-11.1.2 Exon/intron boundaries
-11.1.3 Identification of the function of genes and their products
-11.1.4 Expression signals
-11.1.5 Other features of nucleic acid sequences
-11.1.6 Protein structure
-11.1.7 Protein motifs and domains
-11.2 Databanks
-11.3 Sequence Comparisons
-11.3.1 DNA sequences
-11.3.2 Protein sequence comparisons
-11.3.3 Sequence alignments: CLUSTAL
-12.1 Nature of Genetic Variation
-12.1.1 Single nucleotide polymorphisms
-12.1.2 Large-scale variations
-12.1.3 Conserved and variable domains
-12.2 Methods for Studying Variation
-12.2.1 Genomic Southern blot analysis ± restriction fragment
-length polymorphisms (RFLPs)
-12.2.2 PCR-based methods
-12.2.3 Genome-wide comparisons
-
-Analysis of Gene Expression
-
-13.1 Analysing Transcription
-13.1.1 Northern blots
-13.1.2 RNase protection assay
-13.1.3 Reverse transcription PCR
-13.1.4 In situ hybridization
-13.1.5 Primer extension assay
-13.2 Comparing Transcriptomes
-13.2.1 Differential screening
-13.2.2 Subtractive hybridization
-13.2.3 Differential display
-13.2.4 Array-based methods
-13.3 Methods for Studying the Promoter
-13.3.1 Reporter genes
-13.3.2 Locating the promoter
-13.3.3 Using reporter genes to study regulatory RNA elements
-13.3.4 Regulatory elements and DNA-binding proteins
-13.3.5 Run-on assays
-13.4 Translational Analysis
-13.4.1 Western blots
-
-177
-177
-181
-182
-184
-185
-188
-190
-192
-195
-195
-199
-206
-209
-210
-212
-212
-214
-214
-217
-222
-
-227
-
-227
-228
-229
-231
-234
-235
-236
-237
-238
-240
-241
-244
-244
-245
-248
-248
-252
-253
-253
-
-CONTENTS
-
-13.4.2 Immunocytochemistry and immunohistochemistry
-13.4.3 Two-dimensional electrophoresis
-13.4.4 Proteomics
-
-14
-
-15
-
-16
-
-ix
-254
-255
-256
-
-Analysis of Gene Function
-
-259
-
-Manipulating Gene Expression
-
-279
-
-Medical Applications, Present and Future
-
-307
-
-14.1 Relating Genes and Functions
-14.2 Genetic Maps
-14.2.1 Linked and unlinked genes
-14.3 Relating Genetic and Physical Maps
-14.4 Linkage Analysis
-14.4.1 Ordered libraries and chromosome walking
-14.5 Transposon Mutagenesis
-14.5.1 Transposition in Drosophila
-14.5.2 Other applications of transposons
-14.6 Allelic Replacement and Gene Knock-outs
-14.7 Complementation
-14.8 Studying Gene Function through Protein Interactions
-14.8.1 Two-hybrid screening
-14.8.2 Phage display libraries
-15.1 Factors Affecting Expression of Cloned Genes
-15.2 Expression of Cloned Genes in Bacteria
-15.2.1 Transcriptional fusions
-15.2.2 Stability: conditional expression
-15.2.3 Expression of lethal genes
-15.2.4 Translational fusions
-15.3 Expression in Eukaryotic Host Cells
-15.3.1 Yeast expression systems
-15.3.2 Expression in insect cells: baculovirus systems
-15.3.3 Expression in mammalian cells
-15.4 Adding Tags and Signals
-15.4.1 Tagged proteins
-15.4.2 Secretion signals
-15.5 In vitro Mutagenesis
-15.5.1 Site-directed mutagenesis
-15.5.2 Synthetic genes
-15.5.3 Assembly PCR
-15.5.4 Protein engineering
-16.1 Vaccines
-16.1.1 Subunit vaccines
-16.1.2 Live attenuated vaccines
-16.1.3 Live recombinant vaccines
-16.1.4 DNA vaccines
-
-259
-259
-259
-262
-263
-264
-265
-268
-270
-272
-274
-274
-275
-276
-280
-284
-284
-286
-289
-290
-292
-293
-294
-296
-297
-297
-298
-299
-300
-303
-304
-304
-307
-309
-310
-312
-314
-
-x
-
-CONTENTS
-
-16.2 Detection and Identification of Pathogens
-16.3 Human Genetic Diseases
-16.3.1 Identifying disease genes
-16.3.2 Genetic diagnosis
-16.3.3 Gene therapy
-
-17
-
-315
-316
-316
-319
-320
-
-Transgenics
-
-325
-
-Bibliography
-
-339
-
-Glossary
-
-341
-
-Index
-
-353
-
-17.1 Transgenesis and Cloning
-17.2 Animal Transgenesis and its Applications
-17.2.1 Expression of transgenes
-17.2.2 Embryonic stem-cell technology
-17.2.3 Gene knock-outs
-17.2.4 Gene knock-in technology
-17.2.5 Applications of transgenic animals
-17.3 Transgenic Plants and their Applications
-17.3.1 Gene subtraction
-17.4 Summary
-
-325
-326
-328
-330
-333
-334
-334
-335
-337
-338
-
-Preface
-Over the last 30 years, a revolution has taken place that has put molecular
-biology at the heart of all the biological sciences, and has had extensive
-implications in many fields, including the political arena. A major impetus
-behind this revolution was the development of techniques that allowed the
-isolation of specific DNA fragments and their replication in bacterial cells
-(gene cloning). These techniques also included the ability to engineer bacteria
-(and subsequently other organisms including plants and animals) to have novel
-properties, and the production of pharmaceutical products. This has been
-referred to as genetic engineering, genetic manipulation, and genetic modification
-± all meaning essentially the same thing. However, many of the applications
-extend further than that, and do not involve cloning of genes or genetic
-modification of organisms, although they draw on the knowledge derived in
-those ways. This includes techniques such as nucleic acid hybridization and the
-polymerase chain reaction (PCR), which can be applied in a wide variety of
-ways ranging from the analysis of differentiation of tissues to forensic applications of DNA fingerprinting and the diagnosis of human genetic disorders. In
-an attempt to cover this range of techniques and applications, we have used the
-term DNA technology in the subtitle.
-The main title of the book, From Genes to Genomes, is derived from the
-progress of this revolution. It signifies the move from the early focus on the
-isolation and identification of specific genes to the exciting advances that have
-been made possible by the sequencing of complete genomes. This has in turn
-spawned a whole new range of technologies (post-genomics) that are designed
-for genome-wide analysis of gene structure and expression, including computer-based analyses of such large data sets (bioinformatics).
-The purpose of this book is to provide an introduction to the concepts and
-applications of this rapidly-moving and fascinating field. In writing this book,
-we had in mind its usefulness for undergraduate students in the biological and
-biomedical sciences (who we assume will have a basic grounding in molecular
-biology). However, it will also be relevant for many others, ranging from
-research workers who want to update their knowledge of related areas to
-
-xii
-
-PREFACE
-
-anyone who would like to understand rather more of the background to
-current controversies about the applications of some of these techniques.
-Jeremy W Dale
-Malcolm von Schantz
-
 From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
@@ -715,7 +33,7 @@ change in one base in human DNA could cause debilitating disease. This only
 scratches the surface of the power of these techniques, and indeed this book can
 only provide an introduction to them. Nevertheless, we hope that by the time
 
-2
+2
 
 INTRODUCTION
 
@@ -762,7 +80,7 @@ diabetics have been injecting genetically modified insulin produced by E. coli
 for decades, the issue of genetic engineering is back on the public agenda, this
 time pertaining to higher organisms. It is important to distinguish the genetic
 
-INTRODUCTION
+INTRODUCTION
 
 3
 
@@ -806,7 +124,7 @@ how can you ever lose the fascination you feel about the fact that the drop of
 enzyme that you're adding to your test tube is about to manipulate the DNA
 molecules in it with surgical precision?
 
-From Genes to Genomes: Concepts and Applications of DNA Technology
+From Genes to Genomes: Concepts and Applications of DNA Technology
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -841,7 +159,7 @@ deoxyribose found in DNA, are less stable than DNA. This is partly due to
 their greater susceptibility to attack by nucleases (ribonucleases), but they are
 also more susceptible to chemical degradation, especially by alkaline conditions.
 
-6
+6
 
 BASIC MOLECULAR BIOLOGY
 
@@ -937,7 +255,7 @@ Ribose
 
 OH
 
-2.1
+2.1
 
 7
 
@@ -1030,7 +348,7 @@ Figure 2.3 Nucleic acid bases
 
 H
 
-8
+8
 
 BASIC MOLECULAR BIOLOGY
 H
@@ -1119,7 +437,7 @@ the opposite direction. Thus a single strand sequence written as AGGCTG (or
 more fully 5H AGGCTG3H ) would have as its complement CAGCCT
 (5H CAGCCT3H ) (see Box 2.1).
 
-2.1
+2.1
 
 NUCLEIC ACID STRUCTURE
 
@@ -1166,7 +484,7 @@ localized double-stranded regions, including structures referred to as hairpins
 or stem-loop structures. This has the effect of removing the bases from the
 surrounding water. At room temperature, in the absence of denaturing agents,
 
-10
+10
 
 BASIC MOLECULAR BIOLOGY
 
@@ -1212,7 +530,7 @@ the cell do not require a second strand, and indeed the presence of a second,
 complementary, strand would preclude its role in protein synthesis. However,
 there are some viruses that have double-stranded RNA as their genetic material,
 
-2.1
+2.1
 
 11
 
@@ -1306,7 +624,7 @@ strand ± it always needs a primer to get it started. RNA polymerases on the
 other hand are capable of starting a new RNA strand from scratch, given the
 appropriate signals.
 
-12
+12
 
 BASIC MOLECULAR BIOLOGY
 5' end
@@ -1449,7 +767,7 @@ the packaging of DNA into modified configurations for their very existence.
 Double-stranded DNA, in its relaxed state, normally exists as a right-handed
 double helix with one complete turn per 10 base pairs; this is known as the B
 
-2.1
+2.1
 
 NUCLEIC ACID STRUCTURE
 
@@ -1495,7 +813,7 @@ plasmid, such as its transforming ability and its mobility on an agarose gel,
 are therefore not the same as those of the native plasmid isolated from a
 bacterial cell.
 
-14
+14
 
 BASIC MOLECULAR BIOLOGY
 
@@ -1533,7 +851,7 @@ mRNA). Alternatively, the ribosomes may attach independently to internal
 ribosome binding sites within the mRNA sequence. Generally, the genes
 involved are responsible for different steps in the same pathway, and this
 
-2.2
+2.2
 
 15
 
@@ -1592,7 +910,7 @@ and translation in a bacterial cell. As the ribosomes are translating the mRNA
 while it is being made, there is usually no opportunity for sections of the RNA
 to be removed before translation.
 
-16
+16
 
 BASIC MOLECULAR BIOLOGY
 Promoter
@@ -1651,7 +969,7 @@ that are closely related in all genes): TTGACA centred at position À35 (i.e. 35
 bases before the transcription start site), and TATAAT at À10 (Figure 2.10). It
 is important to understand the nature of a consensus: few bacterial promoters
 
-2.3
+2.3
 
 INFORMATION FLOW: GENE EXPRESSION
 
@@ -1710,7 +1028,7 @@ consensus sequences but to a lesser extent on the sequence of a longer region.
 The nature and regulation of bacterial promoters, including the existence of
 alternative types of promoters, is considered further in Chapter 13.
 
-18
+18
 
 BASIC MOLECULAR BIOLOGY
 
@@ -1745,7 +1063,7 @@ In bacteria, the processes of transcription and translation take place in the
 same compartment and simultaneously. In other words, the ribosomes translating the mRNA follow closely behind the RNA polymerase, and polypeptide
 production is well under way long before the mRNA is complete. In eukary-
 
-2.3
+2.3
 
 INFORMATION FLOW: GENE EXPRESSION
 
@@ -1806,7 +1124,7 @@ Figure 2.11
 
 Bacterial ribosome binding site
 
-20
+20
 
 BASIC MOLECULAR BIOLOGY
 
@@ -1824,7 +1142,7 @@ to define the start of protein synthesis. The fact that the 5H UTR is scanned in
 full length by the ribosome makes it an important region for specifying translation efficiency, and different secondary structures can have either a positive
 or a negative effect on the amount of protein that is produced.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -1860,7 +1178,7 @@ initially with bacterial cells (mainly E. coli) as the host and later extending
 the discussion to alternative host cells. The purpose of this chapter is to present
 an overview of the process, with the details of the various steps being considered further in the subsequent chapters.
 
-22
+22
 
 HOW TO CLONE A GENE
 Bacterial cloning
@@ -1919,7 +1237,7 @@ cells descended from that initial transformant will contain a copy of this piece
 of recombinant DNA. A bacterium like E. coli can replicate very rapidly under
 laboratory conditions, doubling every 20 minutes or so. This exponential
 
-3.2
+3.2
 
 OVERVIEW OF THE PROCEDURES
 
@@ -1961,7 +1279,7 @@ take a small sample and add it to fresh medium, exponential growth will
 resume. The clone can thus be propagated, and in this way we can effectively
 produce unlimited quantities of the cloned DNA. If we can get the bacteria to
 
-24
+24
 
 HOW TO CLONE A GENE
 
@@ -2001,7 +1319,7 @@ plasmid
 
 Figure 3.3 Cutting and joining DNA
 
-3.3 GENE LIBRARIES
+3.3 GENE LIBRARIES
 
 25
 
@@ -2047,7 +1365,7 @@ bacterial colony will carry a different piece of DNA from our original complex
 mixture, so if we can identify which bacterial colony carries the gene that we are
 interested in, purifying it becomes a simple matter. We just have to pick the
 
-26
+26
 
 HOW TO CLONE A GENE
 Mixture of DNA fragments
@@ -2079,7 +1397,7 @@ the two strands together will be disrupted, and the two strands will separate.
 This is known as denaturation, or less formally (and less accurately) as
 `melting'. When the solution is allowed to cool again, these bonds will reform
 
-3.4
+3.4
 
 27
 
@@ -2130,7 +1448,7 @@ specific fragment
 
 Figure 3.5 Hybridization and gene probes
 
-28
+28
 
 HOW TO CLONE A GENE
 
@@ -2166,7 +1484,7 @@ primers, will allow a second round of synthesis. Repeated cycles of denaturation
 the DNA sequence between the two primers, with the amount of product
 doubling in each cycle, so that after say 20 cycles there will (theoretically) be
 
-3.5 POLYMERASE CHAIN REACTION
+3.5 POLYMERASE CHAIN REACTION
 
 29
 
@@ -2193,7 +1511,7 @@ In this chapter we have provided a brief overview of the principal methods
 used in gene cloning. These procedures, and some of the main alternative
 strategies, are described more fully in subsequent chapters.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -2226,7 +1544,7 @@ accomplished by using lysozyme (an enzyme naturally present in egg white
 and tears for the very purpose of breaking down bacterial cell walls), often
 in conjunction with EDTA and a detergent such as SDS (sodium dodecyl
 
-32
+32
 
 PURIFICATION AND SEPARATION OF NUCLEIC ACIDS
 
@@ -2264,7 +1582,7 @@ Removal of proteins is particularly important as the cell contains a number of
 enzymes that will degrade nucleic acids, as well as other proteins that will
 interfere with subsequent procedures by binding to the nucleic acids. A
 
-4.1
+4.1
 
 EXTRACTION AND PURIFICATION OF NUCLEIC ACIDS
 
@@ -2315,7 +1633,7 @@ ethanol; in the presence of monovalent cations (Na , K or NH
 4 ) a nucleic
 acid precipitate forms which can be collected at the bottom of the test tube by
 
-34
+34
 
 PURIFICATION AND SEPARATION OF NUCLEIC ACIDS
 
@@ -2364,7 +1682,7 @@ here.
 This is a widely used procedure for separating plasmids from chromosomal
 DNA in bacterial cell extracts. In a bacterial cell extract, chromosomal DNA
 
-4.1
+4.1
 
 EXTRACTION AND PURIFICATION OF NUCLEIC ACIDS
 
@@ -2413,7 +1731,7 @@ acids, often by the aid of centrifugation (spin columns). In size-selection chro
 Smaller molecules, such as salts and unincorporated nucleotides, will enter
 the beads, whereas larger molecules such as longer nucleic acid chains will pass
 
-36
+36
 
 PURIFICATION AND SEPARATION OF NUCLEIC ACIDS
 
@@ -2453,7 +1771,7 @@ will migrate towards the electrode with the opposite charge; nucleic acid
 molecules, being negatively charged, will move towards the positive pole
 (anode). In a gel, which consists of a complex network of pores, the rate at
 
-4.3
+4.3
 
 GEL ELECTROPHORESIS
 
@@ -2499,7 +1817,7 @@ Polyacrylamide gel electrophoresis offers a much sharper size-separation of
 nucleic acid molecules, down to the separation of fragments that only differ in
 size by one single base. This is used in methods such as primer extension analysis
 
-38
+38
 
 PURIFICATION AND SEPARATION OF NUCLEIC ACIDS
 M
@@ -2584,7 +1902,7 @@ preparation to show two or three bands in a gel; it does not necessarily mean
 that there is more than one plasmid. (A further complication is that there may
 be dimeric or multimeric forms of the plasmid present.)
 
-4.3
+4.3
 
 GEL ELECTROPHORESIS
 
@@ -2626,7 +1944,7 @@ protect yourself from the UV radiation, the band(s) that need to be purified
 are excised using a razor blade or scalpel. The DNA can then be recovered and
 purified from the gel fragment, using standard DNA purification procedures.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -2662,7 +1980,7 @@ and therefore generate specific fragments. A small number of Type II restriction
 from the recognition site. The applications of such enzymes are limited and
 they will not be considered further.
 
-42
+42
 
 CUTTING AND JOINING DNA
 
@@ -2700,7 +2018,7 @@ DNA, and hence the average size of the fragments generated. For example,
 take the enzyme Sau3A, which has a 4-base recognition site, GATC. If we
 assume, for the moment, that there is an equal proportion of all four bases, and
 
-5.1
+5.1
 
 Box 5.1
 Enzyme
@@ -2848,7 +2166,7 @@ bases in length (ignoring the possible presence of introns). So a four-base
 cutting enzyme would often give fragments much smaller than a whole gene.
 On the other hand a bacterial genome of perhaps 4 Â 106 bases (4 Mb) would
 
-44
+44
 
 CUTTING AND JOINING DNA
 
@@ -2895,7 +2213,7 @@ in such strains. The full implications of methylation of DNA are too complex
 to be dealt with here, beyond saying that it may be necessary to consider these
 factors when selecting restriction enzymes and E. coli host strains.
 
-5.1
+5.1
 
 RESTRICTION ENDONUCLEASES
 
@@ -2946,7 +2264,7 @@ Figure 5.2
 
 Reading a palindromic sequence
 
-46
+46
 
 CUTTING AND JOINING DNA
 Cut
@@ -3005,7 +2323,7 @@ More flexibility can be achieved by using an enzyme such as SmaI, which
 recognizes the six base sequence CCCGGG and cuts symmetrically at the
 centre position (see Figure 5.4); it generates blunt ends, which although much
 
-5.1
+5.1
 
 5'
 
@@ -3137,7 +2455,7 @@ asymmetrically and produces sticky ends that can be ligated to other XmaI
 
 5'
 
-48
+48
 
 CUTTING AND JOINING DNA
 5'
@@ -3285,7 +2603,7 @@ fragments will normally need to be separated on a low-melting-point agarose
 
 5'
 
-5.2
+5.2
 
 LIGATION
 
@@ -3330,7 +2648,7 @@ a double-stranded DNA molecule with a nick in each strand, very close together, 
 Some DNA ligases, such as T4 DNA ligase (encoded by the bacteriophage
 T4), are also capable of ligating blunt-ended fragments, albeit much less
 
-50
+50
 
 CUTTING AND JOINING DNA
 Nick
@@ -3415,7 +2733,7 @@ group. The final stage is the attack by the 3H -OH group, forming a new covalent
 phosphodiester bond (thus restoring the integrity of the sugar±phosphate backbone) and releasing AMP. The absolute requirement for the 5H -phosphate is
 extremely important; by removing the 5H -phosphate we can prevent the occurrence of unwanted ligation (see below).
 
-5.2
+5.2
 
 LIGATION
 
@@ -3459,7 +2777,7 @@ create an optimum vector±insert ratio. It is not easy to predict reliably what
 that ratio should be but typically it would range from 3:1 to 1:3. Note that these
 are molar ratios and have to take account of the relative size of the vector and
 
-52
+52
 
 CUTTING AND JOINING DNA
 Vector
@@ -3502,7 +2820,7 @@ So adjusting the relative amount of the vector and insert will not only
 influence the success of ligation but will also have an effect on the nature of
 the products formed. Intramolecular ligation of vector molecules, or formation
 
-5.3 ALKALINE PHOSPHATASE
+5.3 ALKALINE PHOSPHATASE
 
 53
 
@@ -3545,7 +2863,7 @@ pairs holding the two strands together. It will be maintained stably at 378C, as
 double-stranded molecule.
 When this nicked molecule is introduced into a bacterial cell by transformation, enzymes within the cell will rapidly repair the remaining nicks, by adding
 
-54
+54
 Vector
 
 CUTTING AND JOINING DNA
@@ -3608,7 +2926,7 @@ extraction and ethanol precipitation are time-consuming (and can also result
 in loss of, or damage to, the DNA). If you are simply trying to make a specific
 recombinant plasmid, and have efficient ways of differentiating self-ligated
 
-5.5 MODIFICATION OF RESTRICTION FRAGMENT ENDS
+5.5 MODIFICATION OF RESTRICTION FRAGMENT ENDS
 
 55
 
@@ -3651,7 +2969,7 @@ to another EcoRI fragment, but not to one generated by BamHI. Not only do
 you lose the advantage of the cohesive ends, but the unpaired DNA gets in the
 way, making you better off with blunt-ended fragments.
 
-56
+56
 
 CUTTING AND JOINING DNA
 
@@ -3734,7 +3052,7 @@ Figure 5.9 Converting sticky ends to blunt ends
 
 5'
 
-5.5 MODIFICATION OF RESTRICTION FRAGMENT ENDS
+5.5 MODIFICATION OF RESTRICTION FRAGMENT ENDS
 
 57
 
@@ -3777,7 +3095,7 @@ with one sticky and one blunt end). For example the sequences 5H GATCCCCGGG and 
 EcoRI sticky end at the other, without needing to be cut by a restriction
 enzyme. Ligation of this adaptor to a restriction fragment generated by BamHI
 
-58
+58
 
 CUTTING AND JOINING DNA
 5'
@@ -3856,7 +3174,7 @@ multiple additions of the adaptor to the end of your DNA fragment.
 An alternative way of adding sticky ends to DNA molecules is to use the
 enzyme terminal deoxynucleotide transferase (or terminal transferase for
 
-59
+59
 
 5.5 MODIFICATION OF RESTRICTION FRAGMENT ENDS
 Two synthetic, partly
@@ -3953,7 +3271,7 @@ Figure 5.12 Tailing with terminal transferase
 
 G G
 
-60
+60
 
 CUTTING AND JOINING DNA
 Vector
@@ -4012,7 +3330,7 @@ specifically amplify the insert.
 Some of the polymerases used in PCR amplification (see Chapter 9) also have a
 (very limited) terminal transferase action: they add a single adenosine residue to
 
-5.6
+5.6
 
 OTHER WAYS OF JOINING DNA MOLECULES
 
@@ -4058,7 +3376,7 @@ responsible for controlling the degree of supercoiling of DNA (see Chapter
 free to rotate (thus reducing the supercoiling), and subsequently rejoining the
 cut ends of the DNA strands. The enzyme remains covalently attached to the
 
-62
+62
 
 CUTTING AND JOINING DNA
 
@@ -4107,7 +3425,7 @@ topoisomerase
 
 Figure 5.15 Action of topoisomerase
 
-5.7
+5.7
 
 SUMMARY
 
@@ -4135,7 +3453,7 @@ versatility of the process. In the next chapter, we will look at the nature of t
 vectors into which the required fragment can be inserted, and how the resulting
 DNA can be introduced into a bacterial cell.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -4170,7 +3488,7 @@ plasmids, nor the reason for their existence. Interest tends to focus on antibio
 of the ease with which resistance genes can be isolated and studied. However,
 many naturally occurring plasmids code for other properties, or even for none
 
-66
+66
 
 VECTORS
 
@@ -4213,7 +3531,7 @@ organisms.
 On the other hand, you may wish to carry out genetic manipulations in a
 bacterium other than E. coli, especially if your interest lies in studying the
 
-6.1
+6.1
 
 PLASMID VECTORS
 
@@ -4259,7 +3577,7 @@ are trying to clone ± see Chapter 8. However, since the recombinant plasmid
 now has two BamHI sites, it would be difficult to clone further BamHI
 fragments into it.
 
-68
+68
 
 bla
 
@@ -4309,7 +3627,7 @@ DNA with the required restriction sites, and inserting that into the plasmid in
 the usual way. Figure 6.2 shows the structure of pUC18, one of a family of
 similar plasmids that are commonly used as cloning vectors, and you will see
 
-6.1
+6.1
 
 69
 
@@ -4396,7 +3714,7 @@ lacI = repressor of lac promoter
 
 Figure 6.3 Use of the plasmid cloning vector pUC18
 
-70
+70
 
 VECTORS
 
@@ -4437,7 +3755,7 @@ the inducing agent isopropyl thiogalactoside (IPTG). The X-gal substrate is
 colourless but the action of b-galactosidase releases the dye moiety,
 resulting in a deep blue colour. Colonies carrying pUC18 are therefore blue
 
-6.1
+6.1
 
 PLASMID VECTORS
 
@@ -4483,7 +3801,7 @@ Competence develops naturally in some bacterial species, but although the
 range of species that exhibit natural competence is much wider than was
 thought for many years to be the case, it is still too limited in scope (or too
 
-72
+72
 
 VECTORS
 
@@ -4525,7 +3843,7 @@ transformations.
 Transformation based on induced competence and heat shock can be used
 for bacterial species other than E. coli, but you immediately lose all the
 
-6.2
+6.2
 
 VECTORS BASED ON THE LAMBDA BACTERIOPHAGE
 
@@ -4566,7 +3884,7 @@ purified in E coli. Vectors based on bacteriophage lambda allow efficient
 cloning of larger fragments, which is important in constructing gene libraries.
 The larger the inserts, the fewer clones you have to screen to find the one you
 
-74
+74
 
 VECTORS
 
@@ -4608,7 +3926,7 @@ known as lysogeny. In the lysogenic state, expression of almost all of the phage
 genes is switched off by the action of a phage-encoded repressor protein, the
 product of the cI gene. The expression of this gene during the establishment of
 
-6.2
+6.2
 
 VECTORS BASED ON THE LAMBDA BACTERIOPHAGE
 
@@ -4655,7 +3973,7 @@ ends of the molecule will move slowly, and therefore the re-annealing of the
 sticky ends will take a long time. Eventually, however, it will resume a circular
 (although not covalently joined) structure. When lambda infects a bacterial cell
 
-76
+76
 
 VECTORS
 
@@ -4694,7 +4012,7 @@ sites are known as cohesive end sites (cos sites). Accompanying these cleavages,
 the region of DNA between two cos sites ± representing a unit length of the
 lambda genome ± is wound tightly into the phage head. This process is known
 
-6.2
+6.2
 
 VECTORS BASED ON THE LAMBDA BACTERIOPHAGE
 
@@ -4736,7 +4054,7 @@ that the length of DNA that will be packaged into the phage head is determined
 by the distance between two cos sites. If we insert a piece of DNA into our
 lambda vector, we will increase that distance, and so the amount of DNA to be
 
-78
+78
 
 VECTORS
 
@@ -4780,7 +4098,7 @@ the addition of the tails). The resulting phage particles can then be assayed
 by addition of a sensitive bacterial culture and plating as an overlay, as above.
 Since in vitro packaging of lambda DNA is much more effective than transfection, it is the method that is almost always used.
 
-6.2
+6.2
 
 79
 
@@ -4829,7 +4147,7 @@ Figure 6.7 Lambda insertion vector gt10
 
 43.3 kb
 
-80
+80
 
 VECTORS
 
@@ -4874,7 +4192,7 @@ The packaging limits that restrict the cloning capacity of insertion vectors are
 imposed by the physical requirements of the phage head rather than by the
 nature of the genes needed. There are more genes that are not essential for lytic
 
-6.2
+6.2
 
 81
 
@@ -4950,7 +4268,7 @@ Figure 6.8 EMBL4
 Bam H1
 Right arm 9 kb
 
-82
+82
 
 VECTORS
 
@@ -4997,7 +4315,7 @@ size of the vector DNA. With an insertion vector, your recombinant may
 contain 5 kb of insert and 45 kb of vector. This makes it more difficult to
 analyse or manipulate your insert than would be the case with a plasmid
 
-6.3
+6.3
 
 83
 
@@ -5048,7 +4366,7 @@ Figure 6.9
 
 Structure of a cosmid
 
-84
+84
 
 VECTORS
 
@@ -5093,7 +4411,7 @@ M13 is a `sex-specific' bacteriophage, or more accurately F-specific. It
 attaches to the tips of the pili that are produced on the surface of bacteria
 that carry an F-type plasmid, and is therefore unable to infect bacteria that do
 
-6.4
+6.4
 
 85
 
@@ -5135,7 +4453,7 @@ Phage particles
 
 Figure 6.10 Replication of single-strand bacteriophages
 
-86
+86
 
 VECTORS
 
@@ -5179,7 +4497,7 @@ found in all phage particles.
 The above discussion has assumed that all you want to do is to clone a piece of
 DNA. It does not consider the possibility that you might want to obtain
 
-6.5
+6.5
 
 EXPRESSION VECTORS
 
@@ -5221,7 +4539,7 @@ Figure 6.11
 
 Expression vectors: transcriptional fusions
 
-88
+88
 
 VECTORS
 Cloning
@@ -5268,7 +4586,7 @@ material ± but that is not the point. It is reasonably likely to react with som
 antibodies to the natural product, which makes it a useful way of detecting the
 clone of interest, as we will see in Chapter 8.
 
-6.5
+6.5
 
 89
 
@@ -5333,7 +4651,7 @@ SP6
 
 Figure 6.14 Structure of the expression vector pGEM-3Z: bla  beta-lactamase (ampicillin resistance); ori  origin of replication
 
-90
+90
 
 VECTORS
 
@@ -5374,7 +4692,7 @@ vectors, are the yeast episomal plasmids (YEp). These are based (Figure 6.15)
 on a naturally occurring yeast plasmid known as the 2 mm plasmid, and they
 are therefore able to replicate independently in yeast, at a high copy number
 
-6.6
+6.6
 
 VECTORS FOR CLONING AND EXPRESSION IN EUKARYOTIC CELLS
 
@@ -5420,7 +4738,7 @@ unstable, but some constructs that also include a centromere are more stable
 which can be advantageous if your product is in any way harmful to the cell, or
 if you want to study its regulation.
 
-92
+92
 
 VECTORS
 
@@ -5461,7 +4779,7 @@ purpose, in a later section of this chapter.
 In bacteria, the cloning vectors used replicate separately from the chromosome,
 as plasmids or bacteriophages. As we have seen above, the same is true of many
 
-6.6
+6.6
 
 VECTORS FOR CLONING AND EXPRESSION IN EUKARYOTIC CELLS
 
@@ -5517,7 +4835,7 @@ resistance to the antibiotic G-418 (Geneticin1). Note that this is a shuttle
 vector, carrying an E. coli origin of replication and an ampicillin resistance
 gene (b-lactamase), so the construction can be carried out in E. coli before
 
-94
+94
 
 VECTORS
 MCS
@@ -5560,7 +4878,7 @@ envelope glycoproteins from the host cell membrane as they bud off from the
 cell, without lysis. These glycoproteins determine the type of receptors the virus
 uses to infect further cells.
 
-6.6
+6.6
 
 VECTORS FOR CLONING AND EXPRESSION IN EUKARYOTIC CELLS
 
@@ -5608,7 +4926,7 @@ Figure 6.19 Structure and use of a retroviral vector: bla  selection in E. col
 coli replication; neo  selection in infected cells; CMV promoter is for transcription of
 cloned gene; LTR, psi  essential cis-acting retroviral sequences (see text)
 
-96
+96
 
 VECTORS
 
@@ -5650,7 +4968,7 @@ clone 600 kb fragments, and specialized versions are available which can accommo
 any eukaryotic gene in its entirety, but also complete within their framework of
 three-dimensional structure and distant regulatory sequences. They have therefore been very useful in the production of transgenic organisms (see Chapter 17).
 
-6.8
+6.8
 
 97
 
@@ -5701,7 +5019,7 @@ found in YACs, and play an important role in genome sequencing projects
 Earlier in this chapter we considered the advantage that can be gained in
 constructing gene libraries using vectors with higher cloning capacity such as
 
-98
+98
 
 VECTORS
 
@@ -5718,7 +5036,7 @@ hundreds of thousands of clones, and screening then becomes laborious. In
 these cases, the use of larger inserts is advantageous, and the use of additional
 systems such as yeast artificial chromosomes (YAC vectors) becomes appropriate.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -5757,7 +5075,7 @@ considered that the simplest way to do this is to digest the DNA to completion
 with a restriction endonuclease such as EcoRI, but therein lies a problem. In
 Chapter 5, we saw that the average fragment size generated by EcoRI is about
 
-100
+100
 
 GENOMIC AND cDNA LIBRARIES
 
@@ -5815,7 +5133,7 @@ insert
 
 Figure 7.1 Genomic libraries: overlapping and non-overlapping fragments
 
-7.1
+7.1
 
 101
 
@@ -5857,7 +5175,7 @@ fragments
 
 Figure 7.2 Using a partial digest to produce a collection of overlapping fragments
 
-102
+102
 
 GENOMIC AND cDNA LIBRARIES
 
@@ -5903,7 +5221,7 @@ restriction digests. Not only is it easier to control the extent of degradation,
 but also the restriction digests can be directly ligated with the vector. In
 contrast, the fragments generated by mechanical shearing have either blunt
 
-7.1
+7.1
 
 GENOMIC LIBRARIES
 
@@ -5951,7 +5269,7 @@ N
 ln(1 À P)
 ln(1 À f )
 
-104
+104
 
 GENOMIC AND cDNA LIBRARIES
 
@@ -5994,7 +5312,7 @@ Note, however, that genomic libraries can be used for other purposes as well,
 especially for mapping and sequencing genomes. For these purposes larger
 fragments, which are capable of bridging any gaps that might be present, can
 
-7.1
+7.1
 
 Box 7.1
 
@@ -6104,7 +5422,7 @@ too large to be contained within even a lambda replacement vector. (Although
 some bacterial genes do carry introns, they are relatively uncommon.) Therefore, if we need to obtain a clone carrying the entire gene, we will have to use a
 vector which can accommodate a large enough DNA fragment.
 
-106
+106
 
 GENOMIC AND cDNA LIBRARIES
 
@@ -6147,7 +5465,7 @@ a falsely elevated estimate of the size of the library. The amplification of gen
 libraries (Figure 7.3) is illustrated with a plasmid vector. The concept with a
 phage vector is the same, except that plaques are produced and the amplified
 
-7.1
+7.1
 
 GENOMIC LIBRARIES
 
@@ -6188,7 +5506,7 @@ size in your library (assuming you have picked a representative sample). Those
 without an insert band (see track 5) are probably religated vector, so you
 can estimate what proportion of clones do not have an insert at all. Clearly
 
-108
+108
 
 GENOMIC AND cDNA LIBRARIES
 Library of BamHI fragments
@@ -6242,7 +5560,7 @@ stuffer fragment may not have been completely removed. Many replacement
 vectors contain additional markers to enable further differentiation or selection
 of recombinant clones. Cosmids also provide positive selection for the presence
 
-7.2 GROWING AND STORING LIBRARIES
+7.2 GROWING AND STORING LIBRARIES
 
 109
 
@@ -6286,7 +5604,7 @@ The first task is to determine the titre of the library, which almost inevitably
 will have dropped since the original stock was frozen. A dilution series is
 produced and each dilution is spread out on an agar plate and grown at 378C
 
-110
+110
 
 GENOMIC AND cDNA LIBRARIES
 
@@ -6329,7 +5647,7 @@ also pseudogenes, which appear to be non-functional copies of real genes, as
 they contain a number of changes in the sequence, such as stop codons, which
 preclude their expression. Although pseudogenes are (presumably) redundant
 
-7.3
+7.3
 
 cDNA LIBRARIES
 
@@ -6376,7 +5694,7 @@ Most of the RNA in a cell is not messenger RNA. The initial RNA preparation
 will contain substantial amounts of ribosomal RNA and transfer RNA. For
 effective production of cDNA for construction of a library it is highly desirable
 
-112
+112
 
 GENOMIC AND cDNA LIBRARIES
 
@@ -6432,7 +5750,7 @@ bear in mind that we would in reality be dealing with a complex mixture.
 The presence of the polyA tail is also used to advantage in the reverse transcription step (Figure 7.7). Reverse transcriptase, like DNA-directed DNA
 polymerase, requires a primer for initiation. An oligo(dT) primer will anneal to
 
-7.3
+7.3
 
 Mixture of mRNA
 (polyadenylated),
@@ -6481,7 +5799,7 @@ ligation, to make the cDNA molecules compatible with the chosen vector
 (Figure 7.8). After size-fractionation, eliminating excess adapters and small,
 abortive cDNA fragments, the library is inserted into the vector in a second
 
-114
+114
 
 GENOMIC AND cDNA LIBRARIES
 5'
@@ -6542,7 +5860,7 @@ These random primers will initiate first strand cDNA synthesis at intermediate
 points, and hence the enzyme will be more likely to reach the 5H end of the
 mRNA (see Figure 7.9). Obviously, you will not then get any clones containing
 
-7.3
+7.3
 
 115
 
@@ -6627,7 +5945,7 @@ CCCC
 
 Figure 7.9 cDNA synthesis: enhancing representation of 5H mRNA ends
 
-116
+116
 
 GENOMIC AND cDNA LIBRARIES
 
@@ -6666,7 +5984,7 @@ selected conditions.
 So far we have envisaged a gene library as a single tube containing a mixture of
 a large number of clones. When you want to screen the library, you plate it out
 
-7.4
+7.4
 
 RANDOM, ARRAYED AND ORDERED LIBRARIES
 
@@ -6719,7 +6037,7 @@ Figure 7.10
 
 Production of an arrayed, or gridded, library
 
-118
+118
 
 GENOMIC AND cDNA LIBRARIES
 
@@ -6760,7 +6078,7 @@ Clones in a random genomic library
 
 Figure 7.11 Production of an ordered library
 
-7.4
+7.4
 
 RANDOM, ARRAYED AND ORDERED LIBRARIES
 
@@ -6786,7 +6104,7 @@ assembling sequence data from large numbers of small fragments (see Chapter
 10), provide alternatives to the production of ordered libraries as strategies for
 genome sequencing.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -6822,7 +6140,7 @@ any threat to the covalent bonds in the backbone. This is referred to as
 denaturation of DNA, and unlike the denaturation of most proteins it is reversible. Because of the complementarity of the base pairs, the strands will easily
 join together again and renature. In the test tube, DNA is readily denatured by
 
-122
+122
 
 FINDING THE RIGHT CLONE
 
@@ -6869,7 +6187,7 @@ Temperature (ЊC)
 
 Figure 8.1 Melting (denaturation) of DNA
 
-8.1
+8.1
 
 SCREENING LIBRARIES WITH GENE PROBES
 
@@ -6928,7 +6246,7 @@ room temperature, in the absence of denaturing agents, a single-stranded
 nucleic acid will normally consist of a complex set of such localized secondary
 structure elements.
 
-124
+124
 
 FINDING THE RIGHT CLONE
 
@@ -6973,7 +6291,7 @@ Hybrid
 
 Figure 8.3 Formation of hybrid DNA between similar but non-identical DNA molecules
 
-8.1
+8.1
 
 SCREENING LIBRARIES WITH GENE PROBES
 
@@ -7020,7 +6338,7 @@ are a variety of non-radioactive labels that can be used. Nucleotides substitute
 with biotin or digoxigenin can be incorporated into the probe, and then
 detected with specific antibodies (or, in the case of biotin, using avidin,
 
-126
+126
 
 FINDING THE RIGHT CLONE
 
@@ -7065,7 +6383,7 @@ probe), then low stringency (i.e. low temperature and high salt concentration)
 should be chosen in order to protect the expected partially mismatched
 hybrids.
 
-8.1
+8.1
 
 SCREENING LIBRARIES WITH GENE PROBES
 
@@ -7110,7 +6428,7 @@ produce a replica filter of each plate, using a procedure known as a colony lift
 (or a plaque lift). A nitrocellulose or nylon membrane is placed on top of the
 plate, and the orientation is marked by piercing the membrane and the plate
 
-128
+128
 
 FINDING THE RIGHT CLONE
 
@@ -7158,7 +6476,7 @@ Figure 8.5
 
 Screening a gene library by hybridization with a gene probe
 
-8.1
+8.1
 
 SCREENING LIBRARIES WITH GENE PROBES
 
@@ -7201,7 +6519,7 @@ As we would expect, the similarity tends to be greatest for the most closely
 related species (you might not like to think it but we are closely related to rats in
 this sense!). The extent of the relationship varies from one gene to another;
 
-130
+130
 
 FINDING THE RIGHT CLONE
 
@@ -7246,7 +6564,7 @@ it is a different matter. If you know there is, say, a leucine residue in the pr
 at a specific position, then you have considerable uncertainty over what the
 DNA sequence actually is. It could be any one of six codons (see Box 8.1).
 
-8.1
+8.1
 
 Box 8.1
 
@@ -7471,7 +6789,7 @@ ambiguity reduces the specificity of the probe. If you allow too much ambiguity
 you will have a probe that will react with an unacceptable number of nonspecific clones in the library. One way of reducing the ambiguity of the probe is
 to take account of the codon usage of the organism. If this shows that there is a
 
-132
+132
 
 FINDING THE RIGHT CLONE
 
@@ -7511,7 +6829,7 @@ with an adjuvant to boost the immune response. Alternatively, a synthetic
 peptide could have been produced corresponding to a known or assumed part
 of the protein, and used similarly for immunization. It is also possible to use
 
-8.2 SCREENING EXPRESSION LIBRARIES WITH ANTIBODIES
+8.2 SCREENING EXPRESSION LIBRARIES WITH ANTIBODIES
 
 133
 
@@ -7556,7 +6874,7 @@ antiserum from an animal, then once you have used up your supply you have to
 immunize another animal. The antiserum will be different ± not only in the antibody
 titre, but also in its specificity and in the strength of binding to your antigen. (Larger
 
-134
+134
 
 FINDING THE RIGHT CLONE
 
@@ -7599,7 +6917,7 @@ linear, non-modified epitopes. The problem with conformational or modified
 epitope before using it for screening libraries. Similar considerations arise when
 using antibodies for Western blotting (see Chapter 13).
 
-135
+135
 
 8.3 RESCREENING
 
@@ -7635,7 +6953,7 @@ Re-screen
 
 Figure 8.6 Re-screening a clone from a gene library
 
-136
+136
 
 FINDING THE RIGHT CLONE
 
@@ -7677,7 +6995,7 @@ the DNA fragment, purify it from the agarose, and ligate it to your plasmid
 vector.
 Artificial chromosome vectors (BAC, PAC) have inserts measuring hundreds of kilobasepairs, making it impractical to digest and separate them. An
 
-137
+137
 
 8.5 CHARACTERIZATION OF PLASMID CLONES
 M V C
@@ -7732,7 +7050,7 @@ reliably in this way. Conventional size markers are linear DNA fragments,
 while the intact plasmid will be a supercoiled circular structure, and will
 therefore run differently on the gel.
 
-138
+138
 
 FINDING THE RIGHT CLONE
 
@@ -7777,7 +7095,7 @@ of colonies to find one in which the insert is the right way round. Ultimately,
 however, you will want to use sequence determination to make absolutely
 sure.
 
-8.5 CHARACTERIZATION OF PLASMID CLONES
+8.5 CHARACTERIZATION OF PLASMID CLONES
 
 139
 
@@ -7853,7 +7171,7 @@ looks very crude, and there are much more elegant pieces of equipment
 available; nevertheless, many molecular biologists prefer to use their own
 home-made apparatus. Following transfer of the DNA to the filter, the
 
-140
+140
 
 FINDING THE RIGHT CLONE
 
@@ -7897,7 +7215,7 @@ each recombinant clone. You can simply resuspend a portion of the colony in
 water and boil it. PCR amplification will then produce a product of a characteristic size, if you have cloned the right piece of DNA. You can screen a
 substantial number of potential recombinants in this way. Once you have
 
-8.5 CHARACTERIZATION OF PLASMID CLONES
+8.5 CHARACTERIZATION OF PLASMID CLONES
 
 141
 
@@ -7907,7 +7225,7 @@ If you are more confident about the nature of your recombinant product ±
 for example if you are simply re-cloning a known fragment rather than recovering a recombinant from a library, you can skip the PCR step and simply
 carry out sequencing on purified plasmid DNA from the chosen colony.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -7946,7 +7264,7 @@ nucleotide bases.
 PCR uses Taq polymerase (or other thermostable DNA polymerases that are
 now available) for the exponential amplification of a DNA fragment from a
 
-144
+144
 
 POLYMERASE CHAIN REACTION (PCR)
 
@@ -7988,7 +7306,7 @@ primers may fail to bind at the correct site. The temperature needed will depend
 on the sequence and length of the primers. Since G±C pairing is stronger than
 A±T, the more Gs and Cs there are in the primer, the stronger it will bind (and
 
-145
+145
 
 9.1 THE PCR REACTION
 DNA template
@@ -8038,7 +7356,7 @@ optimum extension temperature for a PCR reaction. The Taq polymerase will
 now produce complementary DNA strands starting from the primers. The
 extension proceeds at approximately 1000 bases per minute.
 
-146
+146
 
 POLYMERASE CHAIN REACTION (PCR)
 
@@ -8077,7 +7395,7 @@ template, this will not be apparent in the final product, where the ends will be
 the sequences of the primers not that of the original template. This in turn
 means that modifications can be introduced through the primers. One particularly useful application of this principle is in the addition of restriction enzyme
 
-147
+147
 
 9.1 THE PCR REACTION
 First cycle products
@@ -8164,7 +7482,7 @@ the product, including base changes. Attaching fluorescent dyes, or other
 labels, to one or both primers provides a good way of obtaining a labelled
 product.
 
-148
+148
 
 POLYMERASE CHAIN REACTION (PCR)
 5'
@@ -8212,7 +7530,7 @@ precision by a combination of heating and cooling systems. The use of small
 (0.2±0.5 m), thin-walled, tubes helps to ensure a rapid change of temperature.
 Alternatively, for larger numbers of samples, microtitre trays are used.
 
-9.2 PCR IN PRACTICE
+9.2 PCR IN PRACTICE
 
 149
 
@@ -8254,7 +7572,7 @@ only one band is obtained in each reaction, which is usually the objective. By
 comparing the size of the amplified band to a molecular weight standard, it is
 also possible to ascertain that the molecular weight is the same as the predicted
 
-150
+150
 
 POLYMERASE CHAIN REACTION (PCR)
 
@@ -8303,7 +7621,7 @@ Nested PCR product
 
 Figure 9.4 Nested PCR
 
-9.3 CLONING PCR PRODUCTS
+9.3 CLONING PCR PRODUCTS
 
 151
 
@@ -8347,7 +7665,7 @@ anneal, allowing quite efficient ligation (see Figure 9.5, and also Chapter 5).
 Note, however, that not all polymerases add adenosine residues to the product;
 the `proof-reading' polymerases produce genuinely blunt-ended PCR products.
 
-152
+152
 
 POLYMERASE CHAIN REACTION (PCR)
 TOPO
@@ -8403,7 +7721,7 @@ approximately once per 9000 nucleotides, on average. These mistakes will then
 be perpetuated in all new molecules that have been created by the amplification
 of these ones. If direct sequencing is used, this is not really a problem, because
 
-9.5
+9.5
 
 REVERSE-TRANSCRIPTION PCR
 
@@ -8443,7 +7761,7 @@ as 50 kb.
 In Chapter 7 we described the use of reverse transcriptase to obtain a cDNA
 copy of mRNA, and the construction of cDNA libraries. Combining reverse
 
-154
+154
 
 POLYMERASE CHAIN REACTION (PCR)
 
@@ -8487,7 +7805,7 @@ infer, the sequence of at least a small part of the gene.
 The most straightforward type is 3H RACE (Figure 9.7), which allows amplification of cDNA corresponding to the 3H end of the mRNA. As in the
 description of cDNA synthesis in Chapter 7, this method takes advantage of
 
-9.6
+9.6
 5'
 
 Polyadenylated mRNA
@@ -8579,7 +7897,7 @@ polyadenylated mRNA. The specificity of the system can be enhanced by a
 nested PCR in which further amplification takes place using a second, nested
 primer (also specific for the gene in question) in place of the GSP.
 
-156
+156
 
 POLYMERASE CHAIN REACTION (PCR)
 
@@ -8673,7 +7991,7 @@ Figure 9.8
 
 Rapid amplification of cDNA ends: 5H RACE
 
-9.7
+9.7
 
 APPLICATIONS OF PCR
 
@@ -8717,7 +8035,7 @@ sequence is much more useful than it sounds. For example, you may want to
 know whether the sequence varies at all in different strains (see Chapter 12).
 PCR amplification and sequencing provides a quick route to answering that
 
-158
+158
 
 POLYMERASE CHAIN REACTION (PCR)
 Conserved sequences
@@ -8769,7 +8087,7 @@ In Chapter 15, we discuss the introduction of changes into the coding
 sequence of a gene (site-directed mutagenesis); PCR plays a major role in this
 as well. A further topic in Chapter 15 is the use of a procedure known as
 
-9.7
+9.7
 
 APPLICATIONS OF PCR
 
@@ -8813,7 +8131,7 @@ point.
 The polymerase chain reaction has many important practical applications of
 PCR (i.e. in the real world outside molecular biology laboratories). Amongst
 
-160
+160
 
 POLYMERASE CHAIN REACTION (PCR)
 
@@ -8836,7 +8154,7 @@ present. The best methods for quantitative PCR are collectively known as realtim
 reaction, rather than merely assaying it at the end. This also has advantages
 in diagnostic applications, since a result is obtained much more quickly. Realtime PCR is described more fully in Chapter 13.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -8872,7 +8190,7 @@ sequence of the gene. Although direct protein sequencing is currently experienci
 The most fundamental way of analysing the structure of DNA, whether it is a
 recombinant plasmid, a natural gene, or a whole genome, is to determine the
 
-162
+162
 
 DNA SEQUENCING
 
@@ -8971,7 +8289,7 @@ direction
 
 Figure 10.1 Determination of DNA sequence
 
-163
+163
 
 10.1 PRINCIPLES OF DNA SEQUENCING
 
@@ -9040,7 +8358,7 @@ Figure 10.2
 
 2H deoxyribose and 2H , 3H dideoxyribose
 
-164
+164
 
 DNA SEQUENCING
 
@@ -9192,7 +8510,7 @@ with one of the dNTPs radioactively labelled, so that exposure of the gel to
 
 O base
 
-10.2
+10.2
 
 AUTOMATED SEQUENCING
 
@@ -9236,7 +8554,7 @@ premature termination) or with the running of the fragment on the gel. Some of
 these potential errors can be identified and minimized by altering the reaction
 conditions, by sequencing a different overlapping fragment covering the problem region, and by determining the sequence of the complementary strand.
 
-166
+166
 
 DNA SEQUENCING
 
@@ -9278,7 +8596,7 @@ Figure 10.4
 
 Extending a sequence by primer walking
 
-10.4
+10.4
 
 SHOTGUN SEQUENCING; CONTIG ASSEMBLY
 
@@ -9326,7 +8644,7 @@ themselves are joined together until eventually you have one single contig
 covering the whole of the original piece of DNA, and all the sequenced
 fragments fit into that single contig (see Figure 10.6).
 
-168
+168
 
 DNA SEQUENCING
 DNA fragment to be sequenced
@@ -9369,7 +8687,7 @@ you have 99 per cent or 99.9 per cent? Without some sort of compromise you
 can be drawn into a costly exercise trying to determine whether one difficult
 base in a sequence of a million bases is G or C.
 
-10.5 GENOME SEQUENCING
+10.5 GENOME SEQUENCING
 
 169
 
@@ -9405,7 +8723,7 @@ have been followed by sequences of the genomes of a number of other bacteria,
 as well as some eukaryotes, including yeast (Saccharomyces cerevisiae) and of
 course the human genome sequences. Some examples are shown in Box10.1.
 
-170
+170
 
 Box 10.1
 
@@ -9490,7 +8808,7 @@ Human genome sequencing progress:
 http://www.ncbi.nlm.nih.gov/genome/seq/
 http://www.gdb.org/hugo/ (Human genome organization)
 
-10.5 GENOME SEQUENCING
+10.5 GENOME SEQUENCING
 
 171
 
@@ -9535,7 +8853,7 @@ of accuracy). with no gap more than 150 kb. (This definition will vary from one
 project to another.) The published human genome sequences do not meet even
 this definition. Overall, at the time when the data were prepared for publication, the coverage was about 85 per cent (or about 90 per cent of euchromatin),
 
-172
+172
 
 DNA SEQUENCING
 
@@ -9583,7 +8901,7 @@ Assemble complete genome sequence
 
 Figure 10.7 Genome sequencing strategies
 
-10.5 GENOME SEQUENCING
+10.5 GENOME SEQUENCING
 
 173
 
@@ -9623,7 +8941,7 @@ The amount of repetitive DNA varies substantially between organisms,
 ranging from a few percent to at least 50 per cent in the human genome.
 There are various classes of repeat sequences, including dispersed (or interspersed) repeats, mainly mobile elements such as insertion sequences and
 
-174
+174
 
 DNA SEQUENCING
 
@@ -9668,7 +8986,7 @@ region of the genome, thus avoiding the need for any cloning step.
 Once the genome sequence has been finished, to meet the criteria of accuracy
 and completeness laid down in the project specifications, the final, important,
 
-10.5 GENOME SEQUENCING
+10.5 GENOME SEQUENCING
 
 175
 
@@ -9679,7 +8997,7 @@ genome sequence, knowing the sequence is only a means to an end, not an end
 in itself. The important factor is what you can do with that vast amount of
 information.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -9715,7 +9033,7 @@ not used for translation, there are usually frequent stop codons. The same
 applies to any regions of the sequence that do not code for proteins. This is not
 just a fortunate coincidence ± it prevents the ribosomes from accidentally
 
-178
+178
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -9763,7 +9081,7 @@ The third extra clue that we can use is a comparison of ORFs with predicted
 proteins from other organisms. (We do not have to rely on the identified ORFs
 from other sequences; we can ask the computer to compare the product of our
 
-179
+179
 
 11.1 ANALYSIS AND ANNOTATION
 
@@ -9833,7 +9151,7 @@ frames
 Figure 11.1 Open reading frames ± computer mapping of stop codons; edited display
 from analysis of a DNA sequence using Artemis
 
-180
+180
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -9945,7 +9263,7 @@ PPE family of Gly-, Asn-rich proteins
 Figure 11.2 Open reading frames ± display of coding sequences; edited display from
 analysis of a DNA sequence and databank annotations using Artemis
 
-181
+181
 
 11.1 ANALYSIS AND ANNOTATION
 
@@ -10017,7 +9335,7 @@ Figure 11.3
 
 Introns and exons
 
-182
+182
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -10060,7 +9378,7 @@ safe ground in attaching that label to our protein as well.
 There is a snag. Many proteins in the databanks, especially those predicted
 from gene sequences, have a functional label attached to them not because of
 
-11.1 ANALYSIS AND ANNOTATION
+11.1 ANALYSIS AND ANNOTATION
 
 183
 
@@ -10105,7 +9423,7 @@ sequence. Some pseudogenes may be transcribed into mRNA (transcribed
 pseudogenes), but these mRNA molecules cannot be translated into functional
 proteins.
 
-184
+184
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -10151,7 +9469,7 @@ we can identify a potential promoter, and hence a possible transcription start
 site. This can then form part of the annotation that is attached to our sequence
 when we deposit it in the databanks. However, in the light of the above
 
-11.1 ANALYSIS AND ANNOTATION
+11.1 ANALYSIS AND ANNOTATION
 
 185
 
@@ -10195,7 +9513,7 @@ uniform from one region to another, but there are notable exceptions. We
 may for example find, in an organism with an overall base composition of 65
 per cent, a group of genes with a much lower GC content ± say 45 per cent.
 
-186
+186
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -10239,7 +9557,7 @@ containing such a sequence will give rise to a hairpin structure, or if they are
 separated by a few bases, a stem-loop structure (Figure 11.5). A well-known
 example of such a structure is the tRNA molecule. Ribosomal RNA also exists
 
-11.1 ANALYSIS AND ANNOTATION
+11.1 ANALYSIS AND ANNOTATION
 
 187
 
@@ -10270,7 +9588,7 @@ that they play in transcriptional termination; the formation of a stable stemloo
 strand from the template DNA, allowing the two DNA strands to reanneal.
 This causes the RNA polymerase to pause, and ultimately stop transcription.
 
-188
+188
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -10314,7 +9632,7 @@ amino acids, we should be able, just on this evidence, to detect if it is likely
 be a membrane protein. Proteins that are embedded in a membrane will
 normally have substantial stretches of hydrophobic amino acids. Soluble proteins are more likely to be predominantly hydrophilic, although they can
 
-189
+189
 
 11.1 ANALYSIS AND ANNOTATION
 
@@ -10359,7 +9677,7 @@ Amino acid residues
 Figure 11.6 Hydrophobicity plot: the illustration shows a Kyte±Doolittle hydropathy
 plot for human rhodopsin (Swiss-Prot P08100); the hydrophobic regions represent transmembrane structures, with the intervening hydrophilic sequences alternating between cytoplasmic and external structures
 
-190
+190
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -10402,7 +9720,7 @@ source ± probably due to a fusion of genes that originally evolved separately
 (see Chapter 12). Domains often form more or less structurally-independent
 regions of a protein ± in other words each domain folds up into its own
 
-11.1 ANALYSIS AND ANNOTATION
+11.1 ANALYSIS AND ANNOTATION
 
 191
 
@@ -10460,7 +9778,7 @@ Figure 11.7 ScanProsite ± protein against PROSITE: the query protein was a prob
 ABC (ATP-binding cassette) transporter protein from M. tuberculosis (SWISSPROT
 053645); the analysis was done using ScanProsite at http://ca.expasy.org/tools/
 
-192
+192
 
 ANALYSIS OF SEQUENCE DATA
 Trusted matches - domains scoring higher than the gathering threshold
@@ -10568,7 +9886,7 @@ labelled ABC_tran.
 Once we have determined a DNA sequence, it should be made publicly and
 freely accessible by submitting it to a databank (EMBL, GenBank, or the
 
-11.2
+11.2
 
 DATABANKS
 
@@ -10615,7 +9933,7 @@ known sequence and search for similarities (e.g. using BLAST, see below).
 In addition to the sequence itself, there is scope for a considerable amount of
 annotation that makes the sequence information much more useful. The more
 
-194
+194
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -10702,7 +10020,7 @@ sequenced DNA. In addition, the identification and extent of any open reading
 frame is a basic requirement (together with the computer prediction of the
 protein sequence), intron/exon boundaries (if applicable) and any further information on expression signals, motifs, structural elements, as identified above
 
-11.3
+11.3
 
 SEQUENCE COMPARISONS
 
@@ -10745,7 +10063,7 @@ the databanks, but we can instruct the computer to list, say, the best 50 matche
 There is, however, another problem. Our sequence may have one or more
 gaps in it, compared with the potential match in the databank. This can happen
 
-196
+196
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -10792,7 +10110,7 @@ starting with those with the highest score. Figure 11.10 shows the result of a
 database search using BLAST, using the E. coli accA gene as the query sequence.
 (Note that this is an edited version of the output.) The numbers in the first
 
-11.3
+11.3
 
 197
 
@@ -11048,7 +10366,7 @@ most of the entries are bacterial. However, there are some plant and chloroplast
 genes (EM_PL, EM_OR) as well as one surprising viral sequence (EM_VI). The
 next columns show the accession numbers and a truncated definition.
 
-198
+198
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -11128,7 +10446,7 @@ of the probability of each match occurring by chance; the entries are arranged
 in descending order, so that the most significant matches are at the top. It is
 important not to read too much into this; it does not necessarily indicate true
 
-11.3
+11.3
 
 SEQUENCE COMPARISONS
 
@@ -11172,7 +10490,7 @@ which are regarded as completely different. All of the scores in the matrix are
 used to calculate the overall score for the match, although the alignment
 presented will only mark matches above a selected cut-off score.
 
-200
+200
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -11436,7 +10754,7 @@ Figure 11.11 Protein weight matrix: for comparison of amino acid sequences, whet
 for database searching or for multiple alignments, matrices are used to score every possible
 pair of amino acids; this example shows the Dayhoff PAM 250 matrix
 
-11.3
+11.3
 
 201
 
@@ -11576,7 +10894,7 @@ Val
 
 V
 
-202
+202
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -11622,7 +10940,7 @@ searches also apply to protein sequence comparisons: the list of matches is not
 definitive, the order shown is not necessarily a true reflection of the order of
 similarity, and you may get a different set of matches if you use a different
 
-11.3
+11.3
 
 203
 
@@ -11982,7 +11300,7 @@ Figure 11.10 for further notes.
 Figure 11.12 Results of a database search using BLASTP (protein search): (a) list of
 matching sequence with scores; (b) (overleaf)
 
-204
+204
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -12092,7 +11410,7 @@ they showed a respectable score in the BLAST comparison. Conversely, some
 proteins that appear in the BLASTP search were not detected as a match by
 FASTA.
 
-11.3
+11.3
 
 205
 
@@ -12459,7 +11777,7 @@ not found in this search.
 
 Figure 11.13 Results of a database search using FASTA (protein search)
 
-206
+206
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -12501,7 +11819,7 @@ information, both genetic and phenotypical, about known genetic diseases.
 As indicated in the above discussion, search methods such as FASTA and
 BLAST do not necessarily display the optimal alignment between your query
 
-11.3
+11.3
 
 SEQUENCE COMPARISONS
 
@@ -12538,7 +11856,7 @@ However, in many cases, to be able to draw such a conclusion, you would need
 to look at the position of this amino acid in the three-dimensional structure of
 the proteins you are comparing.
 
-208
+208
 
 ANALYSIS OF SEQUENCE DATA
 
@@ -12824,7 +12142,7 @@ In the line under the alignments,
 Figure 11.14 CLUSTAL multiple sequence alignment: this shows a multiple alignment
 of protein sequences selected from Figure 11.12
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -12857,7 +12175,7 @@ between species. Many of the concepts involved are similar, but of course the
 differences are (usually) much greater when we are comparing widely different
 species.
 
-210
+210
 
 ANALYSIS OF GENETIC VARIATION
 
@@ -12923,7 +12241,7 @@ Stop
 
 Codons arising by single-base substitutions from UUA
 
-12.1
+12.1
 
 NATURE OF GENETIC VARIATION
 
@@ -12970,7 +12288,7 @@ mutations would not cause any discernable differences in the phenotype, but
 they may have an effect, because the UTRs have a function, too, although a
 less easily predicted one than the coding region. They serve as a type of `bar
 
-212
+212
 
 ANALYSIS OF GENETIC VARIATION
 
@@ -13008,7 +12326,7 @@ extensively and rapidly, and constitute the principal antigen `seen' by the
 body's immune system. This makes it extremely difficult to produce effective
 vaccines.
 
-12.1
+12.1
 
 NATURE OF GENETIC VARIATION
 
@@ -13061,7 +12379,7 @@ Figure 12.2 Conserved domains and domain shuffling
 
 C
 
-214
+214
 
 ANALYSIS OF GENETIC VARIATION
 
@@ -13102,7 +12420,7 @@ you get only a few very large fragments.) In this situation, Southern blots not
 only enable us to identify specific gene fragments, but the method also enables
 us to compare the DNA samples according to the pattern of hybridizing bands.
 
-12.2
+12.2
 
 METHODS FOR STUDYING VARIATION
 
@@ -13159,7 +12477,7 @@ Figure 12.3
 
 Restriction fragment length polymorphism
 
-216
+216
 
 ANALYSIS OF GENETIC VARIATION
 
@@ -13197,7 +12515,7 @@ band
 Figure 12.4 Restriction fragment length polymorphism arising from transposition of an
 insertion sequence
 
-12.2
+12.2
 
 METHODS FOR STUDYING VARIATION
 
@@ -13240,7 +12558,7 @@ Each strain can then be given a number corresponding to the number of
 that tandem repeat that is present. By identifying several loci that contain
 VNTRs, and determining the number of copies at each position, we arrive at
 
-218
+218
 
 ANALYSIS OF GENETIC VARIATION
 Primer
@@ -13304,7 +12622,7 @@ that do not carry any coding information, or changes that are neutral in their
 affect on the phenotype. Indeed, the neutrality of the changes is, unsurprisingly, connected with the frequency of occurrence which makes those methods
 useful for typing. However, if we want to look at the structure of genes that
 
-12.2
+12.2
 
 219
 
@@ -13354,7 +12672,7 @@ Figure 12.6
 
 Analysis of similarity of RFLP patterns
 
-220
+220
 
 ANALYSIS OF GENETIC VARIATION
 
@@ -13393,7 +12711,7 @@ is that the mutation may affect the binding site for one of the PCR primers. In
 that case, in a heterozygote, the mutant allele will fail to amplify. On the other
 hand, the wildtype allele will amplify perfectly, and give you the incorrect
 
-12.2
+12.2
 
 METHODS FOR STUDYING VARIATION
 
@@ -13437,7 +12755,7 @@ case the conformation is relatively uniform, and the assumption that DNA
 length is the determining factor is sufficiently valid. However, single-stranded
 nucleic acids are a different matter. The bases are hydrophobic, but are
 
-222
+222
 
 ANALYSIS OF GENETIC VARIATION
 
@@ -13478,7 +12796,7 @@ enzyme that requires a six-base recognition sequence (a `six-base cutter') then,
 assuming an equal proportion and random distribution of all four bases, we
 would expect this enzyme to cut on average once every 4096 (46 ) bases. If you
 
-12.2
+12.2
 
 METHODS FOR STUDYING VARIATION
 
@@ -13532,7 +12850,7 @@ of polarity
 
 Figure 12.7 Pulsed-field gel electrophoresis: (a) conventional electrophoresis; (b) PFGE
 
-224
+224
 
 ANALYSIS OF GENETIC VARIATION
 
@@ -13574,7 +12892,7 @@ gene, allowing a quick screen in cases where there are many potential difference
 Microarrays are also used extensively for genome-wide analysis of gene
 expression, including the effect of different growth environments, or to trace
 
-12.2
+12.2
 
 METHODS FOR STUDYING VARIATION
 
@@ -13588,7 +12906,7 @@ the expression of different genes during different stages in development of the
 cell. These applications are considered further in Chapter 13, along with a more
 detailed account of microarray production and use.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -13624,7 +12942,7 @@ ways of assessing the amount of a specific transcript in a specific sample at a
 specific time. Other methods, described later in the chapter, are concerned with
 studying the transcriptional activity associated with the gene in question. Two
 
-228
+228
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -13683,7 +13001,7 @@ C
 
 D
 
-13.1 ANALYSING TRANSCRIPTION
+13.1 ANALYSING TRANSCRIPTION
 
 229
 
@@ -13727,7 +13045,7 @@ However, the gene is in the opposite orientation with respect to the SP6
 promoter. So, if you use SP6 RNA polymerase, in vitro, it will transcribe the
 gene in the wrong direction ± or in other words it will copy the opposite strand.
 
-230
+230
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -13785,7 +13103,7 @@ Figure 13.3
 
 RNase protection assay
 
-231
+231
 
 13.1 ANALYSING TRANSCRIPTION
 
@@ -13826,7 +13144,7 @@ Product
 
 Figure 13.4 Reverse transcription PCR
 
-232
+232
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -13869,7 +13187,7 @@ number of cycles. However, there is a more reliable relationship between the
 amount of template and the number of cycles of amplification needed to
 produce a detectable product. So you could in theory set up a number of
 
-233
+233
 
 13.1 ANALYSING TRANSCRIPTION
 
@@ -13931,7 +13249,7 @@ Real-time PCR
 
 32
 
-234
+234
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -13973,7 +13291,7 @@ DNA or RNA depending on the pathogen.
 Although it is possible to obtain some quantitative information by counting
 the number of grains (when using radioactive labels), quantification is not the
 
-13.1 ANALYSING TRANSCRIPTION
+13.1 ANALYSING TRANSCRIPTION
 
 235
 
@@ -14018,7 +13336,7 @@ starting with the same primer, you will be able to identify the transcription st
 site down to the very first base (see Figure 13.6). Fluorescent labels can now be
 used to perform the same procedure in an automated sequencer.
 
-236
+236
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14067,7 +13385,7 @@ are expressed during infection of a suitable host, as opposed to those that are
 expressed in laboratory culture. In some cases, these methods have been superseded by the advent of array-based hybridization techniques (see below); in
 other cases, they are still in use.
 
-13.2
+13.2
 
 237
 
@@ -14118,7 +13436,7 @@ original plate
 
 Differential screening of a gene library
 
-238
+238
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14173,7 +13491,7 @@ Clone the
 unique tester
 cDNA
 
-13.2
+13.2
 
 COMPARING TRANSCRIPTOMES
 
@@ -14223,7 +13541,7 @@ any DNA strands that are present in both samples will anneal to form a hybrid
 molecule, while the unique tester strands, which will not be able to anneal to the
 excess driver DNA, will form specific tester±tester molecules. These can be
 
-240
+240
 
 ANALYSIS OF GENE EXPRESSION
 Tester RNA
@@ -14267,7 +13585,7 @@ these can be removed by digestion with a nuclease that is specific for singlestr
 13.2.3 Differential display
 Differential display is a PCR-based method of comparing two cDNA populations. One primer is designed to bind to the poly-A tail, while the other is a
 
-13.2
+13.2
 
 COMPARING TRANSCRIPTOMES
 
@@ -14309,7 +13627,7 @@ test for the presence of a wide range of specific cDNA molecules derived from
 cells from different environments.
 Conceptually, this is not really different from differential screening. Subtractive cDNA libraries in plasmid vectors have often been painstakingly
 
-242
+242
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14348,7 +13666,7 @@ jointly in large public facilities. The sequence tag database is available throu
 GENBANK, so that you can search it for similarity to a gene you are interested
 in, and obtain the clones for a nominal charge.
 
-13.2
+13.2
 
 COMPARING TRANSCRIPTOMES
 
@@ -14393,7 +13711,7 @@ covering all the genes in the entire human genome now that it has been
 sequenced. A virtually complete array for the human genome may be available
 by the time this book is published.
 
-244
+244
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14433,7 +13751,7 @@ construct in which a DNA sequence upstream from a specific gene, including
 the promoter and some potential regulatory signals, is attached to another gene
 that codes for a readily detectable product (the reporter). Examples of com-
 
-13.3 METHODS FOR STUDYING THE PROMOTER
+13.3 METHODS FOR STUDYING THE PROMOTER
 
 245
 
@@ -14481,7 +13799,7 @@ Figure 13.10
 
 Use of a promoter-probe vector
 
-246
+246
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14525,7 +13843,7 @@ mixture of clones, only those clones with a promoter that was active in this
 situation were able to express the purA gene ± thus providing direct selection for
 promoters that were active during infection. The promoterless lacZ reporter
 
-13.3 METHODS FOR STUDYING THE PROMOTER
+13.3 METHODS FOR STUDYING THE PROMOTER
 
 247
 
@@ -14570,7 +13888,7 @@ The techniques above will identify a DNA fragment that has promoter
 activity, but will not tell you which part of that fragment is responsible. You
 can extend the approach to provide a more precise identification of the
 
-248
+248
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14611,7 +13929,7 @@ or negative impact of different elements on mRNA translatability.
 The most direct, precise and reliable way of locating a promoter, or any other
 DNA sequence that influences transcription through the binding of specific
 
-13.3 METHODS FOR STUDYING THE PROMOTER
+13.3 METHODS FOR STUDYING THE PROMOTER
 
 249
 
@@ -14658,7 +13976,7 @@ Figure 13.12
 
 Yeast one-hybrid system
 
-250
+250
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14700,7 +14018,7 @@ exactly which regions of DNA were protected. Note, however, that the extent
 of the DNA that is protected by a specific protein is usually considerably larger
 than the region that is necessary to make specific contacts with the protein.
 
-13.3 METHODS FOR STUDYING THE PROMOTER
+13.3 METHODS FOR STUDYING THE PROMOTER
 
 251
 
@@ -14742,7 +14060,7 @@ Both footprinting and gel retardation assays are applicable to any protein
 that binds to specific DNA sequences, and are not limited to those proteins that
 regulate transcription of the DNA.
 
-252
+252
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14778,7 +14096,7 @@ created by transcription of your gene of interest can then be specifically
 quantified by immobilizing it through hybridization to `cold' complementary
 DNA.
 
-13.4 TRANSLATIONAL ANALYSIS
+13.4 TRANSLATIONAL ANALYSIS
 
 253
 
@@ -14813,7 +14131,7 @@ just the presence or absence of a protein that reacts with the antigen, but also
 size and an estimate of relative levels of expression. In Figure 13.15, we see that
 expression was not detected in sample 2, and only weakly in sample 1, while the
 
-254
+254
 
 1 2 3 4 5 M
 
@@ -14861,7 +14179,7 @@ and less prone to artefacts than in situ hybridization, the study of the transla
 protein product has an added bonus. The intracellular localization of an mRNA,
 as determined by in situ hybridization, is rarely particularly revealing ±
 
-255
+255
 
 13.4 TRANSLATIONAL ANALYSIS
 
@@ -14910,7 +14228,7 @@ Figure 13.16
 
 2D protein gel electrophoresis
 
-256
+256
 
 ANALYSIS OF GENE EXPRESSION
 
@@ -14953,7 +14271,7 @@ sequence of all potential proteins, and from that information we can predict
 the sizes of all the peptides that would be generated from each protein (since we
 know the specificity of cleavage of the protease). The computer can then
 
-13.4 TRANSLATIONAL ANALYSIS
+13.4 TRANSLATIONAL ANALYSIS
 
 257
 
@@ -14970,7 +14288,7 @@ protein. This information can then be used to predict the likely sequence of par
 of the DNA of the corresponding gene, which enables you to design a nucleic
 acid probe to recover that gene from a gene library (see Chapter 8).
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -15003,7 +14321,7 @@ postulates he arrived at was that these characteristics assorted independently o
 one another. For example, if you cross a strain that produces yellow round
 peas with another strain that produces green wrinkled peas, the first generation
 
-260
+260
 
 ANALYSIS OF GENE FUNCTION
 
@@ -15099,7 +14417,7 @@ F2 phenotypic ratio
 
 Figure 14.1 Independent assortment of unlinked genes
 
-14.2
+14.2
 
 GENETIC MAPS
 
@@ -15143,7 +14461,7 @@ classical genetics has contributed extensively to the study of developmental
 processes, notably in the fruit fly Drosophila melanogaster, where it is possible
 to study quite large numbers (although nothing like the numbers that can be
 
-262
+262
 
 ANALYSIS OF GENE FUNCTION
 
@@ -15187,7 +14505,7 @@ of the gene we are comparing it with. As discussed in Chapter 11, there is a ris
 of setting up a chain of increasingly unreliable similarities. Furthermore, we
 cannot be sure in all cases that enzymes with a similar structure actually carry
 
-14.4
+14.4
 
 LINKAGE ANALYSIS
 
@@ -15232,7 +14550,7 @@ the unknown gene is often co-inherited with such a polymorphism, linkage
 analysis can identify its position to a comparatively short region, which
 can then be cloned and characterized to identify the nature of the mutation
 
-264
+264
 
 ANALYSIS OF GENE FUNCTION
 
@@ -15282,7 +14600,7 @@ Figure 14.2
 
 Chromosome walking
 
-14.5
+14.5
 
 TRANSPOSON MUTAGENESIS
 
@@ -15329,7 +14647,7 @@ and thus to identify, the affected portion of the DNA.
 The procedure in practice (illustrated in Figure 14.3) is to use a plasmid,
 carrying the transposon, which is unable to replicate in the host species being
 
-266
+266
 
 ANALYSIS OF GENE FUNCTION
 Temperature-sensitive plasmid
@@ -15370,7 +14688,7 @@ a transposon mutagenesis library. Within this library we hope there will be some
 bacteria in which the transposon has ended up within the gene(s) we are
 interested in.
 
-14.5
+14.5
 
 TRANSPOSON MUTAGENESIS
 
@@ -15416,7 +14734,7 @@ In transgenic multicellular organisms (Chapter 17), similar situations are
 sometimes encountered when an introduced transgene happens to lodge itself
 inside another gene. Because only a small fraction of eukaryotic genomes
 
-268
+268
 
 ANALYSIS OF GENE FUNCTION
 Transposon
@@ -15458,7 +14776,7 @@ important ± both in providing vectors for the integration of foreign genes into
 the Drosophila genome and in providing a system for transposon mutagenesis
 of Drosophila.
 
-14.5
+14.5
 
 TRANSPOSON MUTAGENESIS
 
@@ -15520,7 +14838,7 @@ Transposition of P elements in Drosophila
 
 Transposase
 
-270
+270
 
 ANALYSIS OF GENE FUNCTION
 
@@ -15561,7 +14879,7 @@ secreted, then phosphatase activity will be detected.
 A form of transposon mutagenesis can also be used to identify genes that are
 necessary for the virulence of pathogenic bacteria. Insertion of the transposon
 
-14.5
+14.5
 
 TRANSPOSON MUTAGENESIS
 
@@ -15607,7 +14925,7 @@ Clones are recovered from the original array
 
 Figure 14.6 Signature tagged mutagenesis
 
-272
+272
 
 ANALYSIS OF GENE FUNCTION
 
@@ -15650,7 +14968,7 @@ transform the bacteria with the construct, only those cells in which the resista
 well, incorporation into the chromosome will have occurred by homologous
 recombination at the required position, thus inactivating the gene concerned.
 
-14.6
+14.6
 
 ALLELIC REPLACEMENT AND GENE KNOCK-OUTS
 
@@ -15694,7 +15012,7 @@ function, its applications extend far beyond that. It can be used to inactivate
 genes that are necessary for the virulence of a pathogenic bacterium, thus
 producing attenuated strains that may be useful vaccine candidates. In addition, essentially identical procedures can be used to knock out genes in other
 
-274
+274
 
 ANALYSIS OF GENE FUNCTION
 
@@ -15734,7 +15052,7 @@ Interactions
 Genes do not, of course, `function' at the DNA level. Some genes function
 solely by producing specific RNA molecules (such as rRNA, tRNA). Most,
 
-14.8 STUDYING GENE FUNCTION THROUGH PROTEIN INTERACTIONS
+14.8 STUDYING GENE FUNCTION THROUGH PROTEIN INTERACTIONS
 
 275
 
@@ -15791,7 +15109,7 @@ or UAS
 Figure 14.8 Yeast two-hybrid system: (a) non-interacting proteins, no expression of
 reporter; (b) interacting proteins, expression of reporter
 
-276
+276
 
 ANALYSIS OF GENE FUNCTION
 
@@ -15837,7 +15155,7 @@ with ligand
 
 Figure 14.9 Phage display library
 
-14.8 STUDYING GENE FUNCTION THROUGH PROTEIN INTERACTIONS
+14.8 STUDYING GENE FUNCTION THROUGH PROTEIN INTERACTIONS
 
 277
 
@@ -15859,7 +15177,7 @@ that binds to the ligand can be of direct use either in itself (such as in the s
 for a therapeutic agent), or can serve to provide clues about the partial
 sequence of a longer ligand-binding protein.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology
+From Genes to Genomes: Concepts and Applications of DNA Technology
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -15896,7 +15214,7 @@ the pure product from its original source. The only way in which the product
 differs is that it is likely to be purer and will be free from infectious agents. (You
 may have heard of some difficulties with the use of recombinant human insulin,
 
-280
+280
 
 MANIPULATING GENE EXPRESSION
 
@@ -15937,7 +15255,7 @@ cloned fragment. You have to provide a promoter, using an expression vector.
 This concept was introduced in Chapter 6 and is considered again later in this
 chapter.
 
-15.1
+15.1
 
 FACTORS AFFECTING EXPRESSION OF CLONED GENES
 DNA
@@ -15996,7 +15314,7 @@ from one bacterium to another (assuming transcription occurs). However, the
 structure may not be optimal; even within the same organism, genes may not
 have an optimum ribosome binding site, for example the distance between the
 
-282
+282
 
 MANIPULATING GENE EXPRESSION
 
@@ -16067,7 +15385,7 @@ more readily than others, depending on the availability and specificity of tRNA
 molecules that recognize these codons. Any occurrence of the less readily used
 codons will slow down translation. The sequence of the genes in that organism
 
-15.1
+15.1
 
 FACTORS AFFECTING EXPRESSION OF CLONED GENES
 
@@ -16115,7 +15433,7 @@ effect: an inherently unstable protein will not be recovered in high yield, even
 we have maximized the rate of production. Amongst other factors, the location
 of the product can have an important influence of the levels obtained. If the
 
-284
+284
 
 MANIPULATING GENE EXPRESSION
 
@@ -16153,7 +15471,7 @@ promoter into a single transcriptional unit, it is referred to as a transcriptio
 fusion (cf. translational fusions, below). This is very similar to the concept of a
 reporter gene (Chapter 13), but for a different purpose. A reporter gene is used
 
-15.2
+15.2
 
 EXPRESSION OF CLONED GENES IN BACTERIA
 
@@ -16227,7 +15545,7 @@ two regions (and the distance separating them) are the most highly conserved
 and play the major role. Since none of these sequences is a perfect match with
 the consensus, we can infer that further manipulation of the sequence could
 
-286
+286
 
 MANIPULATING GENE EXPRESSION
 
@@ -16271,7 +15589,7 @@ a reduction in growth rate, because of the amount of resources that are being
 diverted in a manner that is non-productive, from the cell's perspective. This
 applies even if the protein itself has no damaging effects . Slower growth rates
 
-15.2
+15.2
 
 EXPRESSION OF CLONED GENES IN BACTERIA
 
@@ -16318,7 +15636,7 @@ Commonly, we would do both, i.e. put a lacI q gene onto the plasmid.
 Adding IPTG to a laboratory culture is fine, but on a commercial scale it is
 not an ideal solution. Adding IPTG to an industrial scale fermenter would be
 
-288
+288
 
 MANIPULATING GENE EXPRESSION
 (a) No inducer
@@ -16368,7 +15686,7 @@ required. You may be puzzled by this. If we stop supplying tryptophan, how
 is the cell going to make the protein that we want, which will probably contain
 some tryptophan residues? However, it is possible to supply a low level of
 
-15.2
+15.2
 
 EXPRESSION OF CLONED GENES IN BACTERIA
 
@@ -16414,7 +15732,7 @@ product is very damaging, the cell will not be able to tolerate even this low le
 of expression. Other promoters with tighter control, such as the T7 promoter
 referred to earlier (see also Chapter 6), have to be used.
 
-290
+290
 
 MANIPULATING GENE EXPRESSION
 
@@ -16462,7 +15780,7 @@ Figure 15.5
 
 Transcriptional and translational fusions
 
-15.2
+15.2
 
 291
 
@@ -16512,7 +15830,7 @@ Ligation at EcoRI site is out-of-frame; incorrect fusion protein, with terminati
 
 Figure 15.6 Translational fusion: in-frame and out-of-frame fusions
 
-292
+292
 
 MANIPULATING GENE EXPRESSION
 
@@ -16551,7 +15869,7 @@ just a few examples. Many of the concepts discussed in relation to bacterial
 gene expression are also relevant to expression in eukaryotic cells, even if the
 details are different.
 
-15.3 EXPRESSION IN EUKARYOTIC HOST CELLS
+15.3 EXPRESSION IN EUKARYOTIC HOST CELLS
 
 293
 
@@ -16592,7 +15910,7 @@ in the expression vectors, adjacent to the cloning site, therefore provides
 vectors that are capable of generating substantial levels (up to several grams
 per litre) of the required product.
 
-294
+294
 
 MANIPULATING GENE EXPRESSION
 
@@ -16636,7 +15954,7 @@ recombination with viral DNA. For the other component of the system,
 instead of intact viral DNA, a linearized DNA is used. The linearized viral
 DNA lacks a portion of an essential gene, thus eliminating the production of
 
-15.3 EXPRESSION IN EUKARYOTIC HOST CELLS
+15.3 EXPRESSION IN EUKARYOTIC HOST CELLS
 
 Polyhedrin
 promoter
@@ -16686,7 +16004,7 @@ b-galactosidase into the transfer vector so that blue recombinant plaques can
 be readily identified.
 Following transfection, viral plaques can be picked and the virus characterized to verify the presence of the cloned gene. The characterized recombinant
 
-296
+296
 
 MANIPULATING GENE EXPRESSION
 
@@ -16728,7 +16046,7 @@ as those containing the origin of replication from the Epstein Barr Virus
 levels of protein expression. The use of retroviral vectors for integrating foreign
 genes in mammalian genomes, and for obtaining gene expression, was con-
 
-15.4
+15.4
 
 ADDING TAGS AND SIGNALS
 
@@ -16771,7 +16089,7 @@ retained by the resin, while other proteins will be washed through. The His-tag
 can also be used as an epitope tag, since there are antibodies available that will
 specifically recognize this sequence of histidine residues, which facilitates detection of the tagged product.
 
-298
+298
 
 MANIPULATING GENE EXPRESSION
 Promoter and
@@ -16816,7 +16134,7 @@ secretion signals. E. coli does not secrete many proteins into the culture
 supernatant ± most of the proteins secreted across the cytoplasmic membrane
 remain in the periplasm, trapped by the outer membrane. In some other
 
-15.5
+15.5
 
 IN VITRO MUTAGENESIS
 
@@ -16860,7 +16178,7 @@ we could use synthetic techniques to remake the complete gene ± either by
 direct DNA synthesis or by PCR-based methods such as assembly PCR. All
 these techniques are described in the subsequent sections. Their potential
 
-300
+300
 
 MANIPULATING GENE EXPRESSION
 
@@ -16904,7 +16222,7 @@ deletion
 
 Figure 15.9 In vitro mutagenesis: examples of some simple procedures
 
-15.5
+15.5
 
 IN VITRO MUTAGENESIS
 
@@ -16946,7 +16264,7 @@ plasmid
 
 Site-directed (in vitro) mutagenesis
 
-302
+302
 
 MANIPULATING GENE EXPRESSION
 
@@ -16989,7 +16307,7 @@ The early applications of PCR for site-directed mutagenesis suffered from
 the risk of introducing unwanted mutations into the product, due to the
 absence of proof-reading ability of Taq polymerase. The introduction of alternative heat-stable polymerases which do have proof-reading ability, and hence
 
-15.5
+15.5
 
 303
 
@@ -17054,7 +16372,7 @@ might interfere with transcription; you also would want to consider the introduc
 In principle, you would program a DNA synthesizer to make the DNA
 sequence which could then be cloned. Here again, it is not quite that simple.
 
-304
+304
 
 MANIPULATING GENE EXPRESSION
 
@@ -17096,7 +16414,7 @@ We can just as easily synthesize a gene which codes for an altered protein. We
 could introduce specific changes into the sequence and test their effects on,
 for example, the substrate specificity of the enzyme. Or we could introduce
 
-15.5
+15.5
 
 IN VITRO MUTAGENESIS
 
@@ -17114,7 +16432,7 @@ producing such engineered proteins, but the inadequacy of our knowledge of
 how a specific sequence of amino acids will fold into a three-dimensional
 structure, and how we can predict the enzymic activity of such a novel protein.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -17144,7 +16462,7 @@ The principal examples here are diphtheria and tetanus vaccines.
 To these three types we can add a fourth, even without resorting to gene
 technology. Some killed vaccines, although giving good protection, also have
 
-308
+308
 
 MEDICAL APPLICATIONS, PRESENT AND FUTURE
 
@@ -17202,7 +16520,7 @@ Figure 16.1
 
 Vaccines
 
-16.1
+16.1
 
 309
 
@@ -17248,7 +16566,7 @@ Figure 16.2
 
 Hepatits B virus: diagrammatic structure
 
-310
+310
 
 MEDICAL APPLICATIONS, PRESENT AND FUTURE
 
@@ -17293,7 +16611,7 @@ widely used vaccines, it is rather hit and miss. Many mutations are likely to
 accumulate, apart from those that give rise to the desired attenuation, so there
 is a good deal of uncertainty in the nature of the resulting strain. For a virus, it
 
-16.1
+16.1
 
 VACCINES
 
@@ -17340,7 +16658,7 @@ than just removing its virulence.
 The larger genome of a bacterium provides more targets, and potentially
 many that would eliminate virulence while still retaining the ability to grow in
 
-312
+312
 
 MEDICAL APPLICATIONS, PRESENT AND FUTURE
 
@@ -17383,7 +16701,7 @@ promoter derived from vaccinia. This plasmid also carries a defective thymidine 
 cloning site. If an animal cell is infected with vaccinia virus, and at the same
 time transformed with the recombinant plasmid, the homology between
 
-16.1
+16.1
 
 313
 
@@ -17432,7 +16750,7 @@ Despite its widespread use in the smallpox eradication campaign, it is not a
 very safe vaccine: for example, it is not suitable for people with skin conditions
 such as eczema, nor for people who are immunodeficient. However, there are
 
-314
+314
 
 MEDICAL APPLICATIONS, PRESENT AND FUTURE
 
@@ -17474,7 +16792,7 @@ animals in the conventional way (see Box 8.2), a recombinant plasmid, carrying
 the cloned gene together with appropriate expression signals, can be used
 directly as an immunogen.
 
-16.2
+16.2
 
 DETECTION AND IDENTIFICATION OF PATHOGENS
 
@@ -17501,7 +16819,7 @@ Figure 16.4
 
 Fingerprinting of Mycobacterium tuberculosis using IS6110
 
-316
+316
 
 MEDICAL APPLICATIONS, PRESENT AND FUTURE
 
@@ -17545,7 +16863,7 @@ relatively imprecise method of mapping, with a resolution of several million
 base pairs. If the gene concerned has already been cloned, in situ hybridization
 can be used to determine its position on the chromosome more precisely. This
 
-16.3
+16.3
 
 HUMAN GENETIC DISEASES
 
@@ -17599,7 +16917,7 @@ of the gene, it is known as positional cloning (Figure 16.6).
 The distance that can be covered by this approach can be extended by
 chromosome walking (see Chapter 14). In this technique, the first clone, carrying
 
-318
+318
 
 MEDICAL APPLICATIONS, PRESENT AND FUTURE
 Target
@@ -17648,7 +16966,7 @@ analysing the structure of the protein. In experimental animals, final confirmat
 experiments (Chapter 17).
 The power of these techniques therefore relies on a combination of approaches. Classical genetics (often termed forward genetics) starts with a
 
-16.3
+16.3
 
 HUMAN GENETIC DISEASES
 
@@ -17693,7 +17011,7 @@ provides a mechanism for molecular diagnosis. This is of particular benefit in
 prenatal diagnosis, which involves obtaining samples containing foetal cells by
 amniocentesis or chorionic villus sampling ± the latter technique having the
 
-320
+320
 
 MEDICAL APPLICATIONS, PRESENT AND FUTURE
 
@@ -17735,7 +17053,7 @@ coincidence. Nonetheless, although it is neither the beginning nor the end,
 discovering the exact genetic nature of a condition is a very important step.
 First, as described above, it makes it possible to devise precise diagnostic
 
-16.3
+16.3
 
 HUMAN GENETIC DISEASES
 
@@ -17776,7 +17094,7 @@ mammalian cell lines in culture ± genes can be delivered using liposomes,
 calcium phosphate precipitation, or electroporation. However, the methodology that is attracting the greatest interest by far, both for the development of
 in vivo and ex vivo methods, is the use of viral vectors.
 
-322
+322
 
 MEDICAL APPLICATIONS, PRESENT AND FUTURE
 
@@ -17820,7 +17138,7 @@ the activity of oncogenes, for example by using antisense technology (see
 Chapter 17), or by targeting toxic genes to cancerous tissue. The serious nature
 of these diseases provides a powerful argument for employing an approach that
 
-16.3
+16.3
 
 HUMAN GENETIC DISEASES
 
@@ -17835,7 +17153,7 @@ for other ends? These are serious questions that demand a wider rational
 debate, and scientists have a role in trying to ensure that a wider audience is
 sufficiently educated about the issues to achieve this level of rationality.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -17874,7 +17192,7 @@ the introduction of foreign DNA, in the form of cloned genes. In contrast, the
 latter means obtaining progeny that are genetically identical to the original
 plant or animal, which includes methods ranging from the widely publicized
 
-326
+326
 
 TRANSGENICS
 
@@ -17919,7 +17237,7 @@ animal to another, as does the number of copies of the integrated DNA, which
 may range from a single copy to several hundred. The level of expression of the
 inserted gene may therefore vary from one animal to another.
 
-17.2
+17.2
 
 ANIMAL TRANSGENESIS AND ITS APPLICATIONS
 
@@ -17954,7 +17272,7 @@ recombinant construct to other animals. The method described in Chapter 6
 uses helper cells as an intermediate stage, to produce infective virus particles
 that do not need a helper virus, and thus circumvents this problem. However,
 
-328
+328
 
 TRANSGENICS
 
@@ -17993,7 +17311,7 @@ activator sequences and promoter elements as well as the introns and exons.
 The conceptually simplest, and often preferable, method of constructing such a
 transgene exploits the large coding capacity of yeast artificial chromosome
 
-17.2
+17.2
 
 ANIMAL TRANSGENESIS AND ITS APPLICATIONS
 
@@ -18036,7 +17354,7 @@ which it is expressed.)
 recessive mutated phenotype by introducing the wild-type gene, which will
 provide conclusive proof of the identity of the gene. This can obviously be
 
-330
+330
 
 TRANSGENICS
 Gene transcribed in
@@ -18098,7 +17416,7 @@ animal. This is a marked contrast to the situation in many plants, where cells
 from various parts of the plant, although differentiated, are still capable of
 producing whole plants; such cells are said to be totipotent. This is why it is so
 
-17.2
+17.2
 
 ANIMAL TRANSGENESIS AND ITS APPLICATIONS
 
@@ -18143,7 +17461,7 @@ Figure 17.3
 
 Embryonic stem-cell technology
 
-332
+332
 
 TRANSGENICS
 
@@ -18201,7 +17519,7 @@ marker
 
 Figure 17.4 Gene insertion at a specific site
 
-17.2
+17.2
 
 ANIMAL TRANSGENESIS AND ITS APPLICATIONS
 
@@ -18244,7 +17562,7 @@ Disrupted target gene
 Figure 17.5 Gene knock-outs: neo codes for an aminoglycoside phosphotransferase that
 gives resistance to enomycin and to G418 (Geneticin)
 
-334
+334
 
 TRANSGENICS
 
@@ -18288,7 +17606,7 @@ sequence.
 Another application that is at least as controversial as gene therapy is the use of
 transgenic technology for commercially important animals such as cattle and
 
-17.3 TRANSGENIC PLANTS AND THEIR APPLICATIONS
+17.3 TRANSGENIC PLANTS AND THEIR APPLICATIONS
 
 335
 
@@ -18328,7 +17646,7 @@ Biolistics involves coating tiny beads of gold with DNA and bombarding the
 plant cells at high velocity; this technique has also been used with other types of
 cell (see also the discussion of DNA vaccines in Chapter 16). For plants it has
 
-336
+336
 
 TRANSGENICS
 
@@ -18394,7 +17712,7 @@ Figure 17.6 neo  neomycin phosphotransferase, selection for resistance to G418
 plant cells; bla  beta-lactamase, selection for ampicillin resistance in E. coli; T  T-DNA
 fragment transmitted to plant cells
 
-17.3 TRANSGENIC PLANTS AND THEIR APPLICATIONS
+17.3 TRANSGENIC PLANTS AND THEIR APPLICATIONS
 
 337
 
@@ -18435,7 +17753,7 @@ In addition to adding genes to plants, it is possible to inactivate specific pla
 genes. In general, this involves the use of anti-sense RNA (see Figure 17.1)
 rather than gene knock-outs. The principle of antisense technology, as
 
-338
+338
 
 TRANSGENICS
 
@@ -18468,7 +17786,7 @@ play a major role in improvements in health, to use just one example. From
 your study of this book, you should be better placed to understand, and
 hopefully contribute to, the debate over the use and control of genetic modification.
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -18490,7 +17808,7 @@ Cold Spring Harbor Laboratory Press, USA.
 Watson, J. D. et al. (1992). Recombinant DNA, 2nd edition. Scientific American Books,
 USA.
 
-340
+340
 
 BIBLIOGRAPHY
 
@@ -18587,7 +17905,7 @@ Genomforschung
 
 Clones, libraries, ESTs,
 
-From Genes to Genomes: Concepts and Applications of DNA Technology.
+From Genes to Genomes: Concepts and Applications of DNA Technology.
 Jeremy W Dale and Malcom von Schantz
 Copyright  2002 John Wiley & Sons, Ltd.
 ISBNs: 0-471-49782-7 (HB); 0-471-49783-5 (PB)
@@ -18627,7 +17945,7 @@ as a non-radioactive label; detected with avidin.
 BLAST basic local alignment sequencing tool; a computer program for searching for
 similar sequences.
 
-342
+342
 
 GLOSSARY
 
@@ -18675,7 +17993,7 @@ Copy number the number of molecules of a plasmid present in a cell.
 cos site the sequence of bases of bacteriophage lambda that is cut asymmetrically during
 packaging, generating an unpaired sequence of 12 bases at each end of the phage DNA.
 
-GLOSSARY
+GLOSSARY
 
 343
 
@@ -18724,7 +18042,7 @@ FISH fluorescent in situ hybridization; using a probe labelled with a fluorescen
 locate specific genes on a chromosome, or within a cell or tissue.
 Flush end see blunt end.
 
-344
+344
 
 GLOSSARY
 
@@ -18772,7 +18090,7 @@ of hydrogen bonds between wholly or partially complementary sequences.
 Hydrophilic `water-loving'; substances, or parts of a structure, that are polar, and interact
 with water, and therefore tend to be exposed to water.
 
-GLOSSARY
+GLOSSARY
 
 345
 
@@ -18819,7 +18137,7 @@ of the first structural gene; often involved in regulating gene expression.
 Ligand a (usually small) molecule that binds non- covalently to a specific site(s) on a
 protein.
 
-346
+346
 
 GLOSSARY
 
@@ -18866,7 +18184,7 @@ Nested PCR a technique for increasing the sensitivity and/or specificity of PCR,
 second set of primers internal to the first pair.
 Nick a break in one strand of a double-stranded DNA molecule.
 
-GLOSSARY
+GLOSSARY
 
 347
 
@@ -18914,7 +18232,7 @@ Polar mutation a mutation in one gene that affects the expression of others (e.g
 downstream in an operon); the phenotypic effect may not be directly caused by the
 original mutation.
 
-348
+348
 
 GLOSSARY
 
@@ -18962,7 +18280,7 @@ cytosine and uracil in RNA) (see purine).
 RACE (rapid amplification of cDNA ends) a PCR-based method for obtaining the full
 length of a cDNA.
 
-GLOSSARY
+GLOSSARY
 
 349
 
@@ -19010,7 +18328,7 @@ RNA polymerase enzyme that synthesizes RNA, generally using a DNA template.
 RT-PCR reverse transcription PCR; technique for producing an amplified DNA product
 from an mRNA template.
 
-350
+350
 
 GLOSSARY
 
@@ -19060,7 +18378,7 @@ from regulatory genes.
 Stuffer fragment piece of DNA that is removed from a vector such as a replacement
 lambda vector, and replaced by the cloned DNA fragment.
 
-GLOSSARY
+GLOSSARY
 
 351
 
@@ -19106,7 +18424,7 @@ Transcription synthesis of RNA according to a DNA template.
 Transcriptional fusion a recombinant construct in which a promoterless insert is transcribed from a promoter on the vector (c.f. translational fusion).
 Transcriptome the complete mRNA content of a cell (c.f. genome, proteome).
 
-352
+352
 
 GLOSSARY
 
@@ -19147,753 +18465,4 @@ chromosome.
 
 a yeast vector that relies on integration into the yeast
 
-Index
-Adaptors, 57±58, 103, 113
-Adenoviruses, 322
-Agrobacterium tumefaciens, 336 ±337
-Alkaline phosphatase, 53±54, 82, 109
-reporter, 270
-Allelic replacement, 272±274, 312
-Amino acid matrices, 199±202
-BLOSUM, 202
-PAM, 200, 202
-Antibiotic resistance, 2, 65, 70, 211, 220, 265
-Antibodies, 132±134
-monoclonal, 134, 254, 297
-probe detection, 125±126
-screening libraries, 132
-Western blot, 253±254
-Antisense RNA, 89, 229±230, 322, 330, 334,
-337±338
-Arrays
-analysis of gene expression, 241±244
-clones, 117±119, 242
-ESTs, 242±243
-hybridisation, 244
-identification of deletions, 224, 265
-libraries, 117±119
-oligonucleotides, 118, 221, 224 ±225
-PCR products, 118, 224 ±225, 243
-Auxotrophs, 267
-Bacillus subtilis, 299
-Bacillus thuringiensis, 337
-Bacterial artificial chromosomes (BACs),
-97, 174
-Bacteriophages, 41, 110, 186
-see also Vectors, specific bacteriophages
-Baculovirus, 294 ±296
-BCG, 314
-û-galactosidase, 70, 82, 87, 108
-Bioinformatics,
-databanks, 192±195
-gene prediction, 177±183, 262±263
-protein structure, 188±192
-
-sequence alignment, 206 ±207
-sequence comparison, 195
-Biolistics, 314, 335±336
-Biotin, 125±126, 239
-BLAST, 196 ±199, 202±206
-Breast cancer, 264, 320
-Caenorhabditis, 325
-cDNA libraries, 99, 110±111, 181, 242
-bacterial, 116
-choice of vectors, 114
-construction, 112±116
-size, 110
-subtractive, 239±240
-cDNA synthesis, 112±113, 153±154, 235,
-238±239
-full-length, 114 ±116
-RACE, 154 ±157, 241
-Chromosome walking, 100, 264, 317±318
-Clones
-analysis, 107±109, 137±140, 159
-stability, 188, 286 ±287
-subcloning, 84, 136 ±137
-Cloning, 2, 21, 325±326
-cDNA, 113±115
-homopolymer tailing, 58±60
-PCR products, 60±63, 147, 151±152
-positional, 264, 317
-restriction fragments, 49, 67±69
-TA cloning, 60±61, 152
-topoisomerase, 61±63, 152
-use of linkers and adaptors, 57±58
-CLUSTAL, 202, 206 ±208
-Codon usage, 19, 178, 282±283, 299
-Codons, synonymous, 19, 130, 210±211,
-282±283
-Codons, list of, 131
-ColE1, 65, 66
-Competence, 71±73
-Complementation, 270, 274, 329
-Consensus sequences, 16 ±18
-
-354
-
-INDEX
-
-Cosmids, 83±84, 96, 104, 108
-cloning capacity, 83±84
-genome sequencing, 173
-Cre-lox, 63
-Cystic fibrosis, 322
-Cytomegalovirus, promoter, 93, 296, 314
-Databanks, 192±195, 199
-annotation, 179±180, 184, 193±194
-DDBJ, 193
-EMBL, 180, 192±193, 197
-GenBank, 192±193, 206
-SwissProt, 195, 199, 202
-Deletions, 211, 212, 216, 224, 300
-Denaturation, 9, 26 ±27, 121±122, 144
-Dideoxynucleotides, 163±164
-Diphtheria toxin, 329
-DNA
-alcohol precipitation, 33±34
-alkaline denaturation, 34 ±35
-base composition, 44, 122, 185±186, 281,
-283
-base-pairing, 7±9
-column purification, 35±36
-extraction, 31±33
-gradient centrifugation, 34
-hydrogen bonding, 7±9
-hydrophobic interactions, 9±10, 123
-junk, 110, 172
-quantitation, 36
-structure, 5±6, 12±13
-supercoiling, 12±13, 61
-synthetic, 303±304
-DNA gyrase, 13
-DNA ligase, 5, 24, 49
-DNA polymerase I, 56
-Klenow fragment, 56
-DNA sequencing
-automated, 165±166
-contig assembly, 167±168
-electrophoresis, 164
-genomes, 169±175
-method, 161±165
-primer walking, 166 ±167
-shotgun, 103, 167±168
-universal primers, 167
-use of transposons, 272
-DNA topoisomerase
-supercoiling, 12±13, 61
-use in cloning, 61±63, 152
-DNA vaccines, 314
-DNA-binding proteins, 18, 185, 248±252
-DNAse I footprinting, 250±251
-
-Domains, 190±192, 212±213
-Drosophila, 261, 316, 325
-P elements, transposition, 268±270
-Electrophoresis, 36 ±39
-agarose, 37±39
-analytical, 37±38
-characterisation of clones, 138
-DNA sequencing, 164
-pulsed-field gel electrophoresis (PFGE),
-37, 222±224
-plasmids, 38±39, 137±138
-polyacrylamide, 37, 164
-preparative, 39
-RNA, 39, 228±229
-SDS-PAGE, 253±254
-single-stranded nucleic acids, 221±222
-single-strand conformational
-polymorphism (SSCP), 221±222
-two dimensional, 255±257
-Electroporation, 73
-EMBL, 180, 192±193, 197
-Embryonic stem cells, 328, 330±332
-Endonucleases, 5
-Enhancers, 185
-trapping, 246, 270
-Epidemiology, 216, 315
-Ethidium bromide, 36, 39
-Eugenics, 320
-Evolution, molecular clock, 219±220
-Exons, 15, 181±182
-Exonucleases, 5
-Expressed sequence tags, 182, 196, 242±243
-Expression vectors
-bacterial, 86 ±90, 284 ±292
-gene libraries, 132
-insect cells, 294 ±296
-mammalian, 93±96, 296 ±297
-transcriptional fusion, 87, 89, 284 ±286
-translational fusion, 87, 290±292
-yeasts, 92, 293±294
-FASTA, 196, 204 ±206
-Fingerprinting, 214 ±219
-Fluorescent in situ hybridisation (FISH),
-126, 316 ±317
-Frameshift mutation, 211
-Gel retardation assays, 251±252
-GenBank, 192±193, 206
-Gene expression, 16 ±20
-bacterial, 16 ±20, 86 ±90, 284 ±292
-conditional, 89, 286 ±289, 296
-
-INDEX
-
-epitope tagging, 297±298
-eukaryotes, 18, 20, 90±96, 292±297
-factors affecting, 280±284
-gene dosage effect, 66, 286, 289
-histidine tagging, 297±298
-insect cells, 294 ±296
-lethal genes, 289±290
-mammalian cells, 93±96, 296 ±297,
-328±330
-optimisation, 279
-plants, 336 ±337
-post-translational modification, 284
-regulatory proteins, 185, 248±252
-secretion, 284, 298±299
-transcription, 16 ±19, 227±248, 280±281
-transgenes, 326, 328±330
-translation, 14, 19±20, 253, 281±283,
-290±292
-yeasts, 92, 293±294, 309
-Gene expression analysis
-arrays, 241±244
-differential display, 240±241
-differential screening, 237±238
-footprinting, 250±251
-gel retardation assays, 251±252
-Northern blots, 228±229, 236
-promoters, 244 ±248
-proteome, 227, 256
-reporter genes, 244 ±248
-representational difference analysis,
-239±240
-RNase protection assay, 229±231
-RT-PCR, 153±154, 231±234
-sequence analysis, 184 ±185
-subtractive hybridisation, 238±240
-transcriptome, 227, 236, 241±244
-two dimensional protein gels, 255±257
-Western blots, 253±254
-yeast one-hybrid assay, 249±250
-Gene function, 182±183, 259, 262±263, 273
-protein interactions, 274 ±276
-Gene knock-in, 334
-Gene knock-out, 272±274, 333±334
-vaccines, 312
-Gene libraries, 25±26, 52, 82, 99, 121.
-arrayed (gridded), 116 ±119
-cDNA, 99, 110
-differential screening, 237±238
-expression vectors, 132
-genomic, 25±26, 99
-ordered, 116, 119, 173, 264
-rescreening, 135
-screening with antibodies, 132±134
-
-355
-
-screening with gene probes, 25, 27,121,
-127±132
-subcloning, 136
-see also cDNA libraries, Genomic
-libraries
-Gene linkage, 220, 259±262, 263±264, 316
-Gene replacement, 272±274
-Gene subtraction, 337±338
-Gene therapy, 320±323
-antisense RNA, 322
-viral vectors, 321±322
-Genes
-identification of function, 182±183, 259,
-265, 272, 274, 318, 333
-structure, 14 ±15
-synthetic, 303±304
-Genetic disease
-diagnosis, 160, 217, 319±320
-gene therapy, 320±323
-mapping, 220, 264, 316 ±319
-Genetic variation, 209
-allele-specific probes, 221
-analysis, 214 ±225
-domain shuffling, 212±213
-microarrays, 224 ±225
-pulsed-field gel electrophoresis (PFGE),
-222±224
-restriction fragment length
-polymorphisms (RFLPs), 214 ±217,
-315
-sequence polymorphisms, 210±212,
-218±221
-single-strand conformational
-polymorphism (SSCP), 221±222
-transposition, 212, 265, 315
-Genome comparisons
-microarrays, 224 ±225
-pulsed-field gel electrophoresis (PFGE),
-222±224
-Genome plasticity, 213
-Genome sequencing, 161, 169±175
-analysis, 177±206
-bacterial artificial chromosomes, 119, 174
-clone by clone, 119, 173
-cosmids, 173
-gene prediction, 177±184
-problems, 165, 173±175
-shotgun sequencing, 172±173
-strategies, 172±173
-Genomic libraries, 25, 99
-choice of vector, 103±106, 108
-construction, 101±102, 106
-evaluation, 106 ±109
-
-356
-
-INDEX
-
-Genomic libraries (continued )
-large inserts, 101, 105, 174
-maintenance, 109±110, 117
-mechanical shearing, 102±103
-partial digests, 101±102
-size, 103±105
-Hairpins, 9±10, 123, 159, 165, 186 ±187
-cDNA, 113
-Hepatitis B virus, vaccine, 309
-Herbicides, 3, 337
-Herpes simplex virus, 296, 322
-Heteronuclear RNA, 18, 181
-Homologous recombination, 272, 332
-Homopolymer tailing, 58±60, 156
-Human growth hormone, 279
-Hybridization, 9, 26 ±28, 121±126
-arrays, 244
-dot blots, 221
-filter, 127, 139, 221
-fluorescent in situ hybridisation (FISH),
-126, 317
-in situ, 234 ±235, 254, 317
-library screening, 121±128
-Northern blots, 228±229
-slot blots, 221
-solution, 229±230
-Southern blots, 139±140, 214 ±217
-stringency, 124, 126, 130
-subtractive, 238±240
-Immunocytochemistry, 254 ±255
-Immunohistochemistry, 254 ±255
-In vitro mutagenesis, 299±303
-In vitro packaging, 78±79, 81,83
-Indels, 224
-Insertion sequences, 188, 216, 315
-Insertional inactivation, 70±71, 80, 87, 108
-Insulin, 129, 242, 279
-Introns, 14, 15, 105, 110, 181±182
-In vivo expression technology (IVET),
-246 ±247
-IPTG, 70, 287
-Isoelectric focussing (IEF), 255±256
-Islands, 186
-Isoschizomers, 47±48
-Lambda, 73±78
-cos sites, 75±76, 79, 83
-lysogeny, 74 ±75
-lytic cycle, 76 ±78
-packaging, 76 ±78
-replication, 76 ±77
-
-Lambda vectors, 79±83
-EMBL4, 81±82
-gt10, 79±80, 114
-gt11, 80, 87±88, 108, 114, 132±134
-insertion vectors, 79±80
-in vitro packaging, 78±79
-packaging limits, 77±78, 79±80, 82
-replacement vectors, 81±83, 101, 104,
-108
-Ligation, 45±47, 49±53, 72
-blunt-ended fragments, 46 ±47, 50
-optimisation, 51±53
-Linkage analysis, 263±264, 316 ±318
-Linkers, 57, 103
-Lysogeny, 74 ±76
-Lysozyme, 31
-M13, 84 ±86, 276 ±277, 301
-Macroarrays, 118, 243
-see also Arrays
-Mammalian cells
-gene expression, 296 ±297
-vectors, 92±96
-Mapping
-cytogenetic, 316 ±317
-disease genes, 220, 264, 316 ±319
-genetic maps, 259±262, 316
-ordered libraries, 264
-physical maps, 262
-relating physical and genetic maps,
-262±263
-Mass spectrometry, 256
-Melting temperature, 9, 122±123
-Mendel, 259±261
-Methylation, 41, 44
-Mice,
-embryonic stem cells, 330±332
-knock-in, 334
-knock-out, 333±334
-Microarrays, 118, 224, 243
-see also Arrays
-Microsatellites, 217±218, 317
-Modification, 41, 44
-Motifs, 190±192, 212
-Pfam, 192
-PROSITE, 191
-mRNA
-abundance, 110, 231±232, 238, 281
-bacterial, 116
-isolation, 111±112, 154
-Northern blot, 228±229
-polyadenylated, 18, 112, 154, 242
-RT-PCR, 231±234
-
-INDEX
-
-splicing, 18
-stability, 19
-Multiple cloning sites, 55, 68
-Mutagenesis, site-directed, 300±303
-Mutations
-antibiotic resistance, 211, 220
-chain terminating, 211
-frameshift, 211
-genetic disease, 220
-polar, 274
-restriction fragment length
-polymorphisms (RFLPs), 215
-silent, 210
-single nucleotide polymorphisms (SNPs),
-210±222
-Northern blots, 228±229
-oligo(dT), mRNA isolation, 112±113
-Open reading frames, 14, 177±180
-Operons, 14 ±15
-Pathogens, 246 ±247, 270±272, 307
-diagnosis, 315
-typing, 315
-Polymerase chain reaction (PCR), 28±29,
-143±160
-analysis of products, 149±151
-applications, 157±160, 217
-assembly PCR, 304
-characterisation of clones, 140±141,
-159
-cloning products, 60±63, 151±152
-contamination, 160
-diagnosis, 159±160, 217, 315, 319±320
-differential display, 240±241
-fingerprinting, 217±220
-gene cloning strategies, 157±159
-inverse, 267±268
-long-range, 152±153
-nested, 150±151
-primers, 144 ±145, 147, 149
-procedure, 144 ±147
-product arrays, 243
-quantitative, 160, 232±234
-rapid amplification of cDNA ends
-(RACE), 154 ±157, 241
-real-time, 160, 221, 232±234
-representational difference analysis,
-239±240
-RT-PCR, 153±154, 231±234
-sequence polymorphisms, 220±221
-site-directed mutagenesis, 302±303
-
-357
-
-specificity, 150
-Phage display, 86, 276 ±277
-Phages, see Bacteriophages
-Pharming, 335
-Phenol, 32±33
-Phenotype, 14
-Phenylketonuria, 316
-Pichia pastoris, 293±294
-Plant cells
-lysis, 32
-transformation, 335±336
-Plasmid vectors, 22±25, 65±71
-bacterial expression, 86 ±90
-cloning sites, 55, 67±69
-insertional inactivation, 70±71
-origin of replication, 66 ±67
-selectable markers, 70
-shuttle vectors, 67, 91,93,95
-transformation, 71±73
-Plasmids,
-antibiotic resistance, 65
-copy number, 66, 286, 289
-electrophoresis, 38
-host range, 66 ±67
-purification, 32±36, 138
-replication, 66 ±67
-replication origin, 289
-structure, 13, 65
-suicide, 266, 272
-see also Vectors
-Polarity, 274
-Polio virus, 311
-Positional cloning, 264, 317
-Primer extension assay, 235±236
-Primers
-cDNA synthesis, 112±114
-PCR, 28±29, 144 ±145, 147, 149
-random, 114
-sequencing, 163, 166
-Tm, 122±124, 144
-Probes, 9, 27
-allele-specific, 217, 221, 320
-back translation, 130±132
-cDNA, 126, 237, 241
-heterologous, 129
-homologous, 129±130
-labelling, 125±126, 239, 243
-restriction fragment length
-polymorphisms (RFLPs), 215±217
-RNA, 229
-selection, 129
-Tm, 122±124
-Promoter probe vectors, 245±247
-
-358
-
-INDEX
-
-Promoters, 16 ±19, 280, 329±330
-alternative, 184, 286
-analysis, 184 ±185, 244 ±248
-cauliflower mosaic virus, 337
-consensus, 16 ±17, 184, 285
-controllable, 287±289
-cytomegalovirus, 93, 296, 314
-eukaryotic, 184
-lac, 285±287
-locating, 184 ±185, 235, 245±246
-PL , 285
-polyhedrin, 294
-SP6, 89
-SV40, 296
-T7, 89±90, 229, 286, 289
-trp, 285, 288±289
-Protein engineering, 300, 304
-Protein interactions, 274 ±276
-Protein secretion, 270, 284, 298±299
-Protein sequencing, 132
-Proteins
-amino acid matrices, 199±202
-conformation, 189±190, 284
-domain shuffling, 213±214
-domains, 190±192, 212±214
-hydrophobicity, 188±189
-motifs, 190±192, 212
-post-translational modification, 284
-sequence analysis, 188±192
-sequence comparison, 178, 182±183,
-199±202
-Proteinase K, 32
-Proteomics, 227, 256 ±257
-Protoplast transformation, 335
-Pseudogenes, 110, 183
-pUC18, 68±69, 70±71, 87, 108
-Pulsed-field gel electrophoresis, 37, 214,
-222±224
-Rapid amplification of cDNA ends
-(RACE), 116, 154 ±157, 241
-Repeat sequences, 186 ±188, 218
-Repetitive elements, 111, 173±174, 188,
-216 ±217 , 265
-Reporter genes, 244 ±245, 248, 270, 284, 329
-Restriction, 41, 44
-Restriction endonucleases, 5, 24, 41±45
-double digests, 54 ±55
-frequency of cutting, 42±45, 99, 222±223
-isoschizomers, 47±48
-partial digests, 101±102
-recognition sequences, 42±48
-sticky and blunt ends, 45±47
-
-Type I, 41
-Type II, 41
-Restriction fragment length polymorphisms
-(RFLPs), 214 ±218
-mapping disease genes, 317
-bacterial typing, 315
-Restriction fragments
-end filling, 56
-processing, 48±49
-tailing, 58±60
-trimming, 56 ±58
-Retinitis pigmentosa, 220
-Retroviruses, 94 ±96
-gene therapy, 322
-transgenesis, 327±328
-Reverse transcriptase, 94, 111, 112±114, 235
-RT-PCR, 153±154, 231±234
-Rhodopsin, 189, 220, 224
-Ribonuclease, 32, 154
-Ribosome binding site, 19, 281±282, 290,
-292
-RNA
-electrophoresis, 39
-purification, 32, 111±112
-quantitation, 36
-structure, 9±10
-RNase protection assay, 229±231
-Run-on assay, 252
-S1 nuclease, 113
-Saccharomyces cerevisiae, 90±92, 309
-gene expression, 293
-Salmonella, 312, 314
-Secretion signals, 270, 284, 298±299
-Sequence analysis
-alignments, 199, 202, 206 ±207
-annotation, 171, 177, 184, 193±195
-Artemis, 179±180
-base composition, 185±186
-BLAST, 193, 196 ±199, 202, 206
-boxes, 185
-CLUSTAL, 199, 202, 206 ±207
-comparison, 182, 193, 195±206, 262
-exon/intron boundaries, 181±182
-expression signals, 184 ±185
-FASTA, 196, 204 ±206
-gene function, 182±183, 262
-gene prediction, 177±180
-indels, 224
-MPsrch, 206
-polymorphisms, 210±212, 218±220
-promoters, 184 ±185
-protein motifs, 190±192
-
-INDEX
-
-protein structure, 188±190
-Shine-Dalgarno sequence, 19, 281±282,
-292
-Short tandem repeats, 218
-Signal sequences, 284, 298±299
-Signature-tagged mutagenesis, 247, 269±272
-Single nucleotide polymorphisms, 210±212
-Site-directed mutagenesis, 86, 158
-Southern blots
-characterisation of clones, 139±140
-procedure, 139±140
-restriction fragment length
-polymorphisms (RFLPs), 214 ±217,
-315
-Single-strand conformational
-polymorphism (SSCP), 221±222
-Start codon, 19, 178, 282, 290
-Stop codons, 178±179, 211, 283
-Stringency, 124 ±125
-SV40
-origin of replication, 93
-promoter, 93, 296
-SwissProt, 195, 199, 202
-Synonymous codons, 19, 210±211, 283
-Synthetic genes, 303±304
-TA cloning, 60±61, 151
-Tagged proteins, 297±298
-Taq polymerase, 143±144, 152±153
-Terminal transferase, 58±60 , 116, 156
-Ti plasmids, 336 ±337
-Tissue plasminogen activator, 213
-Tomatoes, 338
-Transcription, 14 ±19
-analysis, 227±236
-cloned genes, 280±281
-start, 16 ±18, 184, 235±236
-termination, 187
-Transcription factors, 18, 249±252
-Transcriptional fusions, 284 ±286
-Transcriptomes, 227, 236 ±244
-Transfection, 78
-Transformation, 22, 24 ±25, 71, 72
-biolistics, 314, 335±336
-competence, 71±72
-electroporation, 73, 335
-microinjection, 326, 335
-plant cells, 335
-protoplasts, 335
-Transgenics, 270, 325
-animals, 96, 326 ±335
-applications, 334 ±335
-gene expression, 328±330
-
-359
-
-mosaics, 326, 328
-plants, 335±338
-Translation, 14, 19±20, 281±283, 290±292
-analysis, 253±257
-initiation, 19, 281
-Translational fusions, 290±292, 297
-Transposons, 188, 212, 216, 265±266
-gene fusions, 270
-mutagenesis, 265±268
-signature tagged mutagenesis, 270±272
-use in sequencing, 272
-tRNA, 282
-Typing, bacteria, 216 ±218, 224, 315
-Vaccines, 212, 307±314
-antigen production, 309±310
-attenuation, 310±312
-DNA, 314
-recombinant, 312±314
-Vaccinia, 312±313
-Variable number tandem repeats (VNTR),
-217±218
-Vectors, 2, 22
-bacterial artificial chromosomes (BACs),
-97, 101, 105
-baculovirus, 294 ±296
-cosmids, 83±84, 96, 104
-eukaryotes, 90±96
-expression vectors, 86 ±89, 280, 284 ±286
-lambda, 73, 79±83, 104
-M13, 84 ±86
-mammalian cells, 92±96, 296 ±297
-P1 bacteriophage, 97
-plasmids, 22, 65±71
-retroviral, 94 ±96, 322, 327±328
-shuttle vectors, 67, 91, 93, 95, 294
-Ti plasmids, 336
-yeast artificial chromosomes (YACs),
-96 ±97, 101, 317, 329
-yeasts, 90±92, 293±294
-Western blots, 253±254
-X-gal, 70±71
-Yeast artificial chromosomes (YACs), 92,
-96 ±97, 101, 317, 329
-Yeast one-hybrid assay, 249±250
-Yeast two-hybrid assay, 275±276
-Yeast vectors
-selectable markers, 91
-yeast artificial chromosomes (YACs),
-92, 96 ±97
-
-360
-Yeast vectors (continued )
-yeast centromere plasmids, 91
-yeast episomal plasmids, 90±91
-yeast integrating plasmids, 92
-
-INDEX
-
-Yeasts, 90±92
-autonomously replicating sequences,
-91
-gene expression, 92, 293±294
-
+

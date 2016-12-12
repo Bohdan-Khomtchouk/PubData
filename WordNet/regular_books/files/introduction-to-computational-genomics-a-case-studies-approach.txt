@@ -1,749 +1,3 @@
-This page intentionally left blank
-
-Introduction to Computational Genomics
-Where did HIV and SARS come from? Have we inherited genes from Neanderthals?
-How do plants use their internal clock? How do odor receptors function? The genomic revolution in biology, started in the late 1990s, enables us to answer such
-questions. But the revolution would have been impossible without the support of
-powerful computational and statistical methods that enable us to exploit the massive amounts of genomic data. Accordingly, many universities are introducing the
-courses to train the next generation of bioinformaticians: biologists who are ﬂuent
-in the language of mathematics and computer science, and data analysts who are
-familiar with the problems and techniques of biology. The entry cost into this ﬁeld is
-very high, requiring knowledge of several disciplines and of a large and fast-growing
-literature. Students need a road map to navigate entry to this ﬁeld. This readable and
-entertaining book, based on successful courses taught at the University of California
-and elsewhere, provides that. It guides the reader step by step through some of the
-key achievements of bioinformatics. The hands-on approach makes learning easier
-and experimentation natural, as well as equipping the reader with the necessary
-tools and skills. Statistical sequence analysis, sequence alignment, hidden Markov
-models, gene and motif ﬁnding, gene expression data analysis and reconstruction
-of evolutionary relations between genomes are all introduced in a rigorous yet accessible way. A companion website provides the reader with all the data used in the
-examples, links to publicly available software, and Matlab demonstration for
-reproducing and adapting all the steps performed in the book.
-TM
-
-Nello Cristianini is Professor of Artiﬁcial Intelligence at the University of Bristol.
-Matthew Hahn is Assistant Professor, Department of Biology and School of Informatics, Indiana University.
-
-Introduction to
-Computational
-Genomics
-A Case Studies Approach
-Nello Cristianini and Matthew W. Hahn
-
-cambridge university press
-Cambridge, New York, Melbourne, Madrid, Cape Town, Singapore, São Paulo
-Cambridge University Press
-The Edinburgh Building, Cambridge cb2 2ru, UK
-Published in the United States of America by Cambridge University Press, New York
-www.cambridge.org
-Information on this title: www.cambridge.org/9780521856034
-© N. Cristianini and M. W. Hahn
-This publication is in copyright. Subject to statutory exception and to the provision of
-relevant collective licensing agreements, no reproduction of any part may take place
-without the written permission of Cambridge University Press.
-First published in print format 2006
-isbn-13
-isbn-10
-
-978-0-511-26007-0 eBook (EBL)
-0-511-26007-5 eBook (EBL)
-
-isbn-13
-isbn-10
-
-978-0-521-85603-4 hardback
-0-521-85603-5 hardback
-
-isbn-13
-isbn-10
-
-978-0-521-67191-0paperback
-0-521-67191-4 paperback
-
-Cambridge University Press has no responsibility for the persistence or accuracy of urls
-for external or third-party internet websites referred to in this publication, and does not
-guarantee that any content on such websites is, or will remain, accurate or appropriate.
-
-Contents
-Preface
-Prologue: In praise of cells
-
-page ix
-xi
-
-Chapter 1 The ﬁrst look at a genome: Sequence statistics
-1.1
-1.2
-1.3
-1.4
-1.5
-1.6
-1.7
-
-Genomic era, year zero
-The anatomy of a genome
-Probabilistic models of genome sequences
-Annotating a genome: statistical sequence analysis
-Finding data: GenBank, EMBL, and DDBJ
-Exercises
-Reading List
-
-Chapter 2 All the sequence’s men: Gene ﬁnding
-2.1
-2.2
-2.3
-2.4
-2.5
-2.6
-
-The human genome sweepstakes
-An introduction to genes and proteins
-Genome annotation: gene ﬁnding
-Detecting spurious signals: hypothesis testing
-Exercises
-Reading List
-
-1
-1
-3
-5
-10
-18
-20
-21
-22
-22
-23
-29
-31
-37
-37
-
-Chapter 3 All in the family: Sequence alignment
-
-38
-
-3.1
-3.2
-3.3
-3.4
-3.5
-3.6
-3.7
-3.8*
-3.9
-3.10
-
-38
-39
-40
-42
-47
-50
-53
-55
-60
-60
-
-Eye of the tiger
-On sequence alignment
-On sequence similarity
-Sequence alignment: global and local
-Statistical analysis of alignments
-BLAST: fast approximate local alignment
-Multiple sequence alignment
-Computing the alignments
-Exercises
-Reading list
-
-Chapter 4 The boulevard of broken genes: Hidden
-Markov models
-
-61
-
-4.1
-4.2
-4.3
-4.4
-4.5
-4.6*
-4.7
-4.8
-
-61
-63
-67
-69
-70
-75
-77
-77
-
-The nose knows
-Hidden Markov models
-Proﬁle HMMs
-Finding genes with hidden Markov models
-Case study: odorant receptors
-Algorithms for HMM computations
-Exercises
-Reading list
-
-vi
-
-CONTENTS
-
-Chapter 5 Are Neanderthals among us?: Variation
-within and between species
-5.1
-5.2
-5.3
-5.4
-5.5
-5.6
-5.7
-
-Variation in DNA sequences
-Mitochondrial DNA: a model for the analysis of variation
-Variation between species
-Estimating genetic distance
-Case study: are Neanderthals still among us?
-Exercises
-Reading list
-
-Chapter 6 Fighting HIV: Natural selection at the
-molecular level
-
-78
-79
-83
-85
-87
-92
-94
-95
-
-96
-
-A mysterious disease
-Evolution and natural selection
-HIV and the human immune system
-Quantifying natural selection on DNA sequences
-Estimating K A /K S
-Case study: natural selection and the HIV genome
-Exercises
-Reading list
-
-96
-97
-98
-99
-102
-105
-108
-109
-
-Chapter 7 SARS – a post-genomic epidemic:
-Phylogenetic analysis
-
-110
-
-6.1
-6.2
-6.3
-6.4
-6.5
-6.6
-6.7
-6.8
-
-7.1
-7.2
-7.3
-7.4
-7.5
-7.6
-7.7
-
-Outbreak
-On trees and evolution
-Inferring trees
-Case study: phylogenetic analysis of the SARS epidemic
-The Newick format
-Exercises
-Reading list
-
-Chapter 8 Welcome to the hotel Chlamydia: Whole
-genome comparisons
-8.1
-8.2
-8.3
-8.4
-8.5
-8.6
-
-Uninvited guests
-By leaps and bounds: patterns of genome evolution
-Beanbag genomics
-Synteny
-Exercises
-Reading list
-
-Chapter 9 The genomics of wine-making: Analysis of
-gene expression
-9.1
-9.2
-9.3
-9.4
-9.5
-
-Chateau Hajji Feruz Tepe
-Monitoring cellular communication
-Microarray technologies
-Case study: the diauxic shift and yeast gene expression
-Bonus case study: cell-cycle regulated genes
-
-110
-112
-115
-120
-126
-127
-127
-
-128
-128
-129
-130
-135
-138
-139
-
-141
-141
-143
-145
-147
-155
-
-CONTENTS
-
-9.6 Exercises
-9.7 Reading list
-
-158
-158
-
-Chapter 10 A bed-time story: Identiﬁcation of
-regulatory sequences
-
-159
-
-10.1
-10.2
-10.3
-10.4
-10.5
-10.6
-
-159
-161
-162
-167
-172
-172
-
-The circadian clock
-Basic mechanisms of gene expression
-Motif-ﬁnding strategies
-Case study: the clock again
-Exercises
-Reading list
-
-Bibliography
-Index
-
-173
-179
-
-vii
-
-Preface
-
-Nothing in biology makes sense except in the
-light of evolution.
-Theodosius Dobzhansky
-Modern biology is undergoing an historical transformation, becoming – among
-other things – increasingly data driven. A combination of statistical, computational, and biological methods has become the norm in modern genomic
-research. Of course this is at odds with the standard organization of university
-curricula, which typically focus on only one of these three subjects. It is hard
-enough to provide a good synthesis of computer science and statistics, let alone
-to include molecular biology! Yet, the importance of the algorithms typical of
-this ﬁeld can only be appreciated within their biological context, their results
-can only be interpreted within a statistical framework, and a basic knowledge
-of all three areas is a necessary condition for any research project.
-We believe that users of software should know something about the algorithms behind the results that are presented, and software designers should
-know something about the problems that will be attacked with their tools. We
-also believe that scientiﬁc ideas need to be understood within their context,
-and are often best communicated to students by means of examples and case
-studies.
-This book addresses just that need: providing a rigorous yet accessible introduction to this interdisciplinary ﬁeld, one that can be read by both biologically
-and computationally minded students, and that is based on case studies. It has
-evolved from a course taught at UC Davis, where both authors were doing
-research in computational biology, one coming from computer science (N.C.)
-and the other from biology (M.W.H.).
-The authors had to understand the other’s ﬁeld in order to do research in the
-hybrid science of computational genomics. The goal of this book is to develop
-a simple, entertaining, and informative course for advanced undergraduate and
-graduate students. Based on carefully chosen case studies, the chapters of this
-book cover ten key topics that we feel are essential to a scientist conducting
-research in bioinformatics and computational genomics. We will be satisﬁed if
-at the end of this ﬁrst course the reader is able to understand and replicate the
-main results from the classic papers in this ﬁeld.
-
-x
-
-P RE F A C E
-
-This book beneﬁted from the input of many colleagues and students. In
-particular, many of the case studies have been based on projects developed
-by students, post-docs, and research visitors, as well as teaching assistants. In
-particular we want to thank Elisa Ricci, Tara Thiemann, Margherita Bresco,
-Chi Nguyen, Khoa Nguyen, and Javannatah Gosh. The authors have beneﬁted
-from discussions with various outstanding colleagues, and it is difﬁcult to list
-them all. However in particular we want to thank Linda Bisson, Stacey Harmer,
-Wolfgang Polonik, Dan Gusﬁeld, Sergey Nuzhdin, Lucio Cetto, Leonie Moyle,
-Jason Mezey, and Andrew Kern. The ﬁrst draft has been proof-read by various
-colleagues: Chris Watkins, John Hancock, Asa Ben Hur, Tom Turner, Quan Le,
-Tara Thiemann, Vladimir Filkov, and Rich Glor. N. C. acknowledges support
-from NIH grant R33HG003070-01.
-The book’s website contains the data, the algorithms and the papers used
-in the case studies, and much more. It can be found at the URL
-www.computational-genomics.net
-Bristol, Bloomington
-
-Prologue
-
-In praise of cells
-
-r How cells work
-r What is a genome
-r The computational future of
-biology
-
-r A roadmap to this book
-
-The physicist Richard Feynman is credited with jump-starting the ﬁeld of nanotechnology. In a talk at Caltech in December 1959, Feynman issued a famous
-challenge: he would pay $1000 to anyone who could write the entire Encyclopedia Britannica on the head of a pin. Feynman calculated that the size of the
-area was approximately 1/16 of an inch across (about 1.6 × 10−3 meters), and
-that in order to ﬁt all 42 million letters of the Encyclopedia one would have to
-make each letter 1.0 × 10−8 meters across. It took (only) 26 years before the
-prize was ﬁnally claimed by a graduate student at Stanford University.
-Now, consider the problem of having to write out the entire set of instructions
-needed to build and operate a human, and consider having to do so in each of the
-trillions of cells in the body. The entire human genome is 3.5 billion “letters”
-long, and each cell is only 2 microns (2 × 10−7 meters) across. (Actually, two
-complete copies of the genome are present in each cell, so we have to ﬁt a bit
-more than 7 billion letters.) However all the organisms on earth overcome these
-packaging problems to live and prosper in a wide range of environments.
-In the same 1959 lecture Feynman also imagined being able to look inside a
-cell in order to read all of the instructions and history contained within a genome.
-A few decades later the genomic era began – a time when technological advances
-in biology and computational advances in computer science came together to
-fulﬁll Feynman’s dream. Bioinformatics and computational genomics make it
-possible to look inside a cell and read how an organism functions and how it
-got to be that way. This book endeavors to be a ﬁrst course in this new ﬁeld.
-
-Why bioinformatics?
-How are all forms of life related? What was the ﬁrst cell like? How do species
-adapt to their environments? Which part of our genome is evolving the fastest?
-Are we descendents of Neanderthals? What genes are responsible for major
-human diseases? Why do we need new ﬂu vaccines every year?
-Modern biology is a goldmine of fascinating questions, and never before have we been so close to the answers. The main reason for this is the
-new, data-driven approach to biological investigation spawned by the availability of large-scale genomic data. The availability of these data has triggered a revolution in biology that can only be compared to the revolution in
-physics at the beginning of the twentieth century. The effects of this revolution have been felt in other ﬁelds of science, as well. Application of genomic
-
-xii
-
-P RO L O G U E
-
-technology to medicine, drug design, forensics, anthropology, and epidemiology holds the promise to improve our life and enlarge our understanding of the
-world.
-Almost as important as this scientiﬁc revolution is the cultural revolution
-that has accompanied it. Many of the questions asked in modern biology can
-only be answered by computational analysis of large quantities of genomic data.
-Researchers in computer science and statistics have been recruited to this effort
-to provide both a conceptual framework and technological support. Biologists,
-computer scientists, and statisticians now work together to analyze data and
-model living systems to a level of detail that was unthinkable just a few years
-ago. The impact of this collaboration on biology has been invaluable and has
-lead to the new discipline of bioinformatics.
-Soon, a new kind of scientist (with knowledge in computer science, statistics, mathematics, biology, and genetics) will arise. Most major universities
-have already started various types of degrees in bioinformatics and are drawing
-students with a wide range of backgrounds. The purpose of this book is to provide a ﬁrst course in the questions and answers to problems in bioinformatics
-and computational genomics (because many people have preconceived notions
-of the term “bioinformatics,” we use these two phrases interchangeably). We
-hope to provide the biology necessary to computational researchers – though
-we obviously cannot cover everything – and the algorithms and statistics necessary to biologists. All of this is in the hope of molding a new type of researcher
-able to ask and answer all (or almost all) of the questions in modern biology.
-
-A bit of biology
-One of the most fundamental questions, the one that underlies many others,
-is: How do cells work? For both unicellular and multicellular organisms, we
-want to know how cells react to their environment, how genes affect these
-reactions, and how organisms adapt to new environments. The general picture
-is known, but many of the details are missing. Modern biology aims to answer
-this question in detail, at a molecular level. Here we review some of the most
-basic ideas in biology to provide the minimum knowledge needed to conduct
-research in bioinformatics. We stress at the outset that biology is a ﬁeld of
-exceptions: all of the generalizations and rules we introduce here will be wrong
-for some organisms, but covering all of the exceptions would take another book.
-Throughout the text, we have tried to note when there are important exceptions
-that bear on the examples given.
-Every organism’s dream (so to speak) is to become two organisms. An
-organism reproducing faster, or exploiting its environment more efﬁciently,
-rapidly out-competes its rivals for resources. This was the basic point made by
-Darwin and is vital to understanding the way cells and organisms work. The
-conceptual framework of evolution is the most fundamental aspect of biological
-thinking and allows us to organize and interpret all of the data we will be analyzing in this book. No analysis of the genetic differences between individuals in
-a species, or between different species, makes sense outside of an evolutionary
-framework. Over the 3.5 billion years life has been on this planet, organisms
-have become extremely streamlined and efﬁcient, shaped to a large extent by
-the evolutionary process of natural selection. If we want to understand cells,
-we have to understand both the power and the limitations of natural selection.
-
-P RO L O G U E
-
-Conversely, in order to understand natural selection, we also must understand
-much about basic biology.
-There are two basic types of cells, those with and without nuclei (called
-eukaryotic and prokaryotic cells, respectively). These types of cells largely
-share the same fundamental molecular machinery, but prokaryotes are simpler,
-unicellular organisms (such as bacteria), while eukaryotes are often more complex and include both unicellular and multicellular organisms (such as fungi,
-animals, and plants).
-Unicellular organisms are the simplest free-living things; their ability to
-interact with the environment, derive the energy and materials needed to continually fabricate themselves, and then eventually to reproduce is controlled by
-a complex network of chemical reactions. Even the individual cells that make
-up a multicellular organism must each perform thousands of such reactions.
-These chemical reactions (called metabolism as a whole) are the very essence
-of cellular life: a cell needs to process various nutrients found in its environment, to produce the components it needs to operate, and then to breakdown
-components no longer needed. These tasks are carried out via biochemical
-processes that can be ﬁnely controlled by the cell. Each reaction needs to be
-catalyzed (triggered) by speciﬁc proteins – special molecules produced by the
-cell itself. Many proteins are enzymes, a kind of molecule involved in nearly
-every activity of the cell. Other proteins are used as structural elements to build
-cellular parts, as activation or repression agents to control reactions, as sensors
-to environmental condition, or take part in one of the many other tasks necessary for cellular function. There are thousands of different proteins in each
-cell, often specialized to control one speciﬁc reaction, or to be part of a speciﬁc
-cellular structure. Producing these proteins not only requires the cell to obtain
-energy and materials, but also requires detailed communication between different parts of a cell or between cells. Much of the cellular machinery is devoted
-simply to ensuring the production of proteins at the right moment, in the right
-quantity, in the right place.
-A protein is a large molecule formed by a chain of amino acids, which
-folds into a characteristic shape. The same 20 basic amino acids are used by
-all known organisms. The exact composition of the chain (which amino acids
-are in which order) determines its shape, and its shape determines its function
-– i.e. which reactions it will facilitate, which molecules it will bind to, etc. The
-need to produce thousands of proteins means that a cell must have a way to
-remember the recipe for each of them, as well as have a way to produce them
-at the right time.
-A cell’s most reliable way to pass on the recipe for making proteins is contained in its genetic material and is passed on to daughter cells at each division.
-The machinery for reading this information is one of the core components of
-all living things and is highly similar in all types of cells; the machinery itself
-is formed by a complex of enzymes, speciﬁed by the very instructions it must
-read! This self-referential, auto-poietic, aspect of life can be mind-boggling.
-The genetic material used by cells is formed by molecules of DNA (deoxyribonucleic acid), which have a sequential structure that enables them to act
-as information storage devices. The way in which they store the recipe for proteins and the information needed to control their production will be discussed
-in Chapters 1 and 2.
-
-xiii
-
-xiv
-
-P RO L O G U E
-
-The quest to understand the way in which DNA is used by organisms to
-pass on genetic instructions has spanned the last two centuries of biology. The
-initial steps were taken in 1859 by a Moravian monk named Gregor Mendel.
-Mendel discovered that genetic information is contained in discrete units (what
-we now call genes), passed from generation to generation. The second major
-step came in 1944, when a group in New York led by Oswald Avery showed that
-nucleic acids were the molecules used to encode this information. Finally, with
-the proposal of the structure of DNA by James Watson and Francis Crick in
-1953, the mechanism for the replication and retrieval of information stored in a
-DNA sequence was found. What came in the years following these discoveries
-has been an incredible series of events, with biologists unraveling the exact way
-in which proteins are speciﬁed by DNA, and revealing how cells use genetic
-information to synthesize proteins.
-
-The future of biology
-Although the big picture came to emerge gradually in the last decades of the
-twentieth century, it also became increasingly clear that the size and complexity of organisms meant that a detailed understanding of their inner-workings
-could not be achieved by small-scale experiments. By the end of the century
-it became possible to automate the acquisition of this knowledge and thus to
-collect gigabytes of data in a short period of time. The invention of sequencing
-machines that can read the entire DNA sequence of a bacterium in only a day,
-and of a larger eukaryote in a month, as well as machines that can identify and
-quantify all of the genes active in a cell or a tissue, has ensured a steady ﬂood
-of biological information for the foreseeable future. The analysis of these data
-promises to be the biggest challenge to biology in the twenty-ﬁrst century.
-The details of the roles played by different proteins in cellular reactions,
-how these reactions are organized into pathways (whereby the product of one
-reaction becomes the substrate of another reaction), and how pathways are
-organized into a complex network that must continually reproduce itself are
-now the questions that biologists can address. In addition, crucial questions
-concerning the way in which genes are responsible for differences between
-species, between individuals of the same species, and the role genes play in
-evolution can be answered by a large-scale analysis of the entire collection of
-genetic material contained within each individual.
-But there are also many simpler questions that we still cannot answer satisfactorily: How many different proteins do organisms have? How is their production coordinated? How did they arise? What – if not proteins – does the
-majority of DNA in a cell code for?
-It is the aim of this book to provide the tools necessary to answer the
-above questions by computational analysis of genomic data. The ten chapters
-of this book cover ten topics that we feel are necessary to a scientist conducting
-research in bioinformatics and computational genomics. Below we outline these
-ten topics.
-
-A roadmap to this book
-This book is divided into ten chapters, each presenting a major idea or task in
-computational genomics. On top of this structure, however, the book is divided
-into three main threads. Chapters 1–4 provide the tools necessary to annotate
-
-P RO L O G U E
-
-a genomic sequence – to describe the main features and structures found in a
-genome, and ideally also their function. In Chapters 5–8 we learn how to go
-from treating the genome as a static ediﬁce to the dynamic, evolving object that
-it truly is. Finally, because each of the ﬁrst eight chapters has looked solely at
-DNA sequences, we turn to the analysis of gene expression in Chapters 9 and
-10, showing how this can be used to identify the function of genes and other
-structures found in the sequence. We show how the analysis of data produced
-by DNA microarrays differs from sequence analysis, but we also show how
-it can be synthesized with sequence data to reveal even more about the inner
-workings of cells. Below is a short synopsis of each of the ten chapters.
-Chapter 1 describes the major features of a genome, by using as a leading
-example the ﬁrst genomic sequence of a free-living organism ever obtained:
-that of the bacterium Haemophilus inﬂuenzae. We show how to retrieve and
-handle genomic data, perform some simple statistical analysis, and draw some
-conclusions. The chapter also introduces probabilistic models of biological
-sequences and important notation and terminology. After this chapter, the reader
-will be able to download and manipulate DNA sequences from public databases,
-and understand their statistical properties.
-Chapter 2 explains what genes are and how to ﬁnd them in a DNA sequence
-by locating particular regions called open reading frames (ORFs), again in the
-case of simple bacterial sequences. It also deals with other statistical signals to
-be found in genome sequences, and discusses a crucial point: how to assess the
-signiﬁcance of a pattern and how to report it in terms of p-values. This chapter
-will enable the reader to ﬁnd candidate genes and assess the signiﬁcance of
-their ﬁndings.
-Chapter 3 deals with the important algorithmic issue of assessing sequence
-similarity, the standard way to detect descent from a common ancestor. To
-this purpose the chapter introduces the technology of sequence alignment as
-an indispensable tool of bioinformatics, describing in detail the basic pairwise
-global and local alignment algorithms (based on dynamic programming) as well
-as brieﬂy discussing multiple alignment and fast pairwise alignment algorithms
-(such as BLAST). This chapter will enable the reader both to decide if two
-given DNA sequences are likely to be homologous and to understand how to
-use common alignment tools.
-Chapter 4 uses the example of odorant-receptor proteins to introduce another
-of the algorithmic workhorses of the ﬁeld of bioinformatics: hidden Markov
-models (HMMs). This class of probabilistic models for sequences (and signals
-therein) underlies many modern gene ﬁnding algorithms, but is also used in
-sequence segmentation, multiple alignment, etc. The chapter demonstrates how
-to detect change points in the statistical make-up of biological sequences – a
-task that can help to identify features such as horizontally transferred segments
-of DNA – and how to summarize all the features of a protein family into a
-single probabilistic description. The reader should then be able to determine
-the likelihood that a protein belongs to a certain family, and therefore whether
-already annotated proteins can be used to assign function.
-Chapter 5 introduces the issue of genetic variation among individuals of
-the same species, by comparing genetic sequences of Neanderthal and Homo
-sapiens. The fascinating question of our relation with these ancient inhabitants of Europe can be entirely answered by analyzing publicly available DNA
-
-xv
-
-xvi
-
-P RO L O G U E
-
-sequences, and in the process we can learn about single nucleotide polymorphisms (SNPs) and statistical models of sequence evolution. In order to account
-for the probability of multiple substitutions in DNA sequences, and hence to obtain better assessments of the genetic distance between individuals, the Jukes–
-Cantor and Kimura 2-parameter models are derived. An analysis of DNA from
-various apes also hints at fundamental questions about human origins. The
-reader will be able to assess genetic distance between sequences, understand
-the mathematics behind the models, and apply this to real data.
-Chapter 6 directly addresses the question of sequence evolution under natural selection. A sequence evolves with different rates if it is under selective
-pressure either to change or to stay constant, and this selective pressure can
-be quantiﬁed by using statistical models and appropriate algorithmic methods.
-The example of HIV evolution is used in this chapter to illustrate how certain
-locations of this fast-evolving virus change at a high rate – to keep ahead of
-the immune system of the host – while others are fairly conserved. Evolution
-of drug resistance follows similar patterns, and can be similarly detected. The
-reader will become familiar with the computation and the interpretation of the
-K a /K s ratio on real sequence data.
-Chapter 7 takes these ideas one step further, showing how it is possible to
-reconstruct the evolutionary history of a set of homologous sequences by constructing phylogenetic trees. This is not just important for evolutionary studies,
-but can have many practical applications, as is demonstrated by the case study
-of the SARS epidemic. In late 2002 a virus jumped from an animal to a human
-in China, triggering a violent epidemic that spread to many countries before
-being identiﬁed and isolated. But its time, place, and host of origin, as well as
-the trajectory followed by the infection, can be reconstructed by an analysis
-of the viral genetic sequences. Simple algorithms and advanced concepts of
-phylogenetic analysis are presented, including the basic neighbor-joining algorithm, and more advanced and sophisticated approaches. These methods are
-also used to answer questions about the origin of HIV, and to address questions
-about early human evolution. The reader will learn to construct phylogenetic
-trees from sequence data.
-Chapter 8 discusses one of the most recent applications of computational
-genomics, namely whole-genome analysis of multiple species. This involves
-large-scale genomic comparisons between different species, and if the species
-are chosen carefully it can provide a wealth of information, from helping to
-identify functional regions to reconstructing the evolutionary mechanisms that
-led to speciation. We take the complete genomes of different species of Chlamydia, an internal parasite of eukaryotic cells, and we see how they differ from
-major large-scale rearrangements of the same genes. We also identify syntenic
-regions, gene families, and distinguish between orthologous and paralogous
-genes. The reader will become familiar with the basic concepts and tools of
-whole-genome analysis.
-In Chapter 9 we address another major source of genomic information:
-gene expression data collected by using DNA microarrays. Exploiting patterns
-found in this type of data requires using pattern recognition technology, a mix
-of statistics and computer science. We demonstrate the power of this approach
-to functionally annotate genomes by studying the case of yeast. A series of
-landmark papers in the late 1990s introduced the analysis of gene expression
-
-P RO L O G U E
-
-data by looking just at yeast genomes, and these studies are repeated in this
-chapter. The main tools are presented, including data processing, clustering,
-classiﬁcation, visualization, and applied to the detection of cell-cycle regulated
-genes. The reader will be able to perform basic tasks of data mining with
-gene expression data, and to understand the assumptions underlying the most
-common algorithmic approaches.
-Finally, in Chapter 10 we discuss the integration between expression and
-sequence information, by studying the circadian clock in plants. Genes regulated by the internal clock (as opposed, for example, to genes responding to
-external stimulations) can be identiﬁed by gene expression analysis, and clustered according to the time phase of their cycle. The upstream sequences of
-genes of equal phase can reveal common patterns, candidate binding sites for
-regulatory proteins. This analysis can be performed by the reader, illustrating
-how sequence and expression information can be synthesized, to annotate not
-only protein coding but also regulatory regions.
-Many more important topics and approaches exist in computational genomics, but in order to make this introduction as gentle as possible, we have
-selected the above ten themes as representatives of the style of analysis typically
-found in this exciting scientiﬁc domain. More advanced approaches should be
-more easily accessible to the readers once they have become familiar with the
-contents presented in this book. Sections marked with a ∗ can be skipped at a
-ﬁrst read.
-
-Reading list
-A general understanding of molecular biology, genetics, and evolution are all
-essential for researchers in computational genomics. This can be obtained in
-many introductory textbooks of biology, as well as in more specialized introductions to the ﬁeld of genomics. The reader may refer to Brown (1999) and to
-Gibson and Muse (2004) for a general introduction to genomics and evolution,
-or follow the links in the book’s website to online introductory material about
-molecular and cell biology. The lecture by Richard Feynman on nanotechnology
-can be found in the article Feynman (1960). The book’s website:
-www.computational-genomics.net
-contains links to introductory articles and other online material.
-
-xvii
-
 Chapter 1
 
 The first look at a genome
@@ -786,7 +40,7 @@ sequences
 r Standard data formats and
 databases
 
-2
+2
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -880,7 +134,7 @@ and concepts necessary to repeat these landmark analyses. Before we start our
 summarize some key biological facts about how DNA is organized in cells and
 the key statistical issues involved in the analysis of DNA.
 
-1 . 2 T H E A N A T O MY O F A G E N O M E
+1 . 2 T H E A N A T O MY O F A G E N O M E
 
 It is also worth emphasizing at this point that genomic data include more
 than just DNA sequence data. In 1995 a group of scientists led by Pat Brown
@@ -925,7 +179,7 @@ characterized by the base it contains. As a result, the letters of the DNA alpha
 
 3
 
-4
+4
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -975,7 +229,7 @@ some fungi to 670 gigabases (billions of bases or Gb) for some species of the
 single-celled amoeba; humans come in at a middling 3.5 Gb. Because of the
 large size of eukaryotic genomes, their sequencing is still a large effort usually
 
-1 . 3 P RO B A B I L I S T I C M O D E L S O F G E N O M E S E Q U E N C E S
+1 . 3 P RO B A B I L I S T I C M O D E L S O F G E N O M E S E Q U E N C E S
 
 undertaken by consortia of labs; these labs may divide the work up by each sequencing different linear chromosomes of the same genome. Currently we have
 sequences representing more than 50 different eukaryotic organisms, including
@@ -1021,7 +275,7 @@ A large part of the study of computational genomics is comprised of statistical 
 
 5
 
-6
+6
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -1069,7 +323,7 @@ also as K = (i : j); the corresponding subsequence is the substring s(i : j). If
 it is formed by just one element, K = {i}, then this indicates a single, speciﬁc
 symbol of the sequence: si = s(i).
 
-1 . 3 P RO B A B I L I S T I C M O D E L S O F G E N O M E S E Q U E N C E S
+1 . 3 P RO B A B I L I S T I C M O D E L S O F G E N O M E S E Q U E N C E S
 
 Example 1.2
 Elements of a sequence. In the DNA sequence s =ATATGTCGTGCA we ﬁnd
@@ -1113,7 +367,7 @@ dataset. Our only requirement is that the distribution needs to satisfy the norm
 
 7
 
-THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
+THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
 The multinomial model allows us to easily calculate the probability of a
 given sequence (denoted P), also called the likelihood of the data given the
@@ -1221,7 +475,7 @@ means that there are new transition probabilities: if we moved to state A, these
 would be p A A , p AC , p AG , and p AT . In this manner, a Markov chain deﬁnes a
 DNA sequence. All of the transition probabilities are given by the matrix T ,
 
-1 . 3 P RO B A B I L I S T I C M O D E L S O F G E N O M E S E Q U E N C E S
+1 . 3 P RO B A B I L I S T I C M O D E L S O F G E N O M E S E Q U E N C E S
 
 and the probability for the start state is given by π = (π A , πC , πG , πT ), again
 with the obvious normalization constraint:
@@ -1330,7 +584,7 @@ the entire sequence.
 
 9
 
-10
+10
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -1389,7 +643,7 @@ and assigning these values to the central position of the window. This produces
 a vector of length L − k + 1 that can be plotted, as seen in Figures 1.2 and 1.3
 (with window sizes 90 000 bp and 20 000 bp, respectively).
 
-1 . 4 A N N O T A T I N G A G E N O M E : S T A T I S T I C A L S E Q U E N C E A N A LY S I S
+1 . 4 A N N O T A T I N G A G E N O M E : S T A T I S T I C A L S E Q U E N C E A N A LY S I S
 
 Nucleotide density
 
@@ -1502,7 +756,7 @@ choosing k.
 
 11
 
-12
+12
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -1555,7 +809,7 @@ GC content 1.56 Mb into the genome (positions in circular chromosomes are
 generally given relative to the site where DNA replication starts during cell
 division). We can see this region by plotting the GC content landscape of
 
-1 . 4 A N N O T A T I N G A G E N O M E : S T A T I S T I C A L S E Q U E N C E A N A LY S I S
+1 . 4 A N N O T A T I N G A G E N O M E : S T A T I S T I C A L S E Q U E N C E A N A LY S I S
 
 the H. inﬂuenzae genome, as seen in Figure 1.2, towards the right end of the
 plot. Examining that plot, we see that there is a short stretch of DNA from
@@ -1604,7 +858,7 @@ cell being infected.
 
 13
 
-14
+14
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -1714,7 +968,7 @@ second nucleotide is listed across the top.
 We can also plot the frequency of certain 2-mers of interest along a genome,
 as shown in Figure 1.5 for the dimer AT in H. inﬂuenzae (note this represents
 
-1 . 4 A N N O T A T I N G A G E N O M E : S T A T I S T I C A L S E Q U E N C E A N A LY S I S
+1 . 4 A N N O T A T I N G A G E N O M E : S T A T I S T I C A L S E Q U E N C E A N A LY S I S
 
 Dinucleotide density
 
@@ -1778,7 +1032,7 @@ observed bias is signiﬁcant (we will discuss signiﬁcance of patterns in Chap
 
 15
 
-16
+16
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -1855,7 +1109,7 @@ with a Nobel Prize in 1978 (to Werner Arber, Dan Nathans, and Hamilton
 Smith). The nucleotide motifs recognized by restriction enzymes are underrepresented in many viral genomes, so as to avoid the bacterial hosts’ restriction
 enzymes.
 
-1 . 4 A N N O T A T I N G A G E N O M E : S T A T I S T I C A L S E Q U E N C E A N A LY S I S
+1 . 4 A N N O T A T I N G A G E N O M E : S T A T I S T I C A L S E Q U E N C E A N A LY S I S
 A
 
 T
@@ -1890,7 +1144,7 @@ the two tasks.
 
 17
 
-18
+18
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -1947,7 +1201,7 @@ other repositories all use their own standard, and a number of formats not
 associated with any database (but usually associated with a sequence analysis program) are also considered standard. One of these is called FASTA
 (pronounced “fast A”). It is commonly used to encapsulate sequence information along with a very limited amount of information about the sequence.
 
-1.5 FINDING DATA: GENBANK, EMBL, AND DDBJ
+1.5 FINDING DATA: GENBANK, EMBL, AND DDBJ
 
 The format consists of a ﬁrst line, designated with the “>” symbol, followed
 by the annotation, which can be in any format so long as it is not interrupted by a line break. Sequence information begins on the next line, and
@@ -1991,7 +1245,7 @@ SOURCE mitochondrion Homo sapiens neanderthalensis
 
 19
 
-20
+20
 
 THE FIRST LOOK AT A GENOME: SEQUENCE STATISTICS
 
@@ -2054,7 +1308,7 @@ A or C (aMino)
 (1) Download from GenBank the complete genomic sequence of Bacteriophage lambda, accession number NC 001416, and analyze its GC content
 with various choices of window size.
 
-1.7 READING LIST
+1.7 READING LIST
 
 (2) Compare statistical properties of human and chimp complete mitochondrial
 DNA (respectively NC 001807 and NC 001643).
@@ -2091,7 +1345,7 @@ www.computational-genomics.net
 
 21
 
-Chapter 2
+Chapter 2
 
 All the sequence’s men
 Gene ﬁnding
@@ -2130,7 +1384,7 @@ problem of ﬁnding genes in prokaryotes. Sequenced genomes contain as few as
 500 genes – in the bacterium Mycoplasma genitalium – to upwards of 30 000
 genes in a number of different plant and animal species. Knowing what genes
 
-2 . 2 A N I N T RO D U C T I O N T O G E N E S A N D P RO T E I N S
+2 . 2 A N I N T RO D U C T I O N T O G E N E S A N D P RO T E I N S
 
 look like, how to ﬁnd candidate genes in a genome, and how to decide which
 of these candidates are actual genes will take up the majority of our discussion.
@@ -2180,7 +1434,7 @@ completely abolish function.
 
 23
 
-24
+24
 
 A L L T H E S E Q U E N C E ’S M E N : G E N E F I N D I N G
 
@@ -2260,7 +1514,7 @@ which directly represents the 20 molecules listed in in Table 2.1. Each of
 them also has unique physical properties, but these will not be discussed until
 Chapter 4.
 
-2 . 2 A N I N T RO D U C T I O N T O G E N E S A N D P RO T E I N S
+2 . 2 A N I N T RO D U C T I O N T O G E N E S A N D P RO T E I N S
 
 DNA
 
@@ -2307,7 +1561,7 @@ hence its functionality
 
 25
 
-26
+26
 
 A L L T H E S E Q U E N C E ’S M E N : G E N E F I N D I N G
 
@@ -2358,7 +1612,7 @@ just the mapping of one or a few codons to different amino acids. The human
 mitochondria uses one such alternative genetic code, and this will be relevant
 in the Exercises section at the end of this chapter.
 
-2 . 2 A N I N T RO D U C T I O N T O G E N E S A N D P RO T E I N S
+2 . 2 A N I N T RO D U C T I O N T O G E N E S A N D P RO T E I N S
 
 Table 2.2 The standard genetic code
 A
@@ -2551,7 +1805,7 @@ they may be ambiguous.
 
 27
 
-28
+28
 
 A L L T H E S E Q U E N C E ’S M E N : G E N E F I N D I N G
 
@@ -2603,7 +1857,7 @@ any one of them speciﬁes the end of the growing amino acid chain (unlike
 start codons, there is no amino acid associated with stop codons). In order to
 foreshadow the gene-ﬁnding algorithms that we introduce later in the chapter,
 
-2.3 GENOME ANNOTATION: GENE FINDING
+2.3 GENOME ANNOTATION: GENE FINDING
 
 we will merely say here that a stretch of DNA that has a start codon (in any
 frame), followed by a run of stop-codon-free DNA in the same reading frame,
@@ -2652,7 +1906,7 @@ translated: the 5 and 3 UTRs mentioned earlier are considered exons. So the
 
 29
 
-30
+30
 
 A L L T H E S E Q U E N C E ’S M E N : G E N E F I N D I N G
 
@@ -2699,7 +1953,7 @@ Here we introduce an algorithm for ﬁnding open reading frames. In the next
 section we present a statistical method for evaluating our conﬁdence that any
 particular ORF is part of a true gene, based on its length.
 
-2 . 4 D E T E C T I N G S P U R I O U S S I G N A L S : HY P O T H E S I S T E S T I N G
+2 . 4 D E T E C T I N G S P U R I O U S S I G N A L S : HY P O T H E S I S T E S T I N G
 
 Algorithm 2.1
 ORF ﬁnder. Given a DNA sequence s, and a positive integer k, for each reading
@@ -2744,7 +1998,7 @@ cannot cover them all. For the reader unfamiliar with basic hypothesis testing
 
 31
 
-32
+32
 
 A L L T H E S E Q U E N C E ’S M E N : G E N E F I N D I N G
 
@@ -2795,7 +2049,7 @@ requires us to deﬁne a “null” hypothesis, H0 , and an “alternative” hy
 H1 (e.g. the null hypothesis could be that a given ORF is generated by a random
 process, the alternative that the ORF has been generated by some biologically
 
-2 . 4 D E T E C T I N G S P U R I O U S S I G N A L S : HY P O T H E S I S T E S T I N G
+2 . 4 D E T E C T I N G S P U R I O U S S I G N A L S : HY P O T H E S I S T E S T I N G
 
 relevant process). The goal of hypothesis testing is to choose between H0 and
 H1 , given some data. Errors in this decision are almost unavoidable, and can be
@@ -2844,7 +2098,7 @@ gene ﬁnding in prokaryotes.
 
 33
 
-34
+34
 
 A L L T H E S E Q U E N C E ’S M E N : G E N E F I N D I N G
 
@@ -2893,7 +2147,7 @@ replicated datasets are then used to compute a null distribution of a test stati
 a percentile less than α, we say it is signiﬁcant (e.g. for α = 0.05 the data must
 be in the top 5% of the distribution to be considered signiﬁcant).
 
-2 . 4 D E T E C T I N G S P U R I O U S S I G N A L S : HY P O T H E S I S T E S T I N G
+2 . 4 D E T E C T I N G S P U R I O U S S I G N A L S : HY P O T H E S I S T E S T I N G
 
 A simple way to generate random sequences with the same length and statistical properties as the one being tested is to randomly permute the original
 sequence. There are actually a number of different ways to permute any sequence, with each choice capturing different aspects of the original sequence.
@@ -2937,7 +2191,7 @@ that are longer than this. Again, this matches well with the estimated number of
 
 35
 
-36
+36
 
 A L L T H E S E Q U E N C E ’S M E N : G E N E F I N D I N G
 
@@ -3006,7 +2260,7 @@ candidate genes in just a few minutes. But we should stress that these are just
 candidate genes. We have no evidence at this point that they make translated,
 functioning proteins. In Chapter 3 we discuss computational tools that may
 
-2.6 READING LIST
+2.6 READING LIST
 
 bolster or weaken our candidates by comparison with the sequences of known
 genes stored in online databases.
@@ -3046,7 +2300,7 @@ www.computational-genomics.net
 
 37
 
-Chapter 3
+Chapter 3
 
 All in the family
 Sequence alignment
@@ -3088,7 +2342,7 @@ The genes related to eyeless also contain another common element: the HOX
 (homeobox) domain. This element, ﬁrst discovered in Drosophila, encodes a
 60-amino acid protein domain that is thought to be part of more than 0.2%
 
-3.2 ON SEQUENCE ALIGNMENT
+3.2 ON SEQUENCE ALIGNMENT
 
 of the total number of vertebrate genes, and is also involved in regulating the
 activity of other genes. These examples are not exceptional: a relatively large
@@ -3165,7 +2419,7 @@ S
 
 39
 
-40
+40
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -3221,7 +2475,7 @@ not necessarily imply homology, or relatedness, of the sequences. Homology
 means that sequences come from a common ancestor and are not simply similar by chance. It is therefore proper to refer to the “similarity” of sequences
 after alignment, and not to their “homology” (as is found too often in certain
 
-3.3 ON SEQUENCE SIMILARITY
+3.3 ON SEQUENCE SIMILARITY
 
 corners of biology). There is no such thing as two sequences that are “50%
 homologous”: they either share a common ancestor or they do not, and this is
@@ -3266,7 +2520,7 @@ one or more domains that perform different tasks; as discussed earlier, eyeless
 
 41
 
-42
+42
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -3346,7 +2600,7 @@ S.
 Notice that the total length of the alignment c, can be larger than both of the
 input sequences under consideration.
 
-3.4 SEQUENCE ALIGNMENT: GLOBAL AND LOCAL
+3.4 SEQUENCE ALIGNMENT: GLOBAL AND LOCAL
 
 Deﬁnition 3.1
 Global alignment. A global alignment of two sequences, s and t, is an assignment of gap symbols “−” into those sequences, or at their ends. The two
@@ -3444,7 +2698,7 @@ where we sum over all positions of the alignment.
 
 43
 
-44
+44
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -3533,7 +2787,7 @@ penalizes all changes equally; more complicated matrices can favor certain
 nucleotide substitutions over others (see Chapter 5).
 Amino acids, on the other hand, can be quite different from one another, and mismatches can be of varied effect depending on how similar or
 
-3.4 SEQUENCE ALIGNMENT: GLOBAL AND LOCAL
+3.4 SEQUENCE ALIGNMENT: GLOBAL AND LOCAL
 
 dissimilar amino acids are in their biochemical properties. Scores based on
 inferences about chemical or physical properties of proteins are possible and
@@ -3582,7 +2836,7 @@ symbol-scoring function in feasible time.
 
 45
 
-fly
+fly
 
 ERKRGRQTYTRYQTLELEKEFHFNRYLTRRRRIEIAHALCLTERQIKIWFQNRRMKWKKENKT
 
@@ -3629,7 +2883,7 @@ For example, we may want to ﬁnd similar subsequences within the sequences s = 
 in s and all subsequences in t, each subsequence being deﬁned by ignoring a
 preﬁx and a sufﬁx in the original sequence. A possible (but not optimal) local
 
-3 . 5 S T A T I S T I C A L A N A LY S I S O F A L I G N M E N T S
+3 . 5 S T A T I S T I C A L A N A LY S I S O F A L I G N M E N T S
 
 alignment is
 V
@@ -3754,7 +3008,7 @@ by the fact that unrelated sequences can also display some degree of similarity,
 
 47
 
-48
+48
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -3818,7 +3072,7 @@ the original sequences. We can accept the alignment as signiﬁcant (possibly
 indicating homology) if its score is in the top 5% (or another chosen value of
 α) of the randomly generated scores.
 
-V
+V
 V
 
 A
@@ -3912,7 +3166,7 @@ human H S G V N Q L G G V F V N G R P L P D S T R Q K I V E L A H S G A R P C D 
 
 49
 
-fly
+fly
 
 QRNRTSFTNDQIDSLEKEFERTHYPDVFARERLAGKIGLPEARIQVWFSNRRAKWRREEKLRNQRR
 
@@ -3973,7 +3227,7 @@ all dynamic programming algorithms presented above is of the order of O(nm)
 the product of n and m); although these are amazingly low costs, they are still
 too high for the scale of applications that are routine in modern computational
 
-3 . 6 B L A S T: F A S T AP P ROX I M A T E L O C A L A L I G N M E N T
+3 . 6 B L A S T: F A S T AP P ROX I M A T E L O C A L A L I G N M E N T
 
 biology. As a solution, the ﬁeld turned to heuristic methods – faster methods
 that are not guaranteed to deliver the optimal solution. The most popular of
@@ -4021,7 +3275,7 @@ is chosen based on
 
 51
 
-52
+52
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -4062,7 +3316,7 @@ result. Note that the organisms range from ﬂies to plants, from mice to mollus
 of different length sequences. We will not discuss this normalization step
 here, however pointers to online discussions of this quantity can be found in
 
-3.7 MULTIPLE SEQUENCE ALIGNMENT
+3.7 MULTIPLE SEQUENCE ALIGNMENT
 
 Section 3.10.
 Sequence
@@ -4177,7 +3431,7 @@ individual positions within the aligned sequences.
 
 53
 
-54
+54
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -4217,7 +3471,7 @@ KRKLQRNRTSFTQEQIEALEKEFERTHYPDVFARERLAAKIDLPEARIQVWFSNRRAKWRREEKL
 KKKHRRNRTTFTTYQLHQLERAFEASHYPDVYSREELAAKVHLPEVRVQVWFQNRRAKWRRQERL
 KKKHRRNRTTFTTYQLHQLERAFEASHYPDVYSREELAAKVHLPEVRVQVWFQNRRAKWRRQERL
 
-3.8* COMPUTING THE ALIGNMENTS
+3.8* COMPUTING THE ALIGNMENTS
 
 Example 3.5
 CLUSTALW. Output of the freely available CLUSTALW package showing a
@@ -4260,7 +3514,7 @@ PAX genes
 
 55
 
-56
+56
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -4326,7 +3580,7 @@ again evaluate our choices and decide to choose the left neighbor – inserting
 a gap in the top sequence results in the optimal score (0) given the alignment
 of V with V in the ﬁrst position. We can move across the second row in this
 
-3.8* COMPUTING THE ALIGNMENTS
+3.8* COMPUTING THE ALIGNMENTS
 
 Table 3.1 The dynamic programming table resulting from the global
 alignment of two amino acid sequences. The winning path in
@@ -4575,7 +3829,7 @@ S.
 
 57
 
-58
+58
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -4652,7 +3906,7 @@ bottom-right cell. The option of stopping at the ﬁrst zero amounts to removing
 a preﬁx. That of choosing the start of the trace-back at the highest element of
 the table amounts to removing a sufﬁx.
 
-3.8* COMPUTING THE ALIGNMENTS
+3.8* COMPUTING THE ALIGNMENTS
 
 Example 3.6
 Local alignment DP table. One solution of the local alignment between QUEVIVALASVEGAS and VIVADAVIS is given by the subsequences VIVA contained in both sequences (other solutions with the same cost can be found).
@@ -4985,7 +4239,7 @@ element on the trace-back path.
 
 59
 
-60
+60
 
 A L L I N T H E F A M I LY : S E Q U E N C E A L I G N M E N T
 
@@ -5012,7 +4266,7 @@ www.computational-genomics.net.
 In the same website you can ﬁnd pointers to CLUSTALW and other free alignment software, as well as to all the papers and all protein sequences discussed
 in this chapter.
 
-Chapter 4
+Chapter 4
 
 The boulevard of broken genes
 Hidden Markov models
@@ -5053,7 +4307,7 @@ Hidden Markov models
 Sequence segmentation
 Multiple alignment
 
-62
+62
 
 T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
 
@@ -5102,7 +4356,7 @@ not at all appropriate for ﬁnding eukaryotic genes. In addition, if we wish to
 genes save for some misplaced stop codons – we require the ﬂexibility of
 HMMs.
 
-4 . 2 H I DD E N M A R KOV M O D E L S
+4 . 2 H I DD E N M A R KOV M O D E L S
 
 4.2 Hidden Markov models
 In 1989 Gary Churchill, now a scientist at the Jackson Labs in Bar Harbor,
@@ -5146,7 +4400,7 @@ produce the same symbols, just in differing frequencies. The number of emitted
 
 63
 
-64
+64
 
 T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
 
@@ -5245,7 +4499,7 @@ infer the hidden states on novel data. This is especially useful in gene ﬁndin
 where models are often trained on a well-annotated genome and then run on
 related genomes.
 
-4 . 2 H I DD E N M A R KOV M O D E L S
+4 . 2 H I DD E N M A R KOV M O D E L S
 
 Computing with HMMs. It is an important feature of HMMs that the probability of a sequence (the likelihood of a model) is easily computed, as are all
 the fundamental quantities necessary to use them. The efﬁcient algorithms that
@@ -5309,7 +4563,7 @@ i=1
 
 65
 
-66
+66
 
 T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
 
@@ -5392,7 +4646,7 @@ random transition (T ) and emission (E) matrices, we can use the EM algorithm
 to better estimate those parameters (assuming that there are two hidden states
 and four visible symbols {A, C, G, T }). This yields the model in Figure 4.2 that
 
-4 . 3 P RO F I L E H M M S
+4 . 3 P RO F I L E H M M S
 
 Fig. 4.3 GC content plot for
 Lambda phage, and the
@@ -5424,7 +4678,7 @@ of homologous proteins (gene families) based on common patterns in their
 
 67
 
-68
+68
 
 T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
 
@@ -5576,7 +4830,7 @@ symbol S.
 All this can be summarized in the pHMM model shown in Figure 4.4,
 where each path represents a possible sequence. For readability, in each state
 
-4 . 4 F I N D I N G G E N E S W I T H H I DD E N M A R KOV M O D E L S
+4 . 4 F I N D I N G G E N E S W I T H H I DD E N M A R KOV M O D E L S
 
 we write only the dominant symbols of the emission matrix for that state. It
 should be clear, however, that in general any symbol is possible, with different
@@ -5620,7 +4874,7 @@ by integrating a number of different sequence signals, each of which is probabil
 
 69
 
-70
+70
 
 T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
 
@@ -5667,7 +4921,7 @@ which odorant receptors belong: 7-transmembrane (7-TM) G-protein coupled
 receptors. This is an important family containing (in humans) 250 proteins in
 addition to the 400 ORs. It includes receptors found in the retina to sense light
 
-4.5.1 Proﬁle HMMs for odorant receptors
+4.5.1 Proﬁle HMMs for odorant receptors
 We will ﬁrst address the problem of assigning a given protein sequence to a
 known family. We will try to perform a pairwise global alignment of an odorant
 receptor sequence to a typical element of the 7-TM receptor family (a rhodopsin
@@ -5766,7 +5020,7 @@ M D V G - N - K S - T M S E - - F V L L G - - L S - - N S - W E L Q M F F F M V 
 
 71
 
-72
+72
 
 T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
 
@@ -5864,7 +5118,7 @@ We can convert the above OR amino acid sequence into a numeric sequence
 of 312 values of hydrophobicity (one for each of the amino acids). If we plot
 this numeric sequence, we obtain the plot in Figure 4.5. Although it does not
 
-4 . 5 C A S E S T U D Y : O D O R A N T RE C E P T O R S
+4 . 5 C A S E S T U D Y : O D O R A N T RE C E P T O R S
 
 4
 
@@ -5920,7 +5174,7 @@ values in Table 4.2
 
 73
 
-T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
+T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
 
 3
 
@@ -6019,7 +5273,7 @@ p (IN-IN)
 
 74
 
-4 . 6 * A L GO R I T H M S FO R H M M C O M P U T A T I O N S
+4 . 6 * A L GO R I T H M S FO R H M M C O M P U T A T I O N S
 
 4.6* Algorithms for HMM computations
 It is often the case that we are given the sequence s and the model parameters
@@ -6073,7 +5327,7 @@ r Output: P(s, h∗ ) = maxk (V (k, n)).
 
 75
 
-76
+76
 
 T H E B O U L EV A RD O F B RO KE N G E N E S : H I DD E N M A R KOV M O D E L S
 
@@ -6130,7 +5384,7 @@ if we are given s and (E, T ). Although we do not know how to optimally infer
 h and (E, T ) simultaneously given s (that would be the result of optimizing
 a non-convex function), we can resort to an iterative procedure, by which we
 
-4.8 READING LIST
+4.8 READING LIST
 
 start with an initial guess of parameters (E, T ), compute the best h for those
 parameters, then use it to get a better estimate of (E, T ), and so on, until some
@@ -6169,7 +5423,7 @@ www.computational-genomics.net
 
 77
 
-Chapter 5
+Chapter 5
 
 Are Neanderthals among us?
 Variation within and between species
@@ -6205,7 +5459,7 @@ members of the genus Homo outside of Africa. Our next closest living relatives
 are the chimpanzee and bonobo, African apes that diverged from our lineage
 approximately 5 million years ago.
 
-5 . 1 VA R I A T I O N I N D N A S E Q U E N C E S
+5 . 1 VA R I A T I O N I N D N A S E Q U E N C E S
 
 But when and where did our species, H. sapiens, ﬁrst appear? The earliest
 skeletons from anatomically modern humans were found in southern Ethiopia
@@ -6250,7 +5504,7 @@ between individuals are inherited mutations and not newly arisen variants. We
 
 79
 
-80
+80
 
 A RE N E A N D E R T H A L S A M O N G U S ?
 
@@ -6411,7 +5665,7 @@ there is on average one SNP every 1500 bases in the nuclear genome. In other
 words, any two sequences will differ at 0.067% of positions compared. It turns
 out that humans as a whole actually have very little polymorphism relative to
 
-5 . 1 VA R I A T I O N I N D N A S E Q U E N C E S
+5 . 1 VA R I A T I O N I N D N A S E Q U E N C E S
 
 the other great apes (and to many other species); the main reason for this is the
 relatively small number of humans that have inhabited the earth for the past
@@ -6471,7 +5725,7 @@ groups are called “transversions”
 
 81
 
-82
+82
 
 A RE N E A N D E R T H A L S A M O N G U S ?
 
@@ -6536,7 +5790,7 @@ named.
 Of course, the inference of substitution probabilities is somewhat selfreferential: good alignments require substitution matrices, but substitution matrices need to be constructed based on good alignments. There are a few ways
 around this problem: one way is to start with very similar sequences where
 
-5 . 2 M I T O C H O N D R I A L D N A : A M O D E L FO R T H E A N A LY S I S O F V A R I A T I O N
+5 . 2 M I T O C H O N D R I A L D N A : A M O D E L FO R T H E A N A LY S I S O F V A R I A T I O N
 
 the alignment is obvious and unambiguous, and can be done with a simple
 scoring matrix. Consequently, we can use this alignment to obtain a ﬁrst substitution matrix, use it to align slightly more divergent sequences, and so on.
@@ -6579,7 +5833,7 @@ A speciﬁc region of mtDNA is of particular interest for our analyses. This
 
 83
 
-84
+84
 
 A RE N E A N D E R T H A L S A M O N G U S ?
 
@@ -6619,7 +5873,7 @@ Technical advantages of mtDNA. There are two main technical advantages
 of using mtDNA over nuclear DNA. First, because mitochondria are only
 passed down through the mother, every individual will only have one version of mtDNA. Since we only have one version, we automatically know the
 
-5 . 3 VA R I A T I O N B E T WE E N S P E C I E S
+5 . 3 VA R I A T I O N B E T WE E N S P E C I E S
 
 haplotype of the mtDNA; that is, we know the conﬁguration of polymorphisms
 on chromosomes. This turns out to be a huge technical advantage of mtDNA
@@ -6665,7 +5919,7 @@ compare sequences between species. Key to understanding differences between
 
 85
 
-86
+86
 
 A RE N E A N D E R T H A L S A M O N G U S ?
 
@@ -6711,7 +5965,7 @@ If the divergence time, T , is known, however, then we can deﬁne the substitut
 We divide by 2T because both lineages that come from a common ancestor
 can accumulate mutations independently. The parameter ρ is usually expressed
 
-5.4 ESTIMATING GENETIC DISTANCE
+5.4 ESTIMATING GENETIC DISTANCE
 
 as the number of substitutions per site per million years. For clarity, we will
 refer to ρ as the substitution rate and K as the genetic distance.
@@ -6937,7 +6191,7 @@ Actual : 6
 
 87
 
-88
+88
 
 A RE N E A N D E R T H A L S A M O N G U S ?
 
@@ -7016,7 +6270,7 @@ T
 α/3
 1 − α.
 
-5.4 ESTIMATING GENETIC DISTANCE
+5.4 ESTIMATING GENETIC DISTANCE
 
 The theory of Markov processes says that the probability of a substitution
 after t time steps can be calculated as
@@ -7095,7 +6349,7 @@ K = tα,
 
 89
 
-90
+90
 
 A RE N E A N D E R T H A L S A M O N G U S ?
 
@@ -7162,7 +6416,7 @@ probability of substitution among all symbols). Error bars were computed in
 the ﬁrst plot by repeating the simulation ten times, in the second plot, by using
 the formula for the variance.
 
-5.4 ESTIMATING GENETIC DISTANCE
+5.4 ESTIMATING GENETIC DISTANCE
 
 Fig. 5.3 Number of observed
 substitutions versus the true
@@ -7227,7 +6481,7 @@ formula.
 
 91
 
-92
+92
 
 A RE N E A N D E R T H A L S A M O N G U S ?
 
@@ -7271,7 +6525,7 @@ chapter.
 Examining the ﬁgure, it is easy to see that the Neanderthal sequences
 (the two star points on the top right) are very distant from the 206 H. sapiens sequences, all clustered on the left. We conclude that H. neanderthalensis
 
-5 . 5 C A S E S T U D Y : A RE N E A N D E R T H A L S S T I L L A M O N G U S ?
+5 . 5 C A S E S T U D Y : A RE N E A N D E R T H A L S S T I L L A M O N G U S ?
 
 0.04
 
@@ -7336,7 +6590,7 @@ are any of the other extant Great Apes, including our closest living relatives,
 
 93
 
-94
+94
 
 A RE N E A N D E R T H A L S A M O N G U S ?
 
@@ -7417,7 +6671,7 @@ and how to interpret them are presented in Chapter 7.
 NC 005129, NC 004921). A standard way to compare such sequences
 would involve the removal of the rapidly evolving HVRs, and the global
 
-5.7 READING LIST
+5.7 READING LIST
 
 alignment of the remaining sequence. This is done because we expect to
 have sufﬁcient variation in the coding part of the genome, due to its length,
@@ -7458,7 +6712,7 @@ www.computational-genomics.net
 
 95
 
-Chapter 6
+Chapter 6
 
 Fighting HIV
 Natural selection at the
@@ -7497,7 +6751,7 @@ Yes, viruses do evolve: we can actually observe their genomes changing
 over very short periods of time. HIV, like other viruses, evolves during the
 course of infection of a single individual. In fact, the virus that eventually kills
 
-6 . 2 E VO L U T I O N A N D N A T U R A L S E L E C T I O N
+6 . 2 E VO L U T I O N A N D N A T U R A L S E L E C T I O N
 
 a patient is often quite different from the one that infected them. Viruses have
 very high mutation rates and very short generation times, characteristics that
@@ -7544,7 +6798,7 @@ individuals who are best able to survive and reproduce leave more offspring for
 
 97
 
-98
+98
 
 F I G H T I N G H I V : N A T U R A L S E L E C T I O N A T T H E M O L E C U L A R L EVE L
 
@@ -7593,7 +6847,7 @@ and viral replication is quite error prone. It is estimated that the error rate 
 RNA viruses such as HIV is ﬁve mutations per 100 000 bases each generation
 (approximately 1000 times as high as the average mutation rate in humans).
 
-6.4 QUANTIFYING NATURAL SELECTION ON DNA SEQUENCES
+6.4 QUANTIFYING NATURAL SELECTION ON DNA SEQUENCES
 
 Therefore, if we simply wait a few (viral) generations, the population of the
 virus found in an infected patient will contain a signiﬁcant amount of genetic
@@ -7642,7 +6896,7 @@ the amino acid sequence after translation. Synonymous mutations are those
 
 99
 
-100
+100
 
 F I G H T I N G H I V : N A T U R A L S E L E C T I O N A T T H E M O L E C U L A R L EVE L
 
@@ -7686,7 +6940,7 @@ of non-synonymous to synonymous substitutions per site (K A /K S ; sometimes
 also represented as d N /d S ). (The “A” in K A stands for “amino acid.”) We
 saw in Chapter 5 that the rate of substitution equals the rate of mutation for
 
-6.4 QUANTIFYING NATURAL SELECTION ON DNA SEQUENCES
+6.4 QUANTIFYING NATURAL SELECTION ON DNA SEQUENCES
 
 neutral mutations. If the fraction of non-synonymous mutations in a gene that
 are neutral is f 0 , then the number of non-synonymous substitutions observed
@@ -7735,7 +6989,7 @@ the most widely used approximate algorithms.
 
 101
 
-102
+102
 
 F I G H T I N G H I V : N A T U R A L S E L E C T I O N A T T H E M O L E C U L A R L EVE L
 
@@ -7783,7 +7037,7 @@ Example 6.1
 Counting sc (ck ) and ac (ck ). In the case of codon TTA (Leucine), f 1 = 1/3,
 f 2 = 0, and f 3 = 1/3. In other words, one change at the ﬁrst position, no
 
-6 . 5 E S T I M A T I N G K A /K S
+6 . 5 E S T I M A T I N G K A /K S
 
 changes at the second, and one change at the third do not change the amino
 acid and are hence synonymous (see the genetic code table in Chapter 2 to
@@ -7839,7 +7093,7 @@ each pathway, and then average them.
 
 103
 
-104
+104
 
 F I G H T I N G H I V : N A T U R A L S E L E C T I O N A T T H E M O L E C U L A R L EVE L
 
@@ -7900,7 +7154,7 @@ K = − ln 1 − d
 
 for both ds and da , hence obtaining K S and K A .
 
-6.6 CASE STUDY: NATURAL SELECTION AND THE HIV GENOME
+6.6 CASE STUDY: NATURAL SELECTION AND THE HIV GENOME
 
 Algorithm 6.1
 Nei–Gojobori, 1986. The table below shows the steps involved in the computation of K S and K A using the Nei–Gojobori method:
@@ -7946,7 +7200,7 @@ different genes and different parts of a single gene can reveal those regions of
 
 105
 
-106
+106
 
 F I G H T I N G H I V : N A T U R A L S E L E C T I O N A T T H E M O L E C U L A R L EVE L
 
@@ -8067,7 +7321,7 @@ on which it is found, and the protein encoded by it. The last column reports
 the K A /K S ratio as computed by the Nei–Gojobori algorithm (see below for
 details).
 
-6.6 CASE STUDY: NATURAL SELECTION AND THE HIV GENOME
+6.6 CASE STUDY: NATURAL SELECTION AND THE HIV GENOME
 
 KA /KS ratio. In order to measure natural selection on each of the eight ORFs
 that have been identiﬁed, we used a second HIV genome (GenBank accession
@@ -8116,7 +7370,7 @@ recognized by the human immune system. There are also many regions with
 
 107
 
-108
+108
 
 F I G H T I N G H I V : N A T U R A L S E L E C T I O N A T T H E M O L E C U L A R L EVE L
 
@@ -8212,7 +7466,7 @@ obtained for mtDNA.
 (3) Practice with free online software tools for measuring K A /K S (information
 about these packages can be found in the book’s website).
 
-6.8 READING LIST
+6.8 READING LIST
 
 6.8 Reading list
 The ﬁrst genomic sequence of HIV was obtained in 1985 and was published
@@ -8238,7 +7492,7 @@ www.computational-genomics.net
 
 109
 
-Chapter 7
+Chapter 7
 
 SARS–A post-genomic
 epidemic
@@ -8277,7 +7531,7 @@ appeared as early as November 2002 in the Chinese province of Guangdong. A
 few months later the ﬁrst major outbreak of SARS hit Guangdong: more than
 130 infected patients were treated, 106 of whom had acquired the disease while
 
-7 . 1 O U T B RE A K
+7 . 1 O U T B RE A K
 
 in a hospital in the city of Guangzhou (the rest of the world was unaware of
 this). A doctor who worked in this hospital visited Hong Kong and checked
@@ -8323,7 +7577,7 @@ are known (HIV is one other such example). By 2003 the virus had spread to
 
 111
 
-112
+112
 
 S A R S – A P O S T - G E N O M I C E P I D E M I C : P HY L O G E N E T I C A N A LY S I S
 
@@ -8368,7 +7622,7 @@ relationships among, a phylogenetic tree attempts to represent both the ordering
 of relationships (A is closer to B than it is to C), and the distance separating
 any two groups (i.e. the time since they diverged). The simplest tree contains
 
-7 . 2 O N T RE E S A N D EVO L U T I O N
+7 . 2 O N T RE E S A N D EVO L U T I O N
 
 only two taxa (whether the taxa represent species, individuals, genes, etc.),
 and is represented in Figure 7.1. The two taxa are called the external nodes
@@ -8452,7 +7706,7 @@ nodes, and one root
 Fig. 7.3 An unrooted tree with
 ﬁve leaves and three internal nodes
 
-114
+114
 
 S A R S – A P O S T - G E N O M I C E P I D E M I C : P HY L O G E N E T I C A N A LY S I S
 
@@ -8519,7 +7773,7 @@ the next example). Note that in this chapter we will denote by T both the
 graph itself and its representation in one of the various equivalent non-graphical
 formats.
 
-7 . 3 I N FE RR I N G T RE E S
+7 . 3 I N FE RR I N G T RE E S
 
 Example 7.1
 Tree representation as an array. The topology of the 5-taxa rooted tree in Figure
@@ -8586,7 +7840,7 @@ been done largely by tracking changes in morphological characters: visible
 
 115
 
-116
+116
 
 S A R S – A P O S T - G E N O M I C E P I D E M I C : P HY L O G E N E T I C A N A LY S I S
 
@@ -8630,7 +7884,7 @@ for in-depth phylogenetic analyses. The second group includes phylogenetic
 methods that are themselves both criteria and algorithms for building trees,
 and are often based on computing the pairwise distance between taxa as a ﬁrst
 
-7 . 3 I N FE RR I N G T RE E S
+7 . 3 I N FE RR I N G T RE E S
 
 117
 
@@ -8750,7 +8004,7 @@ length-annotated branches.
 
 L5
 
-118
+118
 
 S A R S – A P O S T - G E N O M I C E P I D E M I C : P HY L O G E N E T I C A N A LY S I S
 
@@ -8820,7 +8074,7 @@ Lx =
 This formula is called the 3-point formula, and shows how we can infer the
 individual branch lengths on a tree from a set of pairwise distances.
 
-7 . 3 I N FE RR I N G T RE E S
+7 . 3 I N FE RR I N G T RE E S
 
 A test of neighborliness for two taxa. Neighbor-joining proceeds by ﬁnding
 neighbors in the tree, and iteratively joining them until the whole tree is complete. In order to do this, NJ must be able to identify these neighboring taxa. It
@@ -8907,7 +8161,7 @@ neighbor-joining algorithm
 
 j
 
-120
+120
 
 S A R S – A P O S T - G E N O M I C E P I D E M I C : P HY L O G E N E T I C A N A LY S I S
 
@@ -8957,7 +8211,7 @@ The genome sequence of SARS-CoV obtained by the Canadian group in April
 2003 is a 29 751 bp, single stranded RNA sequence. It can be accessed via
 GenBank (accession number AY274119.3), and a map of its genes is provided in
 
-7 . 4 C A S E S T U D Y : P HY L O G E N E T I C A N A LY S I S O F T H E S A R S E P I D E M I C
+7 . 4 C A S E S T U D Y : P HY L O G E N E T I C A N A LY S I S O F T H E S A R S E P I D E M I C
 
 0
 
@@ -9029,7 +8283,7 @@ coronaviruses
 
 121
 
-122
+122
 
 S A R S – A P O S T - G E N O M I C E P I D E M I C : P HY L O G E N E T I C A N A LY S I S
 
@@ -9126,7 +8380,7 @@ Area of origin. Even though we now know that the Guangdong province was
 the area of origin of the epidemic, we can use the same method as presented
 in Chapter 5 for the origin of humans to look for the likely area of origin of
 
-0.1
+0.1
 Bovine CoV1 g2
 
 Bovine CoV2 g2
@@ -9165,7 +8419,7 @@ Human SARS Cov HK
 Fig. 7.9 Phylogenetic tree connecting various coronaviruses. Clearly the closest
 relative to SARS is not a bird virus, but that of palm civet
 
-124
+124
 
 S A R S – A P O S T - G E N O M I C E P I D E M I C : P HY L O G E N E T I C A N A LY S I S
 
@@ -9214,7 +8468,7 @@ multidimensional scaling) each sequence as a point. Figure 7.12 shows clearly
 that there is more diversity among the Guangdong sequences than among all
 the sequences collected abroad. Of course the tree of Figure 7.10 is another way
 
-7 . 4 C A S E S T U D Y : P HY L O G E N E T I C A N A LY S I S O F T H E S A R S E P I D E M I C
+7 . 4 C A S E S T U D Y : P HY L O G E N E T I C A N A LY S I S O F T H E S A R S E P I D E M I C
 
 −3
 
@@ -9318,7 +8572,7 @@ Guangzhou (Guangdong) 18/02/03
 
 x 10
 
-126
+126
 
 S A R S – A P O S T - G E N O M I C E P I D E M I C : P HY L O G E N E T I C A N A LY S I S
 
@@ -9394,7 +8648,7 @@ length. Names can also be assigned to interior nodes: these names follow the
 right parenthesis for that interior node, as in
 ((A, B)2, (C, D)3);
 
-7.7 READING LIST
+7.7 READING LIST
 
 7.6 Exercises
 (1) Using the mtDNA data discussed in Chapter 5, create a tree comparing
@@ -9442,7 +8696,7 @@ www.computational-genomics.net
 
 127
 
-Chapter 8
+Chapter 8
 
 Welcome to the Hotel
 Chlamydia
@@ -9477,7 +8731,7 @@ had to synthesize themselves are now provided by their hosts, symbionts often
 lose the genes underlying whole biochemical pathways. There is no longer any
 natural selection to maintain the function of these genes, and so mutations that
 
-8 . 2 B Y L E AP S A N D B O U N D S : P A T T E R N S O F G E N O M E EVO L U T I O N
+8 . 2 B Y L E AP S A N D B O U N D S : P A T T E R N S O F G E N O M E EVO L U T I O N
 
 destroy them are simply ignored. As a result, intracellular symbiont genomes
 are some of the smallest known, both in total size and in the number of genes.
@@ -9525,7 +8779,7 @@ statistical and algorithmic tools required for many aspects of whole genome
 
 129
 
-130
+130
 
 WE L C O M E T O T H E H O T E L CHLAMYDIA: W H O L E G E N O M E C O M P A R I S O N S
 
@@ -9571,7 +8825,7 @@ the problem down into smaller pieces and then build it back up. Even larger
 questions about genome evolution that should not be addressed in a beanbag
 fashion can beneﬁt from initial multiple single-gene analyses.
 
-8.3 BEANBAG GENOMICS
+8.3 BEANBAG GENOMICS
 
 Of course the ﬁrst step in comparing gene sets in two different genomes is
 to ﬁnd which genes are present in both. Besides the obvious biological interest
@@ -9630,7 +8884,7 @@ genes are those that are related via a duplication event; all of the genes in a
 
 131
 
-132
+132
 
 WE L C O M E T O T H E H O T E L CHLAMYDIA: W H O L E G E N O M E C O M P A R I S O N S
 
@@ -9678,7 +8932,7 @@ are found in.
 Just because there is no objective measure to deﬁne a gene family does not
 mean that we cannot be operationally objective when studying these families.
 
-8.3 BEANBAG GENOMICS
+8.3 BEANBAG GENOMICS
 
 1200
 
@@ -9745,7 +8999,7 @@ of gene families between these two genomes The table below compares the sizes
 
 133
 
-WE L C O M E T O T H E H O T E L CHLAMYDIA: W H O L E G E N O M E C O M P A R I S O N S
+WE L C O M E T O T H E H O T E L CHLAMYDIA: W H O L E G E N O M E C O M P A R I S O N S
 
 Fig. 8.2 The hydrophobicity
 proﬁle of ABC transporters, the
@@ -9821,7 +9075,7 @@ family from both species, we expect that one-to-one orthologs would appear
 as sisters to one another on the tips of the tree. This is because these genes
 are separated only by a speciation event between the two genomes in our comparison. Although tree-building methods are generally considered to be more
 
-8 . 4 S Y N T E NY
+8 . 4 S Y N T E NY
 
 reliable than the reciprocal similarity method, they can be much less amenable
 to automated analysis.
@@ -9886,7 +9140,7 @@ pairs
 
 135
 
-136
+136
 
 WE L C O M E T O T H E H O T E L CHLAMYDIA: W H O L E G E N O M E C O M P A R I S O N S
 
@@ -9929,7 +9183,7 @@ number of genomic rearrangements that separate the two species and not the
 number of nucleotide differences. So we are interested in ﬁnding the smallest number of inversion events that might have led from one genome to the
 other; by “inversion event” we mean the inversion of a string of ORFs or
 
-8 . 4 S Y N T E NY
+8 . 4 S Y N T E NY
 
 Fig. 8.4 Phylogenetic footprint
 of three contiguous ORFs in
@@ -10025,7 +9279,7 @@ follows:
 
 137
 
-138
+138
 
 WE L C O M E T O T H E H O T E L CHLAMYDIA: W H O L E G E N O M E C O M P A R I S O N S
 
@@ -10166,7 +9420,7 @@ pairwise distance matrix, and ﬁnally clustering them (using methods discussed 
 (3) Align two HIV sequences and produce a phylogenetic footprint of the entire
 genome. Can you identify ORFs from this footprint?
 
-8.6 READING LIST
+8.6 READING LIST
 
 700
 
@@ -10228,7 +9482,7 @@ comparison of many strains of yeast helped to identify genes and regulatory
 
 139
 
-140
+140
 
 WE L C O M E T O T H E H O T E L CHLAMYDIA: W H O L E G E N O M E C O M P A R I S O N S
 
@@ -10241,7 +9495,7 @@ above mentioned papers, datasets, and websites, can be found on the book’s
 website:
 www.computational-genomics.net
 
-Chapter 9
+Chapter 9
 
 The genomics of wine-making
 Analysis of gene expression
@@ -10280,7 +9534,7 @@ visualization
 r Expression during the cell
 cycle
 
-142
+142
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -10326,7 +9580,7 @@ to implicate genes via their association with the diauxic shift or other cellula
 thousands of genes in a yeast cell, following their activity over time. Obtaining
 this information gene-by-gene is slow and expensive; fortunately, this has now
 
-9 . 2 M O N I T O R I N G C E L L U L A R C O M MU N I C A T I O N
+9 . 2 M O N I T O R I N G C E L L U L A R C O M MU N I C A T I O N
 
 100
 
@@ -10443,7 +9697,7 @@ approximately 6000 genes
 
 143
 
-144
+144
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -10495,7 +9749,7 @@ in a cell and therefore hybridizing, the greater the intensity of ﬂuorescence 
 spot containing the complementary probe. The second problem of constructing
 a microarray has a number of solutions, each of which strongly determines
 
-9 . 3 M I C RO A RR AY T E C H N O L O G I E S
+9 . 3 M I C RO A RR AY T E C H N O L O G I E S
 
 experimental design and data analysis. We discuss the most common methods
 in the next section.
@@ -10544,7 +9798,7 @@ study. Though it is the most primitive technology in some respects, many of
 
 145
 
-146
+146
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -10590,7 +9844,7 @@ an array whose probes will complement only a single gene, we need to pick
 oligonucleotides that are speciﬁc to individual genes. While this may sound
 relatively simple, many recent gene duplicates will be extremely similar to one
 
-9 . 4 C A S E S T U D Y : T H E D I A U X I C S H I F T A N D YE A S T G E N E E X P RE S S I O N
+9 . 4 C A S E S T U D Y : T H E D I A U X I C S H I F T A N D YE A S T G E N E E X P RE S S I O N
 
 another (as we saw in Chapter 8). The computational challenge is to design
 the probes such that they span regions that differ between closely related genes
@@ -10636,7 +9890,7 @@ the number of microarrays used in each experiment is typically much smaller
 
 147
 
-148
+148
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -10713,7 +9967,7 @@ genes change more than 1.5 fold. As glucose runs out during the experiment,
 more genes show many-fold increases, but they are still on the order of hundreds
 of genes in a set of 6400.
 
-9 . 4 C A S E S T U D Y : T H E D I A U X I C S H I F T A N D YE A S T G E N E E X P RE S S I O N
+9 . 4 C A S E S T U D Y : T H E D I A U X I C S H I F T A N D YE A S T G E N E E X P RE S S I O N
 
 3000
 
@@ -10781,7 +10035,7 @@ and with few genes showing visible activity, it is essential to focus the analys
 
 149
 
-150
+150
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -10844,7 +10098,7 @@ have since become standard, many of them borrowed from the ﬁelds of pattern re
 a rich toolbox of algorithms that can readily be applied to gene expression
 data.
 
-9 . 4 C A S E S T U D Y : T H E D I A U X I C S H I F T A N D YE A S T G E N E E X P RE S S I O N
+9 . 4 C A S E S T U D Y : T H E D I A U X I C S H I F T A N D YE A S T G E N E E X P RE S S I O N
 
 One of the most basic tasks in pattern recognition is clustering, namely the
 identiﬁcation of subsets of data that have high internal similarity, as well as
@@ -10916,7 +10170,7 @@ between all pairs of datapoints, then iteratively identiﬁes the closest pairs,
 
 151
 
-152
+152
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -11036,7 +10290,7 @@ we need to repeat the entire procedure when a different number of clusters is
 desired.
 We can apply this method to the yeast dataset, arbitrarily choosing to obtain nine clusters. These are displayed in Figure 9.6. Notice that they more or
 
-9 . 4 C A S E S T U D Y : T H E D I A U X I C S H I F T A N D YE A S T G E N E E X P RE S S I O N
+9 . 4 C A S E S T U D Y : T H E D I A U X I C S H I F T A N D YE A S T G E N E E X P RE S S I O N
 
 2
 0
@@ -11168,7 +10422,7 @@ found that genes with similar expression proﬁles had related functions. This o
 
 153
 
-154
+154
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -11302,7 +10556,7 @@ with information on gene family relationships and experimental associations
 using other technologies, many of the functions of unannotated genes can be
 inferred using microarray data.
 
-9 . 5 B O NU S C A S E S T U D Y : C E L L - C Y C L E RE G U L A T E D G E N E S
+9 . 5 B O NU S C A S E S T U D Y : C E L L - C Y C L E RE G U L A T E D G E N E S
 
 9.4.3 Visualization
 Detecting patterns in a large matrix of numbers is not easy for most people,
@@ -11350,7 +10604,7 @@ compare clusters to cosine or sine functions. When we do this, we ﬁnd various
 
 155
 
-156
+156
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -11375,7 +10629,7 @@ cosine function, it is possible to identify as periodic clusters numbers 1, 3, 4
 and 15. Of course, different choices of tunable parameters would give different
 results, but these conclusions are stable and seem reasonable.
 
-9 . 5 B O NU S C A S E S T U D Y : C E L L - C Y C L E RE G U L A T E D G E N E S
+9 . 5 B O NU S C A S E S T U D Y : C E L L - C Y C L E RE G U L A T E D G E N E S
 
 2
 
@@ -11505,7 +10759,7 @@ the next chapter is entirely devoted to this task.
 
 157
 
-158
+158
 
 T H E G E N O M I C S O F W I N E - M A K I N G : A N A LY S I S O F G E N E E X P RE S S I O N
 
@@ -11543,7 +10797,7 @@ above-mentioned papers, datasets, and websites, can be found on the book’s
 website:
 www.computational-genomics.net
 
-Chapter 10
+Chapter 10
 
 A bed-time story
 Identiﬁcation of regulatory
@@ -11583,7 +10837,7 @@ r Motif ﬁnding algorithms
 r Combining expression and
 sequence data
 
-160
+160
 
 A B E D - T I M E S T O R Y : I D E N T I F I C A T I O N O F RE G U L A T O R Y S E Q U E N C E S
 
@@ -11632,7 +10886,7 @@ we will be able to identify the common sequence motifs that contribute to this
 co-expression. In the previous chapter we covered the basics of the clustering
 of gene expression proﬁles, and how to identify sets of expression proﬁles that
 
-1 0 . 2 B A S I C M E C H A N I S M S O F G E N E E X P RE S S I O N
+1 0 . 2 B A S I C M E C H A N I S M S O F G E N E E X P RE S S I O N
 
 cycle together; here we will learn the algorithms that allow us to identify the
 regulatory sequences key to the cycling of the circadian clock in Arabidopsis.
@@ -11679,7 +10933,7 @@ so identiﬁcation of the true TATA-box is not a simple task.
 
 161
 
-162
+162
 
 A B E D - T I M E S T O R Y : I D E N T I F I C A T I O N O F RE G U L A T O R Y S E Q U E N C E S
 
@@ -11722,7 +10976,7 @@ these genes.
 The biological problem of ﬁnding TFBSs directly translates into the computational problem of ﬁnding common sequence motifs. Motifs can generically be deﬁned as patterns in sequences, typically speciﬁc sets of words.
 A number of different biological problems are subsumed under the heading
 
-10.3 MOTIF-FINDING STRATEGIES
+10.3 MOTIF-FINDING STRATEGIES
 
 of motif ﬁnding and hence various statistical and computational methods are
 used. In this chapter we focus only on the simplest problems, providing pointers to more detailed literature in Section 10.6. We review here the main design choices to be made by the analyst, before illustrating all of them in
@@ -11766,7 +11020,7 @@ Fixed length, ungapped motifs. In this set of eight sequences we ﬁnd a similar
 
 163
 
-164
+164
 
 A B E D - T I M E S T O R Y : I D E N T I F I C A T I O N O F RE G U L A T O R Y S E Q U E N C E S
 
@@ -11997,7 +11251,7 @@ regions of the same genome. Comparing the score of the motifs from the focal
 dataset with the set of scores from the background dataset will then indicate
 the signiﬁcance of the identiﬁed motifs.
 
-10.3 MOTIF-FINDING STRATEGIES
+10.3 MOTIF-FINDING STRATEGIES
 
 At this point, we should decide how to algorithmically ﬁnd the motif that
 maximizes the score. Unfortunately, for most choices of motif representation
@@ -12096,7 +11350,7 @@ we would obtain the following new PSSM:
 
 165
 
-166
+166
 
 A B E D - T I M E S T O R Y : I D E N T I F I C A T I O N O F RE G U L A T O R Y S E Q U E N C E S
 
@@ -12186,7 +11440,7 @@ process, randomly choosing these positions from a distribution that is proportio
 stuck in local minima during our search, and generally have been observed to
 lead to better scoring PSSMs. The implementation of this and other randomization steps leads to a method known as Gibbs sampling.
 
-10.4 CASE STUDY: THE CLOCK AGAIN
+10.4 CASE STUDY: THE CLOCK AGAIN
 
 6
 
@@ -12252,7 +11506,7 @@ This in turn allows us to use a number of simpler strategies. This type of motif
 
 167
 
-168
+168
 
 A B E D - T I M E S T O R Y : I D E N T I F I C A T I O N O F RE G U L A T O R Y S E Q U E N C E S
 
@@ -12304,7 +11558,7 @@ highly expressed in cluster 2, the evening (corresponding to genes peaking at
 binding sites. The others will be used to provide a background against which
 to contrast the patterns found in cluster 2.
 
-10.4 CASE STUDY: THE CLOCK AGAIN
+10.4 CASE STUDY: THE CLOCK AGAIN
 
 Table 10.1 The 9-mers with the largest difference in frequency between cluster 2 and the rest of the data.
 The difference in frequency is called here “margin.” Note the presence of repeats and other motifs without
@@ -12401,7 +11655,7 @@ difference in frequency between clusters are given in Table 10.2. After removing
 
 169
 
-170
+170
 
 A B E D - T I M E S T O R Y : I D E N T I F I C A T I O N O F RE G U L A T O R Y S E Q U E N C E S
 
@@ -12501,7 +11755,7 @@ we use the ratio between the maximal margin obtained for each motif length
 and what we would expect to obtain in a background model. In other words, we
 should divide the score obtained for each motif length by the score obtained on
 
-10.4 CASE STUDY: THE CLOCK AGAIN
+10.4 CASE STUDY: THE CLOCK AGAIN
 
 Optimal motif length
 
@@ -12571,933 +11825,4 @@ occur during circadian control.
 
 171
 
-172
-
-A B E D - T I M E S T O R Y : I D E N T I F I C A T I O N O F RE G U L A T O R Y S E Q U E N C E S
-
-10.5 Exercises
-(1) Use the free package AlignACE to analyze the same set of sequences
-discussed in this chapter (data available online). Compare the results with
-those in the book.
-(2) Practice obtaining upstream regions of yeast genes, using the resources
-provided in book website.
-(3) Detect cell-cycle genes in yeast, using the methods and the data discussed
-in Chapter 9. Can you ﬁnd any motifs in the upstream regions of those
-genes?
-
-10.6 Reading list
-The paper by Stacey Harmer and co-workers on the circadian clock in Arabidopsis is Harmer et al. (2000). An interesting paper on the computational
-identiﬁcation of regulatory elements in Saccharomyces cerevisiae makes uses
-of similar techniques, and can be found in Hughes et al. (2000).
-The Gibbs sampling approach is presented in Lawrence et al. (1993). The
-paper Brazma et al. (1998) discusses various aspects of the computational discovery of regulatory motifs. The paper Guhathakurta et al. (2002) presents
-similar approaches, this time to discover regulatory motifs controlling heat
-shock proteins in Caenorhabditis elegans. Motifs of course can be found in
-many other ways, for example by phylogenetic comparisons of the type discussed in Chapter 8: the papers Kellis et al. (2003) and McCue et al. (2001)
-present and use this approach.
-The software packages MEME and AlignACE are the most commonly used
-free tools for motif ﬁnding. They use EM and Gibbs strategies, respectively.
-They can be found, as all papers, websites and software tools referred to in this
-book, by following links contained on the book’s website:
-www.computational-genomics.net
-
-Bibliography
-Altschul, S. F., W. Gish, W. Miller, E. W. Myers, and D. J. Lipman. Basic local
-alignment search tool. Journal of Molecular Biology, 215, 1990.
-Anderson, S., A. Bankier, B. G. Barrell, M. H. de Bruijn, A. R. Coulson, J. Drouin,
-I. C. Eperon, D. P. Nierlich, B. A. Roe, F. Sanger, P. H. Schreier, A. J. Smith,
-R. Staden, and I. G. Young. Sequence and organization of the human mitochondrial
-genome. Nature, 290(5806), 1981.
-Axel, Richard. The molecular logic of smell. Scientiﬁc American Magazine (October),
-1995.
-Baldi, Pierre, and G. Wesley Hatﬁeld. DNA Microarrays and Gene Expression: From
-Experiments to Data Analysis and Modeling. Cambridge University Press,
-2002.
-Baldi, P., Y. Chauvin, T. Hunkapillar, and M. McClure. Hidden Markov models of
-biological primary sequence information. Proceedings of the National Academy of
-Sciences, 91, 1994.
-Barnett, R., I. Barnes, M. J. Phillips, L. D. Martin, C. R. Harington, J. A. Leonard, and
-A. Cooper. Evolution of the extinct sabretooths and the American cheetah-like cat.
-Current Biology, 15(15), 2005.
-Benson, D. A., I. Karsch-Mizrachi, D. J. Lipman, J. Ostell, and D. L. Wheeler.
-GenBank: update. Nucleic Acids Research, 32(1), 2004.
-Bibb, M. J., R. A. Van Etten, C. T. Wright, M. W. Walberg, and D. A. Clayton.
-Sequence and gene organization of mouse mitochondrial DNA. Cell, 26(2),
-1981.
-Blattner, F. R., G. III Plunkett, C. A. Bloch, N. T. Perna, V. Burland, M. Riley,
-J. Collado-Vides, J. D. Glasner, C. K. Rode, G. F. Mayhew, J. Gregor, N. W. Davis,
-H. A. Kirkpatrick, M. A. Goeden, D. J. Rose, B. Mau, and Y. Shao. The complete
-genome sequence of Escherichia coli K-12. Science, 277(5331), 1997.
-Bourque, G., P. A. Pevzner, and G. Tesler. Reconstructing the genomic architecture of
-ancestral mammals: lessons from human, mouse, and rat genomes. Genome
-Research, 14(4), 2004.
-Brazma, A., I. Jonassen, J. Vilo, and E. Ukkonen. Predicting gene regulatory elements
-in silico on a genomic scale. Genome Research, 8, 1998.
-Brown, M. P. S., W. N. Grundy, D. Lin, N. Cristianini, C. W. Sugnet, T. S. Furey,
-M. Ares. Jr, and D. Haussler. Knowledge-based analysis of microarray gene
-expression data by using support vector machines. Proceedings of the National
-Academy of Sciences, 97, 2000.
-Brown, T. Genomes. John Wiley & Sons, 1999.
-Burge, C., and S. Karlin. Prediction of complete gene structures in human genomic
-DNA. Journal of Molecular Biology, 268, 1997.
-Burge, C., and S. Karlin. Finding the genes in genomic DNA. Curr. Opin. Struct. Biol
-(8), 1998.
-Cann, R., and A. Wilson. The recent African genesis of humans. Scientiﬁc American,
-2003.
-Cavalli-Sforza, L. L. The DNA revolution in population genetics. Trends in Genetics,
-14, 1998.
-Cavalli-Sforza, L. L. P. Menozzi, and A. Piazza. The History and Geography of Human
-Genes. Princeton University Press, 1996.
-
-174
-
-B I B L I O G R A P HY
-
-Cavalli-Sforza, L. L. Genes, Peoples, and Languages. University of California Press,
-2001.
-Chu, S., J. DeRisi, M. Eisen, J. Mulholland, D. Botstein, P. O. Brown, and
-I. Herskowitz. The transcriptional program of sporulation in budding yeast. Science,
-282, 1998.
-Churchill, G. Stochastic models for heterogeneous DNA sequences. Bull Math Biol.,
-51(1), 1989.
-Churchill, G. Hidden Markov chains and the analysis of genome structure. Computers
-and Chemistry, 16(2), 1992.
-Crick, F. H. On the genetic code. Nobel Lectures, Physiology or Medicine 1942–1962.
-Elsevier Publishing Company, 1964.
-Crick, F. H., L. Barnett, S. Brenner, and R. J. Watta-Tobin. General nature of the
-genetic code for proteins. Nature, 192, 1961.
-DeRisi, J. L., V. R., Iyer, and P. O. Brown. Exploring the metabolic and genetic control
-of gene expression on a genomic scale. Science, 278, 1997.
-Doolittle, R. F. Of URFs and ORFs. University Science Books, 1986.
-Doolittle, W. F. Uprooting the tree of life. Scientiﬁc American, February, 2000.
-Durbin, R., S. Eddy, A. Krogh, and G. Mitchison. Biological Sequence Analysis:
-Probabilistic Models of Proteins and Nucleic Acids. Cambridge University Press,
-1998.
-Eddy, S., G. Mitchison, and R. Durbin. Maximum discrimination hidden Markov
-models of sequence consensus. J. Comput. Biol., 2, 1995.
-Efron, B., and G. Gong. A leisurely look at the bootstrap, the jackknife, and
-cross-validation. The American Statistician, 37(1), 1983.
-Eickmann, M., S. Becker, H. D. Klenk, H. W. Doerr, K. Stadler, S. Censini, S. Guidotti,
-V. Masignani, M. Scarselli, M. Mora, C. Donati, J. H. Han, H. C. Song,
-S. Abrignani, A. Covacci, and R. Rappuoli. Phylogeny of the SARS coronavirus.
-Science, 302, 2003.
-Eisen, M. B., P. T. Spellman, P. O. Brown, and D. Botstein. Cluster analysis and display
-of genome-wide expression patterns. Proceedings of the National Academy of
-Sciences USA, 95, 1998.
-Ewens, W. J. and G. Grant. Statistical Methods in Bioinformatics – An Introduction.
-Springer, 2006.
-Felsenstein, J. Inferring Phylogenies. Sinauer Associates, 2004.
-Feynman, R. P. There’s plenty of room at the bottom: an invitation to enter a new world
-of physics. Engineering and Science, 23(5), 1960.
-Fitch, W. M., and E. Margoliash. Construction of phylogenetic trees. Science, 155,
-1967.
-Fleischmann, R. D. et al. Whole-genome random sequencing and assembly of
-Haemophilus inﬂuenzae rd. Science, 269, 1995.
-Fraser, C. M., J. D. Gocayne, O. White, M. D. Adams, R. A. Clayton,
-R. D. Fleischmann, C. J. Bult, A. R. Kerlavage, G. Sutton, J. M. Kelley,
-R. D. Fritchman, J. F. Weidman, K. V. Small, M. Sandusky, J. Fuhrmann,
-D. Nguyen, T. R. Utterback, D. M. Saudek, C. A. Phillips, J. M. Merrick, J. F. Tomb,
-B. A. Dougherty, K. F. Bott, P. C. Hu, T. S. Lucier, S. N. Peterson, H. O. Smith,
-C. A. Hutchison 3rd, and J. C. Venter. The minimal gene complement of
-Mycoplasma genitalium. Science, 270(5235), 1995.
-Gibson, G., and S. V. Muse. A Primer of Genome Science. Sinauer, 2004.
-Goffeau, A., B. G. Barrell, H. Bussey, R. W. Davis, B. Dujon, H. Feldmann,
-F. Galibert, J. D. Hoheisel, C. Jacq, M. Johnston, E. J. Louis, H. W. Mewes,
-Y. Murakami, P. Philippsen, H. Tettelin H., and S. G. Oliver. Life with 6000 genes.
-Science, 274, 1996.
-
-B I B L I O G R AP HY
-
-Greene, W. AIDS and the immune system. Scientiﬁc American, September 1993.
-Gribskov M., A. D. McLachlan, and D. Eisenberg. Proﬁle analysis: detection of
-distantly related proteins. Proceedings of the National Academy of Sciences, 84,
-1987.
-Gribskov, M. and D. Eisenberg. Proﬁle analysis: detection of distantly related proteins.
-Proceedings of the National Academy of Sciences USA, 84, 1987.
-Guan, Y., B. J. Zheng, Y. Q. He, X. L. Liu, Z. X. Zhuang, C. L. Cheung, S. W. Luo,
-P. H. Li, L. J. Zhang, Y. J. Guan, K. M. Butt, K. L. Wong, K. W. Chan, W. Lim, K. F.
-Shortridge, K. Y. Yuen, J. S. M. Peiris, and L. L. M. Poon. Isolation and
-characterization of viruses related to the SARS coronavirus from animals in southern
-china. Science, 302, 2003.
-Guhathakurta, G., L. Palomar, G. D. Stormo, P. Tedesco, T. E. Johnson, D. W. Walker,
-G. Lithgow, S. Kim, and C. D. Link. Identiﬁcation of a novel cis-regulatory
-element involved in the heat shock response in Caenorhabditis elegans using
-microarray gene expression and computational methods. Genome Research, 12(5),
-2002.
-Handt, O., S. Meyer, and A. von Haeseler. Compilation of human mtDNA control
-region sequences. Nucleic Acids Research, 26, 1998.
-Harmer, S. L., J. B. Hogenesch, M. Straume, H.-S. Chang, B. Han, T. Zhu, X. Wang,
-J. A. Kreps, and S. A. Kay. Orchestrated transcription of key pathways in
-Arabidopsis by the circadian clock. Science, 290, 2000.
-Haussler, D., A. Krogh, K. Mian, and I. S. Sj¨olander. Protein modeling using hidden
-Markov models: analysis of globins. Proceedings of the Hawaii International
-Conference on System Sciences, volume 1. IEEE Computer Society Press, 1993.
-Haussler, D., A. Krogh, and I. Mian. A hidden Markov model that ﬁnds genes in E. coli
-DNA. Nucleic Acids Research, 22(22), 1994.
-Haussler, D., E. D. Green, E. H. Margulies, and M. Blanchette. Identiﬁcation and
-characterization of multi-species conserved sequences. Genome Research, 13(12),
-2003.
-Higgins, D. G., J. D. Thompson, and T. J. Gibson. Using CLUSTAL for multiple
-sequence alignments. Methods Enzymol, 266, 1996.
-Hongchao, L., Y. Zhao, J. Zhang, Y. Wang, W. Li, X. Zhu, S. Sun, J. Xu, L. Ling, L.
-Cai, D. Bu, and R. Chen. Date of origin of the SARS coronavirus strains. BMC
-Infectious Diseases, 4(3), 2004.
-Holmes, E. C., and A. Rambaut. Viral evolution and the emergence of SARS
-coronavirus. Phil. Trans. R. Soc. Lond. B, 359, 2004.
-Horn, M., A. Collingro, S. Schmitz-Esser, C. L. Beier, U. Purkhold, B. Fartmann,
-P. Brandt, G. J. Nyakatura, M. Droege, D. Frishman, T. Rattei, H. W. Mewes, and
-M. Wagner. Illuminating the evolutionary history of Chlamydiae. Science,
-304(5671), 2004.
-Hughes, J. D., P. W. Estep, S. Tavazoie, and G. M. Church. Computational
-identiﬁcation of cis-regulatory elements associated with groups of functionally
-related genes in Saccharomyces cerevisiae. Journal of Molecular Biology, 296,
-2000.
-Hurst, L. D. The Ka/Ks ratio: diagnosing the form of sequence evolution. Trends in
-Genetics, 18(9), 2002.
-Ingman, M., H. Kaessmann, S. P¨aa¨ bo, and U. Gyllensten. Mitochondrial genome
-variation and the origin of modern humans. Nature, 408, 2000.
-Int’l. Human Genome Sequencing Consortium. Initial sequencing and analysis of the
-human genome. Nature, 409(6822), 2001.
-Jones, N. C., and P. A. Pevzner. An Introduction to Bioinformatics Algorithms. MIT
-Press, 2004.
-
-175
-
-176
-
-B I B L I O G R A P HY
-
-Jukes, T. H., and C. R. Cantor. Evolution of protein molecules. In H. N. Munro, editor,
-Mammalian Protein Metabolism, pp. 21–32. Academic Press, 1969.
-Kalman, S., W. Mitchell, R. Marathe, C. Lammel, J. Fan, R. W. Hyman, L. Olinger,
-J. Grimwood, R. W. Davis, and R. S. Stephens. Comparative genomes of Chlamydia
-pneumoniae and Chlamydia trachomatis. Nat Genet., 21(4), 1999.
-Karlin, S., A. M. Campbell, and J. Mrazek. Comparative DNA analysis across diverse
-genomes. Annu Rev Genet., 32, 1998.
-Kellis, M., N. Patterson, M. Endrizzi, B. Birren, and E. Lander. Sequencing and
-comparison of yeast species to identify genes and regulatory motifs. Nature, May 15,
-2003.
-Khorana, H. G., H. Buchi, H. Ghosh, N. Gupta, T. M. Jacob, H. Kossel, R. Morgan,
-S. A. Narang, E. Ohtsuka, and R. D. Wells. Polynucleotide synthesis and the genetic
-code. Cold Spring Harb. Symp. Quant. Biol, 1966.
-Kimura, M. Evolutionary rate at the molecular level. Nature, 217, 1968.
-Kimura, M. A simple method for estimating evolutionary rates of base substitutions
-through comparative studies of nucleotide sequences. Journal of Molecular
-Evolution, 16, 1980.
-Kimura, M., and T. Ohta. On the stochastic model for estimation of mutational distance
-between homologous proteins. Journal of Molecular Evolution, 2(1),
-1972.
-Koonin, E. V., and M. Y. Galperin. Sequence – Evolution – Function: Computational
-Approaches in Comparative Genomics. Springer Verlag, 2002.
-Krings, M., A. Stone, R. W. Schmitz, H. Krainitzki, M. Stoneking, and S. Paabo.
-Neandertal DNA sequences and the origin of modern humans. Cell, 90(1), 1997.
-Krings, M., C. Capelli, F. Tschentscher, H. Geisert, S. Meyer, A. von Haeseler,
-K. Grossschmidt, G. Possnert, M. Paunovic, and S. Paabo. A view of Neandertal
-genetic diversity. Nat. Genet., 26(2), 2000.
-Krogh, A., M. Brown, I. S. Mian, K. Sj¨lander, and D. Haussler. Hidden Markov models
-in computational biology: applications to protein modeling. Journal of Molecular
-Biology, 235, 1994.
-Kulp, D., D. Haussler, M. G. Reese, and F. H. Eeckman. A generalized hidden Markov
-model for the recognition of human genes in DNA. Proceedings of the Fourth
-International Conference on Intelligent Systems for Molecular Biology, pp.
-134–142. AAAI Press, 1996.
-Kumar, S. Patterns of nucleotide substitution in mitochondrial protein coding genes of
-vertebrates. Genetics, 1(143), 1996.
-Lawrence, C. E., S. Altschul, M. Boguski, J. Liu, A. Neuwald, and J. Wootton.
-Detecting subtle sequence signals: a Gibbs sampling strategy for multiple alignment.
-Science, 262, 1993.
-Lei, G., Q. Ji, W. Haibin, S. Yigang, and H. Bailin. Molecular phylogeny of
-coronaviruses including human SARS-cov. Chinese Science Bulletin, 48(12),
-2003.
-Lu, Hongchao, Y. Zhao, J. Zhang, Y. Wang, W. Li, X. Zhu, S. Sun, J. Xu, L. Ling, L.
-Cai, D. Bu, and R. Chen. Date of origin of the SARS coronavirus strains. BMC
-Infectious Diseases, 4(3), 2004.
-Margulies, E. H., M. Blanchett, D. Haussler, and E. D. Green. Identiﬁcation and
-characterization of multi-species conserved sequences. Genome Research, 13(12),
-2003.
-Marra, M. A., S. J. Jones, C. R. Astell, R. A. Holt, A. Brooks-Wilson, Y. S. Butterﬁeld,
-J. Khattra, J. K. Asano, S. A. Barber, S. Y. Chan, A. Cloutier, S. M. Coughlin,
-D. Freeman, N. Girn, O. L. Grifﬁth, S. R. Leach, M. Mayo, H. McDonald,
-S. B. Montgomery, P. K. Pandoh, A. S. Petrescu, and A. G. Robertson. The genome
-sequence of the SARS-associated coronavirus. Science, 300, 2003.
-
-B I B L I O G R AP HY
-
-McCue, L. A., W. Thompson, C. S. Carmack, M. P. Ryan, J. S. Liu, V. Derbyshire, and
-C. E. Lawrence. Phylogenetic footprinting of transcription factor binding sites in
-proteobacterial genomes. Nucleic Acids Research, 29, 2001.
-Miyata, T., and T. Yasunaga. Molecular evolution of mRNA: a method for estimating
-evolutionary rates of synonymous and amino acid subtitutions from homologous
-nucleotide sequences and its applications. Journal of Molecular Evolution, 16, 1980.
-Muse, S. V. Estimating synonymous and nonsynonymous substitution rates. Molecular
-Biology and Evolution, 13, 1996.
-Needleman, S. B., and C. D. Wunsch. A general method applicable to the search for
-similarities in the amino acid sequence of two proteins. Journal of Molecular
-Biology, 48, 1970.
-Nei, M., and T. Gojobori. Simple methods for estimating the numbers of synonymous
-and nonsynonymous nucleotide substitutions. Molecular Biology and Evolution,
-5(3), 1986.
-Nirenberg, M. W. The genetic code. In Nobel Lectures, Physiology or Medicine
-1963–1970. Elsevier Publishing Company, 1972.
-Ota, T., and M Nei. Variance and covariances of the numbers of synonymous and
-nonsynonymous substitutions per site. Molecular Biology and Evolution, 4(11),
-1994.
-Ovchinnikov, I. V., A. Gotherstrom, G. P. Romanova, V. M. Kharitonov, K. Liden, and
-W. Goodwin. Molecular analysis of Neanderthal DNA from the northern caucasus.
-Nature, 404, 2000.
-Pennisi, E. Human genome: a low number wins the genesweep pool. Science,
-300(1484), 2003.
-Rabiner, L. R. A tutorial on hidden Markov models and selected applications in speech
-recognition. Proc. IEEE, 77, 1989.
-Reilley, B., M. Van Herp, D. Sermand, and N. Dentico: SARS and Carlo Urbani. New
-England Journal of Medicine, 348(20), 2003.
-Rota, P. A., M. S. Oberste, S. S. Monroe, W. A. Nix, R. Campagnoli, J. P. Icenogle,
-S. Penaranda, B. Bankamp, K. Maher, M. H. Chen, S. Tong, A. Tamin, L. Lowe,
-M. Frace, J. L. DeRisi, Q. Chen, D. Wang, D. D. Erdman, T. C. Peret, C. Burns,
-T. G. Ksiazek, P. E. Rollin, A. Sanchez, S. Lifﬁck, and B. Holloway.
-Characterization of a novel coronavirus associated with severe acute respiratory
-syndrome. Science, 300, 2003.
-Saitou, N., and M. Nei. The neighbor-joining method: a new method for reconstructing
-phylogenetic trees. Molecular Biology and Evolution, 4, 1987.
-Sanger, F., A. R. Coulson, T. Friedmann, G. M. Air, B. G. Barrell, N. L. Brown,
-J. C. Fiddes, C. A. Hutchison 3rd, P. M. Slocombe, and M. Smith. The nucleotide
-sequence of bacteriophage phix174. Journal of Molecular Biology, 125(2), 1978.
-Sanger, F., Coulson A. R., Hong G. F., D. F. Hill, and G. B. Petersen. Nucleotide
-sequence of bacteriophage lambda DNA. Journal of Molecular Biology, 162, 1982.
-Schmitz, R. W., D. Serre, G. Bonani, S. Feine, F. Hillgruber, H. Krainitzki, S. Paabo,
-and F. H. Smith. The Neandertal type site revisited: interdisciplinary investigations
-of skeletal remains from the Neander Valley, Germany. Proceedings of the National
-Academy of Sciences USA, 99(20), 2002.
-Smith, T. F., and M. S. Waterman. Comparison in biosequences. Advances in Applied
-Mathematics, 2, 1981.
-Spellman, P. T., G. Sherlock, M. Q. Zhang, V. R. Iyer, K. Anders, M. B. Eisen,
-P. O. Brown, D. Botstein, and B. Futcher. Comprehensive identiﬁcation of cell
-cycle-regulated genes of the yeast Saccharomyces cerevisiae by microarray
-hybridization. Mol Biol Cell, 9, 1998.
-Suzuki, Y., and T Gojobori. A method for detecting positive selection at single amino
-acid sites. Molecular Biology and Evolution, 10(16), 1999.
-
-177
-
-178
-
-B I B L I O G R A P HY
-
-Sykes, B. The Seven Daughters of Eve. W. W. Norton & Company, 2002.
-The Chinese SARS Molecular Epidemiology Consortium. Molecular evolution of the
-SARS coronavirus during the course of the SARS epidemic in China. Science, 303,
-2003.
-Thompson, J. D., D. G. Higgins, and T. J. Gibson. CLUSTAL W: improving the
-sensitivity of progressive multiple sequence alignment through sequence weighting,
-position-speciﬁc gap penalties and weight matrix choice. Nucleic Acids Research,
-22, 1994.
-Thorne, J. L., H. Kishino, and J. Felsenstein. An evolutionary model for maximum
-likelihood alignment of DNA sequences. Molecular Biology and Evolution, 2(33),
-1991.
-Tzeng, Y. H., R. Pan, and W. H. Li. Comparison of three methods for estimating rates
-of synonymous and non-synonymous nucleotide substitutions. Molecular Biology
-and Evolution, 21(12), 2004.
-Venter, J. C., et al. The sequence of the human genome. Science, 291(5507),
-2001.
-Wain-Hobson, S., P. Sonigo, O. Danos, S. Cole, and M. Alizon. Nucleotide sequence of
-the AIDS virus, LAV. Cell, 40(1), 1985.
-Watson, J., The involvement of RNA in the synthesis of proteins. In Nobel Lectures,
-Physiology or Medicine 1942–1962. Elsevier Publishing Company, 1964.
-Watson, J., and F. Crick. A structure for deoxyribose nucleic acid. Nature, 171(4356),
-1953.
-Yang, Z., and J. Bielawski. Statistical methods for detecting molecular adaptation.
-Trends Ecol Evol., 15, 2000.
-Zeng, F., K. Y. C. Chow, and F. C. Leung. Estimated timing of the last common
-ancestor of the SARS coronavirus. New England Journal of Medicine, 349, 25, 2003.
-Zhang, Y., and N. Zheng. Genomic phylogeny of SARS coronavirus suggested that
-Guangdong province is the origin area. Unpublished Manuscript, 2003.
-Zozulya, S., F. Echeverri, and T. Nguyen. The human olfactory receptor repertoire.
-Genome Biology 2, 2001.
-
-Index
-3-point formula, 118
-4-point condition, 119
-ab initio methods, 29, 40
-accession number, 18, 19
-additive distance, 117
-additive tree, 117
-Affymetrix, 147
-AIDS, 96
-Alanine, 24
-AlignACE, 172
-alignment, 39, 48
-approximate, 51
-global, 42, 43, 48
-local, 47, 51
-multiple, 53, 62, 71
-optimal global, 45
-optimal local, 46
-pairwise, 42
-alignment score, 48
-alignment scoring function, 43
-allele, 80
-alternative hypothesis, 32
-Altschul, Stephen, 42, 51
-amino acid, xiii, 44
-amino acid alphabet, 24
-amino acid sequence, 7
-amino acid substitution matrix, 82
-amino acids, 23
-aniridia, 38, 60
-Anopheles gambiae, 5
-approximate alignment, 51
-Arabidopsis thaliana, 2, 159, 160, 167
-Arber, Werner, 16
-Archaea, 4
-Arginine, 24
-Asparagine, 24
-Aspartic acid, 24
-Avery, Oswald, xiv
-Axel, Richard, 61
-AZT, 97
-baker’s yeast, 1
-base, 3, 4
-best reciprocal hit, 132
-binding site, 16, 160, 161
-bioinformatics, xii
-biological validation, 171
-Birney, Ewan, 22
-BLAST, xv, 40, 51, 60
-
-BLOSUM matrix, 45, 83
-blue whale, 95
-bonobo, 78, 85, 93
-bootstrap, 35
-branch length, 115
-branches, 113
-BRH, see best reciprocal hit
-Brown, Pat, 3, 143
-buchnera, 136
-Buck Linda, 61
-Caenorhabditis elegans, 5, 21, 22
-cancer, 80
-Cantor, Charles, 88, 95
-Cavalli-Sforza Luigi Luca, 95
-CCA1, 160
-CCR5, 107
-cDNA, 144
-cDNA microarray, 145
-central dogma, 25
-change point analysis, 13, 62
-chaos game representation, 15
-chimpanzee, 78, 85, 93, 108
-Chlamydia, xvi, 4
-Chlamydia pneumoniae, 129, 131
-Chlamydia trachomatis, 2, 129,
-131
-chloroplast, 5, 129
-chromosome, 3, 30
-Churchill, Gary, 63
-circadian clock, xvii, 159
-CLUSTALW, 54, 60
-clustering, 151
-k-means, 151
-hierarchical, 151
-codon, 26, 81
-start, 29, 33
-stop, 26, 28, 33
-codon bias, 34, 100
-codon distribution
-non-uniform, 34
-uniform, 34
-codon sequence, 7
-codon structure, 69
-comparative genomics, 130
-comparison-based methods, 29
-complementarity, 3, 30
-consensus sequence, 163
-coronavirus, 111
-correlation coefﬁcient, 151
-
-cow, 95
-Crick, Francis, xiv, 21, 27, 37
-CRS, 84
-Cysteine, 24
-D-loop, 84
-Danio rerio, 5
-database searching, 40
-Dayhoff, Margaret, 82
-DDBJ database, 18
-degradase, 23
-delta method, 90
-dendrogram, 155
-diauxic shift, 141, 145, 147, 153
-dimer, 14
-dinucleotide, 14
-diploid, 79
-directed tree, 115
-distance matrix, 117
-distance measures, 151
-distance-based methods, 117
-DNA, xiii, xiv, 3, 26
-regulatory, 161
-DNA alignment, 44
-DNA ﬁngerprinting, 81
-DNA microarray, 142
-DNA sequence, xiv, 3, 6, 7, 79
-Drosophila melanogaster, 5, 38, 53
-drug resistance, xvi
-duplications, 81
-dynamic programming, 46, 56, 62, 75
-E-value, 52
-E. coli K12, 2, 13, 128
-elephant, 94
-EM algorithm, see
-expectation-maximization algorithm
-EMBL database, 18
-emission matrix, 65, 66
-emission probability, 63
-ENV, 107, 121, 127
-enzyme, xiii
-epitopes, 98
-EST, 144
-Eubacteria, 4, 161
-Eukaryote, xiii, 69
-evening element, 167
-evolution, 97, 98
-exceptions, xii, 26
-exon, 29, 70
-
-180
-
-INDEX
-
-expectation-maximization algorithm, 66,
-76, 166
-exploratory data analysis, 148
-external node, 113
-eyeless gene, 38, 41, 46, 49,
-60
-false negative, see Type II error
-false positive, see Type I error
-fast heuristic methods, 42
-FASTA, 18, 51
-FASTA format, 19
-footprinting, 136
-forward algorithm, 66, 76
-frame shift mutation, 29
-function
-prediction, 40, 62
-GAG, 108
-GC content, 12
-Gehring, Walter, 38
-GenBank, 18
-gene, xiv, 3
-gene duplication, 41, 130
-gene expression, xv
-gene family, 41, 132, 133
-gene ﬁnding, 29, see gene prediction, 48,
-62, 69
-prokaryotic, 22
-gene function, 154
-gene-ﬁnding, 28, 40
-prokaryotic, 29
-GeneChip, 147
-genetic algorithms, 98
-genetic code, 26
-mitochondrial, 37
-genetic distance, 86, 87, 88, 89,
-91
-genome, 3, 6
-annotation, 1
-eukaryotic, 4
-organelle, 5
-prokaryotic, 4
-viral, 4
-genome signature, 15
-germline mutation, 80
-gibbon, 93
-Gibbs sampling, 165, 166
-Gibson, Toby, 54
-Gish, Warren, 42
-global alignment, 42, 43, 49
-optimal, 45
-Glutamic acid, 24
-Glutamine, 24
-
-Glycine, 24
-Gojobori, Takashi, 102
-gorilla, 85, 93
-gp120, 107
-gp160, 107
-gp41, 107
-graph
-cyclic, 67
-GTR model, 92
-Haemophilus inﬂuenzae, xv, 1, 2, 4, 10,
-12, 14, 16, 18, 21, 25, 31, 35,
-36
-haplotype, 85
-Harmer, Stacey, 167
-Haussler, David, 63
-heat maps, 155
-helix, double, 3
-hemoglobin, 23
-hidden Markov model, xv, 13, 62, 63, 65,
-67, 69
-hierarchical clustering, 133
-Higgins, Desmond, 54
-Histidine, 24
-HIV, 96, 127
-HIV genome, 105
-Holley, Robert, 26
-homeobox domain, 38, 41
-Homeobox, 52
-Homo erectus, 78, 79, 93
-Homo habilis, 78
-Homo neanderthalis, 78, 85
-Homo sapiens, xv, 2, 5, 79, 85, 92
-Homo sapiens mitochondrion, 18
-homolog, 38, 40
-homologous sequence, 67
-homology, 40, 48, 51, 53
-multiple levels of, 39
-homology-based methods, 29
-horizontal gene transfer, 12
-Hotel Metropole, 111, 121, 122
-hotspot, 52
-HOX, 38
-HOX domain, 49
-HOX gene, 49
-human genome sequence, 2
-human mtDNA, 2
-HVR, see hypervariable region
-hybridization, 144
-hydrophilic, 72
-hydrophobic, 72
-hydrophobicity, 82
-hypervariable region, 18, 84, 92, 100
-Hypothesis Testing, 31
-
-i.i.d, 7, 12
-image processing, 146
-immune system, 97, 98
-indel, 41, 81
-insulin, 23
-intergenic region, 136
-internal node, 113
-intron, 29, 63, 69, 70
-inversions, 81
-Isoleucine, 24
-Java Man, 78
-Jukes, Thomas, 88, 95
-Jukes–Cantor formula, 88, 90, 91
-k-mers, 14
-Ka/Ks Ratio, 100
-Khorana, Gobind, 26, 37
-Kimura Model, 91
-Kimura, Motoo, 91, 95, 100
-kinking, 16
-KL divergence, 165
-Leakey, Louis, 78
-leaves, 113
-length of a tree, 118
-Leucine, 24
-LHY, 160
-ligase, 23
-likelihood, 8
-Lipman, David, 42
-loaded dice, 64
-local alignment, 42, 47, 51
-optimal, 46
-locus, 19
-Lysine, 24
-mad cow disease, 25
-malaria, 96
-mammoth, 94
-manganese-dependent superoxide
-dismutase, 25
-Markov chain, 8, 9, 88
-Markov DNA sequence, 9
-Markov model, 7, 9, 48
-master regularity gene, 38
-matrix
-substitution, 82
-maximal segment pair, 51
-MEGA, 109
-MEME, 172
-Mendel, Gregor, xiv
-metabolism, xiii
-methionine, 24, 28
-
-INDEX
-
-microarray, xv, 144
-one-dye, 147
-two-dye, 146
-cDNA, 145
-microsatellites, 81
-midpoint rooting, 120
-Miller, Webb, 42
-missing data, 150
-mitochondria, 5, 26, 129
-motif, 15, 16, 54, 161
-ungapped, 163
-motif bias, 14
-motif ﬁnding, 160, 164
-mouse, 108, 160
-mRNA, 26, 28, 70
-mtDNA, 5, 82, 83, 85, 95
-multidimensional scaling, 92,
-124
-multinomial model, 7, 9, 16, 48
-multiple alignment, 53, 62, 71
-multiple testing, 36
-MUMmer, 140
-Mus musculus, 5, 53
-mutation, 79, 80, 81, 82, 86, 97
-ﬁxed, 86
-germline, 80
-neutral, 86
-point, 80
-Mycoplasma genitalium, 1, 2, 4, 18, 21,
-22, 31, 35, 36, 129, 138
-Mycoplasma pneumoniae, 138
-Myers, Gene, 42
-Nathans, Dan, 16
-natural selection, 97
-Neanderthal, xv, 19, 78, 85, 92, 93, 95,
-127
-Needleman, Saul, 42
-Needleman–Wunsch algorithm, 45, 47,
-51, 54, 55, 58, 60
-Nei, Masatoshi, 102, 118
-Nei–Gojobori Algorithm, 102, 105
-neighbor-joining algorithm, 117, 118,
-119, 120
-neighborliness, 119
-network
-phylogenetic, 112
-neurogenesis, 49
-neutral mutation, 86
-Neutral Theory of Evolution, 100
-Newick format, 115, 126
-Nirenberg, Marshall, 26, 37
-NJ algorithm, see neighbor-joining
-algorithm
-
-non-synonymous substitution, 99, 101
-nucleotides, 3, 4, 6, 8
-null hypothesis, 32
-odds ratio, 16
-odorant receptors, 61, 69, 71, 72, 127
-olfactory system, 61
-open reading frame, 29, 30
-optimal global alignment, 45
-optimal local alignment, 46
-orangutan, 85, 93
-ORF, see open reading frame, see Open
-Reading Frame, 132
-ORF ﬁnding, 69, 106
-ortholog, 41
-orthologous genes, 41
-orthology, 41, 131
-Oryza sativa, 5
-out of africa, 93
-outgroup, 113
-oxidative phosphorylation, 83
-p-value, 32
-paired-box domain, 38, 42
-pairwise alignment, 42
-palindrome, 17
-palm civet, 111, 121
-PAM matrix, 45, 83
-paralogous genes, 41
-paralogy, 41, 131
-parasite, 129
-pathway, xiv
-pattern detection, 62
-pattern discovery, 18, 166
-pattern matching, 18, 166
-PAX, 38
-PAX domain, 49
-PAX gene, 49, 50
-Peking Man, 78
-permutaton test, 35
-phage, 1, 2, 13, 18, 20, 66, 77
-Phenylalanine, 24
-pheromone, 61
-pHMM, see proﬁle HMM, 68, 71
-Phylip, 127
-phylogenetic analysis, 114
-phylogenetic footprinting, 136
-phylogenetic network, 112
-phylogenetic tree, xvi, 93, 112,
-116
-phylogenetics, 112
-polymerase, 108, 161
-polymorphism, 80,
-polypeptides, 24
-
-polyploid, 130
-prediction of function, 40, 62
-primate evolution, 93
-prion, 25
-probabilistic model, 6
-probability, 8
-conditional, 9
-joint, 9
-transition, 8
-probes, 144
-proﬁle, 68
-proﬁle HMM, 68
-Prokaryote, xiii, 4
-Proline, 24
-promoter, 30, 163
-protein, xiii, 23, 26
-domains, 41
-protein coding, 60
-protein fold prediction, 24
-protein folding, 24
-protozoa, 128
-Prusiner, Stanley, 25
-pseudocount, 165
-pseudogenes, 61
-PSSM, 68, 163, 166
-PSWM, see PSSM
-purines, 81
-pyrimidines, 81
-randomization test, 34
-reading frame, 28
-recombination, 116
-reference design, 147
-regulatory DNA, 161
-repeats, 169
-replicase, 121
-restriction enzyme, 16
-restriction site, 16
-reversal distance, 137
-reversal sort algorithm, 138
-rhodopsin, 71
-ribosome, 26, 28
-RNA, 26
-RNA sequence, 7
-RNA-coding genes, 69
-rooted tree, 113
-sabre-tooth tiger, 95
-Saccharomyces cerevisiae, 1, 2, 5, 21,
-141, 142
-Saitou, Naruya, 118
-Sanger, Fred, 1, 21
-SARS, xvi, 2, 108, 110, 115
-saturation, 87
-
-181
-
-182
-
-INDEX
-
-scoring function, 44, 164
-alignment, 43
-segment pair, 51
-maximal, 51
-segmentation, 62, 64
-selection
-negative, 97
-positive, 97
-purifying, 97
-sequence alignment, xv, 3, 39
-sequence assembly, 40
-sequence divergence, 40
-sequence evolution, 88
-sequence polymorphism, 80
-sequence similarity, xv, 40
-Serine, 24
-Sharp, Paul, 54
-signiﬁcance level, 32
-signiﬁcant, 32
-similarity, 51
-Single Nucleotide Polymorphism, see
-SNP
-single nucleotide polymorphisms, xvi
-SIV, 127
-sliding window, 107
-Smith, Hamilton, 16
-Smith, Temple, 42
-Smith–Waterman algorithm, 47, 49, 50,
-54, 58, 59, 60
-SNP, 80, 81
-sorting by reversals, 136
-speciation, 41, 131
-Spike gene, 121
-splice sites, 70
-standard nucleotide alphabet, 20
-start codon, 29, 33
-stop codon, 26, 28, 33, 34, 103
-
-STR, 81
-string, 7
-subsequence, 7
-substitution, 82, 86
-matrix, 44
-multiple, 87
-non-synonymous, 99
-synonymous, 99
-substitution matrix, 82
-substitution rate, 86
-substring, 7
-symbiont, 128
-synonymous substitution, 99, 101
-synteny, 135, 136
-T Cells, 98
-tabular computation, 56
-tandem repeats, 81
-TATA-box, 161
-taxa, 112
-test statistic, 32
-theorem of total probability, 66
-Thompson, Julie, 54
-Threonine, 24, 27
-tobacco, 160
-TOC1, 160
-topology, 113
-trace-back, 57
-transcription, 26
-transcription factors, 160
-transition matrix, 9, 65, 66
-transition probability, 63
-transitions, 81
-translation, 26
-transmembrane domain, 61
-tranversions, 81
-tree, 116
-
-additive, 117
-bifurcating, 113
-directed, 115
-oriented, 114
-phylogenetic, 112
-rooted, 113
-unrooted, 113
-Tryptophan, 24
-Type I error, 32, 33
-Type II error, 33
-Tyrosine, 24
-ultrametricity, 120
-ungapped motif, 163
-unrooted tree, 113
-untranslated regions, 28
-UPGMA, 120
-upstream region, 163
-Urbani strain, 122
-Urbani, Carlo, 110
-Valine, 24
-variation between species, 86
-Venter, Craig, 1
-visualization, 155
-Viterbi algorithm, 66, 75
-Waterman, Michael, 42
-Watson, James, xiv, 21, 37
-whole-genome analysis, xvi,
-5
-wine, 141
-Wunsch, Christian, 42
-yeast, 141, 142, 143, 172
-zebraﬁsh, 5
-
+
