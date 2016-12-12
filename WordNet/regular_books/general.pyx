@@ -30,9 +30,11 @@ cdef dict all_weights = {}
 cdef tuple initial(main_dict):
     main_dict = {i: set(j) for i, j in main_dict.items() if j}
     cdef np.ndarray all_sent = np.array(list(main_dict))
-    cdef np.ndarray all_words = np.unique(np.fromiter(chain.from_iterable(main_dict.values()),
-                                          dtype='U20'))
-    return all_words, all_sent, main_dict
+    cdef np.ndarray all_words = np.fromiter(chain.from_iterable(main_dict.values()),
+                                            dtype='U20')
+    counter = Counter(all_words)
+    all_words = np.unique(all_words)
+    return all_words, all_sent, main_dict, counter
 
 cdef dict create_words_with_indices():
     cdef dict total = {}
@@ -95,7 +97,7 @@ cdef void run():
             print(name)
             d = json.load(f)
             # d = dict(list(d.items())[:1000])
-        all_words, all_sent, main_dict = initial(d)
+        all_words, all_sent, main_dict, counter = initial(d)
         print("All words {}".format(len(all_words)))
         w_w_i = {w: i for i, w in enumerate(all_words)}
         s_w_i = {s: i for i, s in enumerate(all_sent)}
@@ -104,7 +106,6 @@ cdef void run():
         s_include_word = {w: sentence_include_word(w) for w in all_words}
         sentence_with_indices = create_sentence_with_indices(s_include_word)
         word_with_indices = create_words_with_indices()
-        counter = Counter(all_words)
         sum5 = sum(j for _, j in counter.most_common(5))
         all_weights = cal_weights()
         iteration(name.split('/')[1].split('.')[0], latest_SSM, latest_WSM)
