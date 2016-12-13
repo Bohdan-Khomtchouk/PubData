@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2015-2016 Bohdan Khomtchouk and Kasra A. Vand
-# This file is part of PubData.
 
-# -------------------------------------------------------------------------------------------
-
-
-from nltk import word_tokenize, sent_tokenize, pos_tag
+from nltk import pos_tag
 from nltk.stem import LancasterStemmer, PorterStemmer, RegexpStemmer
 from string import punctuation
 import json
@@ -18,7 +13,7 @@ def stemming(word):
     # Use stemmers for removing morphological affixes from words.
     Portst = PorterStemmer()
     Landst = LancasterStemmer()
-    Regst = RegexpStemmer('ing|ed|ly|lly')
+    Regst = RegexpStemmer('ing|ed')
     new = Portst.stem(word)
     if new == word:
         new = Landst.stem(word)
@@ -38,31 +33,33 @@ def refine_data(main_dict):
         c = not(len(regex2.findall(w)) > 2)
         d = 2 < len(w) < 20
         f = not w.endswith('ing')
+        g = not w.endswith('-')
         return all([a, b, c, d, f])
 
     result = {k: {regex3.search(w).group(1) for w in v if check_word(w)}
               for k, v in main_dict.items() if v}
-    result = {k: [w.replace('ﬁ', 'fi').replace('ﬂ', 'fl').replace('ϫ', 'j') for w in v if check_word(w)] for k, v in result.items() if v}
+    result = {k: [w.replace(u'ﬁ', 'fi').replace(u'ﬂ', 'fl').replace(u'ϫ', 'j') for w in v if check_word(w)] for k, v in result.items() if v}
     return {str(k): v for k, v in result.items() if v}
 
 
 def create_jsons():
-    result = {}
     for file_name in glob.glob("files/*.txt"):
+        result = {}
         with open(file_name) as f:
             content = f.read()
             paragraphs = filter(bool, {p.strip() for p in re.split(r'\n+', content)})
             for p in paragraphs:
                 if not p.startswith('Figure'):
-                    sentences = sent_tokenize(p)
+                    sentences = re.split(r'[.,]', p)
                     if len(sentences) > 2:
                         for sent in sentences:
-                            result.update({hash(sent): word_tokenize(sent)})
+                            sent.replace(r'-\n', '')
+                            result.update({hash(sent): filter(bool, re.split(r'\s', sent))})
 
         total = {}
         for k, v in result.items():
             if len(v) > 1:
-                value = {stemming(w.strip(punctuation).lower()) for w, tag in pos_tag(v) if 'NN' in tag and len(w) > 2}
+                value = {stemming(w.strip(punctuation).lower().decode('utf8', 'replace')) for w, tag in pos_tag(v) if 'NN' in tag and len(w) > 2}
                 if value:
                     total[k] = list(value)
 
