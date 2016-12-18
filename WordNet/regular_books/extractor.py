@@ -2,23 +2,22 @@
 
 
 from nltk import pos_tag
-from nltk.stem import LancasterStemmer, PorterStemmer, RegexpStemmer
+from nltk.stem import RegexpStemmer
+from nltk.stem import WordNetLemmatizer
 from string import punctuation
 import json
 import glob
 import re
 
+wnl = WordNetLemmatizer()
+
 
 def stemming(word):
     # Use stemmers for removing morphological affixes from words.
-    Portst = PorterStemmer()
-    Landst = LancasterStemmer()
+    # Portst = PorterStemmer()
+    # Landst = LancasterStemmer()
     Regst = RegexpStemmer('ing|ed')
-    new = Portst.stem(word)
-    if new == word:
-        new = Landst.stem(word)
-        if new == word:
-            new = Regst.stem(word)
+    new = Regst.stem(word)
     return new
 
 
@@ -33,13 +32,12 @@ def refine_data(main_dict):
         c = not(len(regex2.findall(w)) > 2)
         d = 2 < len(w) < 20
         f = not w.endswith('ing')
-        g = not w.endswith('-')
         return all([a, b, c, d, f])
 
-    result = {k: {regex3.search(w).group(1) for w in v if check_word(w)}
+    result = {k: {wnl.lemmatize(regex3.search(w).group(1)) for w in v if check_word(w)}
               for k, v in main_dict.items() if v}
     result = {k: [w.replace(u'ﬁ', 'fi').replace(u'ﬂ', 'fl').replace(u'ϫ', 'j') for w in v if check_word(w)] for k, v in result.items() if v}
-    return {str(k): v for k, v in result.items() if v}
+    return {str(k): v for k, v in result.items() if len(v) > 1}
 
 
 def create_jsons():
@@ -47,14 +45,14 @@ def create_jsons():
         result = {}
         with open(file_name) as f:
             content = f.read()
-            paragraphs = filter(bool, {p.strip() for p in re.split(r'\n+', content)})
+            paragraphs = filter(bool, {p.strip() for p in re.split(r'\n{2,}', content)})
             for p in paragraphs:
                 if not p.startswith('Figure'):
-                    sentences = re.split(r'[.,]', p)
+                    sentences = re.split(r'\.(?![^()]*\))', p)
                     if len(sentences) > 2:
                         for sent in sentences:
-                            sent.replace(r'-\n', '')
-                            result.update({hash(sent): filter(bool, re.split(r'\s', sent))})
+                            sent.replace('-\n', '')
+                            result.update({hash(sent): filter(bool, re.split(r'\s+', sent))})
 
         total = {}
         for k, v in result.items():
@@ -63,8 +61,9 @@ def create_jsons():
                 if value:
                     total[k] = list(value)
 
+        total = {k: v for k, v in refine_data(total).items() if len(v) > 2}
         with open("{}.json".format(file_name.split('.')[0]), 'w') as f:
-            json.dump(refine_data(total), f, indent=4)
+            json.dump(total, f, indent=4)
 
 
 create_jsons()
