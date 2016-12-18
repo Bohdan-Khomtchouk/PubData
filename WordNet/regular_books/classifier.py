@@ -30,13 +30,13 @@ def load_files():
         print(name)
         WSM = matrices['WSM']
         words = matrices['words']
-        indices = np.argpartition(WSM, -N, axis=1)[:, -N:]
+        indices = np.argsort(WSM, axis=1)[:, -N:]
         # x = WSM.shape[0]
         # values = WSM[np.repeat(np.arange(x), N), indices.ravel()].reshape(x, N)
         # print(values)
         classified_words = {}
-        for w, inds in zip(words, indices):
-            classified_words[w] = list(words[inds])
+        for i, (w, inds) in enumerate(zip(words, indices)):
+            classified_words[w] = [words[j] for j in inds if WSM[i, j]]
         yield name, classified_words
 
 

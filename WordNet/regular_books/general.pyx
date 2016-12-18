@@ -12,7 +12,7 @@ import glob
 # DTYPE = np.object
 # ctypedef np.object_t DTYPE_t
 
-cdef int iteration_number = 4
+cdef int iteration_number = 5
 cdef dict s_include_word
 cdef dict sentence_with_indices
 cdef dict word_with_indices
@@ -23,8 +23,6 @@ cdef np.ndarray all_words
 cdef dict main_dict
 cdef dict w_w_i
 cdef dict s_w_i
-cdef np.ndarray latest_SSM_numpy
-cdef np.ndarray latest_WSM_numpy
 cdef dict all_weights = {}
 
 cdef tuple initial(main_dict):
@@ -37,6 +35,7 @@ cdef tuple initial(main_dict):
     return all_words, all_sent, main_dict, counter
 
 cdef dict create_words_with_indices():
+    """ Sentences with word's indices"""
     cdef dict total = {}
     for s, words in main_dict.items():
         if len(words) > 1:
@@ -46,6 +45,7 @@ cdef dict create_words_with_indices():
     return total
 
 cdef dict create_sentence_with_indices(s_include_word):
+    """ Words with sentence's indices """
     cdef dict total = {}
     for w in all_words:
         sentences = s_include_word[w]
@@ -59,7 +59,7 @@ cdef set sentence_include_word(word):
     return {sent for sent, words in main_dict.items() if word in words}
 
 cdef float weight(str S, str W):
-    cdef float word_factor = max(0, 1 - counter[W] / sum5)
+    cdef float word_factor = max(0, 1 - float(counter[W]) / sum5)
     cdef float other_words_factor = sum(max(0, 1 - counter[w] / sum5) for w in main_dict[S])
     return word_factor / other_words_factor
 
@@ -77,58 +77,45 @@ cdef dict cal_weights():
     return cache_weights
 
 cdef void run():
-    global all_words
-    global all_sent
     global s_include_word
     global sentence_with_indices
     global word_with_indices
-    global counter
-    global sum5
     global main_dict
     global latest_WSM
     global latest_SSM
     global w_w_i
     global s_w_i
     global all_weights
+    global counter
+    global sum5
+    global all_words
+    global all_sent
 
     file_names = glob.glob("files/*.json")
-    for name in file_names[1::2]:
+    for name in file_names[::-1]:
         with open(name) as f:
             print(name)
             d = json.load(f)
             # d = dict(list(d.items())[:1000])
         all_words, all_sent, main_dict, counter = initial(d)
-        print("All words {}".format(len(all_words)))
+        name = name.split('/')[1].split('.')[0]
+        print("All words {}".format(all_words.size))
+        print("All senttences {}".format(all_sent.size))
         w_w_i = {w: i for i, w in enumerate(all_words)}
         s_w_i = {s: i for i, s in enumerate(all_sent)}
-        latest_SSM = create_SSM()
-        latest_WSM = create_WSM()
+        latest_SSM = create_SSM(all_sent)
+        latest_WSM = create_WSM(all_words)
         s_include_word = {w: sentence_include_word(w) for w in all_words}
         sentence_with_indices = create_sentence_with_indices(s_include_word)
         word_with_indices = create_words_with_indices()
         sum5 = sum(j for _, j in counter.most_common(5))
         all_weights = cal_weights()
-        iteration(name.split('/')[1].split('.')[0], latest_SSM, latest_WSM)
-        names = ['all_words',
-                 'all_sent',
-                 's_include_word',
-                 'sentence_with_indices',
-                 'word_with_indices',
-                 'counter',
-                 'sum5',
-                 'main_dict',
-                 'latest_WSM',
-                 'latest_SSM',
-                 'w_w_i',
-                 's_w_i',
-                 'latest_SSM_numpy',
-                 'latest_WSM_numpy',
-                 'all_weights']
-        for nam in names:
-            globals().update({name: None})
+        print(counter.most_common(10))
+        print("--- START ITERATION ---")
+        iteration(name, latest_SSM, latest_WSM)
 
 
-def create_SSM():
+def create_SSM(all_sent):
     """
     Initialize the sentence similarity matrix by creating a NxN zero filled
     matrix where N is the number of sentences.
@@ -140,7 +127,7 @@ def create_SSM():
     return ssm
 
 
-def create_WSM():
+def create_WSM(all_words):
     """
     Initialize the word similarity matrix by creating a matrix with
     1 as its main digonal and columns with word names.
@@ -154,36 +141,42 @@ def create_WSM():
     return wsm
 
 cdef float affinity_WS(str W, str S, np.float32_t[:, :] latest_WSM):
-    cdef float result=0, max_val=0
+    cdef set words = main_dict[S]
+    if W in words:
+        return 1.0
+    cdef float result, max_val = 0
     cdef tuple wwi = word_with_indices[S]
     cdef int i, wwiw = w_w_i[W]
     for i in wwi:
-        max_val = latest_WSM[wwiw, i]
-        if max_val > result:
-            result = max_val
-        return result
+        result = latest_WSM[wwiw, i]
+        if result > max_val:
+            max_val = result
+    return max_val
 
 cdef float affinity_SW(str S, str W, np.float32_t[:, :] latest_SSM):
-    cdef float result=0, max_val=0
+    cdef set words = main_dict[S]
+    if W in words:
+        return 1.0 / len(words)
+    cdef float result, max_val = 0
     cdef tuple swi = sentence_with_indices[W]
     cdef int i, swis = s_w_i[S]
     for i in swi:
-        max_val = latest_SSM[swis, i]
-        if max_val > result:
-            result = max_val
-        return result
+        result = latest_SSM[swis, i]
+        if result > max_val:
+            max_val = result
+    return max_val
 
 cdef float similarity_W(str W1, str W2, np.float32_t[:, :] latest_SSM):
-    cdef float aff=0, summ=0, weight_vali=0
+    cdef float aff, summ = 0, weight_val
     cdef set siw = s_include_word[W1]
     for s in siw:
         aff = affinity_SW(s, W2, latest_SSM)
         weight_val = all_weights[(s, W1)]
-        summ = summ + weight_val * aff
+        summ = summ + weight_val * aff  # summ += weight_val * aff
     return summ
 
 cdef float similarity_S(str S1, str S2, np.float32_t[:, :] latest_WSM):
-    cdef float aff=0, summ=0, weight_vali=0
+    cdef float aff, summ = 0, weight_val
     cdef set words = main_dict[S1]
     for w in words:
         weight_val = all_weights[(S1, w)]
@@ -191,11 +184,11 @@ cdef float similarity_S(str S1, str S2, np.float32_t[:, :] latest_WSM):
         summ = summ + weight_val * aff
     return summ
 
-cdef void save_matrixs(name):
-    np.save("sentences_{}.txt".format(name), all_sent)
+cdef void save_matrices(name):
     np.save("SSM_{}.txt".format(name), latest_SSM)
-    np.save("words_{}.txt".format(name), all_words)
     np.save("WSM_{}.txt".format(name), latest_WSM)
+    np.save("sentences_{}.txt".format(name), all_sent)
+    np.save("words_{}.txt".format(name), all_words)
 
 
 @cython.boundscheck(False)
@@ -203,13 +196,13 @@ cdef void save_matrixs(name):
 cdef void iteration(name, np.float32_t[:, :] latest_SSM, np.float32_t[:, :] latest_WSM):
     sent_comb = combinations(map(str, all_sent), 2)
     word_comb = combinations(map(str, all_words), 2)
-    sent_comb = iter(tee(sent_comb, 4))
-    word_comb = iter(tee(word_comb, 4))
     cdef int w_size = all_words.size
     cdef int s_size = all_sent.size
-    cdef np.ndarray ind_uper_s = np.column_stack(np.triu_indices(s_size, 1))
-    cdef np.ndarray ind_uper_w = np.column_stack(np.triu_indices(w_size, 1))
-    cdef int x, y, k, t
+    sent_comb = iter(tee(sent_comb, iteration_number))
+    word_comb = iter(tee(word_comb, iteration_number))
+    cdef np.uint16_t[:, :] ind_uper_s = np.column_stack(np.triu_indices(s_size, 1)).astype(np.uint16)
+    cdef np.uint16_t[:, :] ind_uper_w = np.column_stack(np.triu_indices(w_size, 1)).astype(np.uint16)
+    cdef np.uint16_t x, y, k, t
     cdef float val
     cdef str s1, s2, w1, w2
     for i in range(iteration_number):
@@ -232,7 +225,7 @@ cdef void iteration(name, np.float32_t[:, :] latest_SSM, np.float32_t[:, :] late
             k = k + 1
         print("Finished similarity_W, iteration {}".format(i + 1))
 
-    save_matrixs(name)
+    save_matrices(name)
 
 
 def main():
