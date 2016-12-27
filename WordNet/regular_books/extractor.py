@@ -47,11 +47,11 @@ def create_jsons():
             content = f.read()
             paragraphs = filter(bool, {p.strip() for p in re.split(r'\n{2,}', content)})
             for p in paragraphs:
+                p = p.replace('-\n', '')
                 if not p.startswith('Figure'):
                     sentences = re.split(r'\.(?![^()]*\))', p)
                     if len(sentences) > 2:
                         for sent in sentences:
-                            sent.replace('-\n', '')
                             result.update({hash(sent): filter(bool, re.split(r'\s+', sent))})
 
         total = {}
