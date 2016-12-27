@@ -9,6 +9,7 @@
 import sqlite3 as lite
 import os
 import json
+import glob
 
 server_names = {"PANTHER": "ftp.pantherdb.org",
                 "miRBase": "mirbase.org",
@@ -107,6 +108,14 @@ def create_wordnet_table():
                         VALUES (?, ?)""".format(table_name), (word, str(synonyms)))
     print ("File {} successfully gets imported".format("corpus_dict.json"))
     # curs.execute("""CREATE INDEX alphabet on {} (word, synonyms);""".format(table_name))
+
+    for file_name in glob.glob("WordNet/regular_books/*.json"):
+        with open(file_name) as f:
+            result = json.load(f)
+            for word, similars in result.items():
+                conn.execute("""INSERT INTO {} (word, synonyms)
+                        VALUES (?, ?)""".format(table_name), (word, str(synonyms)))
+        print ("File {} successfully gets imported".format(file_name))
     conn.commit()
 
 
