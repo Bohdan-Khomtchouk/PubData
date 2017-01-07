@@ -21,7 +21,7 @@ from .searchpath.searchpath import Path_results
 from .editserver.editserver import Edit_servers
 from .selectservers.selectservers import SelectServers
 import sqlite3 as lite
-from .updateservers.updateservers import MainUpdate
+from .updateservers.updateservers import update
 from ast import literal_eval
 from string import punctuation
 syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
@@ -205,17 +205,17 @@ class ftpWindow(QtGui.QDialog):
         .. todo::
         '''
         self.statusLabel.setText("Start updating ...")
-        mu = MainUpdate(self.server_dict)
-        mu.update_all()
-        self.statusLabel.setText("Update finished successfully!")
+        for name, url in self.server_dict.items():
+            status = update(name, url)
+            self.statusLabel.setText(status)
 
     @pyqtSlot(QtGui.QTreeWidget)
     def run_namual_update(self):
         selected_server_names = self.select_u.selected_server_names
         self.statusLabel.setText("Start manual updating ...")
-        mu = MainUpdate(self.server_dict)
-        mu.update_manual(selected_server_names)
-        self.statusLabel.setText("Update finished successfully!")
+        for name, url in selected_server_names:
+            status = update(name, url)
+            self.statusLabel.setText(status)
 
     def update_servers_manual(self):
         self.select_u.resize(350, 650)

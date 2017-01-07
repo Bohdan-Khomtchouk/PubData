@@ -11,7 +11,7 @@ import os
 from PyQt4.QtCore import pyqtSlot
 from ..extras.extras import general_style
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from database.Metafiles import Meta
+from metadata.Metafiles import Meta
 
 
 class Path_results(QtGui.QDialog):

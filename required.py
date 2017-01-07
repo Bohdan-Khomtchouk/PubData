@@ -43,7 +43,7 @@ server_names = {"PANTHER": "ftp.pantherdb.org",
 
 def create_servernames_table(servernames):
     print ("Creating server names table...")
-    conn = lite.connect('PubData.db')
+    conn = lite.connect('pubdata/PubData.db')
     curs = conn.cursor()
     table_name = "servernames"
     curs.execute("""CREATE TABLE {} (id   INTEGER   PRIMARY KEY AUTOINCREMENT,
@@ -57,10 +57,10 @@ def create_servernames_table(servernames):
 
 
 def database_creator():
-    conn = lite.connect('PubData.db')
+    conn = lite.connect('pubdata/PubData.db')
     curs = conn.cursor()
 
-    for path_, _, files in os.walk("database/json_files"):
+    for path_, _, files in os.walk("raw_data/json_files"):
         for file_name in files:
             table_name = file_name.split('.')[0].replace(' ', '_')
             if table_name:
@@ -85,7 +85,7 @@ def database_creator():
 
 
 def create_wordnet_table():
-    conn = lite.connect('PubData.db')
+    conn = lite.connect('pubdata/PubData.db')
     curs = conn.cursor()
     table_name = "WordNet"
 
@@ -121,7 +121,7 @@ def create_wordnet_table():
 
 def create_recommender_table():
     print ("Creating recommender system tables...")
-    conn = lite.connect('PubData.db')
+    conn = lite.connect('pubdata/PubData.db')
     curs = conn.cursor()
 
     table_name = "recommender_exact"

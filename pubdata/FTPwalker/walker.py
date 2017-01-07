@@ -1,18 +1,52 @@
-#!/usr/bin/env python
+"""
+=====
+walker.py
+=====
 
-# Copyright (C) 2015-2016 Bohdan Khomtchouk and Kasra A. Vand
-# This file is part of PubData.
+Traverse the FTP servers with BFS algorithm.
 
-# -------------------------------------------------------------------------------------------
+============================
+
+"""
 
 from os import path as ospath
 
 
 class ftp_walker(object):
+    """
+    ==============
+
+    ``ftp_walker``
+    ----------
+
+    .. py:class:: ftp_walker()
+
+    This class is contain corresponding functions for traversing the FTP
+    servers using BFS algorithm.
+
+    """
     def __init__(self, connection):
+        """
+        .. py:attribute:: __init__()
+
+
+           :param connection: FTP connection object
+           :type connection: ftplib.connection
+           :rtype: None
+
+        """
         self.connection = connection
 
     def listdir(self, _path):
+        """
+        .. py:attribute:: listdir()
+
+        return files and directory names within a path (directory)
+           :param _path: path of a directory
+           :type _path: str
+           :rtype: tuple
+
+        """
         file_list, dirs, nondirs = [], [], []
         try:
             self.connection.cwd(_path)
@@ -30,6 +64,15 @@ class ftp_walker(object):
             return dirs, nondirs
 
     def Walk(self, path='/'):
+        """
+        .. py:attribute:: Walk()
+
+        Walk through FTP server's directory tree
+           :param path: Leading path
+           :type path: str
+           :rtype: generator (path and files)
+
+        """
         dirs, nondirs = self.listdir(path)
         yield path, dirs, nondirs
         print ((path, dirs))
