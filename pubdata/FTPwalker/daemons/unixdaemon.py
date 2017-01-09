@@ -119,7 +119,8 @@ class Daemon:
             if not pid:
                 mess = "Could not stop, pid file '{}' missing.\n"
                 sys.stderr.write(mess.format(pidfile))
-                sys.exit(1)
+                return
+                # sys.exit(1)
             try:
                 while 1:
                     os.kill(pid, SIGTERM)

@@ -100,8 +100,8 @@ class ftpwalker:
                     self.path_not_exit(False)
             else:
                 self.path_not_exit(True)
-        except:
-            print("stoping the service!")
+        except Exception as exc:
+            print("stoping the service! {}".format(exc))
             daemon_obj.stop()
 
     def path_exit(self):
@@ -117,8 +117,7 @@ class ftpwalker:
 started traversing a server with this name.
 Do you want to continue with current one(Y/N)?: """
         while True:
-            reply = QtGui.QMessageBox.question(self,
-                                               'Message',
+            reply = QtGui.QMessageBox.question('Message',
                                                quit_msg,
                                                QtGui.QMessageBox.Yes,
                                                QtGui.QMessageBox.No)
