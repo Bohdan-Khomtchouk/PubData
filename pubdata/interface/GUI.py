@@ -14,14 +14,14 @@ from sys import argv, exit, path as syspath
 from itertools import chain
 from collections import OrderedDict
 from interface.extras.extras import general_style
-from PyQt4.QtCore import pyqtSlot
+from PyQt4.QtCore import pyqtSlot, SIGNAL
 from PyQt4 import QtCore, QtGui, QtNetwork
 from nltk.corpus import wordnet
 from .searchpath.searchpath import Path_results
 from .editserver.editserver import Edit_servers
 from .selectservers.selectservers import SelectServers
 import sqlite3 as lite
-from .updateservers.updateservers import update
+from .updateservers.updateservers import Update
 from ast import literal_eval
 from string import punctuation
 syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
@@ -53,10 +53,12 @@ class ftpWindow(QtGui.QDialog):
         self.dbname = "PubData"
         self.createMenu()
         self.server_dict, self.server_names = self.getServerNames()
+        self.server_items = iter(self.server_dict.items())
         self.isDirectory = {}
         self.ftp = None
         self.outFile = None
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
+        self.thread = Update()
 
         self.select_s = SelectServers(self.server_names)
         self.select_s.ok_button.clicked.connect(self.put_get_servers)
@@ -110,6 +112,8 @@ class ftpWindow(QtGui.QDialog):
         self.cdToParentButton.clicked.connect(self.cdToParent)
         self.downloadButton.clicked.connect(self.downloadFile)
         self.serverButton.clicked.connect(self.select)
+        self.connect(self.thread, SIGNAL("update_message"), self.update_message)
+        self.connect(self.thread, SIGNAL("update_again"), self.update_servers_all)
 
         top_layout = QtGui.QHBoxLayout()
         top_layout.addWidget(self.senameLabel)
@@ -197,6 +201,17 @@ class ftpWindow(QtGui.QDialog):
             self.ftpServerLabel.setText(self.server_dict[item])
             self.servername = item
 
+    def update_message(self, mtype, message):
+        if mtype == 'question':
+            replay = QtGui.QMessageBox.question(self,
+                                                'info',
+                                                message,
+                                                QtGui.QMessageBox.Yes,
+                                                QtGui.QMessageBox.No)
+            return replay
+        elif mtype == 'error':
+            QtGui.QMessageBox.information(self, 'information', message)
+
     def update_servers_all(self):
         '''
         .. py:attribute:: update_servers_all()
@@ -204,18 +219,24 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         '''
-        self.statusLabel.setText("Start updating ...")
-        for name, url in self.server_dict.items():
-            status = update(name, url)
-            self.statusLabel.setText(status)
+        # self.statusLabel.setText(status)
+        if self.thread.exiting:
+            self.update_message(self, 'error', "You've already started an update!")
+        try:
+            name, url = next(self.server_items)
+            self.statusLabel.setText("Start updating {}...".format(name))
+            self.thread.render(name, url)
+            self.thread.wait()
+        except StopIteration:
+            self.statusLabel.setText("Update gets finished!")
 
     @pyqtSlot(QtGui.QTreeWidget)
     def run_namual_update(self):
         selected_server_names = self.select_u.selected_server_names
         self.statusLabel.setText("Start manual updating ...")
         for name, url in selected_server_names:
-            status = update(name, url)
-            self.statusLabel.setText(status)
+            self.thread.render(name, url)
+            # self.statusLabel.setText(status)
 
     def update_servers_manual(self):
         self.select_u.resize(350, 650)
