@@ -62,10 +62,10 @@ class Update(QThread):
            :rtype: None
 
         """
+        print('path_exit')
         quit_msg = """It seems that you've already
 started traversing a server with this name.
 Do you want to continue with current one(Y/N)?: """
-        self.emit(SIGNAL("update_message"), 'question', quit_msg)
         while True:
             reply = self.emit(SIGNAL("update_message"), 'question', quit_msg)
 
@@ -101,7 +101,7 @@ Do you want to continue with current one(Y/N)?: """
         # create the directory
         if create_dir:
             makedirs(self.server_path)
-            self.m_walker.Process_dispatcher(False)
+        self.m_walker.Process_dispatcher(False)
 
 
 def update(server_name, url):

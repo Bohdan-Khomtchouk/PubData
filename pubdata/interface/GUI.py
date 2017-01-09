@@ -203,12 +203,13 @@ class ftpWindow(QtGui.QDialog):
 
     def update_message(self, mtype, message):
         if mtype == 'question':
+            print('qqqqq')
             replay = QtGui.QMessageBox.question(self,
                                                 'info',
                                                 message,
                                                 QtGui.QMessageBox.Yes,
                                                 QtGui.QMessageBox.No)
-            return replay
+
         elif mtype == 'error':
             QtGui.QMessageBox.information(self, 'information', message)
 
@@ -226,7 +227,6 @@ class ftpWindow(QtGui.QDialog):
             name, url = next(self.server_items)
             self.statusLabel.setText("Start updating {}...".format(name))
             self.thread.render(name, url)
-            self.thread.wait()
         except StopIteration:
             self.statusLabel.setText("Update gets finished!")
 
