@@ -26,6 +26,7 @@ from ast import literal_eval
 from string import punctuation
 syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
 from recommender import recomdialog
+from queue import Queue
 
 
 class ftpWindow(QtGui.QDialog):
@@ -58,7 +59,8 @@ class ftpWindow(QtGui.QDialog):
         self.ftp = None
         self.outFile = None
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
-        self.thread = Update()
+        self.queue = Queue()
+        self.thread = Update(self.queue)
 
         self.select_s = SelectServers(self.server_names)
         self.select_s.ok_button.clicked.connect(self.put_get_servers)
@@ -203,13 +205,15 @@ class ftpWindow(QtGui.QDialog):
 
     def update_message(self, mtype, message):
         if mtype == 'question':
-            print('qqqqq')
             replay = QtGui.QMessageBox.question(self,
                                                 'info',
                                                 message,
                                                 QtGui.QMessageBox.Yes,
                                                 QtGui.QMessageBox.No)
-
+            if replay == QtGui.QMessageBox.Yes:
+                self.queue.put('yes')
+            else:
+                self.queue.put('no')
         elif mtype == 'error':
             QtGui.QMessageBox.information(self, 'information', message)
 

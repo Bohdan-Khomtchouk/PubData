@@ -14,10 +14,11 @@ import re
 
 
 class Update(QThread):
-    def __init__(self, parent=None):
+    def __init__(self, queue, parent=None):
         QThread.__init__(self, parent)
         self.exiting = False
         self.server_path = None
+        self.queue = queue
 
     def __del__(self):
         self.exiting = True
@@ -62,15 +63,15 @@ class Update(QThread):
            :rtype: None
 
         """
-        print('path_exit')
         quit_msg = """It seems that you've already
 started traversing a server with this name.
 Do you want to continue with current one(Y/N)?: """
         while True:
-            reply = self.emit(SIGNAL("update_message"), 'question', quit_msg)
-
-            if reply == QtGui.QMessageBox.Yes:
-                if self.daemon:
+            self.emit(SIGNAL("update_message"), 'question', quit_msg)
+            replay = self.queue.get()
+            print(replay)
+            if replay == 'yes':
+                    # resuming the older process.
                     daemon_obj.start(self.m_walker.Process_dispatcher, True)
                 else:
                     self.m_walker.Process_dispatcher(True)
@@ -85,7 +86,6 @@ Do you want to continue with current one(Y/N)?: """
                     self.m_walker.Process_dispatcher(False)
                 return "Deleting the directory and start updating the {} server...".format(self.name)
             self.emit(SIGNAL("update_again"))
-                # break
 
     def path_not_exit(self, create_dir):
         """
