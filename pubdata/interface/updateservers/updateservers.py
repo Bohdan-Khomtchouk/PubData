@@ -71,19 +71,14 @@ Do you want to continue with current one(Y/N)?: """
             replay = self.queue.get()
             print(replay)
             if replay == 'yes':
-                    # resuming the older process.
-                    daemon_obj.start(self.m_walker.Process_dispatcher, True)
-                else:
-                    self.m_walker.Process_dispatcher(True)
+                # resuming the older process.
+                self.m_walker.Process_dispatcher(True)
                 return "Start resuming the {} server...".format(self.name)
                 # break
             else:
                 # deleting the directory
                 shutil.rmtree(self.server_path)
-                if self.daemon:
-                    daemon_obj.start(self.m_walker.Process_dispatcher, False)
-                else:
-                    self.m_walker.Process_dispatcher(False)
+                self.m_walker.Process_dispatcher(False)
                 return "Deleting the directory and start updating the {} server...".format(self.name)
             self.emit(SIGNAL("update_again"))
 
