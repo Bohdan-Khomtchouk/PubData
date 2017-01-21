@@ -16,6 +16,7 @@ from datetime import datetime
 from multiprocessing.dummy import Pool as ThreadPool
 import socket
 from os import path as ospath, listdir
+from collections import deque
 import csv
 
 
@@ -102,26 +103,14 @@ class Run(object):
         except Exception as exp:
             print (exp.__str__())
         else:
-            root_name = root.replace('/', '_')
-            last_path = None
             # file_names = listdir(self.server_path)
             fw = walker.ftp_walker(connection)
-            flag = False
-            try:
-                with open(ospath.join(self.server_path, "{}.csv".format(root_name))) as f:
-                    csv_reader = csv.reader(f)
-                    for row in csv_reader:
-                        last_path = row[0]
-            except:
-                last_path = root
+            walker_obj = fw.Walk(root)
+            if self.resume:
+                root_name = '_'.join(root.split('/')[:4])
+                next(walker_obj)
             else:
-                flag = True
-            finally:
-                if not last_path:
-                    last_path = root
-                walker_obj = fw.Walk(last_path)
-                if flag:
-                    next(walker_obj)
+                root_name = root.replace('/', '_')
 
             with open('{}/{}.csv'.format(self.server_path, root_name), 'a') as f:
                 csv_writer = csv.writer(f)
@@ -163,6 +152,9 @@ class Run(object):
             # print("base and leadings for {} --> {}, {}".format(root, base, leadings))
             leadings = [ospath.join('/', root, i.strip('/')) for i in leadings]
             if leadings:
+                if self.resume:
+                    print("Resuming...")
+                    leadings = self.find_latest_leadings(leadings)
                 pool = ThreadPool()
                 pool.map(self.traverse_branch, leadings)
                 pool.close()
@@ -172,3 +164,16 @@ class Run(object):
                 self.all_path.put(base[0])
         except (ftplib.error_temp, ftplib.error_perm, socket.gaierror) as exp:
             print (exp)
+
+    def find_latest_leadings(self, leadings):
+        for root in leadings:
+            f_name = ospath.join(self.server_path, "{}.csv".format(root).replace('/', '_'))
+            try:
+                with open(f_name) as f:
+                    csv_reader = csv.reader(f)
+                    last_path = deque(csv_reader, maxlen=1).pop()[0]
+            except Exception as exc:
+                print(exc)
+                last_path = root
+            finally:
+                yield last_path
