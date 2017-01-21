@@ -36,7 +36,8 @@ class Update(QThread):
             self.m_walker = main_walker.main_walker(server_name=name,
                                                     url=url,
                                                     server_path=self.server_path,
-                                                    root=root)
+                                                    root=root,
+                                                    json_path="json_files")
             self.start()
 
     def run(self):
@@ -66,6 +67,7 @@ class Update(QThread):
         quit_msg = """It seems that you've already
 started traversing a server with this name.
 Do you want to continue with current one(Y/N)?: """
+        name = self.server_path.strip('_').split('_')[0]
         while True:
             self.emit(SIGNAL("update_message"), 'question', quit_msg)
             replay = self.queue.get()
@@ -73,13 +75,13 @@ Do you want to continue with current one(Y/N)?: """
             if replay == 'yes':
                 # resuming the older process.
                 self.m_walker.Process_dispatcher(True)
-                return "Start resuming the {} server...".format(self.name)
+                return "Start resuming the {} server...".format(name)
                 # break
             else:
                 # deleting the directory
                 shutil.rmtree(self.server_path)
                 self.m_walker.Process_dispatcher(False)
-                return "Deleting the directory and start updating the {} server...".format(self.name)
+                return "Deleting the directory and start updating the {} server...".format(name)
             self.emit(SIGNAL("update_again"))
 
     def path_not_exit(self, create_dir):
