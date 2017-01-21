@@ -3,7 +3,7 @@ from . import traverse
 from datetime import datetime
 import json
 from collections import OrderedDict
-from os import path as ospath, listdir
+from os import path as ospath, listdir, mkdir
 import csv
 
 
@@ -69,7 +69,7 @@ class main_walker:
                             main_dict[path_] = files
                 self.create_json(main_dict, self.server_name)
             else:
-                print("Traversing isn't complete. Start resuming the {} server...".format(self.name))
+                print("Traversing isn't complete. Start resuming the {} server...".format(self.server_name))
                 self.Process_dispatcher(True)
 
     def create_json(self, dictionary, name):
@@ -85,11 +85,9 @@ class main_walker:
 
         """
         try:
-            with open(self.json_path, 'w') as fp:
+            with open("{}/{}.json".format(self.json_path, name), 'w') as fp:
                 json.dump(dictionary, fp, indent=4)
         except:
-            ospath.expanduser('~')
-            json_path = ospath.join(ospath.expanduser('~'), "FTPwalker_files/{}.json".format(name))
-            print("Your json path is invalid, file saved in {}".format(json_path))
-            with open(json_path) as fp:
+            mkdir(self.json_path)
+            with open("{}/{}.json".format(self.json_path, name), 'w') as fp:
                 json.dump(dictionary, fp, indent=4)
