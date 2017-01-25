@@ -238,8 +238,8 @@ class ftpWindow(QtGui.QDialog):
     def run_namual_update(self):
         selected_server_names = self.select_u.selected_server_names
         self.statusLabel.setText("Start manual updating ...")
-        for name, url in selected_server_names:
-            self.thread.render(name, url)
+        for name in selected_server_names:
+            self.thread.render(name, self.server_dict[name])
             # self.statusLabel.setText(status)
 
     def update_servers_manual(self):

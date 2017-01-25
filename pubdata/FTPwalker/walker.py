@@ -79,8 +79,6 @@ class ftp_walker(object):
             parent = ospath.dirname(root)
             yield from find_diff(parent)
 
-
-
     def walk(self, path='/'):
         """
         .. py:attribute:: Walk()

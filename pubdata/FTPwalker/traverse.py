@@ -160,16 +160,17 @@ class Run(object):
             if leadings:
                 if self.resume:
                     print("Resuming...")
+                    print(leadings)
                     leadings = self.find_latest_leadings(leadings)
+
                 pool = ThreadPool()
                 pool.map(self.traverse_branch, leadings)
                 pool.close()
                 pool.join()
-                # connection.quit()
             else:
                 self.all_path.put(base[0])
         except (ftplib.error_temp, ftplib.error_perm, socket.gaierror) as exp:
-            print (exp)
+            print(exp)
 
     def find_latest_leadings(self, leadings):
         for root in leadings:
