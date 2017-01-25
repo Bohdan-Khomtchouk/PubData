@@ -25,7 +25,7 @@ class ftp_walker(object):
     servers using BFS algorithm.
 
     """
-    def __init__(self, connection):
+    def __init__(self, connection, resume=False):
         """
         .. py:attribute:: __init__()
 
@@ -36,6 +36,7 @@ class ftp_walker(object):
 
         """
         self.connection = connection
+        self.resume = resume
 
     def listdir(self, _path):
         """
@@ -63,7 +64,24 @@ class ftp_walker(object):
                     nondirs.append(name)
             return dirs, nondirs
 
-    def Walk(self, path='/'):
+    def walk_resume(self, root, paths):
+        for items in self.walk(root):
+            yield items
+        parent = ospath.dirname(root)
+
+        def find_diff(parent):
+            dirs, _ = self.listdir(parent)
+            diffs = set(paths).difference(dirs)
+            for name in diffs:
+                yield from self.walk(name)
+        find_diff(parent)
+        if parent != '/':
+            parent = ospath.dirname(root)
+            yield from find_diff(parent)
+
+
+
+    def walk(self, path='/'):
         """
         .. py:attribute:: Walk()
 
@@ -78,7 +96,6 @@ class ftp_walker(object):
         print ((path, dirs))
         for name in dirs:
             path = ospath.join(path, name)
-            for x in self.Walk(path):
-                yield x
+            yield from self.Walk(path)
             self.connection.cwd('..')
             path = ospath.dirname(path)
