@@ -75,7 +75,7 @@ class Run(object):
         conn = ftplib.FTP(self.server_url)
         conn.login()
         fw = walker.ftp_walker(conn)
-        for p, dirs, files in fw.Walk(top):
+        for p, dirs, files in fw.walk(top):
             length = len(dirs)
             base = [(p, files)]
             if length > 1:
@@ -104,12 +104,17 @@ class Run(object):
             print (exp.__str__())
         else:
             # file_names = listdir(self.server_path)
-            fw = walker.ftp_walker(connection)
-            walker_obj = fw.Walk(root)
+            fw = walker.ftp_walker(connection, self.resume)
             if self.resume:
-                root_name = '_'.join(root.split('/')[:4])
+                f_name = ospath.join(self.server_path, "{}.csv".format(root).replace('/', '_'))
+                with open(f_name) as f:
+                    csv_reader = csv.reader(f)
+                    paths = next(zip(*csv_reader))
+                walker_obj = fw.walk_resume(root, paths)
+                root_name = '_'.join(root.split('/')[:3])
                 next(walker_obj)
             else:
+                walker_obj = fw.walk(root)
                 root_name = root.replace('/', '_')
 
             with open('{}/{}.csv'.format(self.server_path, root_name), 'a') as f:
@@ -117,6 +122,7 @@ class Run(object):
                 for _path, _, files in walker_obj:
                     # self.all_path.put((_path, files))
                     csv_writer.writerow([_path] + files)
+
                 # csv_writer.writerow(("TRAVERSING_FINISHED",))
             connection.quit()
 
