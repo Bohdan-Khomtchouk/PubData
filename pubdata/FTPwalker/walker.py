@@ -94,6 +94,6 @@ class ftp_walker(object):
         print ((path, dirs))
         for name in dirs:
             path = ospath.join(path, name)
-            yield from self.Walk(path)
+            yield from self.walk(path)
             self.connection.cwd('..')
             path = ospath.dirname(path)

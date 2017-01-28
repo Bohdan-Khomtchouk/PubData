@@ -106,7 +106,8 @@ class Run(object):
             # file_names = listdir(self.server_path)
             fw = walker.ftp_walker(connection, self.resume)
             if self.resume:
-                f_name = ospath.join(self.server_path, "{}.csv".format(root).replace('/', '_'))
+                root_name = "{}.csv".format('_'.join(root.split('/')[:3]))
+                f_name = ospath.join(self.server_path, root_name)
                 with open(f_name) as f:
                     csv_reader = csv.reader(f)
                     paths = next(zip(*csv_reader))
@@ -160,7 +161,6 @@ class Run(object):
             if leadings:
                 if self.resume:
                     print("Resuming...")
-                    print(leadings)
                     leadings = self.find_latest_leadings(leadings)
 
                 pool = ThreadPool()
@@ -180,6 +180,7 @@ class Run(object):
                     csv_reader = csv.reader(f)
                     last_path = deque(csv_reader, maxlen=1).pop()[0]
             except Exception as exc:
+                # file empty or doesn't exist
                 print(exc)
                 last_path = root
             finally:
