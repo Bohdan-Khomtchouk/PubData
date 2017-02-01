@@ -86,7 +86,7 @@ class Run(object):
                 return base, []
         conn.quit()
 
-    def traverse_branch(self, root='/'):
+    def traverse_branch(self, args):
         """
         .. py:attribute:: traverse_branch()
 
@@ -96,6 +96,7 @@ class Run(object):
            :rtype: None
 
         """
+        root, all_path = args
         try:
             connection = ftplib.FTP(self.server_url)
             connection.login()
@@ -106,17 +107,11 @@ class Run(object):
             # file_names = listdir(self.server_path)
             fw = walker.ftp_walker(connection, self.resume)
             if self.resume:
-                root_name = "{}.csv".format('_'.join(root.split('/')[:3]))
-                f_name = ospath.join(self.server_path, root_name)
-                with open(f_name) as f:
-                    csv_reader = csv.reader(f)
-                    paths = next(zip(*csv_reader))
-                walker_obj = fw.walk_resume(root, paths)
-                root_name = '_'.join(root.split('/')[:3])
+                walker_obj = fw.walk_resume(all_path, root)
                 next(walker_obj)
             else:
                 walker_obj = fw.walk(root)
-                root_name = root.replace('/', '_')
+            root_name = root.replace('/', '_')
 
             with open('{}/{}.csv'.format(self.server_path, root_name), 'a') as f:
                 csv_writer = csv.writer(f)
@@ -162,6 +157,8 @@ class Run(object):
                 if self.resume:
                     print("Resuming...")
                     leadings = self.find_latest_leadings(leadings)
+                else:
+                    leadings = [(i, None) for i in leadings]
 
                 pool = ThreadPool()
                 pool.map(self.traverse_branch, leadings)
@@ -178,10 +175,10 @@ class Run(object):
             try:
                 with open(f_name) as f:
                     csv_reader = csv.reader(f)
-                    last_path = deque(csv_reader, maxlen=1).pop()[0]
+                    all_path = next(zip(*csv_reader))
             except Exception as exc:
                 # file empty or doesn't exist
-                print(exc)
-                last_path = root
+                print("*{}*".format(exc))
+                all_path = [root]
             finally:
-                yield last_path
+                yield root, all_path
