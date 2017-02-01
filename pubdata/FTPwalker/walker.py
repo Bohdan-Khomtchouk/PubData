@@ -64,20 +64,28 @@ class ftp_walker(object):
                     nondirs.append(name)
             return dirs, nondirs
 
-    def walk_resume(self, root, paths):
-        for items in self.walk(root):
-            yield items
-        parent = ospath.dirname(root)
+    def walk_resume(self, paths, root=None):
 
-        def find_diff(parent):
+        def inner_walk(parent):
+            # print("Parent is {}".format(parent))
             dirs, _ = self.listdir(parent)
-            diffs = set(paths).difference(dirs)
+            # print("dirs are : {}".format(dirs))
+            # print("paths are : {}".format(paths))
+            diffs = set(dirs).difference(paths)
             for name in diffs:
                 yield from self.walk(name)
-        find_diff(parent)
-        if parent != '/':
-            parent = ospath.dirname(root)
-            yield from find_diff(parent)
+
+        current_path = paths[-1]
+        parent = ospath.dirname(current_path)
+        if current_path == root:
+            yield None
+            yield from self.walk(current_path)
+        else:
+            yield from self.walk(current_path)
+            yield from inner_walk(parent)
+            if parent != root:
+                parent = ospath.dirname(parent)
+                yield from inner_walk(parent)
 
     def walk(self, path='/'):
         """
