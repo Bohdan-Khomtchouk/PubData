@@ -138,7 +138,12 @@ class ftpWindow(QtGui.QWidget):
         self.setWindowIcon(icon)
         self.tray_icon = QtGui.QSystemTrayIcon()
         self.tray_icon.setIcon(QtGui.QIcon(icon))
+        self.tray_icon.activated.connect(self.tray_click)
         self.setWindowIcon(QtGui.QIcon(icon))
+
+    def tray_click(self, reason):
+        if reason == self.tray_icon.Trigger:
+            self.show()
 
     def closeEvent(self, event):
         if self.resume:
