@@ -70,9 +70,9 @@ class ftp_walker(object):
             # print("Parent is {}".format(parent))
             dirs, _ = self.listdir(parent)
             # print("dirs are : {}".format(dirs))
-            # print("paths are : {}".format(paths))
             diffs = set(dirs).difference(paths)
             for name in diffs:
+                name = ospath.join(parent, name)
                 yield from self.walk(name)
 
         current_path = paths[-1]

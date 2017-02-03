@@ -177,7 +177,7 @@ class Run(object):
                     csv_reader = csv.reader(f)
                     all_path = next(zip(*csv_reader))
             except Exception as exc:
-                # file empty or doesn't exist
+                # file is empty or doesn't exist
                 print("*{}*".format(exc))
                 all_path = [root]
             finally:
