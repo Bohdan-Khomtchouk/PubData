@@ -29,7 +29,7 @@ from recommender import recomdialog
 from queue import Queue
 
 
-class ftpWindow(QtGui.QDialog):
+class ftpWindow(QtGui.QWidget):
     """
     ==============
     ``ftpWindow``
@@ -61,6 +61,7 @@ class ftpWindow(QtGui.QDialog):
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
         self.queue = Queue()
         self.thread = Update(self.queue)
+        self.resume = False
 
         self.select_s = SelectServers(self.server_names)
         self.select_s.ok_button.clicked.connect(self.put_get_servers)
@@ -133,6 +134,23 @@ class ftpWindow(QtGui.QDialog):
         self.setLayout(main_layout)
         self.setWindowTitle("PubData")
         self.setStyleSheet(general_style)
+        icon = QtGui.QIcon("images/pubdata.png")
+        self.setWindowIcon(icon)
+        self.tray_icon = QtGui.QSystemTrayIcon()
+        self.tray_icon.setIcon(QtGui.QIcon(icon))
+        self.setWindowIcon(QtGui.QIcon(icon))
+
+    def closeEvent(self, event):
+        if self.resume:
+            event.ignore()
+            self.hide()
+            self.setWindowFlags(self.windowFlags() & ~QtCore.Qt.Tool)
+            self.tray_icon.show()
+            self.tray_icon.showMessage("PubData", "Updating...")
+
+        else:
+            print("EXIT!!!!")
+            super(ftpWindow, self).closeEvent(event)
 
     def createMenu(self):
         self.menuBar = QtGui.QMenuBar()
@@ -212,6 +230,7 @@ class ftpWindow(QtGui.QDialog):
                                                 QtGui.QMessageBox.No)
             if replay == QtGui.QMessageBox.Yes:
                 self.queue.put('yes')
+                self.resume = True
             else:
                 self.queue.put('no')
         elif mtype == 'error':
@@ -700,4 +719,4 @@ def run():
     ftpWin = ftpWindow()
     ftpWin.resize(950, 600)
     ftpWin.show()
-    exit(ftpWin.exec_())
+    exit(app.exec_())
