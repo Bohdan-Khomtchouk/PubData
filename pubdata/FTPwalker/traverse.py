@@ -15,8 +15,8 @@ from multiprocessing import Manager
 from datetime import datetime
 from multiprocessing.dummy import Pool as ThreadPool
 import socket
-from os import path as ospath, listdir
-from collections import deque
+from os import path as ospath
+import json
 import csv
 
 
@@ -32,7 +32,7 @@ class Run(object):
     Main class for threads dispatcher.
 
     """
-    def __init__(self, name, server_url, root, server_path, resume):
+    def __init__(self, name, server_url, root, server_path, meta_path, resume):
         """
         .. py:attribute:: __init__()
 
@@ -56,9 +56,10 @@ class Run(object):
         self.root = root
         self.name = name
         self.server_path = server_path
+        self.meta_path = meta_path
         self.resume = resume
 
-    def find_leading(self, top, thread_flag=True):
+    def find_leading(self, top):
         """
         .. py:attribute:: find_leading()
 
@@ -71,19 +72,11 @@ class Run(object):
 
         """
         print ("Find leading...")
-        length = 2
         conn = ftplib.FTP(self.server_url)
         conn.login()
         fw = walker.ftp_walker(conn)
-        for p, dirs, files in fw.walk(top):
-            length = len(dirs)
-            base = [(p, files)]
-            if length > 1:
-                p = '/'.join(p.split('/')[1:])
-                length = length
-                return base, dirs
-            elif thread_flag:
-                return base, []
+        dirs, files = fw.listdir(top)
+        return files, dirs
         conn.quit()
 
     def traverse_branch(self, args):
@@ -96,30 +89,47 @@ class Run(object):
            :rtype: None
 
         """
-        root, all_path = args
+        if self.resume:
+            _path = args
+        else:
+            _path, root = args
         try:
             connection = ftplib.FTP(self.server_url)
             connection.login()
             # connection.cwd(root)
         except Exception as exp:
-            print (exp.__str__())
+            print ("Couldn't create the connections for thread {}".format(exp))
         else:
             # file_names = listdir(self.server_path)
             fw = walker.ftp_walker(connection, self.resume)
             if self.resume:
-                walker_obj = fw.walk_resume(all_path, root)
+                walker_obj = fw.walk_resume(_path, self.root)
                 next(walker_obj)
             else:
                 walker_obj = fw.walk(root)
-            root_name = root.replace('/', '_')
-
-            with open('{}/{}.csv'.format(self.server_path, root_name), 'a') as f:
+            root_name = ospath.basename(_path)
+            # csv_writer_lock = threading.Lock()
+            with open('{}/{}.csv'.format(self.server_path, root_name), 'a+') as f:
                 csv_writer = csv.writer(f)
-                for _path, _, files in walker_obj:
-                    # self.all_path.put((_path, files))
-                    csv_writer.writerow([_path] + files)
+                try:
+                    for _path, dirs, files in walker_obj:
+                        # self.all_path.put((_path, files))
+                        # with csv_writer_lock:
+                        csv_writer.writerow([_path] + files)
+                        print("Path: {} <-------> dirs: {}".format(_path, dirs))
+                except Exception as exc:
+                    print(exc)
+                else:
+                    with open(self.meta_path, 'r+') as f:
+                        try:
+                            meta = json.load(f)
+                            meta.setdefault('traversed_subs', []).append(root_name)
+                        except:
+                            pass
+                        else:
+                            f.seek(0)
+                            json.dump(meta, f)
 
-                # csv_writer.writerow(("TRAVERSING_FINISHED",))
             connection.quit()
 
     def find_all_leadings(self, leadings):
@@ -147,19 +157,18 @@ class Run(object):
            :rtype: None
 
         """
-        root, (base, leadings) = args
+        if self.resume:
+            root, leadings = args
+            base = ['/']
+        else:
+            root, (base, leadings) = args
         print ('---' * 5, datetime.now(), '{}'.format(root), '---' * 5)
         try:
             # base, leadings = self.find_leading(root)
             # print("base and leadings for {} --> {}, {}".format(root, base, leadings))
-            leadings = [ospath.join('/', root, i.strip('/')) for i in leadings]
+            if not self.resume:
+                leadings = [(ospath.join('/', root, i.strip('/')), root) for i in leadings]
             if leadings:
-                if self.resume:
-                    print("Resuming...")
-                    leadings = self.find_latest_leadings(leadings)
-                else:
-                    leadings = [(i, None) for i in leadings]
-
                 pool = ThreadPool()
                 pool.map(self.traverse_branch, leadings)
                 pool.close()
@@ -168,17 +177,3 @@ class Run(object):
                 self.all_path.put(base[0])
         except (ftplib.error_temp, ftplib.error_perm, socket.gaierror) as exp:
             print(exp)
-
-    def find_latest_leadings(self, leadings):
-        for root in leadings:
-            f_name = ospath.join(self.server_path, "{}.csv".format(root).replace('/', '_'))
-            try:
-                with open(f_name) as f:
-                    csv_reader = csv.reader(f)
-                    all_path = next(zip(*csv_reader))
-            except Exception as exc:
-                # file is empty or doesn't exist
-                print("*{}*".format(exc))
-                all_path = [root]
-            finally:
-                yield root, all_path
