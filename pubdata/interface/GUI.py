@@ -358,7 +358,6 @@ class ftpWindow(QtGui.QDialog):
         self.ftp.get(self.fileList.currentItem().text(0), self.outFile)
 
         self.progressDialog.setLabelText("Downloading %s..." % file_name)
-        self.downloadButton.setEnabled(False)
         self.progressDialog.exec_()
 
     def cancelDownload(self):
@@ -528,7 +527,7 @@ class ftpWindow(QtGui.QDialog):
             current_file = current.text(0)
             self.downloadButton.setEnabled(not self.isDirectory.get(current_file))
         else:
-            self.downloadButton.setEnabled(False)
+            self.downloadButton.setEnabled(True)
 
     @pyqtSlot(QtGui.QTreeWidget)
     def put_get_servers(self):
@@ -637,9 +636,11 @@ class ftpWindow(QtGui.QDialog):
         """
         punc = set(punctuation)
         if punc.intersection(word):
-            all_words = re.split(r'\W', word)
-            lemmas = self.get_wordnet_words(word).union([i for i in all_words if len(i) > 2])
+            all_words = [word] + [i for i in re.split(r'\W', word) if len(i) > 2]
+            lemmas = set().union(*map(self.get_wordnet_words, all_words))
         else:
+            lemmas = self.get_wordnet_words(word)
+        if not len(lemmas):
             synonyms = wordnet.synsets(word.lower())
             lemmas = set(chain.from_iterable([w.lemma_names() for w in synonyms]))
             lemmas = self.get_wordnet_words(word).union(lemmas)
@@ -672,7 +673,8 @@ class ftpWindow(QtGui.QDialog):
     def get_wordnet_words(self, text):
         conn = lite.connect('PubData.db')
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM wordnet WHERE word LIKE '%{}%' OR synonyms LIKE '%{}%' COLLATE NOCASE;".format(text, text))
+        # remove OR synonyms LIKE '%{}%' from query
+        cursor.execute("SELECT * FROM wordnet WHERE word LIKE '%{}%' COLLATE NOCASE;".format(text, text))
         seen = set()
         try:
             for _, w, syns in cursor.fetchall():
@@ -681,7 +683,7 @@ class ftpWindow(QtGui.QDialog):
             print ('Exception: ', str(exp))
             return set()
         else:
-            return seen
+            return set(i for i in seen if ' ' not in i)
 
     def add_server_for_search(self):
         """
