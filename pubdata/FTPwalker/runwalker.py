@@ -58,23 +58,24 @@ class ftpwalker:
         platform_name = checkplatform.check()
         if daemon:
             print("Platform {}".format(platform_name))
-            global daemon_obj
             if platform_name in {"Linux", "Mac"}:
-                from .daemons.unixdaemon import Daemon as daemon_obj
-                daemon_obj = daemon_obj()
+                from daemons.unixdaemon import Daemon as daemon_obj
+                self.daemon_obj = daemon_obj()
                 try:
-                    daemon_obj.stop()
+                    self.daemon_obj.stop()
                 except Exception as exc:
-                    print("Exception:  {}".format(exc))
+                    print("Exception on stopping the daemon:  {}".format(exc))
             else:
                 from daemons import windaemon as daemon_obj
+                self.daemon_obj = daemon_obj
                 try:
-                    daemon_obj.stop()
+                    self.daemon_obj.stop()
                 except Exception as exc:
                     print("Exception:  {}".format(exc))
         self.daemon = daemon
         try:
-            server_path = path.join(path.dirname(__file__), self.name)
+            home = path.expanduser("~")
+            server_path = path.join(home, "FTPwalkerfile/", self.name)
         except Exception as exc:
             raise Exception("Please enter a valid name. {}".format(exc))
         else:
@@ -84,9 +85,9 @@ class ftpwalker:
                                                 server_path=self.server_path,
                                                 root=root)
 
-    def chek_state(self):
+    def check_state(self):
         """
-        .. py:attribute:: chek_state()
+        .. py:attribute:: check_state()
         Check the current state. If a wanlker kas been run already
         it asks for continue or aborting, otherwise it starts the traversing.
 
@@ -100,9 +101,10 @@ class ftpwalker:
                     self.path_not_exit(False)
             else:
                 self.path_not_exit(True)
-        except Exception as exc:
-            print("stoping the service! {}".format(exc))
-            daemon_obj.stop()
+        except:
+            if self.daemon:
+                self.daemon_obj.stop()
+            raise
 
     def path_exit(self):
         """
@@ -113,31 +115,31 @@ class ftpwalker:
            :rtype: None
 
         """
-        quit_msg = """It seems that you've already
-started traversing a server with this name.
-Do you want to continue with current one(Y/N)?: """
         while True:
+            quit_msg = input("""It seems that you've already
+started traversing a server with this name.
+Do you want to continue with current one(Y/N)?: """)
             reply = QtGui.QMessageBox.question('Message',
                                                quit_msg,
                                                QtGui.QMessageBox.Yes,
                                                QtGui.QMessageBox.No)
 
             if reply == QtGui.QMessageBox.Yes:
+                print("Start resuming the {} server...".format(self.name))
                 if self.daemon:
-                    daemon_obj.start(self.m_walker.Process_dispatcher, True)
+                    self.daemon_obj.start(self.m_walker.Process_dispatcher, True)
                 else:
                     self.m_walker.Process_dispatcher(True)
-                return "Start resuming the {} server...".format(self.name)
-                # break
+                break
             else:
                 # deleting the directory
                 shutil.rmtree(self.server_path)
+                makedirs(self.server_path)
                 if self.daemon:
-                    daemon_obj.start(self.m_walker.Process_dispatcher, False)
+                    self.daemon_obj.start(self.m_walker.Process_dispatcher, False)
                 else:
                     self.m_walker.Process_dispatcher(False)
-                return "Deleting the directory and start updating the {} server...".format(self.name)
-                # break
+                break
 
     def path_not_exit(self, create_dir):
         """
@@ -154,6 +156,6 @@ Do you want to continue with current one(Y/N)?: """
         if create_dir:
             makedirs(self.server_path)
         if self.daemon:
-            daemon_obj.start(self.m_walker.Process_dispatcher, False)
+            self.daemon_obj.start(self.m_walker.Process_dispatcher, False)
         else:
             self.m_walker.Process_dispatcher(False)

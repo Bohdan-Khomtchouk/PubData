@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-# Copyright (C) 2015-2016 Bohdan Khomtchouk and Kasra A. Vand
-# This file is part of PubData.
-
-# -------------------------------------------------------------------------------------------
 
 
 import re
@@ -29,7 +23,7 @@ from recommender import recomdialog
 from queue import Queue
 
 
-class ftpWindow(QtGui.QDialog):
+class ftpWindow(QtGui.QWidget):
     """
     ==============
     ``ftpWindow``
@@ -61,6 +55,8 @@ class ftpWindow(QtGui.QDialog):
         frame_style = QtGui.QFrame.Sunken | QtGui.QFrame.Panel
         self.queue = Queue()
         self.thread = Update(self.queue)
+        self.resume = False
+        self.updating = False
 
         self.select_s = SelectServers(self.server_names)
         self.select_s.ok_button.clicked.connect(self.put_get_servers)
@@ -133,10 +129,31 @@ class ftpWindow(QtGui.QDialog):
         self.setLayout(main_layout)
         self.setWindowTitle("PubData")
         self.setStyleSheet(general_style)
+        icon = QtGui.QIcon("images/pubdata.png")
+        self.setWindowIcon(icon)
+        self.tray_icon = QtGui.QSystemTrayIcon()
+        self.tray_icon.setIcon(QtGui.QIcon(icon))
+        self.tray_icon.activated.connect(self.tray_click)
+        self.setWindowIcon(QtGui.QIcon(icon))
+
+    def tray_click(self, reason):
+        if reason == self.tray_icon.Trigger:
+            self.show()
+
+    def closeEvent(self, event):
+        if self.resume or self.updating:
+            event.ignore()
+            self.hide()
+            self.setWindowFlags(self.windowFlags() & ~QtCore.Qt.Tool)
+            self.tray_icon.show()
+            self.tray_icon.showMessage("PubData", "Updating...")
+
+        else:
+            print("EXIT!!!!")
+            super(ftpWindow, self).closeEvent(event)
 
     def createMenu(self):
         self.menuBar = QtGui.QMenuBar()
-        # self.menuBar.setNativeMenuBar(False)
         self.fileMenu1 = QtGui.QMenu("&File", self)
         self.server_list_action = self.fileMenu1.addAction("Server list")
         self.exit_action = self.fileMenu1.addAction("Exit")
@@ -169,9 +186,6 @@ class ftpWindow(QtGui.QDialog):
 
         self.manual_search_action.triggered.connect(self.manual_search)
         self.search_all_action.triggered.connect(self.search_all)
-
-        # self.help_action.triggered.connect()
-        # self.about_list_action.triggered.connect()
 
     def getServerNames(self):
         """
@@ -212,6 +226,7 @@ class ftpWindow(QtGui.QDialog):
                                                 QtGui.QMessageBox.No)
             if replay == QtGui.QMessageBox.Yes:
                 self.queue.put('yes')
+                self.resume = True
             else:
                 self.queue.put('no')
         elif mtype == 'error':
@@ -224,10 +239,10 @@ class ftpWindow(QtGui.QDialog):
         .. note::
         .. todo::
         '''
-        # self.statusLabel.setText(status)
         if self.thread.exiting:
             self.update_message(self, 'error', "You've already started an update!")
         try:
+            self.updating = True
             name, url = next(self.server_items)
             self.statusLabel.setText("Start updating {}...".format(name))
             self.thread.render(name, url)
@@ -240,9 +255,9 @@ class ftpWindow(QtGui.QDialog):
         self.statusLabel.setText("Start manual updating ...")
         for name in selected_server_names:
             self.thread.render(name, self.server_dict[name])
-            # self.statusLabel.setText(status)
 
     def update_servers_manual(self):
+        self.updating = True
         self.select_u.resize(350, 650)
         self.select_u.setWindowTitle('Select server names to update')
         self.select_u.show()
@@ -310,10 +325,8 @@ class ftpWindow(QtGui.QDialog):
             user_name = url.userName()
             if user_name:
                 try:
-                    # Python v3.
                     user_name = bytes(user_name, encoding='utf-8')
                 except:
-                    # Python v2.
                     pass
 
                 self.ftp.login(QtCore.QUrl.fromPercentEncoding(user_name), url.password())
@@ -602,7 +615,6 @@ class ftpWindow(QtGui.QDialog):
         match_path_number = 0
         self.dialog.setCursor(QtCore.Qt.WaitCursor)
         for servername in server_names:
-                # conn.create_function("REGEXP", 2, self.cal_regex)
                 t_name = '_'.join(map(str.lower, servername.split()))
                 try:
                     exact, related = run_query(keyword, words, t_name)
@@ -665,10 +677,6 @@ class ftpWindow(QtGui.QDialog):
                 print(exp)
                 QtGui.QMessageBox.information(self, "QMessageBox.information()", str(exp))
         conn.commit()
-        # reload(recomdialog)
-        # self.dialog = recomdialog.Searchdialog(self.dialog.search_all)
-        # self.dialog.ok_button.clicked.connect(self.get_keyword)
-        # self.show_dialog(self.dialog.search_all)
 
     def get_wordnet_words(self, text):
         conn = lite.connect('PubData.db')
@@ -702,4 +710,4 @@ def run():
     ftpWin = ftpWindow()
     ftpWin.resize(950, 600)
     ftpWin.show()
-    exit(ftpWin.exec_())
+    exit(app.exec_())

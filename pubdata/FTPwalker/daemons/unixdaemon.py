@@ -145,7 +145,6 @@ class Daemon:
             return
         sys.exit(2)
 
-
     def start(self, function, *args):
         """
         .. py:attribute:: run()
@@ -159,6 +158,7 @@ class Daemon:
         self.startstop("start", pidfile='/tmp/deamonize.pid')
         if function:
             function(*args)
+
     def stop(self):
         """
         .. py:attribute:: run()
