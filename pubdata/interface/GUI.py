@@ -3,7 +3,7 @@
 
 import re
 from importlib import reload
-from os import path as ospath
+from os import path as ospath, makedirs
 import sys
 from itertools import chain
 from collections import OrderedDict
@@ -50,6 +50,16 @@ class ftpWindow(QtGui.QWidget):
             self.db_path = ospath.join(sys._MEIPASS, 'PubData.db')
         else:
             self.db_path = 'PubData.db'
+
+        recom_dir_path = ospath.join(ospath.expanduser('~'), 'PUBDATA')
+        if not ospath.exists(recom_dir_path):
+            print(recom_dir_path)
+            makedirs(recom_dir_path)
+            self.recommender_db_path = ospath.join(recom_dir_path, 'recommender_db.db')
+            self.create_recommender_table()
+        else:
+            self.recommender_db_path = ospath.join(recom_dir_path, 'recommender_db.db')
+
         self.createMenu()
         self.server_dict, self.server_names = self.getServerNames()
         self.server_items = iter(self.server_dict.items())
@@ -66,7 +76,7 @@ class ftpWindow(QtGui.QWidget):
         self.select_s.ok_button.clicked.connect(self.put_get_servers)
         self.select_u = SelectServers(self.server_names)
         self.select_u.ok_button.clicked.connect(self.run_namual_update)
-        self.dialog = recomdialog.Searchdialog()
+        self.dialog = recomdialog.Searchdialog(self.recommender_db_path)
         self.dialog.ok_button.clicked.connect(self.get_keyword)
 
         self.senameLabel = QtGui.QLabel("ftp name : ")
@@ -143,6 +153,25 @@ class ftpWindow(QtGui.QWidget):
         self.tray_icon.setIcon(QtGui.QIcon(icon))
         self.tray_icon.activated.connect(self.tray_click)
         self.setWindowIcon(QtGui.QIcon(icon))
+
+    def create_recommender_table(self):
+        print ("Creating recommender system tables...")
+        conn = lite.connect(self.recommender_db_path)
+        curs = conn.cursor()
+
+        table_name = "recommender_exact"
+        query = """CREATE TABLE {} (id   INTEGER   PRIMARY KEY AUTOINCREMENT,
+                                    word text   NOT NULL UNIQUE,
+                                    rank text   NOT NULL );""".format(table_name)
+        curs.execute(query)
+        curs.execute("""CREATE INDEX {}_index on {} (word);""".format(table_name, table_name))
+        table_name = "recommender_syns"
+        query = """CREATE TABLE {} (id   INTEGER   PRIMARY KEY AUTOINCREMENT,
+                                    word text   NOT NULL UNIQUE,
+                                    rank text   NOT NULL);""".format(table_name)
+        curs.execute(query)
+        curs.execute("""CREATE INDEX {}_index on {} (word);""".format(table_name, table_name))
+        conn.commit()
 
     def tray_click(self, reason):
         if reason == self.tray_icon.Trigger:
@@ -581,7 +610,7 @@ class ftpWindow(QtGui.QWidget):
             else:
                 self.search(self.selected_names, keyword, cursor)
             reload(recomdialog)
-            self.dialog = recomdialog.Searchdialog(self.dialog.search_all)
+            self.dialog = recomdialog.Searchdialog(self.recommender_db_path, search_all=self.dialog.search_all)
             self.dialog.ok_button.clicked.connect(self.get_keyword)
 
     def show_dialog(self, search_all=False):
@@ -639,7 +668,7 @@ class ftpWindow(QtGui.QWidget):
         if any(i for i in total_find.values()):
             self.dialog.setCursor(QtCore.Qt.ArrowCursor)
             self.set_recommender(keyword, *words)
-            self.wid = Path_results(self.server_dict, total_find, match_path_number)
+            self.wid = Path_results(self.image_path, self.server_dict, total_find, match_path_number)
             self.wid.resize(350, 650)
             self.wid.setWindowTitle('Search')
             self.wid.show()
@@ -669,7 +698,7 @@ class ftpWindow(QtGui.QWidget):
         return list(lemmas)
 
     def set_recommender(self, word, *syns):
-        conn = lite.connect(self.db_path)
+        conn = lite.connect(self.recommender_db_path)
         cursor = conn.cursor()
         insert_query = u"""INSERT OR IGNORE INTO {} (word, rank) VALUES(?, ?);"""
         update_query = u"""UPDATE '{}' SET rank=rank+1 WHERE word='{}';"""
