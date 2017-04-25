@@ -8,6 +8,8 @@
 from PyQt4 import QtGui
 from interface.extras.extras import general_style
 import sqlite3 as lite
+import sys
+from os import path as ospath
 
 
 class Searchdialog(QtGui.QDialog):
@@ -25,6 +27,10 @@ class Searchdialog(QtGui.QDialog):
         .. todo::
         """
         super(Searchdialog, self).__init__(parent)
+        if hasattr(sys, "_MEIPASS"):
+            self.db_path = ospath.join(sys._MEIPASS, 'PubData.db')
+        else:
+            self.db_path = 'PubData.db'
         self.search_all = search_all
         self.main_layout = QtGui.QVBoxLayout()
         self.texteditor = QtGui.QTextEdit()
@@ -46,7 +52,7 @@ class Searchdialog(QtGui.QDialog):
         return self.lineedit.text().strip()
 
     def get_recommended_words(self):
-        conn = lite.connect('PubData.db')
+        conn = lite.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute("SELECT word FROM 'recommender_exact' ORDER BY rank DESC LIMIT 12")
         try:

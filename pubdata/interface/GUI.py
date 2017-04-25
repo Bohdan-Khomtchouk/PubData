@@ -4,7 +4,7 @@
 import re
 from importlib import reload
 from os import path as ospath
-from sys import argv, exit, path as syspath
+import sys
 from itertools import chain
 from collections import OrderedDict
 from interface.extras.extras import general_style
@@ -18,7 +18,7 @@ import sqlite3 as lite
 from .updateservers.updateservers import Update
 from ast import literal_eval
 from string import punctuation
-syspath.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
+sys.path.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
 from recommender import recomdialog
 from queue import Queue
 
@@ -46,6 +46,10 @@ class ftpWindow(QtGui.QWidget):
         """
         super(ftpWindow, self).__init__(parent)
         self.dbname = "PubData"
+        if hasattr(sys, "_MEIPASS"):
+            self.db_path = ospath.join(sys._MEIPASS, 'PubData.db')
+        else:
+            self.db_path = 'PubData.db'
         self.createMenu()
         self.server_dict, self.server_names = self.getServerNames()
         self.server_items = iter(self.server_dict.items())
@@ -81,7 +85,11 @@ class ftpWindow(QtGui.QWidget):
         self.connectButton.setDefault(True)
 
         self.cdToParentButton = QtGui.QPushButton()
-        self.cdToParentButton.setIcon(QtGui.QIcon('images/cdtoparent.png'))
+        if hasattr(sys, "_MEIPASS"):
+            self.image_path = ospath.join(sys._MEIPASS, 'images/')
+        else:
+            self.image_path = 'images/'
+        self.cdToParentButton.setIcon(QtGui.QIcon(self.image_path + 'cdtoparent.png'))
         self.cdToParentButton.setEnabled(False)
 
         self.serverButton = QtGui.QPushButton('server list')
@@ -129,7 +137,7 @@ class ftpWindow(QtGui.QWidget):
         self.setLayout(main_layout)
         self.setWindowTitle("PubData")
         self.setStyleSheet(general_style)
-        icon = QtGui.QIcon("images/pubdata.png")
+        icon = QtGui.QIcon(self.image_path + "pubdata.png")
         self.setWindowIcon(icon)
         self.tray_icon = QtGui.QSystemTrayIcon()
         self.tray_icon.setIcon(QtGui.QIcon(icon))
@@ -194,7 +202,7 @@ class ftpWindow(QtGui.QWidget):
         .. note::
         .. todo::
         """
-        conn = lite.connect('PubData.db')
+        conn = lite.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM servernames")
         d = OrderedDict([(k, v) for _, k, v in cursor.fetchall()])
@@ -446,9 +454,9 @@ class ftpWindow(QtGui.QWidget):
         item.setText(4, urlInfo.lastModified().toString('MMM dd yyyy'))
 
         if urlInfo.isDir():
-            icon = QtGui.QIcon('images/dir.png')
+            icon = QtGui.QIcon(self.image_path + 'dir.png')
         else:
-            icon = QtGui.QIcon('images/file.png')
+            icon = QtGui.QIcon(self.image_path + 'file.png')
         item.setIcon(0, icon)
 
         self.isDirectory[urlInfo.name()] = urlInfo.isDir()
@@ -560,7 +568,7 @@ class ftpWindow(QtGui.QWidget):
     def get_keyword(self):
         keyword = self.dialog.get_keyword()
         try:
-            conn = lite.connect('PubData.db')
+            conn = lite.connect(self.db_path)
             cursor = conn.cursor()
         except Exception as exp:
             print(exp)
@@ -659,7 +667,7 @@ class ftpWindow(QtGui.QWidget):
         return list(lemmas)
 
     def set_recommender(self, word, *syns):
-        conn = lite.connect('PubData.db')
+        conn = lite.connect(self.db_path)
         cursor = conn.cursor()
         insert_query = u"""INSERT OR IGNORE INTO {} (word, rank) VALUES(?, ?);"""
         update_query = u"""UPDATE '{}' SET rank=rank+1 WHERE word='{}';"""
@@ -679,7 +687,7 @@ class ftpWindow(QtGui.QWidget):
         conn.commit()
 
     def get_wordnet_words(self, text):
-        conn = lite.connect('PubData.db')
+        conn = lite.connect(self.db_path)
         cursor = conn.cursor()
         # remove OR synonyms LIKE '%{}%' from query
         cursor.execute("SELECT * FROM wordnet WHERE word LIKE '%{}%' COLLATE NOCASE;".format(text, text))
@@ -706,8 +714,8 @@ class ftpWindow(QtGui.QWidget):
 
 
 def run():
-    app = QtGui.QApplication(argv)
+    app = QtGui.QApplication(sys.argv)
     ftpWin = ftpWindow()
     ftpWin.resize(950, 600)
     ftpWin.show()
-    exit(app.exec_())
+    sys.exit(app.exec_())
