@@ -26,7 +26,7 @@ class Path_results(QtGui.QDialog):
     .. note::
     .. todo::
     """
-    def __init__(self, server_names, total_find, path_number, parent=None):
+    def __init__(self, image_path, server_names, total_find, path_number, parent=None):
         """
         .. py:attribute:: __init__()
            :param server_names:
@@ -44,6 +44,7 @@ class Path_results(QtGui.QDialog):
         super(Path_results, self).__init__(parent)
         self.main_layout = QtGui.QVBoxLayout()
         self.path_number = path_number
+        self.image_path = image_path
         self.setLayout(self.main_layout)
         self.total_find = total_find
         self.SERVER_NAMES = server_names
@@ -88,7 +89,7 @@ class Path_results(QtGui.QDialog):
         """
         name = item.text(1)
         print("selected server_name is : {} The address is {} ".format(name, self.SERVER_NAMES[name]))
-        self.wind = Sub_path(self.SERVER_NAMES[name], item.text(0), item.text(1))
+        self.wind = Sub_path(self.image_path, self.SERVER_NAMES[name], item.text(0), item.text(1))
         self.wind.resize(450, 650)
         self.wind.setWindowTitle('Sub-path')
         self.wind.show()
@@ -103,7 +104,7 @@ class Sub_path(QtGui.QDialog):
     .. note::
     .. todo::
     """
-    def __init__(self, root, path, name, parent=None):
+    def __init__(self, image_path, root, path, name, parent=None):
         """
         .. py:attribute:: __init__()
            :param root: The server's root address (ftp URL)
@@ -115,6 +116,7 @@ class Sub_path(QtGui.QDialog):
         """
         super(Sub_path, self).__init__(parent)
         self.metainstance = Meta(name)
+        self.image_path = image_path
         self.root = root
         self.path = path
         self.isDirectory = {}
@@ -138,7 +140,7 @@ class Sub_path(QtGui.QDialog):
         self.downloadButton = QtGui.QPushButton("Download")
         self.downloadButton2 = QtGui.QPushButton("Metadata")
         self.cdToParentButton = QtGui.QPushButton()
-        self.cdToParentButton.setIcon(QtGui.QIcon('images/cdtoparent.png'))
+        self.cdToParentButton.setIcon(QtGui.QIcon(self.image_path + 'cdtoparent.png'))
         self.cdToParentButton.setEnabled(False)
 
         self.progressDialog = QtGui.QProgressDialog(self)
@@ -267,9 +269,9 @@ class Sub_path(QtGui.QDialog):
         item.setText(4, urlInfo.lastModified().toString('MMM dd yyyy'))
 
         if urlInfo.isDir():
-            icon = QtGui.QIcon('images/dir.png')
+            icon = QtGui.QIcon(self.image_path + 'dir.png')
         else:
-            icon = QtGui.QIcon('images/file.png')
+            icon = QtGui.QIcon(self.image_path + 'file.png')
         item.setIcon(0, icon)
 
         self.isDirectory[urlInfo.name()] = urlInfo.isDir()
