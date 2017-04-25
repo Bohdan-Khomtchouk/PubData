@@ -19,7 +19,7 @@ class Searchdialog(QtGui.QDialog):
     ----------
     .. py:class:: Searchdialog()
     """
-    def __init__(self, search_all=False, parent=None):
+    def __init__(self, db_path, search_all=False, parent=None):
         """
         .. py:attribute:: __init__()
             :rtype: UNKNOWN
@@ -27,10 +27,7 @@ class Searchdialog(QtGui.QDialog):
         .. todo::
         """
         super(Searchdialog, self).__init__(parent)
-        if hasattr(sys, "_MEIPASS"):
-            self.db_path = ospath.join(sys._MEIPASS, 'PubData.db')
-        else:
-            self.db_path = 'PubData.db'
+        self.db_path = db_path
         self.search_all = search_all
         self.main_layout = QtGui.QVBoxLayout()
         self.texteditor = QtGui.QTextEdit()
