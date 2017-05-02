@@ -7,7 +7,7 @@ from os import path as ospath, makedirs
 import sys
 from itertools import chain
 from collections import OrderedDict
-from interface.extras.extras import general_style
+from .extras.extras import general_style, server_names as all_server_names
 from PyQt4.QtCore import pyqtSlot, SIGNAL
 from PyQt4 import QtCore, QtGui, QtNetwork
 from nltk.corpus import wordnet
@@ -21,7 +21,6 @@ from string import punctuation
 sys.path.append(ospath.dirname(ospath.dirname(ospath.abspath(__file__))))
 from recommender import recomdialog
 from queue import Queue
-
 
 class ftpWindow(QtGui.QWidget):
     """
@@ -57,6 +56,7 @@ class ftpWindow(QtGui.QWidget):
             makedirs(recom_dir_path)
             self.recommender_db_path = ospath.join(recom_dir_path, 'recommender_db.db')
             self.create_recommender_table()
+            self.create_servernames_table()
         else:
             self.recommender_db_path = ospath.join(recom_dir_path, 'recommender_db.db')
 
@@ -154,6 +154,20 @@ class ftpWindow(QtGui.QWidget):
         self.tray_icon.activated.connect(self.tray_click)
         self.setWindowIcon(QtGui.QIcon(icon))
 
+    def create_servernames_table(self):
+        print ("Creating server names table...")
+        conn = lite.connect(self.recommender_db_path)
+        curs = conn.cursor()
+        table_name = "servernames"
+        curs.execute("""CREATE TABLE {} (id   INTEGER   PRIMARY KEY AUTOINCREMENT,
+                                         name text  NOT NULL,
+                                         url  text  NOT NULL);""".format(table_name))
+
+        for name, url in all_server_names.items():
+            conn.execute("""INSERT INTO {} (name, url)
+                            VALUES (?, ?)""".format(table_name), (name, url))
+        conn.commit()
+
     def create_recommender_table(self):
         print ("Creating recommender system tables...")
         conn = lite.connect(self.recommender_db_path)
@@ -231,7 +245,7 @@ class ftpWindow(QtGui.QWidget):
         .. note::
         .. todo::
         """
-        conn = lite.connect(self.db_path)
+        conn = lite.connect(self.recommender_db_path)
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM servernames")
         d = OrderedDict([(k, v) for _, k, v in cursor.fetchall()])
@@ -306,7 +320,7 @@ class ftpWindow(QtGui.QWidget):
         .. note::
         .. todo::
         """
-        self.wid = Edit_servers(self.server_dict, "PubData.db")
+        self.wid = Edit_servers(self.server_dict, self.recommender_db_path)
         self.wid.resize(350, 650)
         self.wid.setWindowTitle('Edit servers')
         self.wid.show()
