@@ -38,8 +38,11 @@ def refiner(words):
 
 bio_words = refiner(bio_words)
 
-with codecs.open('corpus.json', encoding="UTF-8") as f:
+with open('corpus.json', encoding="UTF-8") as f, open('pdf_parsing/final_result_dict.json', encoding="UTF-8") as f2:
     crp = json.load(f)
+    singleton_dict = json.load(f2)
+    # Merge the result with respective json file for Singleton P. Dictionary of DNA and genome technology
+    crp = crp.update(singleton_dict)
 
 with open('englishwords.txt') as f:
     words = map(str.strip, f)
@@ -66,6 +69,7 @@ with open('englishwords.txt') as f:
                     new[opt + ' ' + rest] = value
                 else:
                     new[k] = value
+
 
 with codecs.open('corpus_new.json', 'w', encoding='UTF-8') as f:
     refined = {k: [i.lower() for i, tag in pos_tag(v) if tag == 'NN'] for k, v in new.items()}
