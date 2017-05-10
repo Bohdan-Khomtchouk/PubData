@@ -42,7 +42,7 @@ with open('corpus.json', encoding="UTF-8") as f, open('pdf_parsing/final_result_
     crp = json.load(f)
     singleton_dict = json.load(f2)
     # Merge the result with respective json file for Singleton P. Dictionary of DNA and genome technology
-    crp = crp.update(singleton_dict)
+    crp.update(singleton_dict)
 
 with open('englishwords.txt') as f:
     words = map(str.strip, f)
