@@ -67,7 +67,7 @@ class Mainparser():
         new = {}
         for word, desc in all_words.items():
             nouns = []
-            desc = desc.replace('-\n', '').replace('\n', ' ').replace('e.g.', '').replace('i.e.', '')
+            desc = desc.replace('-\n', '').replace('\n', ' ').replace('e.g.', '').replace('i.e.', '').replace('- ', '')
             word = sub(r'\u.{4}', '', word.replace('\u2013', '-'))
             if word:
                 for w, tag in pos_tag(word_tokenize(desc)):
