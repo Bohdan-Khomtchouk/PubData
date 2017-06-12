@@ -1,0 +1,12 @@
+FlyBase, a Drosophila Genome Database service
+
+Web service
+http://flybase.org/
+
+File Transfer (FTP) for bulk data
+ftp://flybase.org/
+  genomes/      -- All Drosophila genome sequences and annotations.
+  releases/     -- All files pertaining to specific FlyBase releases.
+  flybase/      -- Older core data, data associated with references
+                   and other odds and ends.
+
