@@ -1,0 +1,375 @@
+#
+# Introduction to nic.funet.fi archive
+#
+# Status: Update in progress
+# Author: staff of ftp.funet.fi  
+# Created: Sat Aug 22 20:31:58 1992
+# Last modified: 2014-01-04
+#
+
+
+
+	Welcome to FTP.FUNET.FI aka NIC.FUNET.FI
+
+
+This is a Dell R710 server with 72GB of RAM and dual Quad-Core Nehalem
+EP processors (Intel Xeon E5540) giving 16 CPU threads. Storage is
+provided via fibre channel connections to the CSC Storage Area
+Network. Currently it has 20TB from CSC's Storage Area Network
+infrastructure for ZFS storage and it can be extended on the fly if
+required.
+
+Operating system is Solaris 10 Unix from Sun Microsystems. We have a
+10Gbit/s dedicated connection to Funet which connects at 10Gbit/s level
+to academic backbone networks like GEANT and Internet 2 through a nordic
+dark fibre network and of course inside Finland.
+
+This system is owned by the finnish ministry of education
+and operated on their behalf by CSC primarily for the Finnish Academic
+and Research Network FUNET users. It is located in the town of Espoo
+in Finland.
+
+Paper mail address:
+          NIC.FUNET.FI coordinator
+          Harri Salminen
+	  CSC
+          POBOX 405 (street address is Keilaranta 14)
+          FIN-02101 Espoo
+	  FINLAND
+
+    This server group has many names.  Its "staff" will always be
+at `nic.funet.fi', but othervice consider using philosophy: `name by
+function', thus FTP from  ftp.funet.fi.
+
+ftp.funet.fi         traditional anonymous ftp service (also with http and IPv6 support)
+www.nic.funet.fi     http access to our collections (shows index.html's if any)
+nic.funet.fi	     email and other administrative tasks (in practice ftp
+		     is also supported)
+
+We have also several other names and may move some services to other
+computers as we see necessary. 
+
+	CONTENTS:
+
+    - Intro
+    - What is considered proper conduct of anonymous FTP usage
+    - Privacy issues
+    - Contacts about material in here
+	( GIFs and others )
+    - Uploading
+    - CD-ROMs
+    - FTPD sources
+    - Reporting a bug/problems
+    - Physical disk structure is hidden behind logical one
+    - Restrictions
+    - Minimum of maximum retrieval rate
+    - IP-reversal and valid "passwd" requirements
+    - What is `Freely distributable' ?
+    - Other services available from here
+    - Many names of the server
+
+
+	INTRO:
+
+    This system has plenty of freely distributable material on its FTPable
+areas.   We have also other services, see at the end of this document for
+pointers.
+
+    If you have any questions regarding MATERIALS in this archive, read
+first `Contacts about material in here' below.  If you can't locate correct
+person/mail alias with it, try `problems@nic.funet.fi', but do not do that
+as your only attempt!
+
+
+	WHAT IS CONSIDERED A PROPER CONDUCT OF ANONYMOUS FTP USAGE:
+
+    Like many systems world wide, ours offers  anonymous  logins for
+FTP users.  Such a service means:
+	- You do not need to apply an account at this server, just use
+	  well known userid:   anonymous  (or ftp)  and for a password please 
+          do enter your email address (in format:  your_userid@your_site)
+          according to the convention used since the 1970s in public FTP servers.
+
+	- While this service is called "anonymous" due to that well-known
+	  userid, it is considered good manners to identify yourself
+	  properly.  (No, this is not truly anonymous.)
+	(See PRIVACY ISSUES)
+
+For those who have this privilege of using ftp, here are some do's
+and don'ts:
+
+      - When you are working over long distance links, do limit yourself
+	to off hours.  When working between the USA and Finland, try it
+	after 4 PM OUR time ( 10 AM Eastern USA time.)  And remember that
+	we wake up 10 hours before California.
+	We are at time zone  `UTC +2h' and in summer 'UTC +3h'
+
+      - Major portion material in this archive originates from various
+	locations all over USA.  Sometimes those locations are well
+	known.  Often not.  We try to indicate origins if we know them.
+	DO try to use server nearest (network wise) to yourself, USA
+	folks: please restrain  yourself to USA.
+
+      - When you log in anonymous, system immediately identifies you, and
+	if you are not limited by number of users, you are
+	prompted with:
+
+	331 Any password will work
+
+	Alternatively, read the man-page of ftp-program (assuming you
+	are using UNIX ftp client), and see what is said about ".netrc".
+
+      - See below more about what is `Freely Distributable'.
+	After all, it is not always the same as Public Domain!
+
+      - Don't do many parallel downloads, it will slow down the
+	service for others and eventually even you. There's a maximum limit
+        on simultaneous connections for FTP which is shown when you log in. 
+        For HTTP we have had to limit the maximum connections from one
+        IP to 10. 
+
+
+      - REMEMBER: USING ANONYMOUS FTP IS A PRIVILEGE.  DON'T ABUSE IT!
+
+
+
+	PRIVACY ISSUES
+
+    All file accesses, logins etc. are logged, and the logs are kept
+for indefinite period of time pending disk space availability (months online, 
+years offline.) to satisfy statistical and legislative requirements.
+
+If you want to be totally unknown, you must not use FTP, as it can
+never be used without revealing the IP address of your FTP client.
+Even if you had a firewall or proxy somewhere in between, they often
+keep track who's using them. In any case we don't collect email
+addresses for spammers and we might use them only in exceptional cases
+ourselves.  For statistics we use the domain part of your hostname,
+not the hostname itself which in practice means organization and
+country level statistics which we need to maintain the service and
+it's funding. Please try to keep your reverse DNS working, especially
+if you are under .fi domain since we will try to give preference to
+finnish users in case we will someday again have to impose domain
+based speed restrictions on the service like in the early days of the
+Internet.
+    
+
+
+	CONTACTS ABOUT MATERIAL IN HERE:
+
+Example: An alias "xyz-adm" is to be addressed as
+"xyz-adm@nic.funet.fi", please don't use HTML email or something else
+that might be interpreted as SPAM by our filters. Plain old english or
+finnish text is the best!  Please note, that many of the old /pub
+areas are not actively maintained and most of the content is actually
+automatically updated from a master site which you should be able to
+deduce from the /pub/mirrors/some.site/ directory path.
+
+Alias 		Area   			Description
+=============================================================================
+astro-adm	pub/astro/		(amateur) Astronomy related material 
+csc-adm		pub/csc/  		Centre for Scientific Computing, FI
+cpan-adm	pub/CPAN/  		Comprehensive Perl Archive Network
+gnu-adm		pub/gnu/  		GNU material
+linux-adm	pub/Linux/  		Linux
+sci-adm		pub/sci/  		Scientific information in general
+unix-adm	pub/unix/ 		UN*X software etc.
+
+Specials
+========
+
+mirror-adm	Generic mirror maintenance if you don't know exactly 
+		who or which area managers are responsible for the mirror. (hint all in /pub/mirrors are at least mirrors...)
+		Please check first the master site in case they have the same issue too,
+                we just try to mirror them sometimes with some exclusions to save space.
+
+problems	FTP server software problem reporting address.
+                You can use it also if you can't otherwise get
+                in contact with the appropriate area managers
+
+managers	Everything archive related, which isn't proper
+		for area maintainers or doesn't have an area manager
+		and thus goes to the general the system managers and coordinators. 
+
+
+
+    If you can logon (anonymously) and read this file, you probably
+do not have problems with your/our ftp software, therefore you should
+contact above mentioned area administrators.
+
+    If you don't find suitable alias to approach, try:
+		managers at ftp.funet.fi
+
+
+
+	UPLOADING:
+
+If you want to upload or contribute some files for
+publication, please contact appropriate area maintainers for
+more information. Be prepared to proof your identity, the origin
+of the content and permissions required for distributing the content.
+
+If an area is no longer actively maintained, we don't normally accept
+new contributions unless there's a good reason and clear documentation.
+Those areas are mainly preserved for their possible historical value.
+
+Most of the active content is originating from some other site, please
+contact them, not us for contributions. E.g. if pwd says that in the
+path is a directory /mirrors/ then it's clearly not originating from us.
+Name of the mirror origin can usually be deduced from the directory
+name under /pub/mirrors/
+
+If you still can't figure out what to do you can contact <managers>
+with all relevant informations concerning your case.
+
+
+
+
+	CD-ROMs
+
+    Every now and then we are asked for a CD-ROM of this archive; so far
+there are none available with the exception of the Euroscene 1 collection
+based on part of the Amiga area. We don't expect many exceptions...
+
+    Reasons for this are multiple, not the least of them being our
+unwillingess to do the effort of publishing such a set.  Arranging the
+publishing on this kind of directly government funded system is not so
+easy in legal wise when it comes to direct money making as of selling
+those CD-ROMs... Also it doesn't too well fit to our main business
+idea of providing all the WAN network services the Academic and
+Research community needs. The whole archive on CD-ROM would take 
+thousands of CD-ROMs and require lots of manpower to figure out what
+should or shouldn't be on each cd-rom and how to finance it. We are a
+network service provider, not a cd-rom store.
+
+Some software collections are available commercially, with technical
+support, on CD-ROM from other sources (e.g. most Linux distributions). That
+may even be a major revenue source for maintaining those collections
+so they might not even allow cd-rom versions by others. Some other
+collections however are specifically available as CD-ROM images (.iso)
+that you can burn yourself and even distribute according to their
+copyright statements. So please read the fine print before
+redistributing collections available from us. 
+
+	FTPD SOURCES:
+
+
+For a simple to maintain ftp server, you might want to
+look at www.pureftpd.org, we have used it successfully in several
+different places.  Another Very Secure choice might be vsftpd
+available from http://vsftpd.beasts.org that is being used by many large
+sites.
+
+
+
+
+	REPORTING A BUG:
+
+    If you observe odd behaviour of this server, which is not of what you
+believe to be correct, please contact   problems@ftp.funet.fi  and in the
+report have attached a session log which shows the wrong functionality.
+However, check at first what we state about "Restrictions" below!
+
+Such log should start from your FTP session startup, and it should contain:
+
+	- Descriptions about your (computing-) environment relevant
+	  with attempted FTP access;
+		- Maker and model of the computer where you ran your
+		  FTP session,
+		- TCP/IP software model and maker (quite many system do
+		  not come with builtin TCP/IP -- VMS-machines are one
+		  such example.)
+	- UNEDITED (verbose, unabridged) session transcript showing
+	  EVERYTHING you sent to this system, and what were the responses.
+
+Note: Reports about corrupted files belong to archive area keepers; they
+      handle those files;  "problems"  handles the server subsystem.
+
+
+    Bugs/problems relating to ARCHIVED MATERIAL:
+	Select by list under: `Contacts about material in here'
+
+    Bugs/problems relating to other parts of system software:
+	Problems group:  <problems@ftp.funet.fi>
+	("system software" does not mean anything under /pub/")
+
+	If you can get /README without trouble, don't contact <problems>,
+	but one of earlier mentioned area administration aliases.
+
+
+
+	WHAT IS `FREELY DISTRIBUTABLE' ?
+
+	Freely distributable does not mean the same thing as PD
+(public domain).  A big portion of the software available here is not
+in the public domain, although it is freely distributable.  Many are
+copyrighted by some person or organization, but can be distributed
+freely; there may be limitations on the manner of distribution and/or
+the usage of the programs.  There may also be certain rules concerning
+the distribution of modified versions (derivate work) of the programs,
+like saying that if you redistribute a modified version you must
+include in the distribution the date and author of the modification.
+Also on many programs you must include a note crediting the original
+author of the program if you use his code in your own programs.
+
+	An example of this is the Free Software Foundation's GNU
+software.  GNU software may be distributed freely, provided that the
+sources are included, an offer to distribute the sources is included
+or that a pointer to where the sources can be gotten from is included.
+On  FTP.FUNET.FI,  all the GNU source code published is available from
+the directory  pub/gnu.   Some GNU binaries are available from other
+directories as well; although we have tried to include a pointer to
+the sources and the copyright information in these other directories,
+too, it might be that we have neglected some.  This note is here to
+point you to the sources in  pub/gnu.   For further information, the
+GNU copyright is in the file  pub/gnu/COPYING.
+
+
+
+We have multiple filesystems that are all mounted via mountpoints under
+the /.m/ directory. We may move mirrors and other directories from
+one filesystem to another without notice, so please refer to our directories
+with the official /pub/ or /index/ path instead of the physical /.m they
+map to and might be shown to you by various user agents. Especially all
+/.m/mirror*/ filesystems are all symlinked via the /pub/mirrors/ directory
+and the subdirectories try to match those on the original site.
+
+
+
+
+A very concise history of NIC
+=============================
+
+1988 Finland gets it's first internet link of 56Kbit/s via the NORDUnet co-operation and major part of the traffic was from FTP
+1989 Funet saw a need for a FTP-server that would allow better access to the internet content (web was still a dream)
+     from Finland. Decision to set up NIC.FUNET.FI was made and Request for Proposals sent out
+1990 First NIC.FUNET.FI, a SUN 4/330, with dual 40Mhz SPARC processors, 128MB RAM and 6GB of usable
+     disk space which made it then among the largest FTP servers in the Internet. 
+     Our international internet connectivity for whole Funet was 64Kbit/s so mea develops an ftpd with speed limits
+     More hardware details are available in historical/First-NIC-Hardware.txt
+1991 Linus Torvalds offered a small OS for public distribution which our volunteer 
+     Ari Lemmke decided to call Linux and the name stuck... International connection was upgraded to 128Kbit/s
+1992 We had about 20GB of external disks and a motherboard upgrade making it in practice a SUN 630-41 MP
+     International connectivity was upgraded to 1Mbit/s
+1994 Second NIC with 275Mhz Alpha processor, 320MB of memory and 100GB+ disk space (DEC AXP3000-900)
+     International connection for Funet upgraded to 2 x 2Mbit/s
+1999 Third NIC with four processors and 4GB of memory (a SUN 450) was taken in use. 
+     Under 1TB made from well over hunred old and new disks in two RAID racks (DEC and Eurologic)
+     International connections used 155Mbit/s links with redundancy
+2003 A user survey to determine whether users still need NIC is made with an encouraging response
+2006 The fourth version of NIC from Fujitsu-Siemens Computers with 16GB of memory and four processors
+     is taken into production initially with 3TB+ EMC CX300 SAN storage array. A SUN V240 is in a support role.
+     2.5Gbit/s and 10Gbit/s international links
+2007 5-6 TB SAN storage added. Dark fibers with support for many lightpaths deployed in the Funet backbone.
+2010 Fifth version of NIC, a Dell R710, with dual Quad-Core Nehalem EP (2,53Ghz Intel Xeon 5540) processors, 
+     72GB of RAM and storage from the CSC storage area network (initially 10TB+ from a EMC CX700) 
+     taken into use under Solaris 10 and the ZFS filesystem. Network connection is now 
+     10Gbit/s to the Funet backbone and multiples of 10Gbit/s to the rest of the Internet.
+     
+
+More historical pieces of information can be found in various files around NIC and especially a more
+generic Internet-history in a concise web format at http://www.nic.funet.fi/index/FUNET/history/internet/
+
+There's also a more verbose article of NIC now and then at the CSCnews 3/06 available at
+http://www.csc.fi/english/csc/publications/cscnews/back_issues/cscnews3_06
+
