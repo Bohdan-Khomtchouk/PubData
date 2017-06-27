@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+#from mongoengine import connect
+
+# Connect to mongo-engine database
+# connect('pubdata', username='kasra', password='mazdak88')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_mongoengine',
     'SearchEngine']
 
 MIDDLEWARE = [
@@ -72,6 +78,16 @@ WSGI_APPLICATION = 'PubData.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+
+MONGODB_DATABASES = {
+    "default": {
+        "name": 'pubdata',
+        "host": '127.0.0.1',
+        "password": 'mazdak88',
+        "username": 'kasra',
+        "tz_aware": True, # if you using timezones in django (USE_TZ = True)
+    },
+}
 
 DATABASES = {
     'default': {
