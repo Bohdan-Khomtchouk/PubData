@@ -1,3 +1,7 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+for name in dir(models):
+	obj = getattr(models, name)
+	if type(obj).__name__ == "ModelBase":
+		admin.site.register(obj)
