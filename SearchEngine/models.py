@@ -3,6 +3,20 @@ from django.utils import timezone
 import json
 
 
+
+class Search(models.Model):
+    user = models.ForeignKey('auth.User')
+    word = models.TextField()
+    search_date = models.DateTimeField(
+            default=timezone.now)
+    
+    def add(self):
+        self.search_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.word
+
 class Server(models.Model):
     path = models.CharField(max_length=200)
     files = models.TextField()
