@@ -13,7 +13,7 @@ def home(request):
 def search_result(request, pk):
     query = get_object_or_404(Post, pk=pk)
     result = [] # search for results based on query.word in database
-    return render(request, 'SearchEngine/post_detail.html', {'paths': result})
+    return render(request, 'SearchEngine/search_result.html', {'paths': result})
 
 @login_required
 def search(request):
