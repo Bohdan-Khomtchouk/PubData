@@ -1,33 +1,36 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Recommendation
+from .models import Search, Recommendation
 from .forms import SearchForm, SelectServer
 
 
 @login_required
 def home(request):
-	recommendations = Recommendation.objects.all()
+    recommendations = Recommendation.objects.all()
     return render(request, 'SearchEngine/home.html', {'recoms': recommendations})
 
 def search_result(request, pk):
-    query = get_object_or_404(Post, pk=pk)
+    query = get_object_or_404(Search, pk=pk)
     result = [] # search for results based on query.word in database
     return render(request, 'SearchEngine/search_result.html', {'paths': result})
 
 @login_required
 def search(request):
     if request.method == "POST":
-        form = SearchForm(request.POST)
-        if form.is_valid():
-            query = form.save(commit=False)
+        search_form = SearchForm(request.POST)
+        servers = SelectServer(request.POST)
+        if search_form.is_valid() and servers.is_valid():
+            query = search_form.save(commit=False)
             query.user = request.user
             query.published_date = timezone.now()
             query.save()
+            server_name = servers.cleaned_data
+            print(server_name)
             return redirect('search_result', pk=query.pk)
     else:
-        form = SeachForm()
-    return render(request, 'SearchEngine/search.html', {'form': form})
+        search_form = SearchForm()
+    return render(request, 'SearchEngine/search.html', {'form': form, 'servers': servers})
 
 
 @login_required
