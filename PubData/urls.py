@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from SearchEngine import views
 
 urlpatterns = [
+    url('^accounts/', include('django.contrib.auth.urls')),
+    url(r'^$', views.home),
     url(r'^admin/', admin.site.urls),
     url(r'^searchengine/', include('SearchEngine.urls')),
 ]
