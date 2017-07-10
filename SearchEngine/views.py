@@ -5,15 +5,16 @@ from .models import Search, Recommendation
 from .forms import SearchForm, SelectServer
 
 
-@login_required
 def home(request):
     recommendations = Recommendation.objects.all()
-    return render(request, 'SearchEngine/home.html', {'recoms': recommendations})
+    return render(request, 'SearchEngine/base.html', {'recoms': recommendations})
+
 
 def search_result(request, pk):
     query = get_object_or_404(Search, pk=pk)
-    result = [] # search for results based on query.word in database
+    result = []  # search for results based on query.word in database
     return render(request, 'SearchEngine/search_result.html', {'paths': result})
+
 
 @login_required
 def search(request):
@@ -22,6 +23,7 @@ def search(request):
         servers = SelectServer(request.POST)
         if search_form.is_valid() and servers.is_valid():
             query = search_form.save(commit=False)
+            print("search for {}".format(query))
             query.user = request.user
             query.published_date = timezone.now()
             query.save()
@@ -30,7 +32,9 @@ def search(request):
             return redirect('search_result', pk=query.pk)
     else:
         search_form = SearchForm()
-    return render(request, 'SearchEngine/search.html', {'form': form, 'servers': servers})
+        servers = SelectServer()
+    return render(request, 'SearchEngine/search.html',
+                  {'search_form': search_form, 'select_form': servers})
 
 
 @login_required
