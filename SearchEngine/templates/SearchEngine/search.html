@@ -1,11 +1,13 @@
 {% extends 'SearchEngine/base.html' %}
 
-{% include "select_server.html" %}
-
 {% block content %}
+    <h1>Select server</h1>
+    <form method="POST" id="inlineFormCustomSelect">{% csrf_token %}
+        {{ select_form.as_p }}
+    </form>
     <h1>Enter your word here</h1>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+        {{ search_form.as_p }}
         <button type="submit" class="save btn btn-default">Search</button>
     </form>
 {% endblock %}
