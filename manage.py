@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 import os
 import sys
+from database_initializer import Initializer
+
 
 if __name__ == "__main__":
+    run_initializer = False
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PubData.settings")
     try:
         from django.core.management import execute_from_command_line
@@ -19,4 +22,16 @@ if __name__ == "__main__":
                 "forget to activate a virtual environment?"
             )
         raise
+
+    if run_initializer:
+        excluded_names = {"The Arabidopsis Information Resource",
+                          "O-GLYCBASE",
+                          "PairsDB",
+                          "Gene Expression Omnibus",
+                          "One Thousand Genomes Project",
+                          "GenBank",
+                          "Sequence Read Archive"}
+        initializer = Initializer(data_path='data/servernames.json',
+                                  excluded_names=excluded_names)
+        initializer()
     execute_from_command_line(sys.argv)
