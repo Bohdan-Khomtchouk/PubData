@@ -27,7 +27,7 @@ def search(request):
             query.user = request.user
             query.published_date = timezone.now()
             query.save()
-            server_name = servers.cleaned_data
+            server_name = servers.cleaned_data['servers']
             print(server_name)
             return redirect('search_result', pk=query.pk)
     else:
