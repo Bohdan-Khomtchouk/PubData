@@ -2,12 +2,17 @@
 
 {% block content %}
     <h1>Select server</h1>
-    <form method="POST" id="inlineFormCustomSelect">{% csrf_token %}
-        {{ select_form.as_p }}
+    <a href='#' id='select-all'>select all</a>
+    ---
+	<a href='#' id='deselect-all'>deselect all</a>
+    <form method="POST" id='pre-selected-options' multiple='multiple'>{% csrf_token %}
+    	{% for name in servers %}
+    		<option value={{name.path}}>{{name}}</option>
+    	{% endfor %}
     </form>
     <h1>Enter your word here</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <form class="post-form">{% csrf_token %}
         {{ search_form.as_p }}
-        <button type="submit" class="save btn btn-default">Search</button>
+        <button id="submit_search" class="save btn btn-default">Search</button>
     </form>
 {% endblock %}

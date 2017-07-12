@@ -8,9 +8,16 @@
         <link rel="stylesheet" href="{% static 'css/searchengine.css' %}">
         <script type="text/javascript" src="{% static 'js/searchengine.js' %}"></script> 
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto">
+          <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/multi-select.css' %}">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.multi-select.js' %}"></script>
     </head>
     <body>
-<body>
     <div class="page-header">
         {% if user.is_authenticated %}
             {# <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p> #}
@@ -27,6 +34,19 @@
             </div>
         </div>
     </div>
-</body>
     </body>
+  <script type="text/javascript">
+  // run pre selected options
+    $('#pre-selected-options').multiSelect();
+    $('#select-all').click(function(){
+    $('#pre-selected-options').multiSelect('select_all');
+        return false;
+        });
+    $('#deselect-all').click(function(){
+    $('#pre-selected-options').multiSelect('deselect_all');
+        return false;
+        });
+    $("submit_search").click(function(){search_result()})
+  </script>
+
 </html>
