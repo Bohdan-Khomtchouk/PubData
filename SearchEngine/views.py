@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Search, Recommendation
+from .models import Search, Recommendation, ServerNames
 from .forms import SearchForm, SelectServer
 
 
@@ -12,6 +12,10 @@ def home(request):
 
 def search_result(request, pk):
     query = get_object_or_404(Search, pk=pk)
+    word = query.word
+    selected = request.POST.get('selected')
+    print(word)
+    print(selected)
     result = []  # search for results based on query.word in database
     return render(request, 'SearchEngine/search_result.html', {'paths': result})
 
@@ -23,18 +27,15 @@ def search(request):
         servers = SelectServer(request.POST)
         if search_form.is_valid() and servers.is_valid():
             query = search_form.save(commit=False)
-            print("search for {}".format(query))
             query.user = request.user
             query.published_date = timezone.now()
             query.save()
-            server_name = servers.cleaned_data['servers']
-            print(server_name)
             return redirect('search_result', pk=query.pk)
     else:
         search_form = SearchForm()
-        servers = SelectServer()
+        servers = ServerNames.objects.all()
     return render(request, 'SearchEngine/search.html',
-                  {'search_form': search_form, 'select_form': servers})
+                  {'search_form': search_form, 'servers': servers})
 
 
 @login_required
