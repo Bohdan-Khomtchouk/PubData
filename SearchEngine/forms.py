@@ -13,20 +13,11 @@ class SearchForm(forms.ModelForm):
 
 
 class SelectServer(forms.Form):
-    servers = forms.ChoiceField(choices=[])
+    servers = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,
+                                        choices=[],
+                                        required=False)
 
     def __init__(self, *args, **kwargs):
         super(SelectServer, self).__init__(*args, **kwargs)
         self.fields['servers'].choices = [(x.path, x.name) for x in ServerNames.objects.all()]
         self.fields['servers'].widget.attrs['class'] = "dropdown show"
-
-    def clean_servers(self):
-        return self.cleaned_data['servers']
-
-    def clean(self):
-        cleaned_data = super(SelectServer, self).clean()
-        servers = cleaned_data.get("servers")
-        return cleaned_data
-
-    def validate(self, value):
-        super(SelectServer, self).validate(value)
