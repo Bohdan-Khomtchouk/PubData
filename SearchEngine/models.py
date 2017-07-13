@@ -7,11 +7,14 @@ import json
 class Search(models.Model):
     user = models.ForeignKey('auth.User')
     word = models.TextField()
+    servers = models.TextField()
     search_date = models.DateTimeField(
             default=timezone.now)
     
-    def add(self):
+    def add(self, **kwargs):
         self.search_date = timezone.now()
+        self.word = kwargs['word']
+        self.servers = json.dumps(kwargs['servers'])
         self.save()
 
     def __str__(self):
