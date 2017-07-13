@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import django
 
 
 if __name__ == "__main__":
@@ -23,6 +24,7 @@ if __name__ == "__main__":
         raise
 
     if run_initializer:
+        django.setup()
         from database_initializer import Initializer
         excluded_names = {"The Arabidopsis Information Resource",
                           "O-GLYCBASE",
