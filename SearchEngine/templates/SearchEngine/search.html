@@ -13,6 +13,6 @@
     <h1>Enter your word here</h1>
     <form class="post-form">{% csrf_token %}
         {{ search_form.as_p }}
-        <button id="submit_search" class="save btn btn-default">Search</button>
+        <button id="submit_search" class="save btn btn-default" onclick="return search_result()">Search</button>
     </form>
 {% endblock %}
