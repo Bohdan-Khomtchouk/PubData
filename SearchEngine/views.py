@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Search, Recommendation, ServerNames
 from .forms import SearchForm, SelectServer
+from ast import literal_eval
 
 
 def home(request):
@@ -10,30 +11,21 @@ def home(request):
     return render(request, 'SearchEngine/base.html', {'recoms': recommendations})
 
 
-def search_result(request, pk):
-    query = get_object_or_404(Search, pk=pk)
-    word = query.word
-    selected = request.POST.get('selected')
-    print(word)
-    print(selected)
+def search_result(request):
+    # query = get_object_or_404(Search, pk=pk)
+    keyword = request.POST.get('keyword')
+    selected = set(literal_eval(request.POST.get('selected')))
+    search_model = Search()
+    search_model.user = request.user
+    search_model.add(word=keyword, servers=list(selected))
     result = []  # search for results based on query.word in database
     return render(request, 'SearchEngine/search_result.html', {'paths': result})
 
 
 @login_required
 def search(request):
-    if request.method == "POST":
-        search_form = SearchForm(request.POST)
-        servers = SelectServer(request.POST)
-        if search_form.is_valid() and servers.is_valid():
-            query = search_form.save(commit=False)
-            query.user = request.user
-            query.published_date = timezone.now()
-            query.save()
-            return redirect('search_result', pk=query.pk)
-    else:
-        search_form = SearchForm()
-        servers = ServerNames.objects.all()
+    search_form = SearchForm()
+    servers = ServerNames.objects.all()
     return render(request, 'SearchEngine/search.html',
                   {'search_form': search_form, 'servers': servers})
 
