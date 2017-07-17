@@ -10,7 +10,7 @@
  "O-GLYCBASE": "ftp.cbs.dtu.dk",
  "Xenbase": "ftp.xenbase.org",
  "Pasteur Insitute": "ftp.pasteur.fr",
- "Uniprot": "ftp.uniprot.org",
+ "Uniport": "ftp.uniprot.org",
  "Flybase": "ftp.flybase.net",
  "NECTAR": "ftp.nectarmutation.org",
  "Global Proteome Machine and Database": "ftp.thegpm.org",
@@ -25,4 +25,5 @@
  "Epigenomics Database": "ftp.ncbi.nlm.nih.gov/epigenomics",
  "Sequence Read Archive": "ftp.ncbi.nlm.nih.gov",
  "RefSeq": "ftp.ncbi.nlm.nih.gov/refseq/",
- "Entrez": "ftp.ncbi.nlm.nih.gov/entrez"}
+ "Entrez": "ftp.ncbi.nlm.nih.gov/entrez",
+ "HapMap": "ftp.ncbi.nlm.nih.gov/HapMap"}
