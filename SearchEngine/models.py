@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import JSONField
 from django.utils import timezone
 import json
 
@@ -19,9 +20,20 @@ class SearchQuery(models.Model):
         return self.word
 
 
+class Server(models.Model):
+    name = models.CharField(max_length=200)
+    data = JSONField()
+
+    def __str__(self):
+        return self.name
+
+
 class ServerName(models.Model):
     name = models.CharField(max_length=200)
     path = models.CharField(max_length=200)
+    server = models.OneToOneField(Server,
+                                  on_delete=models.CASCADE,
+                                  primary_key=True,)
     creation_date = models.DateTimeField(default=timezone.now)
 
     def add(self):
