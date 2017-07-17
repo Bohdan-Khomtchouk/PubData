@@ -5,7 +5,7 @@ import django
 
 
 if __name__ == "__main__":
-    run_initializer = False
+    run_initializer = True
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PubData.settings")
     try:
         from django.core.management import execute_from_command_line
@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     if run_initializer:
         django.setup()
-        from database_initializer import Initializer
+        from SearchEngine.lib import database_initializer
         excluded_names = {"The Arabidopsis Information Resource",
                           "O-GLYCBASE",
                           "PairsDB",
@@ -33,7 +33,9 @@ if __name__ == "__main__":
                           "One Thousand Genomes Project",
                           "GenBank",
                           "Sequence Read Archive"}
-        initializer = Initializer(data_path='data/servernames.json',
-                                  excluded_names=excluded_names)
+        initializer = database_initializer.Initializer(data_path='data/servernames.json',
+                                                       server_path='data/json_files',
+                                                       wordnet_path='data/wordnet',
+                                                       excluded_names=excluded_names)
         initializer()
     execute_from_command_line(sys.argv)
