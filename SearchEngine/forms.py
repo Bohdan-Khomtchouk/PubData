@@ -1,11 +1,11 @@
 from django import forms
-from .models import Search, ServerNames
+from .models import SearchQuery, ServerName
 
 
 class SearchForm(forms.ModelForm):
 
     class Meta:
-        model = Search
+        model = SearchQuery
         fields = ('word',)
         widgets = {'word': forms.Textarea(attrs={'rows': 1, 'cols': 2, 'size': 4,
         		  								 'placeholder': "search for data",
@@ -19,5 +19,5 @@ class SelectServer(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(SelectServer, self).__init__(*args, **kwargs)
-        self.fields['servers'].choices = [(x.path, x.name) for x in ServerNames.objects.all()]
+        self.fields['servers'].choices = [(x.path, x.name) for x in ServerName.objects.all()]
         self.fields['servers'].widget.attrs['class'] = "dropdown show"
