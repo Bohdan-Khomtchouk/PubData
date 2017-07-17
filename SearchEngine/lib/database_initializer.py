@@ -1,4 +1,4 @@
-from SearchEngine.models import ServerName, WordNet
+from SearchEngine.models import ServerName, WordNet, Server
 from SearchEngine.lib.create_tables import create_servers
 from os import path as ospath
 import json
@@ -18,8 +18,6 @@ class Initializer:
         self.add_server_names()
         print("Initializing wordnets...")
         self.add_wordnets()
-        print("Initializing servers...")
-        self.add_servers()
 
     def add_wordnets(self): 
         all_models = []
@@ -30,25 +28,24 @@ class Initializer:
             all_models.append(query)
         WordNet.objects.bulk_create(all_models)
 
-    def add_servers(self):
-        servers = create_servers(server_names=self.server_names)
+    def create_server_models(self):
+        all_models = {}
         for name, file in self.load_servers():
-            model_ = servers[name]
-            all_models = []
-            for path, file_names in file.items():
-                query = model_()
-                query.path = path
-                query.set_file_names(file_names)
-                all_models.append(query)
-
-            model_.objects.bulk_create(all_models)
+            query = Server()
+            query.name = name
+            query.data = file
+            query.save()
+            all_models[name] = query
+        return all_models
 
     def add_server_names(self):
         query = ServerName()
+        all_models = self.create_server_models()
         for name, url in self.server_names.items():
             if name not in self.excluded_names:
                 query.name = name
                 query.path = url
+                query.server = all_models[name]
                 query.add()
 
     def load_server_names(self):
