@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'SearchEngine']
+    'SearchEngine',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,23 +78,16 @@ WSGI_APPLICATION = 'PubData.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-MONGODB_DATABASES = {
-    "default": {
-        "name": 'pubdata',
-        "host": '127.0.0.1',
-        "password": 'mazdak88',
-        "username": 'kasra',
-        "tz_aware": True, # if you using timezones in django (USE_TZ = True)
-    },
-}
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'pubdata',
+        'USER': 'kasra',
+        'PASSWORD': 'kasra88',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
