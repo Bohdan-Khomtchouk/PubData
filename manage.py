@@ -5,7 +5,7 @@ import django
 
 
 if __name__ == "__main__":
-    run_initializer = False
+    run_initializer = True
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PubData.settings")
     try:
         from django.core.management import execute_from_command_line
@@ -22,20 +22,21 @@ if __name__ == "__main__":
                 "forget to activate a virtual environment?"
             )
         raise
-
-    if run_initializer:
-        django.setup()
-        from SearchEngine.lib import database_initializer
-        excluded_names = {"The Arabidopsis Information Resource",
-                          "O-GLYCBASE",
-                          "PairsDB",
-                          "Gene Expression Omnibus",
-                          "One Thousand Genomes Project",
-                          "GenBank",
-                          "Sequence Read Archive"}
-        initializer = database_initializer.Initializer(data_path='data/servernames.json',
-                                                       server_path='data/json_files',
-                                                       wordnet_path='data/wordnet',
-                                                       excluded_names=excluded_names)
-        initializer()
+    else:
+        if run_initializer:
+            django.setup()
+            from SearchEngine.lib import database_initializer
+            excluded_names = {"The Arabidopsis Information Resource",
+                              "O-GLYCBASE",
+                              "PairsDB",
+                              "Gene Expression Omnibus",
+                              "One Thousand Genomes Project",
+                              "GenBank",
+                              "Sequence Read Archive"}
+            initializer = database_initializer.Initializer(data_path='data/servernames.json',
+                                                           server_path='data/json_files',
+                                                           wordnet_path='data/wordnet',
+                                                           excluded_names=excluded_names)
+            initializer()
+            run_initializer = False
     execute_from_command_line(sys.argv)
