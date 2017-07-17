@@ -24,9 +24,6 @@ class ServerName(models.Model):
     path = models.CharField(max_length=200)
     creation_date = models.DateTimeField(default=timezone.now)
 
-    def set_table_field(self, name):
-        self.table = models.ForeignKey(name)
-
     def add(self):
         self.creation_date = timezone.now()
         self.save()
@@ -43,10 +40,13 @@ class WordNet(models.Model):
     similars = models.TextField()
 
     def set_similars(self, args):
-        self.files = json.dumps(args)
+        self.similars = json.dumps(args)
 
     def get_similars(self):
         return json.loads(self.foo)
+
+    def __str__(self):
+        return self.word
 
     def add(self):
         # self.published_date = timezone.now()
