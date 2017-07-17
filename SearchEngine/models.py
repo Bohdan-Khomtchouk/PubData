@@ -3,14 +3,12 @@ from django.utils import timezone
 import json
 
 
-
-class Search(models.Model):
+class SearchQuery(models.Model):
     user = models.ForeignKey('auth.User')
     word = models.TextField()
     servers = models.TextField()
-    search_date = models.DateTimeField(
-            default=timezone.now)
-    
+    search_date = models.DateTimeField(default=timezone.now)
+
     def add(self, **kwargs):
         self.search_date = timezone.now()
         self.word = kwargs['word']
@@ -20,30 +18,14 @@ class Search(models.Model):
     def __str__(self):
         return self.word
 
-class Server(models.Model):
-    path = models.CharField(max_length=200)
-    files = models.TextField()
-    creation_date = models.DateTimeField(
-            default=timezone.now)
 
-    def set_files(self, args):
-        self.files = json.dumps(args)
-
-    def get_files(self):
-        return json.loads(self.foo)
-
-    def add(self):
-        self.creation_date = timezone.now()
-        self.save()
-
-    def __str__(self):
-        return self.title
-
-class ServerNames(models.Model):
+class ServerName(models.Model):
     name = models.CharField(max_length=200)
     path = models.CharField(max_length=200)
-    creation_date = models.DateTimeField(
-            default=timezone.now)
+    creation_date = models.DateTimeField(default=timezone.now)
+
+    def set_table_field(self, name):
+        self.table = models.ForeignKey(name)
 
     def add(self):
         self.creation_date = timezone.now()
@@ -69,6 +51,7 @@ class WordNet(models.Model):
     def add(self):
         # self.published_date = timezone.now()
         self.save()
+
 
 class Recommendation(models.Model):
     user = models.ForeignKey('auth.User')
