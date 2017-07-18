@@ -1,8 +1,13 @@
-from SearchEngine.models import ServerName, WordNet, Server
-from SearchEngine.lib.create_tables import create_servers
-from os import path as ospath
+from sys import path as syspath
+from os import path as ospath, environ
+from django import setup
 import json
 import glob
+
+syspath.append(ospath.join(ospath.expanduser("~"), 'PubData'))
+environ.setdefault("DJANGO_SETTINGS_MODULE", "PubData.settings")
+setup()
+from SearchEngine.models import ServerName, WordNet, Server
 
 
 class Initializer:
@@ -64,3 +69,18 @@ class Initializer:
         for f_name in glob.glob(self.servers_path + '/*.json'):
             with open(f_name) as f:
                 yield ospath.splitext(f_name)[0].split('/')[-1], json.load(f)
+
+
+if __name__ == '__main__':
+    excluded_names = {"The Arabidopsis Information Resource",
+                      "O-GLYCBASE",
+                      "PairsDB",
+                      "Gene Expression Omnibus",
+                      "One Thousand Genomes Project",
+                      "GenBank",
+                      "Sequence Read Archive"}
+    initializer = Initializer(data_path='data/servernames.json',
+                              server_path='data/json_files',
+                              wordnet_path='data/wordnet',
+                              excluded_names=excluded_names)
+    initializer()
