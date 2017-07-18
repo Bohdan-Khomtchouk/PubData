@@ -32,9 +32,9 @@ function csrfSafeMethod(method) {
 function search_result() {
 	ms = document.getElementById('pre-selected-options');
     var options = $('#pre-selected-options option:selected');
-    var selected = []
+    var selected = {};
     for(var i=0;i<options.length;i++){
-            selected.push(options[i].value);
+            selected[options[i].text] = options[i].value;
         }
     var search_query = document.getElementById('id_word').value;
     var csrftoken = getCookie('csrftoken');
@@ -43,7 +43,7 @@ function search_result() {
         url : "search_result/" + search_query, // the endpoint
         type : "POST", // http method
         data : { 'keyword' : search_query,
-                 'selected': JSON.stringify(selected),
+                 'selected': 'kasra',
                  'csrfmiddlewaretoken': csrftoken }, // data sent with the post request
 
         // handle a successful response
