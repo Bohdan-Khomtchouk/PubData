@@ -38,28 +38,27 @@ function search_result() {
         }
     var search_query = document.getElementById('id_word').value;
     var csrftoken = getCookie('csrftoken');
+    console.log(csrftoken);
     $.ajax({
         dataType: "json",
         url : "search_result/" + search_query, // the endpoint
         type : "POST", // http method
         data : { 'keyword' : search_query,
-                 'selected': 'kasra',
+                 'selected': JSON.stringify(selected),
                  'csrfmiddlewaretoken': csrftoken }, // data sent with the post request
 
         // handle a successful response
         success : function(json) {
             //$('#post-text').val(''); // remove the value from the input
-            console.log(json); // log the returned json to the console
+            // log the returned json to the console
             console.log("success"); // another sanity check
         },
 
         // handle a non-successful response
-        error : function(xhr, errmsg, err) {
-            $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
-                " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
-            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-        }
-    });
+        error : function(xhr, errmsg, err) { 
+            console.log(xhr.status + ": " + xhr.responseText);
+    }
+});
     $.ajaxSetup({
     beforeSend: function(xhr, settings) {
         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
