@@ -29,7 +29,7 @@ class Initializer:
         for word, similars in self.load_wordnets().items():
             query = WordNet()
             query.word = word
-            query.set_similars(similars)
+            query.similars = similars
             all_models.append(query)
         WordNet.objects.bulk_create(all_models)
 
@@ -39,7 +39,6 @@ class Initializer:
             query = Server()
             query.name = name
             query.data = file
-            query.save()
             all_models[name] = query
         return all_models
 
@@ -50,7 +49,10 @@ class Initializer:
             if name not in self.excluded_names:
                 query.name = name
                 query.path = url
-                query.server = all_models[name]
+                server_model = all_models[name]
+                server_model.url = url
+                server_model.save()
+                query.server = server_model
                 query.add()
 
     def load_server_names(self):
