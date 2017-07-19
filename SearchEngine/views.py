@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.template.loader import render_to_string
+from django.http import HttpResponse
 from django.utils import timezone
-from SearchEngine.lib.utils import find_search_result
+from SearchEngine.lib.utils import FindSearchResult
 from .models import SearchQuery, Recommendation, ServerName
 from .forms import SearchForm, SelectServer
 from ast import literal_eval
@@ -18,15 +20,14 @@ def search_result(request):
     # query = get_object_or_404(Search, pk=pk)
     keyword = request.POST.get('keyword')
     selected = request.POST.get('selected')
-    print(selected)
     search_model = SearchQuery()
     search_model.user = request.user
-    search_model.add(word=keyword, servers=selected)
+    search_model.add(word=keyword, servers=list(selected))
 
-    result = find_search_result(keyword=keyword, servers=selected)
-    # set recommendation table here!!
-
-    return render(request, 'SearchEngine/search_result.html', {'all_paths': result})
+    searcher = FindSearchResult(keyword=keyword, servers=selected)
+    result = searcher.find_result()
+    html = render_to_string('SearchEngine/search_result.html', {'all_results': result})
+    return HttpResponse(html)
 
 
 @csrf_exempt
