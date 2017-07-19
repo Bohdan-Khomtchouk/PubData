@@ -1,19 +1,19 @@
 from django.db import models
 from django.contrib.postgres.fields import JSONField
+from django.contrib.postgres.fields import ArrayField
 from django.utils import timezone
-import json
 
 
 class SearchQuery(models.Model):
     user = models.ForeignKey('auth.User')
     word = models.TextField()
-    servers = models.TextField()
+    servers = ArrayField(models.CharField(max_length=200, blank=True))
     search_date = models.DateTimeField(default=timezone.now)
 
     def add(self, **kwargs):
         self.search_date = timezone.now()
         self.word = kwargs['word']
-        self.servers = json.dumps(kwargs['servers'])
+        self.servers = kwargs['servers']
         self.save()
 
     def __str__(self):
@@ -22,6 +22,7 @@ class SearchQuery(models.Model):
 
 class Server(models.Model):
     name = models.CharField(max_length=200)
+    url = models.CharField(max_length=200)
     data = JSONField()
 
     def __str__(self):
@@ -49,32 +50,23 @@ class ServerName(models.Model):
 
 class WordNet(models.Model):
     word = models.CharField(max_length=200)
-    similars = models.TextField()
-
-    def set_similars(self, args):
-        self.similars = json.dumps(args)
-
-    def get_similars(self):
-        return json.loads(self.foo)
+    similars = ArrayField(models.CharField(max_length=200, blank=True))
 
     def __str__(self):
         return self.word
 
     def add(self):
-        # self.published_date = timezone.now()
         self.save()
 
 
 class Recommendation(models.Model):
     user = models.ForeignKey('auth.User')
-    recom = models.TextField()
-
-    def set_recoms(self, args):
-        self.files = json.dumps(args)
-
-    def get_recoms(self):
-        return json.loads(self.foo)
+    recommendations = ArrayField(
+        ArrayField(
+            models.CharField(max_length=200, blank=True),
+            size=2,
+        ),
+    )
 
     def add(self):
-        # self.published_date = timezone.now()
         self.save()
