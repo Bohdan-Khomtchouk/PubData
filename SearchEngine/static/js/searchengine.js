@@ -29,6 +29,7 @@ function csrfSafeMethod(method) {
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
+
 function search_result() {
 	ms = document.getElementById('pre-selected-options');
     var options = $('#pre-selected-options option:selected');
@@ -38,7 +39,6 @@ function search_result() {
         }
     var search_query = document.getElementById('id_word').value;
     var csrftoken = getCookie('csrftoken');
-    console.log(csrftoken);
     $.ajax({
         dataType: "json",
         url : "search_result/" + search_query, // the endpoint
@@ -48,10 +48,11 @@ function search_result() {
                  'csrfmiddlewaretoken': csrftoken }, // data sent with the post request
 
         // handle a successful response
-        success : function(json) {
-            //$('#post-text').val(''); // remove the value from the input
-            // log the returned json to the console
-            console.log("success"); // another sanity check
+        success : function(response) {
+            alert(JSON.stringify(response.html));
+            document.open();
+            document.write(response.html);
+            document.close();
         },
 
         // handle a non-successful response
