@@ -1,13 +1,17 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
-from django.http import HttpResponse
+from django.template import RequestContext
+from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from SearchEngine.lib.utils import FindSearchResult
 from .models import SearchQuery, Recommendation, ServerName
 from .forms import SearchForm, SelectServer
 from ast import literal_eval
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import redirect
+from django.urls import reverse
+import json
 
 
 def home(request):
@@ -16,18 +20,32 @@ def home(request):
 
 
 @csrf_exempt
+def new_search_result(request, result={}):
+    # kwargs=selected = json.loads(selected)
+    html = render_to_string('SearchEngine/search_result.html',
+                            {'all_results': result})
+    return HttpResponse(html)
+
+
+@csrf_exempt
 def search_result(request):
     # query = get_object_or_404(Search, pk=pk)
     keyword = request.POST.get('keyword')
-    selected = request.POST.get('selected')
+    selected = json.loads(request.POST.get('selected'))
+    # csrftoken = request.POST.get('csrfmiddlewaretoken')
     search_model = SearchQuery()
     search_model.user = request.user
     search_model.add(word=keyword, servers=list(selected))
 
     searcher = FindSearchResult(keyword=keyword, servers=selected)
-    result = searcher.find_result()
-    html = render_to_string('SearchEngine/search_result.html', {'all_results': result})
-    return HttpResponse(html)
+    # result = list(searcher.find_result())
+    # url = reverse('new_search_result', kwargs={'result': result})
+    html = render_to_string('SearchEngine/search_result.html',
+                            {'all_results': ['kasra', 'kasra']})
+    return HttpResponse(json.dumps({'html': html}), content_type="application/json")
+    # return HttpResponseRedirect(url)
+    # return render(request, 'SearchEngine/search_result.html', {'all_results': result})
+    # return HttpResponse(html)
 
 
 @csrf_exempt
