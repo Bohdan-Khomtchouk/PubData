@@ -49,7 +49,6 @@ function search_result() {
 
         // handle a successful response
         success : function(response) {
-            alert(JSON.stringify(response.html));
             document.open();
             document.write(response.html);
             document.close();
