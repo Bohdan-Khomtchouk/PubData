@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="post">
-{% for query in all_queries %}
-    <li><a class="btn btn-default" href="{% url 'open_path' pk=query.pk %}">query.path</a>(</li>
+{% for path in all_results %}
+    <li>{{ path }}</li>
 {% endfor %}
 {% endblock %}
