@@ -18,15 +18,6 @@ def home(request):
     recommendations = Recommendation.objects.all()
     return render(request, 'SearchEngine/base.html', {'recoms': recommendations})
 
-
-@csrf_exempt
-def new_search_result(request, result={}):
-    # kwargs=selected = json.loads(selected)
-    html = render_to_string('SearchEngine/search_result.html',
-                            {'all_results': result})
-    return HttpResponse(html)
-
-
 @csrf_exempt
 def search_result(request):
     # query = get_object_or_404(Search, pk=pk)
@@ -38,14 +29,10 @@ def search_result(request):
     search_model.add(word=keyword, servers=list(selected))
 
     searcher = FindSearchResult(keyword=keyword, servers=selected)
-    # result = list(searcher.find_result())
-    # url = reverse('new_search_result', kwargs={'result': result})
+    result = list(searcher.find_result())
     html = render_to_string('SearchEngine/search_result.html',
-                            {'all_results': ['kasra', 'kasra']})
+                            {'all_results': result})
     return HttpResponse(json.dumps({'html': html}), content_type="application/json")
-    # return HttpResponseRedirect(url)
-    # return render(request, 'SearchEngine/search_result.html', {'all_results': result})
-    # return HttpResponse(html)
 
 
 @csrf_exempt
