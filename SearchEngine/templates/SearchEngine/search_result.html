@@ -1,8 +1,14 @@
 {% extends 'SearchEngine/base.html' %}
 
 {% block content %}
-    <div class="post">
-{% for path in all_results %}
-    <li>{{ path }}</li>
-{% endfor %}
+	{% for server_name, data in all_results.items %}
+		{% if data %}
+		<li>{{ server_name }}</li>
+			<ul>
+		    	{% for dict in data%}
+    				<li><a href='{{ dict.path }}'> {{ dict.path }} </a></li>
+		    	{% endfor %}
+    		</ul>
+    	{% endif %}
+	{% endfor %}
 {% endblock %}
