@@ -57,9 +57,9 @@ class FindSearchResult:
 
     def check_intersection(self, wn, files):
         # this should be done in json files
-        corrected_files = [f.split('.')[0] for f in files]
+        corrected_file_names = [f.split('.')[0] for f in files]
         similars = wn['similars'] | {wn['word']}
-        return similars.intersection(corrected_files)
+        return any(any(s in f for s in similars) for f in corrected_file_names)
 
     def get_similars(self):
         cond1 = Q(similars__overlap=self.all_valid_substrings)
