@@ -18,6 +18,7 @@ def home(request):
     recommendations = Recommendation.objects.all()
     return render(request, 'SearchEngine/base.html', {'recoms': recommendations})
 
+
 @csrf_exempt
 def search_result(request):
     # query = get_object_or_404(Search, pk=pk)
@@ -29,9 +30,20 @@ def search_result(request):
     search_model.add(word=keyword, servers=list(selected))
 
     searcher = FindSearchResult(keyword=keyword, servers=selected)
-    result = list(searcher.find_result())
+    try:
+        result = searcher.find_result()
+        error = False
+    except ValueError as exc:
+        # invalid keyword
+        error = """INVALID KEYWORD:
+        Your keyword contains invalid notations!
+        {}""".format(exc)
+        result = []
+        print(error)
+    else:
+        print(sum(len(d) for i, d in result.items()))
     html = render_to_string('SearchEngine/search_result.html',
-                            {'all_results': result})
+                            {'all_results': result, 'error': error})
     return HttpResponse(json.dumps({'html': html}), content_type="application/json")
 
 
