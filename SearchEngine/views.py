@@ -20,6 +20,8 @@ def home(request):
     recommendations = Recommendation.objects.all()
     return render(request, 'SearchEngine/base.html', {'recoms': recommendations})
 
+def user_profile(request):
+    pass
 
 def signup_view(request):
     if request.method == 'POST':
@@ -30,7 +32,7 @@ def signup_view(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('home')
+            return redirect('/searchengine')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
