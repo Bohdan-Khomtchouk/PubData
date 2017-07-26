@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import UserCreationForm
 from django.template.loader import render_to_string
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
@@ -17,6 +19,21 @@ import json
 def home(request):
     recommendations = Recommendation.objects.all()
     return render(request, 'SearchEngine/base.html', {'recoms': recommendations})
+
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 @csrf_exempt
@@ -48,7 +65,7 @@ def search_result(request):
 
 
 @csrf_exempt
-@login_required
+@login_required()
 def search(request):
     search_form = SearchForm()
     servers = ServerName.objects.all()
