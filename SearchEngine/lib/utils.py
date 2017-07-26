@@ -42,16 +42,17 @@ class FindSearchResult:
         if not self.validate_keyword():
             raise ValueError("Invalid Keyword")
         all_result = {}
-        all_servers = {name: Server.objects.get(name=name) for name in self.selected_servers}
         wordnet_result = list(self.get_similars())
-        for name, server in all_servers.items():
+        for name, url in self.selected_servers.items():
+            server = Server.objects.get(name=name)
             result = []
             for path, files in server.data.items():
                 for wn in wordnet_result:
                     if self.check_intersection(wn, files):
                         result.append({'path': path,
                                        'exact_match': self.keyword == wn['word']})
-            all_result[name] = result
+            all_result[name] = {'data': result,
+                                'url': url}
 
         return all_result
 
