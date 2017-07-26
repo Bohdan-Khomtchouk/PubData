@@ -20,10 +20,9 @@ from django.contrib.auth import views as auth_views
 
 # url('^accounts/', include('django.contrib.auth.urls')),
 urlpatterns = [
-    url(r'^searchengine/', include('SearchEngine.urls')),
+    url(r'^searchengine/', include('SearchEngine.urls', namespace='searchengine')),
     url(r'^accounts/login/$', auth_views.login, name='login'),
     url(r'^logout/', auth_views.logout, name='logout', kwargs={'next_page': '/'}),
-    url(r'^signup/', myviews.signup_view, name='signup'),
     url(r'^$', myviews.home, name='home'),
     url(r'^admin/', admin.site.urls),
 ]
