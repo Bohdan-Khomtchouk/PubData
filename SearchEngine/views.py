@@ -41,7 +41,7 @@ def search_result(request):
         result = []
         print(error)
     else:
-        print(sum(len(d) for i, d in result.items()))
+        print("{} results founded".format(sum(len(d) for d in result.values())))
     html = render_to_string('SearchEngine/search_result.html',
                             {'all_results': result, 'error': error})
     return HttpResponse(json.dumps({'html': html}), content_type="application/json")
