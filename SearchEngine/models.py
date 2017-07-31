@@ -6,8 +6,8 @@ from django.utils import timezone
 
 class SearchQuery(models.Model):
     user = models.ForeignKey('auth.User')
-    word = models.TextField()
-    servers = ArrayField(models.CharField(max_length=200, blank=True))
+    word = models.CharField(max_length=100)
+    servers = ArrayField(models.CharField(max_length=100, blank=True))
     search_date = models.DateTimeField(default=timezone.now)
 
     def add(self, **kwargs):
@@ -21,7 +21,7 @@ class SearchQuery(models.Model):
 
 
 class Server(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
     url = models.CharField(max_length=200)
     data = JSONField()
 
@@ -30,7 +30,7 @@ class Server(models.Model):
 
 
 class ServerName(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
     path = models.CharField(max_length=200)
     server = models.OneToOneField(Server,
                                   on_delete=models.CASCADE,
