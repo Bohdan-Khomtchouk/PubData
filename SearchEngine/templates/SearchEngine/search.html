@@ -2,16 +2,15 @@
 
 {% block content %}
     <h1>Select server</h1>
-    <a href='#' id='select-all'>select all</a>
-    ---
-	<a href='#' id='deselect-all'>deselect all</a>
+    <p class="select-all"><a href='#' id='select-all'>select all</a></p>
+	<p class="deselect-all"><a href='#' id='deselect-all'>deselect all</a></p>
     <form id='pre-selected-options' multiple='multiple'>{% csrf_token %}
     	{% for name in servers %}
     		<option value={{name.path}}>{{name}}</option>
     	{% endfor %}
     </form>
-    <h1>Enter your word here</h1>
-    <div class="post-form">
+    <h1>Enter your Keyword here</h1>
+    <div class="post-form" >
         {{ search_form.as_p }}
         <button id="submit_search" class="save btn btn-default" onclick="return search_result()">Search</button>
     </div>
