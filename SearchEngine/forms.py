@@ -7,9 +7,11 @@ class SearchForm(forms.ModelForm):
     class Meta:
         model = SearchQuery
         fields = ('word',)
-        widgets = {'word': forms.Textarea(attrs={'rows': 1, 'cols': 2, 'size': 4,
-        		  								 'placeholder': "search for data",
-        		  								 'class': 'form-control'},),}
+        widgets = {'word': forms.TextInput(attrs={'placeholder': "search for data",
+        		  								  'class': 'form-control',},),}
+        labels = {
+        "word": ""
+        }
 
 
 class SelectServer(forms.Form):
