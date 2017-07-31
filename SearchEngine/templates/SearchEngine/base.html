@@ -4,7 +4,7 @@
         <title>PubData</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC|Spectral" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/searchengine.css' %}">
         <script type="text/javascript" src="{% static 'js/searchengine.js' %}"></script> 
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto">
@@ -20,7 +20,7 @@
     <body>
     <div class="page-header">
         {% if user.is_authenticated %}
-            <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+            <p class="top-menu"><b>{{ user.username }}</b> <<a href="{% url 'logout' %}">Log out</a>></p>
         {% else %}
             <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
         {% endif %}
