@@ -15,7 +15,7 @@
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'IM Fell English SC', serif;
 }
 
 .date {
@@ -31,10 +31,12 @@ h1, h2, h3, h4 {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
+    font-family: 'Spectral', serif;
     color: #ffffff;
     float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+    font-size: 10pt;
+    margin-right: 10px;
+    margin-bottom: 70px;
 }
 
 .post {
