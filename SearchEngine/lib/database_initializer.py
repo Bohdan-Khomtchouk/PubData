@@ -36,9 +36,10 @@ class Initializer:
     def create_server_models(self):
         all_models = {}
         for name, file in self.load_servers():
+            refined_file = {k: [i.split('.')[0] for i in v] for k, v in file.items()}
             query = Server()
             query.name = name
-            query.data = file
+            query.data = refined_file
             all_models[name] = query
         return all_models
 
