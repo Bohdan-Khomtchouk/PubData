@@ -59,10 +59,13 @@ def search_result(request):
         {}""".format(exc)
         result = []
         print(error)
-    else:
-        print("{} results founded".format(sum(len(d) for d in result.values())))
+    finally:
+        founded_results = sum(len(d['data']) for d in result.values())
+        print("{} results founded".format(founded_results))
     html = render_to_string('SearchEngine/search_result.html',
-                            {'all_results': result, 'error': error})
+                            {'all_results': result,
+                             'error': error,
+                             'founded_results': founded_results})
     return HttpResponse(json.dumps({'html': html}), content_type="application/json")
 
 
