@@ -43,14 +43,14 @@ class FindSearchResult:
             raise ValueError("Invalid Keyword")
         all_result = {}
         wordnet_result = list(self.get_similars())
+        print(wordnet_result)
         for name, url in self.selected_servers.items():
             server = Server.objects.get(name=name)
-            result = []
-            for path, files in server.data.items():
-                for wn in wordnet_result:
-                    if self.check_intersection(wn, files):
-                        result.append({'path': path,
-                                       'exact_match': self.keyword == wn['word']})
+            result = [{'path': path,
+                       'exact_match': self.keyword == wn['word']}
+                      for path, files in server.data.items() for wn in wordnet_result
+                      if self.check_intersection(wn, files)
+                      ]
             all_result[name] = {'data': result,
                                 'url': url}
 
@@ -58,9 +58,8 @@ class FindSearchResult:
 
     def check_intersection(self, wn, files):
         # this should be done in json files
-        corrected_file_names = [f.split('.')[0] for f in files]
         similars = wn['similars'] | {wn['word']}
-        return any(any(s in f for s in similars) for f in corrected_file_names)
+        return any(any(s in f for s in similars) for f in files)
 
     def get_similars(self):
         cond1 = Q(similars__overlap=self.all_valid_substrings)
