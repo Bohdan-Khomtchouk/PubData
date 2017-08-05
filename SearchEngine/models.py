@@ -29,6 +29,15 @@ class Server(models.Model):
         return self.name
 
 
+class Path(models.Model):
+    path = models.TextField()
+    files = ArrayField(models.CharField(max_length=300))
+    server_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.path
+
+
 class ServerName(models.Model):
     name = models.CharField(max_length=100)
     path = models.CharField(max_length=200)
