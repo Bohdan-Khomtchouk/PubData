@@ -9,7 +9,7 @@ from string import punctuation, whitespace
 import re
 
 syspath.append(ospath.join(ospath.expanduser("~"), 'PubData'))
-from SearchEngine.models import Server, WordNet
+from SearchEngine.models import Server, WordNet, Path
 
 
 class FindSearchResult:
@@ -42,15 +42,17 @@ class FindSearchResult:
         if not self.validate_keyword():
             raise ValueError("Invalid Keyword")
         all_result = {}
-        wordnet_result = list(self.get_similars())
+        wordnet_result = self.get_similars()
         print(wordnet_result)
         for name, url in self.selected_servers.items():
-            server = Server.objects.get(name=name)
-            result = [{'path': path,
-                       'exact_match': self.keyword == wn['word']}
-                      for path, files in server.data.items() for wn in wordnet_result
-                      if self.check_intersection(wn, files)
-                      ]
+            cond1 = Q(server_name=name)
+            cond2 = Q(files__contained_by=list(wordnet_result['similars']))
+            cond3 = Q(files__contained_by=list(wordnet_result['words']))
+            query_result = Path.objects.filter(cond1 & (cond2 | cond3))
+            result = [{'path': obj.path,
+                       'exact_match': self.keyword in wordnet_result['words']}
+                      for obj in query_result if obj]
+
             all_result[name] = {'data': result,
                                 'url': url}
 
@@ -66,5 +68,6 @@ class FindSearchResult:
         cond2 = Q(word__in=self.all_valid_substrings)
         cond3 = Q(similars__overlap=self.splitted_substrings)
         all_obj = WordNet.objects.filter(cond1 | cond2 | cond3)
-        for obj in all_obj:
-            yield {'word': obj.word, 'similars': set(obj.similars)}
+        words = list({obj.word for obj in all_obj})
+        similars = list({i for obj in all_obj for i in obj.similars})
+        return {'words': words, 'similars': similars}
