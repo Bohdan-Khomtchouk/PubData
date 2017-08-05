@@ -7,7 +7,7 @@ import glob
 syspath.append(ospath.join(ospath.expanduser("~"), 'PubData'))
 environ.setdefault("DJANGO_SETTINGS_MODULE", "PubData.settings")
 setup()
-from SearchEngine.models import ServerName, WordNet, Server
+from SearchEngine.models import ServerName, WordNet, Server, Path
 
 
 class Initializer:
@@ -21,8 +21,8 @@ class Initializer:
     def __call__(self):
         print("Initializing server_names...")
         self.add_server_names()
-        print("Initializing wordnets...")
-        self.add_wordnets()
+        #print("Initializing wordnets...")
+        #self.add_wordnets()
 
     def add_wordnets(self): 
         all_models = []
@@ -33,10 +33,22 @@ class Initializer:
             all_models.append(query)
         WordNet.objects.bulk_create(all_models)
 
+    def initial_path_model(self, name, file):
+        for d in file:
+            path = Path()
+            path.path = d['path']
+            path.files = d['files']
+            path.server_name = name
+            path.save()
+
     def create_server_models(self):
         all_models = {}
         for name, file in self.load_servers():
-            refined_file = {k: [i.split('.')[0] for i in v] for k, v in file.items()}
+            refined_file = [{'path': k,
+                             'files': [i.rsplit('.', 1)[0] for i in v]}
+                            for k, v in file.items()
+                            ]
+            self.initial_path_model(name, refined_file)
             query = Server()
             query.name = name
             query.data = refined_file
