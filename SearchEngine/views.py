@@ -1,18 +1,13 @@
-from django.shortcuts import render, get_object_or_404, redirect, render_to_response
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.template.loader import render_to_string
-from django.template import RequestContext
-from django.http import HttpResponse, HttpResponseRedirect
-from django.utils import timezone
+from django.http import HttpResponse
 from SearchEngine.lib.utils import FindSearchResult
 from .models import SearchQuery, Recommendation, ServerName
-from .forms import SearchForm, SelectServer
-from ast import literal_eval
+from .forms import SearchForm
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import redirect
-from django.urls import reverse
 import json
 
 
@@ -20,8 +15,10 @@ def home(request):
     recommendations = Recommendation.objects.all()
     return render(request, 'SearchEngine/base.html', {'recoms': recommendations})
 
+
 def user_profile(request):
     pass
+
 
 def signup_view(request):
     if request.method == 'POST':
@@ -65,7 +62,8 @@ def search_result(request):
     html = render_to_string('SearchEngine/search_result.html',
                             {'all_results': result,
                              'error': error,
-                             'founded_results': founded_results})
+                             'founded_results': founded_results,
+                             'user': request.user})
     return HttpResponse(json.dumps({'html': html}), content_type="application/json")
 
 
