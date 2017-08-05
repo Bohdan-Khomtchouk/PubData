@@ -1,7 +1,7 @@
 {% extends 'SearchEngine/base.html' %}
 
 {% block content %}
-	<p>{{ founded_results }} results founded</p>
+	<p> <b>{{ founded_results }} results founded</b> </p>
 	{% for server_name, meta in all_results.items %}
 		{% if meta.data %}
 		<li>{{ server_name }}</li>
