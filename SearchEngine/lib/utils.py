@@ -43,31 +43,32 @@ class FindSearchResult:
             raise ValueError("Invalid Keyword")
         all_result = {}
         wordnet_result = self.get_similars()
+        all_words = wordnet_result['words'] & wordnet_result['similars']
         print(wordnet_result)
         for name, url in self.selected_servers.items():
             cond1 = Q(server_name=name)
-            cond2 = Q(files__contained_by=list(wordnet_result['similars']))
-            cond3 = Q(files__contained_by=list(wordnet_result['words']))
-            query_result = Path.objects.filter(cond1 & (cond2 | cond3))
+            # cond2 = Q(files__overlap=list(wordnet_result['similars']))
+            # cond3 = Q(files__overlap=list(wordnet_result['words']))
+            query_result = Path.objects.filter(cond1)  # & (cond2 | cond3))
             result = [{'path': obj.path,
                        'exact_match': self.keyword in wordnet_result['words']}
-                      for obj in query_result if obj]
+                      for obj in query_result if self.check_intersection(obj, all_words)]
 
             all_result[name] = {'data': result,
                                 'url': url}
 
         return all_result
 
-    def check_intersection(self, wn, files):
+    def check_intersection(self, obj, all_words):
         # this should be done in json files
-        similars = wn['similars'] | {wn['word']}
-        return any(any(s in f for s in similars) for f in files)
+        return any(self.keyword in word or any(i in word for i in self.splitted_substrings)
+                   for word in all_words)
 
     def get_similars(self):
         cond1 = Q(similars__overlap=self.all_valid_substrings)
         cond2 = Q(word__in=self.all_valid_substrings)
         cond3 = Q(similars__overlap=self.splitted_substrings)
         all_obj = WordNet.objects.filter(cond1 | cond2 | cond3)
-        words = list({obj.word for obj in all_obj})
-        similars = list({i for obj in all_obj for i in obj.similars})
+        words = {obj.word for obj in all_obj}
+        similars = {i for obj in all_obj for i in obj.similars}
         return {'words': words, 'similars': similars}
