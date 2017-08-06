@@ -54,7 +54,7 @@ def search_result(request):
         error = """INVALID KEYWORD:
         Your keyword contains invalid notations!
         {}""".format(exc)
-        result = []
+        result = dict()
         print(error)
     finally:
         founded_results = sum(len(d['data']) for d in result.values())
