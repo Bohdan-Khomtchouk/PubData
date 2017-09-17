@@ -31,6 +31,7 @@ function csrfSafeMethod(method) {
 
 
 function search_result() {
+    $("body").css("cursor", "progress");
 	ms = document.getElementById('pre-selected-options');
     var options = $('#pre-selected-options option:selected');
     var selected = {};
