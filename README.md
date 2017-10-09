@@ -1,8 +1,12 @@
 <div align="center">
-<img src="https://cloud.githubusercontent.com/assets/9893806/17467742/83dcfbba-5cef-11e6-9da0-0adf825b3ddd.png">
-</div>
 
 # PubData
+
+<img src="https://user-images.githubusercontent.com/9893806/31322952-16dacfcc-ac55-11e7-89ab-67180f3a34ab.png">
+
+### Smart search engine for all bioinformatics databases worldwide
+
+</div>
 
 ## About
 
