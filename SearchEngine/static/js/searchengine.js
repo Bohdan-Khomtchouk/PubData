@@ -68,3 +68,35 @@ function search_result() {
     }
 });
 };
+
+function change_page() {
+    var page = document.getElementById('change_page_id').value;
+    var csrftoken = getCookie('csrftoken');
+    $.ajax({
+        dataType: "json",
+        contentType: "application/json;charset=utf-8",
+        url : "result/page=" + page, // the endpoint
+        type : "POST", // http method
+        data : { 'page' : page,
+                 'csrfmiddlewaretoken': csrftoken }, // data sent with the post request
+
+        // handle a successful response
+        success : function(response) {
+            document.open();
+            document.write(response.html);
+            document.close();
+        },
+
+        // handle a non-successful response
+        error : function(xhr, errmsg, err) {
+            console.log(xhr.status + ": " + xhr.responseText);
+    }
+});
+    $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+};
