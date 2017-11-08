@@ -1,0 +1,47 @@
+{% extends 'SearchEngine/base.html' %}
+{% block content %}
+<p> <b>{{ founded_results }} results founded</b> </p>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Path</th>
+        <th>Exact match</th>
+        <th>Server Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in all_results %}
+        <tr>
+          <td><a href= 'ftp://{{ record.url }}{{ record.path }}' 
+            target="_blank">{{ record.path }}</a></td>
+          <td>{{ record.exact_match }}</td>
+          <td>{{ record.name }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  {% if all_results.has_other_pages %}
+    <ul class="pagination">
+      {% if all_results.has_previous %}
+        <li><a href="/search_result/?page={{ all_results.previous_page_number }}"
+          onclick="return chagne_page()" id="change_page_id">&laquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+      {% endif %}
+      {% for i in page_range %}
+        {% if all_results.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+          <li><a href="/search_result/?page={{ i }}" onclick="return chagne_page()" id="change_page_id">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if all_results.has_next %}
+        <li><a href="/search_result/?page={{ all_results.next_page_number }}"
+          onclick="return chagne_page()" id="change_page_id">&raquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+      {% endif %}
+    </ul>
+  {% endif %}
+  {% endblock %}
