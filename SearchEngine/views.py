@@ -32,7 +32,7 @@ def signup_view(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('/searchengine')
+            return redirect('/')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
@@ -106,23 +106,3 @@ def search(request):
     servers = ServerName.objects.all()
     return render(request, 'SearchEngine/search.html',
                   {'search_form': search_form, 'servers': servers})
-
-def index(request):
-
-    page = request.GET.get('page', 2)
-
-    paginator = Paginator(cache.get('search_result'), 10)
-    try:
-        users = paginator.page(page)
-    except PageNotAnInteger:
-        users = paginator.page(1)
-    except EmptyPage:
-        users = paginator.page(paginator.num_pages)
-
-    return render(request, 'SearchEngine/search_result.html',
-                 {'all_results': result,
-                  'error': error,
-                  'founded_results': founded_results,
-                  'user': request.user}
-                )
-    # return render(request, 'core/user_list.html', { 'all_result': all_result })
