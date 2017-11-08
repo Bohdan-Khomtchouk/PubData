@@ -4,10 +4,13 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.template.loader import render_to_string
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.decorators.csrf import csrf_exempt
+from django.core.cache import cache
 from SearchEngine.lib.utils import FindSearchResult
 from .models import SearchQuery, Recommendation, ServerName
 from .forms import SearchForm
-from django.views.decorators.csrf import csrf_exempt
+from itertools import islice
 import json
 
 
@@ -36,35 +39,64 @@ def signup_view(request):
 
 
 @csrf_exempt
-def search_result(request):
+def search_result(request, page=1):
     # query = get_object_or_404(Search, pk=pk)
+    global all_result
+    global founded_results
     keyword = request.POST.get('keyword')
-    selected = json.loads(request.POST.get('selected'))
-    # csrftoken = request.POST.get('csrfmiddlewaretoken')
-    search_model = SearchQuery()
-    search_model.user = request.user
-    search_model.add(word=keyword, servers=list(selected))
+    if keyword is None:
+        # Changing the page
+        page = request.GET.get('page', 1)
+        paginator = Paginator(all_result, 20)
+        try:
+            results = paginator.page(page)
+        except PageNotAnInteger:
+            results = paginator.page(1)
+        except EmptyPage:
+            results = paginator.page(paginator.num_pages)
+        error = None
+    else:
+        selected = json.loads(request.POST.get('selected'))
+        # csrftoken = request.POST.get('csrfmiddlewaretoken')
+        search_model = SearchQuery()
+        search_model.user = request.user
+        search_model.add(word=keyword, servers=list(selected))
 
-    searcher = FindSearchResult(keyword=keyword, servers=selected)
-    try:
-        result = searcher.find_result()
-        error = False
-    except ValueError as exc:
-        # invalid keyword
-        error = """INVALID KEYWORD:
-        Your keyword contains invalid notations!
-        {}""".format(exc)
-        result = dict()
-        print(error)
-    finally:
-        founded_results = sum(len(d['data']) for d in result.values())
-        print("{} results founded".format(founded_results))
-    html = render_to_string('SearchEngine/search_result.html',
-                            {'all_results': result,
+        searcher = FindSearchResult(keyword=keyword, servers=selected)
+        try:
+            all_result = list(searcher.find_result())
+            paginator = Paginator(all_result, 20)
+            results = paginator.page(1)
+            # cache.set('search_result', all_result, None)
+            error = False
+            founded_results = len(all_result)
+        except ValueError as exc: 
+            # invalid keyword
+            error = """INVALID KEYWORD:
+            Your keyword contains invalid notations!
+            {}""".format(exc)
+            print(error)
+            results = dict()
+    index = results.number - 1
+    max_index = len(paginator.page_range)
+    start_index = index - 3 if index >= 3 else 0
+    end_index = index + 3 if index <= max_index - 3 else max_index
+    page_range = list(paginator.page_range)[start_index:end_index]
+    if keyword is None:
+        return render(request, 'SearchEngine/page_format.html',
+                            {'all_results': results,
                              'error': error,
                              'founded_results': founded_results,
-                             'user': request.user})
-    return HttpResponse(json.dumps({'html': html}), content_type="application/json")
+                             'user': request.user,
+                             'page_range': page_range})
+    else:
+        html = render_to_string('SearchEngine/page_format.html',
+                            {'all_results': results,
+                             'error': error,
+                             'founded_results': founded_results,
+                             'user': request.user,
+                             'page_range': page_range})
+        return HttpResponse(json.dumps({'html': html}), content_type="application/json")
 
 
 @csrf_exempt
@@ -74,3 +106,23 @@ def search(request):
     servers = ServerName.objects.all()
     return render(request, 'SearchEngine/search.html',
                   {'search_form': search_form, 'servers': servers})
+
+def index(request):
+
+    page = request.GET.get('page', 2)
+
+    paginator = Paginator(cache.get('search_result'), 10)
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        users = paginator.page(1)
+    except EmptyPage:
+        users = paginator.page(paginator.num_pages)
+
+    return render(request, 'SearchEngine/search_result.html',
+                 {'all_results': result,
+                  'error': error,
+                  'founded_results': founded_results,
+                  'user': request.user}
+                )
+    # return render(request, 'core/user_list.html', { 'all_result': all_result })
