@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import JSONField
+from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.fields import ArrayField
 from django.utils import timezone
 
@@ -36,6 +37,8 @@ class Path(models.Model):
 
     def __str__(self):
         return self.path
+    class Meta:
+        indexes = [GinIndex(fields=['path', 'files'])]
 
 
 class ServerName(models.Model):
@@ -63,6 +66,9 @@ class WordNet(models.Model):
 
     def __str__(self):
         return self.word
+    
+    class Meta:
+        indexes = [GinIndex(fields=['similars', 'word'])]
 
     def add(self):
         self.save()
