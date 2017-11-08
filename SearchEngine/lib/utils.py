@@ -25,7 +25,7 @@ class FindSearchResult:
 
         result = cond1 and cond2 and cond3
         if result:
-            lst = re.split(r'(-|_)', self.keyword)
+            lst = re.split(r'(-|_|\s)', self.keyword)
             all_subs = {''.join(lst[i:j]) for i in range(0, len(lst) - 2, 2)
                         for j in range(i + 3, len(lst) + 2, 2)}
             self.all_valid_substrings = list(all_subs | {self.keyword})
@@ -44,20 +44,19 @@ class FindSearchResult:
         all_result = {}
         wordnet_result = self.get_similars()
         all_words = wordnet_result['words'] & wordnet_result['similars']
-        print(wordnet_result)
         for name, url in self.selected_servers.items():
             cond1 = Q(server_name=name)
             # cond2 = Q(files__overlap=list(wordnet_result['similars']))
             # cond3 = Q(files__overlap=list(wordnet_result['words']))
             query_result = Path.objects.filter(cond1)  # & (cond2 | cond3))
-            result = [{'path': obj.path,
-                       'exact_match': self.keyword in wordnet_result['words']}
-                      for obj in query_result if self.check_intersection(obj, all_words)]
+            for obj in query_result:
+                if self.check_intersection(obj, all_words):
+                    yield {'path': obj.path,
+                           'name': name,
+                           'url': url,
+                           'exact_match': self.keyword in wordnet_result['words']}
 
-            all_result[name] = {'data': result,
-                                'url': url}
-
-        return all_result
+        #return all_result
 
     def check_intersection(self, obj, all_words):
         # this should be done in json files
