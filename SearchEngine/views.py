@@ -76,7 +76,7 @@ def search_result(request, page=1):
             Your keyword contains invalid notations!
             {}""".format(exc)
             print(error)
-            results = dict()
+            results = paginator.page(0)
     index = results.number - 1
     max_index = len(paginator.page_range)
     start_index = index - 3 if index >= 3 else 0
