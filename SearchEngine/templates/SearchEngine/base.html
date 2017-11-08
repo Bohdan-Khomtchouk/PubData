@@ -35,6 +35,13 @@
         </div>
     </div>
     </body>
+    <script type="text/javascript">
+        $("#id_word").keyup(function(event) {
+            if (event.keyCode === 13) {
+                $("#submit_search").click();
+            }
+        })
+    </script>
   <script type="text/javascript">
   // run pre selected options
     $('#pre-selected-options').multiSelect();
