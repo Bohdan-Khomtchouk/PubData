@@ -2,14 +2,15 @@
 
 {% block content %}
 	<p> <b>{{ founded_results }} results founded</b> </p>
-	{% for server_name, meta in all_results.items %}
-		{% if meta.data %}
-		<li>{{ server_name }}</li>
-			<ul>
-		    	{% for dict in meta.data%}
-    				<li><a href= 'ftp://{{ meta.url }}{{ dict.path }}' target="_blank"> {{ dict.path }} </a></li>
-		    	{% endfor %}
-    		</ul>
-    	{% endif %}
-	{% endfor %}
+	{% if all_results.1.data %}
+	<li>{{ all_results.0 }}</li>
+		<ul>
+			{% for dict in all_results.1.data%}
+				<li><a href= 'ftp://{{ meta.url }}{{ dict.path }}' target="_blank"> {{ dict.path }} </a></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<ul class="pagination">
+		<li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+		<li><a href="search_result/2">&raquo;</a></li>
 {% endblock %}
