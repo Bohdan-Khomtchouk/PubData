@@ -39,6 +39,7 @@ function search_result() {
             selected[options[i].text] = options[i].value;
         }
     var search_query = document.getElementById('id_word').value;
+    var search_query = search_query.replace(/\s/g, '_');
     var csrftoken = getCookie('csrftoken');
     $.ajax({
         dataType: "json",
