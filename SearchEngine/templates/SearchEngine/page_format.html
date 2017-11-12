@@ -12,8 +12,13 @@
     <tbody>
       {% for record in all_results %}
         <tr>
-          <td><a href= 'ftp://{{ record.url }}{{ record.path }}' 
+          {% if record.exact_match %}
+              <td><a href= 'ftp://{{ record.url }}{{ record.path }}' 
+            target="_blank" style="color:#008211">{{ record.path }}</a></td>
+          {% else %}
+              <td><a href= 'ftp://{{ record.url }}{{ record.path }}' 
             target="_blank">{{ record.path }}</a></td>
+          {% endif %}
           <td>{{ record.exact_match }}</td>
           <td>{{ record.name }}</td>
         </tr>
