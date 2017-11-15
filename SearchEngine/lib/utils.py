@@ -17,7 +17,6 @@ class FindSearchResult:
         self.keyword = kwargs['keyword'].strip('-_')
         self.selected_servers = kwargs['servers']
         self.splitted_substrings = []
-        self.punc_regex = re.compile(r'[{}]'.format(re.escape(punctuation)))
 
     def validate_keyword(self):
         punct = set(punctuation) - {'-', '_'}
@@ -50,7 +49,7 @@ class FindSearchResult:
             # cond3 = Q(path__icontains=all_words)
             query_result = Path.objects.filter(cond1)  # & (cond2 | cond3))
             for obj in query_result:
-                if self.check_intersection(obj.files, obj.path, all_words):
+                if self.check_intersection(obj.files, obj.keywords, obj.path, all_words):
                     yield {'path': obj.path,
                            'name': name,
                            'url': url,
@@ -60,10 +59,10 @@ class FindSearchResult:
     def exact_match(self, files, path):
         return any(i in files or i in path for i in self.splitted_substrings)
     
-    def check_intersection(self, files, path, all_words):
+    def check_intersection(self, files, keywords, path, all_words):
         # this should be done in json files
-        files = {i for f in files for i in self.punc_regex.split(f)}
-        return all_words.intersection(files) or any(i in path for i in all_words)
+        return all_words.intersection(files) or any(i in path for i in all_words) or\
+    all_words.intersection(keywords)
     
     def get_similars(self):
         cond1 = Q(similars__overlap=self.splitted_substrings)
