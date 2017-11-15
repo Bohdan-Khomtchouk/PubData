@@ -3,7 +3,8 @@ from os import path as ospath, environ
 from django import setup
 import json
 import glob
-
+import re
+from string import punctuation
 syspath.append(ospath.join(ospath.expanduser("~"), 'PubData'))
 environ.setdefault("DJANGO_SETTINGS_MODULE", "PubData.settings")
 setup()
@@ -17,12 +18,13 @@ class Initializer:
         self.servers_path = kwargs['server_path']
         self.wordnet_path = kwargs['wordnet_path']
         self.server_names = self.load_server_names()
+        self.punc_regex = re.compile(r'[{}]'.format(re.escape(punctuation)))
 
     def __call__(self):
+        print("Initializing wordnets...")
+        self.add_wordnets()
         print("Initializing server_names...")
         self.add_server_names()
-        #print("Initializing wordnets...")
-        #self.add_wordnets()
 
     def add_wordnets(self): 
         all_models = []
@@ -33,20 +35,22 @@ class Initializer:
             all_models.append(query)
         WordNet.objects.bulk_create(all_models)
 
-    def initial_path_model(self, name, file):
-        for d in file:
+    def initial_path_model(self, name, data):
+        for d in data:
             path = Path()
             path.path = d['path']
             path.files = d['files']
+            path.keywords = d['keywords']
             path.server_name = name
             path.save()
 
     def create_server_models(self):
         all_models = {}
-        for name, file in self.load_servers():
+        for name, data in self.load_servers():
             refined_file = [{'path': k,
-                             'files': [i.rsplit('.', 1)[0] for i in v]}
-                            for k, v in file.items()
+                             'files': [i.rsplit('.', 1)[0] for i in v],
+                             'keywords': list({i for f in v for i in self.punc_regex.split(f)})}
+                            for k, v in data.items()
                             ]
             self.initial_path_model(name, refined_file)
             query = Server()
@@ -96,6 +100,6 @@ if __name__ == '__main__':
                       "Sequence Read Archive"}
     initializer = Initializer(data_path='data/servernames.json',
                               server_path='data/json_files',
-                              wordnet_path='data/wordnet',
+                              wordnet_path='data/wordnet/dictionary_book/final_results',
                               excluded_names=excluded_names)
     initializer()
