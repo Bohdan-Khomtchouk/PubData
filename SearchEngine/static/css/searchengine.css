@@ -10,6 +10,12 @@
     text-decoration: none;
 }
 
+#header_image {
+    height:45px;
+    width:78px;
+    margin: -130px 0px 0px 200px;
+}
+
 .content {
     margin-left: 40px;
 }
