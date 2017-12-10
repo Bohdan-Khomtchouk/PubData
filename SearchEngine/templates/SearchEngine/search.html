@@ -14,4 +14,14 @@
         <button id="submit_search" class="save btn btn-default" 
         onclick="return search_result()" type="submit">Search</button>
     </div>
+    {% if user.is_authenticated %}
+        <div class="recommendations">
+            <ul>
+                <p> Recommended words for you: </p>
+                {% for word in recommended_words %}
+                <li><a href="search_result/{{word.0}}" > {{word.0}}, </a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 {% endblock %}

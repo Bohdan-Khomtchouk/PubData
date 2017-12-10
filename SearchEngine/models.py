@@ -71,12 +71,7 @@ class WordNet(models.Model):
 
 class Recommendation(models.Model):
     user = models.ForeignKey('auth.User')
-    recommendations = ArrayField(
-        ArrayField(
-            models.CharField(max_length=200, blank=True),
-            size=2,
-        ),
-    )
+    recommendations = JSONField()
 
-    def add(self):
-        self.save()
+    def __str__(self):
+        return str(self.user)

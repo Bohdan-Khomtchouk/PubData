@@ -5,18 +5,30 @@ from os import path as ospath
 from django.db.models import Q
 # from collections import defaultdict
 from string import punctuation, whitespace
+from collections import defaultdict
 # from django.contrib.postgres.search import TrigramSimilarity, TrigramDistance
 import re
-
 syspath.append(ospath.join(ospath.expanduser("~"), 'PubData'))
-from SearchEngine.models import Server, WordNet, Path
+from SearchEngine.models import Server, WordNet, Path, Recommendation
 
 
 class FindSearchResult:
     def __init__(self, *args, **kwargs):
         self.keyword = kwargs['keyword'].strip('-_')
         self.selected_servers = kwargs['servers']
+        self.user = kwargs['user']
         self.splitted_substrings = []
+
+    def add_recommendations(self, words):
+        obj, _ = Recommendation.objects.get_or_create(defaults={'user':self.user},
+                                                      recommendations=defaultdict(int))
+        recoms = defaultdict(int, obj.recommendations)
+        for word in words:
+            recoms[word] += 1
+
+        print(recoms)
+        obj.recommendations = recoms
+        obj.save()
 
     def validate_keyword(self):
         punct = set(punctuation) - {'-', '_'}
@@ -42,6 +54,7 @@ class FindSearchResult:
         wordnet_result = self.get_similars()
         all_words = wordnet_result['words'] & wordnet_result['similars']
         all_words = all_words.union(self.splitted_substrings)
+        self.add_recommendations(all_words)
         for name, url in self.selected_servers.items():
             cond1 = Q(server_name=name)
             # these conditions take too long
