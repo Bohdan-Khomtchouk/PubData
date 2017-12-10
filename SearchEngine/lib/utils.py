@@ -20,19 +20,15 @@ class FindSearchResult:
         self.splitted_substrings = []
 
     def add_recommendations(self, words):
-        queryset = Recommendation.objects.filter(user=self.user)
-        try:
-            recom_model = queryset[0]
-        except IndexError:
-            print("indexError")
-            recommendations = defaultdict(int)
-        else:
-            recommendations = defaultdict(int, recom_model.recommendations)
-
+        obj, _ = Recommendation.objects.get_or_create(defaults={'user':self.user},
+                                                      recommendations=defaultdict(int))
+        recoms = defaultdict(int, obj.recommendations)
         for word in words:
-            recommendations[word] += 1
-        
-        queryset.update_or_create(recommendations=recommendations, user=self.user)
+            recoms[word] += 1
+
+        print(recoms)
+        obj.recommendations = recoms
+        obj.save()
 
     def validate_keyword(self):
         punct = set(punctuation) - {'-', '_'}
