@@ -11,13 +11,14 @@ from SearchEngine.lib.utils import FindSearchResult
 from .models import SearchQuery, Recommendation, ServerName
 from .forms import SearchForm
 from itertools import islice
+from collections import Counter
 import json
 
 
 def home(request):
     recommendations = Recommendation.objects.all()
-    return render(request, 'SearchEngine/base.html', {'recoms': recommendations})
-
+    return render(request, 'SearchEngine/base.html',
+                  {})
 
 def user_profile(request):
     pass
@@ -62,7 +63,7 @@ def search_result(request, page=1):
         search_model.user = request.user
         search_model.add(word=keyword, servers=list(selected))
 
-        searcher = FindSearchResult(keyword=keyword, servers=selected)
+        searcher = FindSearchResult(keyword=keyword, servers=selected, user=request.user)
         try:
             all_result = list(searcher.find_result())
             paginator = Paginator(all_result, 20)
@@ -104,5 +105,16 @@ def search_result(request, page=1):
 def search(request):
     search_form = SearchForm()
     servers = ServerName.objects.all()
+    queryset = Recommendation.objects.filter(user=request.user)
+
+    try:
+        recom_model = queryset[0]
+    except IndexError:
+        recomwords = []
+    else:
+        recomwords = Counter(recom_model.recommendations).most_common(7)
     return render(request, 'SearchEngine/search.html',
-                  {'search_form': search_form, 'servers': servers})
+                  {'search_form': search_form,
+                   'servers': servers,
+                   'user': request.user,
+                   'recommended_words': recomwords})
