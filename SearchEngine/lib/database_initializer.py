@@ -5,6 +5,7 @@ import json
 import glob
 import re
 from string import punctuation
+from django.db import transaction
 syspath.append(ospath.join(ospath.expanduser("~"), 'PubData'))
 environ.setdefault("DJANGO_SETTINGS_MODULE", "PubData.settings")
 setup()
@@ -17,6 +18,7 @@ class Initializer:
         self.excluded_names = kwargs['excluded_names']
         self.servers_path = kwargs['server_path']
         self.wordnet_path = kwargs['wordnet_path']
+        self.metadata_links = self.load_metadata(kwargs['metadata'])
         self.server_names = self.load_server_names()
         self.punc_regex = re.compile(r'[{}]'.format(re.escape(punctuation)))
 
@@ -26,6 +28,10 @@ class Initializer:
         print("Initializing server_names...")
         self.add_server_names()
 
+    def load_metadata(self, filepath):
+        with open(filepath) as f:
+            return json.load(f)
+
     def add_wordnets(self): 
         all_models = []
         for word, similars in self.load_wordnets().items():
@@ -34,31 +40,29 @@ class Initializer:
             query.similars = similars
             all_models.append(query)
         WordNet.objects.bulk_create(all_models)
-
+    
+    @transaction.atomic
     def initial_path_model(self, name, data):
         for d in data:
             path = Path()
             path.path = d['path']
             path.files = d['files']
             path.keywords = d['keywords']
+            path.metadata = self.metadata_links[name]
             path.server_name = name
             path.save()
 
     def create_server_models(self):
         all_models = {}
         for name, data in self.load_servers():
-            refined_file = [{'path': k,
-                             'files': [i.rsplit('.', 1)[0] for i in v],
-                             'keywords': list({i for f in v for i in self.punc_regex.split(f)})}
-                            for k, v in data.items()
-                            ]
-            self.initial_path_model(name, refined_file)
+            self.initial_path_model(name, data)
             query = Server()
             query.name = name
-            query.data = refined_file
+            query.data = data
             all_models[name] = query
         return all_models
 
+    @transaction.atomic
     def add_server_names(self):
         query = ServerName()
         all_models = self.create_server_models()
@@ -99,7 +103,8 @@ if __name__ == '__main__':
                       "GenBank",
                       "Sequence Read Archive"}
     initializer = Initializer(data_path='data/servernames.json',
-                              server_path='data/json_files',
+                              server_path='data/refined_json_files',
                               wordnet_path='data/wordnet/dictionary_book/final_results',
+                              metadata='data/metadata.json',
                               excluded_names=excluded_names)
     initializer()
