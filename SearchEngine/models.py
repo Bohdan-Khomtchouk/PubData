@@ -34,6 +34,7 @@ class Path(models.Model):
     files = ArrayField(models.CharField(max_length=300))
     keywords = ArrayField(models.CharField(max_length=100))
     server_name = models.CharField(max_length=50)
+    metadata = models.CharField(max_length=200)
 
     def __str__(self):
         return self.path
@@ -70,7 +71,7 @@ class WordNet(models.Model):
 
 
 class Recommendation(models.Model):
-    user = models.ForeignKey('auth.User')
+    user = models.OneToOneField('auth.User')
     recommendations = JSONField()
 
     def __str__(self):
