@@ -20,13 +20,14 @@ class FindSearchResult:
         self.splitted_substrings = []
 
     def add_recommendations(self, words):
-        obj, _ = Recommendation.objects.get_or_create(defaults={'user':self.user},
-                                                      recommendations=defaultdict(int))
+        obj, _ = Recommendation.objects.get_or_create(
+            defaults={'recommendations': {}, 'user':self.user},
+            user=self.user
+                                                      )
         recoms = defaultdict(int, obj.recommendations)
         for word in words:
             recoms[word] += 1
 
-        print(recoms)
         obj.recommendations = recoms
         obj.save()
 
@@ -64,6 +65,7 @@ class FindSearchResult:
             for obj in query_result:
                 if self.check_intersection(obj.files, obj.keywords, obj.path, all_words):
                     yield {'path': obj.path,
+                           'metadata': obj.metadata,
                            'name': name,
                            'url': url,
                            'exact_match':self.exact_match(obj.files, obj.path) }
