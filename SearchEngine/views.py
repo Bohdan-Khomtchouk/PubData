@@ -96,9 +96,31 @@ def search_result(request, page=1):
                              'error': error,
                              'founded_results': founded_results,
                              'user': request.user,
-                             'page_range': page_range})
+                             'page_range': page_range,
+                             'selected_len': len(selected)})
         return HttpResponse(json.dumps({'html': html}), content_type="application/json")
 
+@login_required()
+def recom_redirect(request, keyword):
+    servers = ServerName.objects.all()
+    selected = {s.name: s.path for s in servers}
+    searcher = FindSearchResult(keyword=keyword, servers=selected, user=request.user)
+    all_result = list(searcher.find_result())
+    paginator = Paginator(all_result, 20)
+    results = paginator.page(1)
+    error = False
+    founded_results = len(all_result)
+    index = results.number - 1
+    max_index = len(paginator.page_range)
+    start_index = index - 3 if index >= 3 else 0
+    end_index = index + 3 if index <= max_index - 3 else max_index
+    page_range = list(paginator.page_range)[start_index:end_index]
+    return render(request, 'SearchEngine/page_format.html',
+                            {'all_results': results,
+                             'error': error,
+                             'founded_results': founded_results,
+                             'user': request.user,
+                             'page_range': page_range})
 
 @csrf_exempt
 @login_required()
