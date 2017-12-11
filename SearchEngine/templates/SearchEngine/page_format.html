@@ -6,7 +6,8 @@
       <tr>
         <th>Path</th>
         <th>Exact match</th>
-        <th>Server Name</th>
+        <th>Server name</th>
+        <th>Search for metadata</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
           {% endif %}
           <td>{{ record.exact_match }}</td>
           <td>{{ record.name }}</td>
+          <td><a href= "{{record.metadata}}" target="_blank">{{record.metadata}}</a></td>
         </tr>
       {% endfor %}
     </tbody>
