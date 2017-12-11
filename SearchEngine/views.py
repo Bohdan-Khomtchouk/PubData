@@ -120,7 +120,8 @@ def recom_redirect(request, keyword):
                              'error': error,
                              'founded_results': founded_results,
                              'user': request.user,
-                             'page_range': page_range})
+                             'page_range': page_range,
+                             'selected_len': len(selected)})
 
 @csrf_exempt
 @login_required()
