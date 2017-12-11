@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^logout/', auth_views.logout, name='logout', kwargs={'next_page': '/'}),
     url(r'^$', myviews.home, name='home'),
     url(r'^admin/', admin.site.urls),
+    url(r'^result/(?P<keyword>.+)/$', myviews.recom_redirect, name='recom_redirect'),
 ]
