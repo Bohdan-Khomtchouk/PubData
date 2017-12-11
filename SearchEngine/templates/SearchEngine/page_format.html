@@ -1,6 +1,10 @@
 {% extends 'SearchEngine/base.html' %}
 {% block content %}
 <p> <b>{{ founded_results }} results founded</b> </p>
+{% if not selected_len %}
+ <p style="color:red"> <b> NO SERVER IS SELECTED! </b> </p>
+
+{% else %}
 <table class="table table-bordered">
     <thead>
       <tr>
@@ -51,4 +55,5 @@
       {% endif %}
     </ul>
   {% endif %}
+{% endif %}
   {% endblock %}
