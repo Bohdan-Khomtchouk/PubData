@@ -1,0 +1,445 @@
+[
+    {
+        "keywords": [],
+        "path": "pub/data_release/RGD_posters",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/chinchilla/2014-07-22",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/RGD_Gene-Microarray_Probe_ID_Mappings",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/old_data_release",
+        "files": []
+    },
+    {
+        "keywords": [
+            "template",
+            "xlsx"
+        ],
+        "path": "pub/phenominer",
+        "files": [
+            "template"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/strain_specific_variants/ICL",
+        "files": []
+    },
+    {
+        "keywords": [
+            "Atanur",
+            "28Genomes",
+            "SNPS",
+            "al",
+            "et",
+            "Indels",
+            "ICL"
+        ],
+        "path": "pub/strain_specific_variants",
+        "files": [
+            "ICL/Atanur_et_al_28Genomes_SNPS_Indels"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/ontology",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/strain_specific_variants/Hermsen_et_al_40Genomes_Variants",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/RGD_genome_annotations",
+        "files": []
+    },
+    {
+        "keywords": [
+            "gz",
+            "",
+            "rhdb",
+            "ORTHOLOGS",
+            "pid",
+            "ids",
+            "RAT",
+            "rgd",
+            "OBSOLETE",
+            "STRAINS",
+            "SSLPS",
+            "MIRNA",
+            "TO",
+            "ipi",
+            "ALLELES",
+            "PREDICTED",
+            "TARGETS",
+            "CONFIRMED",
+            "txt",
+            "IDS",
+            "ratmap",
+            "MOUSE",
+            "GENES",
+            "introduction",
+            "RGD",
+            "xml",
+            "gene",
+            "association",
+            "SNP",
+            "SPLICES",
+            "QTLS",
+            "DB",
+            "HUMAN",
+            "GENE",
+            "gp2protein",
+            "ontology",
+            "README",
+            "doc",
+            "PathwayOntology"
+        ],
+        "path": "pub/data_release",
+        "files": [
+            "DB_SNP_TO_GENE_HUMAN.txt",
+            "DB_SNP_TO_GENE_MOUSE.txt",
+            "DB_SNP_TO_GENE_RAT.txt",
+            "GENES_ALLELES",
+            "GENES_HUMAN",
+            "GENES_MOUSE",
+            "GENES_OBSOLETE_IDS",
+            "GENES_RAT",
+            "GENES_README",
+            "GENES_SPLICES",
+            "MIRNA_TARGETS_CONFIRMED_HUMAN.txt",
+            "MIRNA_TARGETS_CONFIRMED_MOUSE.txt",
+            "MIRNA_TARGETS_CONFIRMED_RAT.txt",
+            "MIRNA_TARGETS_PREDICTED_HUMAN.txt",
+            "MIRNA_TARGETS_PREDICTED_MOUSE.txt",
+            "MIRNA_TARGETS_PREDICTED_RAT.txt",
+            "MIRNA_TARGETS_README",
+            "PathwayOntology_introduction",
+            "QTLS_HUMAN",
+            "QTLS_MOUSE",
+            "QTLS_RAT",
+            "QTLS_README",
+            "README",
+            "RGD_ORTHOLOGS",
+            "SSLPS_ALLELES_RAT",
+            "SSLPS_HUMAN",
+            "SSLPS_MOUSE",
+            "SSLPS_RAT",
+            "STRAINS",
+            "STRAINS",
+            "gene_association.rgd",
+            "gp2protein.rgd",
+            "ipi_ids",
+            ".",
+            "pid_ids",
+            "ratmap_ids",
+            "rhdb_ids"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/chinchilla",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/publications/2003",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/strain_specific_variants/UMICH",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/strain_specific_variants/MDC",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/publications",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/UserReqFiles",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/RGD_genome_annotations/sequence_files",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/RGD_genome_annotations/V3.1",
+        "files": []
+    },
+    {
+        "keywords": [
+            "process",
+            "genes",
+            "function",
+            "pathway",
+            "txt",
+            "bed",
+            "component",
+            "CHINCHILLA",
+            "disease",
+            "behavioral",
+            "GENES",
+            "cellular",
+            "GO",
+            "neuro",
+            "annotations",
+            "ontology",
+            "REFSEQ",
+            "chinchilla",
+            "molecular",
+            "biological",
+            "ORTHOLOGS"
+        ],
+        "path": "pub/chinchilla",
+        "files": [
+            "GENES_CHINCHILLA",
+            "ORTHOLOGS_CHINCHILLA",
+            "REFSEQ_CHINCHILLA",
+            "chinchilla_genes_GO_biological_process_annotations",
+            "chinchilla_genes_GO_cellular_component_annotations",
+            "chinchilla_genes_GO_molecular_function_annotations",
+            "chinchilla_genes_disease_annotations",
+            "chinchilla_genes_neuro_behavioral_ontology_annotations",
+            "chinchilla_genes_pathway_annotations"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/publications/1999",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/strain_specific_variants/MCW",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/ontology/clinical_measurement",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/ontology/experimental_condition",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/rhmap/resources",
+        "files": []
+    },
+    {
+        "keywords": [
+            "Disease",
+            "Basics",
+            "Homepage",
+            "Gviewer",
+            "Display",
+            "Locate",
+            "Help",
+            "Results",
+            "non",
+            "ppt",
+            "Demo",
+            "2004",
+            "demo",
+            "RGD",
+            "Zoom",
+            "Overlapping",
+            "neuroscience",
+            "View",
+            "Specific",
+            "ISMB",
+            "102204",
+            "view"
+        ],
+        "path": "pub/workshops",
+        "files": [
+            "Disease_Specific_Results",
+            "Display_non_Overlapping_view",
+            "Gviewer_Basics",
+            "Gviewer_Help",
+            "Homepage",
+            "Locate_Disease",
+            "RGD_demo_ISMB_2004",
+            "RGD_neuroscience_Demo_102204",
+            "Zoom_View"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/GFF3",
+        "files": []
+    },
+    {
+        "keywords": [
+            "test"
+        ],
+        "path": "/pub",
+        "files": [
+            "test"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/GFF",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/RGD_genome_annotations/human",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/ontology/rat_strain",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/ontology/vertebrate_trait",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/strain_specific_variants/KNAW",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/ontology/measurement_method",
+        "files": []
+    },
+    {
+        "keywords": [
+            "",
+            "release",
+            "by",
+            "objects",
+            "rgd",
+            "annotated",
+            "ontology",
+            "data"
+        ],
+        "path": "pub/ontology",
+        "files": [
+            "."
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/ontology/pathway",
+        "files": []
+    },
+    {
+        "keywords": [
+            "QTLS"
+        ],
+        "path": "pub/hpd",
+        "files": [
+            "QTLS"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/rhmap/2.2",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/rhmap",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/rhmap/3.4",
+        "files": []
+    },
+    {
+        "keywords": [
+            "R1",
+            "00425",
+            "S",
+            "tiff",
+            "tif",
+            "Figure3",
+            "2",
+            "2005",
+            "web",
+            "Figure1",
+            "NAR"
+        ],
+        "path": "pub/NAR-00425-web-S-2005.R1",
+        "files": [
+            "2",
+            "NAR-00425-web-S-2005.R1_Figure1",
+            "NAR-00425-web-S-2005.R1_Figure3"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "pub/ontology/disease",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/Hi-res_Rat_Calendars",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/GENES_RAT_assembly_comparison",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/intermine",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/data_release/annotated_rgd_objects_by_ontology",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "/",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pub/rhmap/2.1",
+        "files": []
+    },
+    {
+        "keywords": [
+            "README",
+            "txt"
+        ],
+        "path": "pub/mirror",
+        "files": [
+            "README"
+        ]
+    }
+]

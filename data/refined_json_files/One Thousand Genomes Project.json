@@ -1,0 +1,137 @@
+[
+    {
+        "keywords": [],
+        "path": "release",
+        "files": []
+    },
+    {
+        "keywords": [
+            "Aspera",
+            "transfer",
+            "Linux",
+            "UserGuide",
+            "6",
+            "guide",
+            "Users",
+            "aspera",
+            "2",
+            "pdf",
+            "AsperaClient",
+            "README"
+        ],
+        "path": "1000genomes/",
+        "files": [
+            "AsperaClient_2.6_Linux_UserGuide",
+            "README",
+            "aspera_transfer_guide"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "changelog_details",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "complete_genomics_indices",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "sequence_indices",
+        "files": []
+    },
+    {
+        "keywords": [
+            "sequence",
+            "alignment",
+            "missing",
+            "phase3",
+            "analysis",
+            "20131219",
+            "pilot",
+            "crams",
+            "genomics",
+            "exome",
+            "superpopulations",
+            "history",
+            "tree",
+            "current",
+            "aspera",
+            "move",
+            "20150526",
+            "data",
+            "CHANGELOG",
+            "complete",
+            "tsv",
+            "info",
+            "populations",
+            "20150612",
+            "alignments",
+            "ftp",
+            "index",
+            "structure",
+            "ebi",
+            "README",
+            "files"
+        ],
+        "path": "ftp",
+        "files": [
+            "20131219.populations",
+            "20131219.superpopulations",
+            "CHANGELOG",
+            "README",
+            "README",
+            "README",
+            "README",
+            "README",
+            "README",
+            "README",
+            "README",
+            "README",
+            "README_missing_files_20150612",
+            "README_phase3_alignments_sequence_20150526",
+            "README_phase3_data_move_20150612",
+            "alignment",
+            "analysis.sequence",
+            "current",
+            "exome.alignment",
+            "sequence"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "phase1",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "technical",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "hgsv_sv_discovery",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "alignment_indices",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "phase3",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "pilot_data",
+        "files": []
+    },
+    {
+        "keywords": [],
+        "path": "data",
+        "files": []
+    }
+]

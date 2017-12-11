@@ -1,0 +1,2975 @@
+[
+    {
+        "keywords": [
+            "exe",
+            "README",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/mswin/pcnfs4.0",
+        "files": [
+            "README",
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/mswin/win16",
+        "files": []
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "sgi5",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19980804",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "sgi5.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-16",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970728/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "V5",
+            "Mac",
+            "entrez",
+            "mips4",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "1",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20020917",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19960327/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19960327/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-04-19",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19970709/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "sgmlbb",
+            "bstdt",
+            "BLOSUM50",
+            "codes",
+            "PAM250",
+            "KSpsigl",
+            "64",
+            "KSmtk",
+            "Core",
+            "mito",
+            "nochloro",
+            "blast",
+            "rules",
+            "noplastid",
+            "ecnum",
+            "island",
+            "pubkey",
+            "water",
+            "ncbiren",
+            "UniVec",
+            "2008",
+            "ContactPotential",
+            "nal",
+            "taxlist",
+            "fasta",
+            "lat",
+            "fsa",
+            "PAM70",
+            "validrules",
+            "matK",
+            "nomito",
+            "2",
+            "prt",
+            "deleted",
+            "KSat",
+            "enc",
+            "DNA",
+            "nsq",
+            "KSnsigl",
+            "BLOSUM80",
+            "KSgc",
+            "ent",
+            "ncbiendo",
+            "KSesigc",
+            "country",
+            "institution",
+            "ambiguous",
+            "rRNAstrand",
+            "sequin",
+            "KSpcc",
+            "ncbipnam",
+            "featdef",
+            "KSpyr",
+            "plast",
+            "flt",
+            "SSURef",
+            "plastid",
+            "fas",
+            "val",
+            "seqcode",
+            "replaced",
+            "autofix",
+            "KSmtidk",
+            "KSpur",
+            "lon",
+            "chloro",
+            "nhr",
+            "archea16SrRNA",
+            "PAM30",
+            "asn2ff",
+            "gc",
+            "bacteria",
+            "KSnsigc",
+            "BLOSUM45",
+            "nin",
+            "16SCore",
+            "product",
+            "specific",
+            "KSpsigc",
+            "93",
+            "SSU",
+            "KSchoth",
+            "dat",
+            "KSesigl",
+            "KShopp",
+            "humrep",
+            "FINAL",
+            "hlp",
+            "rbcL",
+            "ncbirnam",
+            "aligned",
+            "rRNA",
+            "ncbipros",
+            "LSURef",
+            "Combined16SrRNA",
+            "LSU",
+            "lineages",
+            "txt",
+            "BLOSUM62",
+            "objprt",
+            "products",
+            "organelle",
+            "12",
+            "KSkyte",
+            "makerpt",
+            "mat",
+            "BLOSUM90"
+        ],
+        "path": "/entrez/misc/data",
+        "files": [
+            "16SCore",
+            "16SCore",
+            "16SCore",
+            "64-matK-FINAL-aligned-DNA.fas",
+            "64-matK-FINAL-aligned-DNA.fas",
+            "64-matK-FINAL-aligned-DNA.fas",
+            "64-rbcL-FINAL-aligned-DNA.fas",
+            "64-rbcL-FINAL-aligned-DNA.fas",
+            "64-rbcL-FINAL-aligned-DNA.fas",
+            "BLOSUM45",
+            "BLOSUM50",
+            "BLOSUM62",
+            "BLOSUM80",
+            "BLOSUM90",
+            "Combined16SrRNA",
+            "Combined16SrRNA",
+            "Combined16SrRNA",
+            "Combined16SrRNA_2-12-2008",
+            "Combined16SrRNA_2-12-2008",
+            "Combined16SrRNA_2-12-2008",
+            "ContactPotential",
+            "KSat",
+            "KSchoth",
+            "KSesigc",
+            "KSesigl",
+            "KSgc",
+            "KShopp",
+            "KSkyte",
+            "KSmtidk",
+            "KSmtk",
+            "KSnsigc",
+            "KSnsigl",
+            "KSpcc",
+            "KSpsigc",
+            "KSpsigl",
+            "KSpur",
+            "KSpyr",
+            "LSURef_93.fasta",
+            "LSURef_93.fasta",
+            "LSURef_93.fasta",
+            "LSU_chloro_rRNA",
+            "LSU_chloro_rRNA",
+            "LSU_chloro_rRNA",
+            "LSU_mito_rRNA",
+            "LSU_mito_rRNA",
+            "LSU_mito_rRNA",
+            "LSU_nomito-nochloro-noplastid",
+            "LSU_nomito-nochloro-noplastid",
+            "LSU_nomito-nochloro-noplastid",
+            "LSU_plastid",
+            "LSU_plastid",
+            "LSU_plastid",
+            "PAM250",
+            "PAM30",
+            "PAM70",
+            "SSU-mito-rRNA",
+            "SSU-mito-rRNA",
+            "SSU-mito-rRNA",
+            "SSURef_93.fasta",
+            "SSURef_93.fasta",
+            "SSURef_93.fasta",
+            "SSU_chloro_rRNA",
+            "SSU_chloro_rRNA",
+            "SSU_chloro_rRNA",
+            "SSU_nomito_nochloro_noplastid",
+            "SSU_nomito_nochloro_noplastid",
+            "SSU_nomito_nochloro_noplastid",
+            "SSU_plast_rRNA",
+            "SSU_plast_rRNA",
+            "SSU_plast_rRNA",
+            "UniVec",
+            "UniVec",
+            "UniVec",
+            "UniVec_Core",
+            "UniVec_Core",
+            "UniVec_Core",
+            "asn2ff",
+            "autofix",
+            "bacteria-archea16SrRNA",
+            "bacteria-archea16SrRNA",
+            "bacteria-archea16SrRNA",
+            "blast",
+            "bstdt",
+            "bstdt",
+            "country_lat_lon",
+            "ecnum_ambiguous",
+            "ecnum_deleted",
+            "ecnum_replaced",
+            "ecnum_specific",
+            "featdef",
+            "featdef",
+            "gc",
+            "gc",
+            "humrep",
+            "institution_codes",
+            "lat_lon_country",
+            "lat_lon_island",
+            "lat_lon_water",
+            "lineages",
+            "makerpt",
+            "ncbiendo",
+            "ncbipnam",
+            "ncbipros",
+            "ncbiren",
+            "ncbirnam",
+            "objprt",
+            "organelle_products",
+            "product_rules",
+            "pubkey",
+            "rRNA_blast",
+            "rRNAstrand",
+            "seqcode",
+            "seqcode",
+            "sequin",
+            "sgmlbb",
+            "taxlist",
+            "validrules"
+        ]
+    },
+    {
+        "keywords": [
+            "lnk",
+            "gz",
+            "prot",
+            "pubmed",
+            "Z",
+            "protein"
+        ],
+        "path": "entrez/neighbors",
+        "files": [
+            "prot.lnk",
+            "protein_pubmed.lnk"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970709/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/SavedOn.09071997/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-03-09",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/SavedOn.09071997",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "asntool",
+            "mac",
+            "access",
+            "win",
+            "txt",
+            "hqx",
+            "rtf",
+            "bin",
+            "vibrant",
+            "vibpost",
+            "entrzdoc",
+            "poster",
+            "doc"
+        ],
+        "path": "entrez/docs",
+        "files": [
+            "access",
+            "asntool",
+            "entrzdoc",
+            "entrzdoc",
+            "poster",
+            "poster",
+            "vibpost.mac",
+            "vibpost",
+            "vibrant"
+        ]
+    },
+    {
+        "keywords": [
+            "ncbism1d",
+            "ncbishmh",
+            "ncbimo",
+            "ncbiso",
+            "ncbi",
+            "cfg",
+            "ncbism2d",
+            "ncbishmc",
+            "ncbiscmh"
+        ],
+        "path": "/entrez/misc/config/dos",
+        "files": [
+            "ncbi",
+            "ncbimo",
+            "ncbiscmh",
+            "ncbishmc",
+            "ncbishmh",
+            "ncbism1d",
+            "ncbism2d",
+            "ncbiso"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "entrezz"
+        ],
+        "path": "/entrez/mswin/winsock1.1",
+        "files": [
+            "entrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "entrez",
+            "tar",
+            "hqx",
+            "sgi",
+            "Z",
+            "entrezz",
+            "SETENV",
+            "exe",
+            "sun",
+            "README",
+            "solaris"
+        ],
+        "path": "entrez/cdrom",
+        "files": [
+            "README",
+            "SETENV",
+            "entrez",
+            "entrezz",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-02",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "entrez",
+            "sgi5",
+            "tar",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20000124",
+        "files": [
+            "entrez.alphaOSF1.tar",
+            "entrez.alphaOSF1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi5.tar",
+            "entrez.sgi5.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "entrez",
+            "tar",
+            "hqx",
+            "32",
+            "win16",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "exe",
+            "1",
+            "winsock1",
+            "solaris",
+            "nentress"
+        ],
+        "path": "/entrez/old/19980305",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "entrez.win16-winsock1.1",
+            "nentress.exe",
+            "sgi.tar",
+            "solaris.tar"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19951212/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "ncbishmh",
+            "entrez",
+            "ncbimo",
+            "ncbiso",
+            "ncbi",
+            "cfg",
+            "ncbism2d",
+            "ncbishmc",
+            "ncbiscmh"
+        ],
+        "path": "/entrez/misc/config/vms",
+        "files": [
+            "entrez",
+            "ncbi",
+            "ncbimo",
+            "ncbiscmh",
+            "ncbishmc",
+            "ncbishmh",
+            "ncbism2d",
+            "ncbiso"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "Mac",
+            "entrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20031028",
+        "files": [
+            "entrez.Mac",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-29",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-13",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "README"
+        ],
+        "path": "/entrez/misc/config",
+        "files": [
+            "README"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-01",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "sequin",
+            "sgmlbb",
+            "KSpcc",
+            "fsa",
+            "ncbipnam",
+            "bstdt",
+            "KSchoth",
+            "PAM70",
+            "KSpyr",
+            "featdef",
+            "flt",
+            "dat",
+            "KSpsigl",
+            "val",
+            "KSesigl",
+            "seqcode",
+            "KShopp",
+            "KSmtk",
+            "humrep",
+            "Core",
+            "KSmtidk",
+            "hlp",
+            "prt",
+            "KSpur",
+            "blast",
+            "ncbirnam",
+            "KSat",
+            "ncbipros",
+            "nhr",
+            "PAM30",
+            "lineages",
+            "BLOSUM62",
+            "txt",
+            "asn2ff",
+            "enc",
+            "pubkey",
+            "objprt",
+            "nsq",
+            "gc",
+            "KSnsigl",
+            "KSnsigc",
+            "BLOSUM80",
+            "BLOSUM45",
+            "nin",
+            "KSgc",
+            "ent",
+            "ncbiren",
+            "KSkyte",
+            "makerpt",
+            "ncbiendo",
+            "KSesigc",
+            "mat",
+            "UniVec",
+            "ContactPotential",
+            "KSpsigc",
+            "taxlist"
+        ],
+        "path": "/entrez/misc/data.2006",
+        "files": [
+            "BLOSUM45",
+            "BLOSUM62",
+            "BLOSUM80",
+            "ContactPotential",
+            "KSat",
+            "KSchoth",
+            "KSesigc",
+            "KSesigl",
+            "KSgc",
+            "KShopp",
+            "KSkyte",
+            "KSmtidk",
+            "KSmtk",
+            "KSnsigc",
+            "KSnsigl",
+            "KSpcc",
+            "KSpsigc",
+            "KSpsigl",
+            "KSpur",
+            "KSpyr",
+            "PAM30",
+            "PAM70",
+            "UniVec",
+            "UniVec",
+            "UniVec",
+            "UniVec_Core",
+            "UniVec_Core",
+            "UniVec_Core",
+            "asn2ff",
+            "blast",
+            "bstdt",
+            "bstdt",
+            "featdef",
+            "featdef",
+            "gc",
+            "gc",
+            "humrep",
+            "lineages",
+            "makerpt",
+            "ncbiendo",
+            "ncbipnam",
+            "ncbipros",
+            "ncbiren",
+            "ncbirnam",
+            "objprt",
+            "pubkey",
+            "seqcode",
+            "seqcode",
+            "sequin",
+            "sgmlbb",
+            "taxlist"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19970709",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "README"
+        ],
+        "path": "/entrez/outside/clever",
+        "files": [
+            "README"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "V5",
+            "Mac",
+            "entrez",
+            "mips4",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "1",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20030421",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19961113/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezZ"
+        ],
+        "path": "/entrez/old/19951212/mswin/winsock1.1",
+        "files": [
+            "nentrezZ"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19961113/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19961113/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "dynamic",
+            "tar",
+            "hqx",
+            "sgi",
+            "Z",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19950131",
+        "files": [
+            "Nentrez",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.dynamic.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "Nentrcmd",
+            "3",
+            "sgi5",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19960726",
+        "files": [
+            "Nentrcmd.solaris",
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "sgi5.3.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970909/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970529/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "ncbishmh",
+            "ncbirc",
+            "ncbimo",
+            "entrezrc",
+            "ncbiso",
+            "ncbism2d",
+            "rc",
+            "ncbishmc",
+            "ncbiscmh"
+        ],
+        "path": "/entrez/misc/config/unix",
+        "files": [
+            "entrezrc",
+            "ncbimo",
+            "ncbirc",
+            "ncbiscmh",
+            "ncbishmc",
+            "ncbishmh",
+            "ncbism2d",
+            "ncbiso"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "Mac",
+            "entrez",
+            "old",
+            "sgi5",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20010119",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1.tar",
+            "entrez.alphaOSF1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi5.tar",
+            "entrez.sgi5.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-03-23",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "tar",
+            "2d",
+            "entrez",
+            "Z"
+        ],
+        "path": "/entrez/outside/e2d",
+        "files": [
+            "entrez-2d.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "sgi5",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19981002",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "sgi5.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "sgi5",
+            "tar",
+            "net",
+            "linux",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19980320",
+        "files": [
+            "alphaOSF1.tar",
+            "linux.tar",
+            "net.solaris.tar",
+            "sgi.tar",
+            "sgi5.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19970909/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970709/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-03-11",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-04-11",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-15",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-04-07",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19970529",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19970728",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19960726/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-03-10",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "ppc",
+            "xMAP",
+            "68k",
+            "MAP",
+            "old",
+            "PPC",
+            "nentrez",
+            "68K"
+        ],
+        "path": "entrez/memory-maps",
+        "files": [
+            "Nentrez.MAP.68K",
+            "Nentrez.xMAP.PPC",
+            "nentrez.MAP",
+            "nentrez.xMAP"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "tar",
+            "hqx",
+            "32",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "exe",
+            "solaris",
+            "nentress"
+        ],
+        "path": "/entrez/old/Tom:Please_Remove.me",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "nentress.exe",
+            "sgi.tar",
+            "solaris.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-04-06",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "",
+            "log",
+            "Mac",
+            "entrez",
+            "hqx",
+            "Z",
+            "solarisintel",
+            "error",
+            "tar",
+            "linux",
+            "sgi",
+            "2",
+            "old",
+            "order",
+            "solaris",
+            "CURRENT",
+            "win32",
+            "info",
+            "toolbox",
+            "Cn3D",
+            "exe",
+            "1",
+            "20040616",
+            "README"
+        ],
+        "path": "entrez/",
+        "files": [
+            "old/20040616",
+            "Cn3D",
+            "README",
+            "README_1",
+            "README_2",
+            "CURRENT/entrez.Mac",
+            "CURRENT/entrez.win32",
+            "error",
+            "CURRENT/entrez.linux.tar",
+            "order-info",
+            "CURRENT/entrez.sgi.tar",
+            "CURRENT/entrez.solaris.tar",
+            "CURRENT/entrez.solarisintel.tar",
+            "."
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/SavedOn.09071997/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-04-05",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970306/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "Mac",
+            "entrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20040616",
+        "files": [
+            "entrez.Mac",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "Mac",
+            "entrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20040204",
+        "files": [
+            "entrez.Mac",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "3",
+            "sgi5",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19961113",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "sgi5.3.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "zip",
+            "xml",
+            "carotene"
+        ],
+        "path": "/entrez/entrezdirect/samples",
+        "files": [
+            "carotene.xml"
+        ]
+    },
+    {
+        "keywords": [
+            "ncbism1d",
+            "ncbishmh",
+            "entrez",
+            "ncbimo",
+            "cnf",
+            "ncbiso",
+            "ncbi",
+            "ncbism2d",
+            "ncbishmc",
+            "ncbiscmh"
+        ],
+        "path": "/entrez/misc/config/mac",
+        "files": [
+            "entrez",
+            "ncbi",
+            "ncbimo",
+            "ncbiscmh",
+            "ncbishmc",
+            "ncbishmh",
+            "ncbism1d",
+            "ncbism2d",
+            "ncbiso"
+        ]
+    },
+    {
+        "keywords": [
+            "01",
+            "2016",
+            "07"
+        ],
+        "path": "/entrez/entrezdirect/versions",
+        "files": [
+            "2016-07-01"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19960327/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-03-22",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970728/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "entrez",
+            "tar",
+            "Z",
+            "sun",
+            "README"
+        ],
+        "path": "/entrez/old/19990506-SunOS4.X-only",
+        "files": [
+            "README",
+            "entrez.sun.tar",
+            "entrez.sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "README",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/mswin/netmang3.05",
+        "files": [
+            "README",
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19970728/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "ncbism1d",
+            "ncbishmh",
+            "entrez",
+            "ncbimo",
+            "ncbiso",
+            "ncbi",
+            "ini",
+            "ncbism2d",
+            "ncbishmc",
+            "ncbiscmh"
+        ],
+        "path": "/entrez/misc/config/win",
+        "files": [
+            "entrez",
+            "ncbi",
+            "ncbimo",
+            "ncbiscmh",
+            "ncbishmc",
+            "ncbishmh",
+            "ncbism1d",
+            "ncbism2d",
+            "ncbiso"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970923/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19970529/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-07-01",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "Mac",
+            "entrez",
+            "sgi5",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/19991104",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1.tar",
+            "entrez.alphaOSF1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi5.tar",
+            "entrez.sgi5.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "3",
+            "sgi5",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19960327",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "sgi5.3.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970529/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "V5",
+            "Mac",
+            "entrez",
+            "mips4",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "1",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20021119",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "Mac",
+            "entrez",
+            "sgi5",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/20000214",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1.tar",
+            "entrez.alphaOSF1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi5.tar",
+            "entrez.sgi5.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "tar",
+            "Z",
+            "alphaOSF1"
+        ],
+        "path": "/entrez/old/19950713",
+        "files": [
+            "alphaOSF1.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "refs",
+            "cdd",
+            "gds",
+            "snp",
+            "nucleotide",
+            "mrna",
+            "unigene",
+            "pubmed",
+            "wgs",
+            "unists",
+            "lnk",
+            "homologene",
+            "taxonomy",
+            "gene",
+            "mgc",
+            "omim",
+            "pmc",
+            "cancerchromosomes",
+            "books",
+            "geo",
+            "popset",
+            "domains",
+            "structure",
+            "genome",
+            "protein",
+            "comp"
+        ],
+        "path": "entrez/links",
+        "files": [
+            "books_gene.lnk",
+            "books_omim.lnk",
+            "books_pmc_refs.lnk",
+            "books_pubmed_refs.lnk",
+            "cancerchromosomes_pubmed.lnk",
+            "cdd_domains.lnk",
+            "cdd_protein.lnk",
+            "cdd_pubmed.lnk",
+            "cdd_taxonomy.lnk",
+            "domains_protein.lnk",
+            "domains_pubmed.lnk",
+            "domains_structure.lnk",
+            "domains_taxonomy.lnk",
+            "gds_pubmed.lnk",
+            "gds_taxonomy.lnk",
+            "gene_cdd.lnk",
+            "gene_nucleotide.lnk",
+            "gene_nucleotide_mgc.lnk",
+            "gene_omim.lnk",
+            "gene_protein.lnk",
+            "gene_pubmed.lnk",
+            "gene_taxonomy.lnk",
+            "gene_unigene.lnk",
+            "gene_unists.lnk",
+            "genome_nucleotide.lnk",
+            "genome_nucleotide_comp.lnk",
+            "genome_nucleotide_mrna.lnk",
+            "genome_protein.lnk",
+            "genome_pubmed.lnk",
+            "genome_taxonomy.lnk",
+            "geo_gds.lnk",
+            "geo_gene.lnk",
+            "geo_homologene.lnk",
+            "geo_nucleotide.lnk",
+            "geo_omim.lnk",
+            "geo_pubmed.lnk",
+            "geo_taxonomy.lnk",
+            "geo_unigene.lnk",
+            "homologene_cdd.lnk",
+            "homologene_gene.lnk",
+            "homologene_nucleotide.lnk",
+            "homologene_omim.lnk",
+            "homologene_protein.lnk",
+            "homologene_pubmed.lnk",
+            "homologene_taxonomy.lnk",
+            "homologene_unigene.lnk",
+            "nucleotide_protein.lnk",
+            "nucleotide_pubmed.lnk",
+            "nucleotide_taxonomy.lnk",
+            "omim_genome.lnk",
+            "omim_nucleotide.lnk",
+            "omim_protein.lnk",
+            "omim_pubmed.lnk",
+            "omim_structure.lnk",
+            "pmc_cdd.lnk",
+            "pmc_genome.lnk",
+            "pmc_nucleotide.lnk",
+            "pmc_omim.lnk",
+            "pmc_popset.lnk",
+            "pmc_protein.lnk",
+            "pmc_pubmed.lnk",
+            "pmc_refs_pubmed.lnk",
+            "pmc_snp.lnk",
+            "pmc_structure.lnk",
+            "pmc_taxonomy.lnk",
+            "popset_nucleotide.lnk",
+            "popset_protein.lnk",
+            "popset_pubmed.lnk",
+            "popset_taxonomy.lnk",
+            "protein_nucleotide_mgc.lnk",
+            "protein_nucleotide_wgs.lnk",
+            "protein_pubmed.lnk",
+            "protein_taxonomy.lnk",
+            "snp_gene.lnk",
+            "snp_nucleotide.lnk",
+            "snp_omim.lnk",
+            "snp_protein.lnk",
+            "snp_pubmed.lnk",
+            "snp_structure.lnk",
+            "snp_taxonomy.lnk",
+            "snp_unigene.lnk",
+            "snp_unists.lnk",
+            "structure_nucleotide.lnk",
+            "structure_protein.lnk",
+            "structure_pubmed.lnk",
+            "structure_taxonomy.lnk",
+            "taxonomy_pubmed.lnk",
+            "taxonomy_unigene.lnk",
+            "unigene_nucleotide.lnk",
+            "unigene_nucleotide_mgc.lnk",
+            "unigene_omim.lnk",
+            "unigene_protein.lnk",
+            "unists_nucleotide.lnk",
+            "unists_omim.lnk",
+            "unists_pmc.lnk",
+            "unists_pubmed.lnk",
+            "unists_taxonomy.lnk",
+            "unists_unigene.lnk"
+        ]
+    },
+    {
+        "keywords": [
+            "sgi5",
+            "tar",
+            "linux",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19980921",
+        "files": [
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "sgi5.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970909/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19970923",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-04-14",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-03-21",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-10",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "3",
+            "sgi5",
+            "tar",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19951212",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "sgi.tar",
+            "sgi5.3.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-09",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19970306/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970923/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-06",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "Mac",
+            "entrez",
+            "sgi5",
+            "tar",
+            "hqx",
+            "linux",
+            "win16",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "sun",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/19990126",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi5.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.sun.tar",
+            "entrez.win16",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezZ"
+        ],
+        "path": "/entrez/old/19951212/mswin/win32",
+        "files": [
+            "nentrezZ"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-21",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19970923/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "gz",
+            "Mac",
+            "entrez",
+            "sgi5",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/19990917",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1.tar",
+            "entrez.alphaOSF1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi5.tar",
+            "entrez.sgi5.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19970306",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19970306/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-20",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "Mac",
+            "entrez",
+            "sgi5",
+            "tar",
+            "hqx",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "win32",
+            "solaris"
+        ],
+        "path": "/entrez/old/19990510",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1.tar",
+            "entrez.alphaOSF1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi.tar",
+            "entrez.sgi5.tar",
+            "entrez.sgi5.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-28",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-05-24",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [],
+        "path": "/entrez/old/19960726/mswin",
+        "files": []
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-22",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "cdrom",
+            "l60",
+            "l63",
+            "asnalign",
+            "asnsubmt",
+            "mmdb1",
+            "asnfeat",
+            "echo",
+            "mmdb3",
+            "asncode",
+            "asnsset",
+            "asnid0",
+            "l15",
+            "asn",
+            "blstspc",
+            "asnmdrs",
+            "mmdb2",
+            "asnloc",
+            "h",
+            "asnblock",
+            "asnpub",
+            "asnseq",
+            "asnproj",
+            "asnbibli",
+            "asnmime",
+            "all",
+            "ni",
+            "asnfdef",
+            "asntaxon",
+            "asnprt",
+            "sugmap",
+            "asnpubme",
+            "l61",
+            "l",
+            "asnbl18",
+            "asnacces",
+            "asnneten",
+            "asnmla",
+            "asnres",
+            "taxon1",
+            "asngen",
+            "spell",
+            "asnmedli",
+            "allpub"
+        ],
+        "path": "/entrez/misc/asnload",
+        "files": [
+            "all",
+            "all",
+            "allpub",
+            "allpub",
+            "asnacces",
+            "asnacces",
+            "asnalign",
+            "asnalign",
+            "asnbibli",
+            "asnbibli",
+            "asnbl18",
+            "asnbl18",
+            "asnblock",
+            "asnblock",
+            "asncode",
+            "asncode",
+            "asnfdef",
+            "asnfdef",
+            "asnfeat",
+            "asnfeat",
+            "asngen",
+            "asngen",
+            "asnid0",
+            "asnid0",
+            "asnloc",
+            "asnloc",
+            "asnmdrs",
+            "asnmdrs",
+            "asnmedli",
+            "asnmedli",
+            "asnmime",
+            "asnmime",
+            "asnmla",
+            "asnmla",
+            "asnneten",
+            "asnneten",
+            "asnproj",
+            "asnproj",
+            "asnprt",
+            "asnprt",
+            "asnpub",
+            "asnpub",
+            "asnpubme",
+            "asnpubme",
+            "asnres",
+            "asnres",
+            "asnseq",
+            "asnseq",
+            "asnsset",
+            "asnsset",
+            "asnsubmt",
+            "asnsubmt",
+            "asntaxon",
+            "asntaxon",
+            "blstspc",
+            "blstspc",
+            "cdrom",
+            "cdrom",
+            "echo_asn",
+            "echo_asn",
+            "mmdb1",
+            "mmdb1",
+            "mmdb2",
+            "mmdb2",
+            "mmdb3",
+            "mmdb3",
+            "ni_asn",
+            "ni_asn",
+            "spell",
+            "spell",
+            "sugmap",
+            "sugmap",
+            "taxon1",
+            "taxon1"
+        ]
+    },
+    {
+        "keywords": [
+            "",
+            "exe",
+            "entrez",
+            "CURRENT",
+            "win32"
+        ],
+        "path": "/entrez/mswin/win32",
+        "files": [
+            "../../CURRENT/entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/SavedOn.09071997/mswin/win32",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-03-18",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "V5",
+            "Mac",
+            "entrez",
+            "mips4",
+            "tar",
+            "hqx",
+            "0D",
+            "linux",
+            "sgi",
+            "Z",
+            "solarisintel",
+            "alphaOSF1",
+            "exe",
+            "V4",
+            "solaris",
+            "1",
+            "win32"
+        ],
+        "path": "/entrez/old/20020828",
+        "files": [
+            "entrez.Mac",
+            "entrez.alphaOSF1-V4.0D.tar",
+            "entrez.alphaOSF1-V4.0D.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.alphaOSF1-V5.1.tar",
+            "entrez.linux.tar",
+            "entrez.linux.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.sgi-mips4.tar",
+            "entrez.solaris.tar",
+            "entrez.solaris.tar",
+            "entrez.solarisintel.tar",
+            "entrez.solarisintel.tar",
+            "entrez.win32"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-06-03",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-04-04",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-05-03",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-03-16",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    },
+    {
+        "keywords": [
+            "Nentrez",
+            "tar",
+            "linux",
+            "hqx",
+            "sgi",
+            "Z",
+            "alphaOSF1",
+            "sun",
+            "solaris"
+        ],
+        "path": "/entrez/old/19970909",
+        "files": [
+            "Nentrez",
+            "alphaOSF1.tar",
+            "linux.tar",
+            "sgi.tar",
+            "solaris.tar",
+            "sun.tar"
+        ]
+    },
+    {
+        "keywords": [
+            "exe",
+            "nentrezz"
+        ],
+        "path": "/entrez/old/19960726/mswin/winsock1.1",
+        "files": [
+            "nentrezz"
+        ]
+    },
+    {
+        "keywords": [
+            "gz",
+            "edirect",
+            "zip",
+            "Linux",
+            "tar",
+            "Darwin",
+            "xtract",
+            "exe",
+            "README"
+        ],
+        "path": "/entrez/entrezdirect/versions/2016-04-18",
+        "files": [
+            "README",
+            "edirect",
+            "edirect.tar",
+            "edirect",
+            "xtract",
+            "xtract.Darwin",
+            "xtract",
+            "xtract.Linux"
+        ]
+    }
+]
