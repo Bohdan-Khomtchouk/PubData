@@ -6,8 +6,8 @@ import glob
 import re
 from string import punctuation
 from django.db import transaction
-syspath.append(ospath.join(ospath.expanduser("~"), 'PubData'))
-environ.setdefault("DJANGO_SETTINGS_MODULE", "PubData.settings")
+syspath.append(ospath.join(ospath.expanduser("~"), 'Airportbio'))
+environ.setdefault("DJANGO_SETTINGS_MODULE", "Airport.settings")
 setup()
 from SearchEngine.models import ServerName, WordNet, Server, Path
 
